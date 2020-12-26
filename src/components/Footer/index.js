@@ -22,7 +22,7 @@ export default function Footer(props) {
 
     return(
         <div className={classes.text}>
-            <hr />
+            <hr style={{border: "1px solid #F9F3A0"}}/>
             <p>
                 <span className={classes.title} style={{lineHeight: "150%"}}>Pemira KM</span><br />
                 <span className={classes.subtitle}>All rights reserved.</span>
