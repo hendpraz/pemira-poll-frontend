@@ -27,7 +27,7 @@ const theme = createMuiTheme({
     },
   },
   typography: {
-    fontFamily: "'Inknut Antiqua', sans-serif",
+    fontFamily: "'Inknut Antiqua', serif",
     // fontFamily2: "'Nunito', sans-serif",
     body1: {
       fontSize: "14px",
