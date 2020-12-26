@@ -5,28 +5,37 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(() => ({
     darkBlue: {
         backgroundColor: "#02141D",
-        width: "100vw",
-        height: "100vh",
+        position: "fixed",
+        top: 0,
+        left: 0,
+
+        /* Preserve aspect ratio */
+        minWidth: "100%",
+        minHeight: "100%",
     },
     cloudLeft: {
         position: "fixed",
         bottom: 0,
         left: 0,
+        pointerEvents: "none",
     },
     cloudRight: {
         position: "fixed",
         bottom: 0,
         right: 0,
+        pointerEvents: "none",
     },
     starLeft: {
         position: "fixed",
-        top: "10px",
-        left: "10px",
+        top: "120px",
+        left: "30px",
+        pointerEvents: "none",
     },
     starRight: {
         position: "fixed",
-        top: "10px",
-        right: "10px",
+        top: "120px",
+        right: "30px",
+        pointerEvents: "none",
     }
 }));
 
