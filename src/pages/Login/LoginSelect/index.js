@@ -27,7 +27,7 @@ export default function LoginSelect(props) {
 
     return(
         <>
-            <Grid container className={classes.root} spacing={6}>
+            <Grid container className={classes.root} spacing={4}>
                 <Grid item xs={12}>
                     <Grid container justify="center" spacing={1}>
                     {[1, 2, 3].map((value) => (
@@ -40,23 +40,23 @@ export default function LoginSelect(props) {
 
                 <Grid item xs={12}>
                     <Grid container justify="center" spacing={1}>
-                        <Grid key={"login_lembaga"} item sm={6} md={4}>
-                            <a href="/login-lembaga" >
-                                <img src={assetsURL.image + `/login-button.png`} alt="login" className={classes.image}/>
-                            </a>
-                        </Grid>
+                        <a href="/login-lembaga" className={classes.image}>
+                            <Grid key={"login_lembaga"} item sm={6} md={4}>
+                                <img src={assetsURL.image + `/login-button.png`} alt="login" />
+                            </Grid>
+                        </a>
 
-                        <Grid key={"login_ina"} item sm={6} md={4}>
-                            <a href="/login-INA" >
-                                <img src={assetsURL.image + `/login-button.png`} alt="login" className={classes.image}/>
-                            </a>
-                        </Grid>
+                        <a href="/login-INA" className={classes.image}>
+                            <Grid key={"login_ina"} item sm={6} md={4}>
+                                <img src={assetsURL.image + `/login-button.png`} alt="login"/>
+                            </Grid>
+                        </a>
 
-                        <Grid key={"login_non_ina"} item sm={6} md={4}>
-                            <a href="/login-non-INA" >
-                                <img src={assetsURL.image + `/login-button.png`} alt="login" className={classes.image}/>
-                            </a>
-                        </Grid>
+                        <a href="/login-non-INA" className={classes.image}>
+                            <Grid key={"login_non_ina"} item sm={6} md={4}>
+                                <img src={assetsURL.image + `/login-button.png`} alt="login"/>
+                            </Grid>
+                        </a>
                     </Grid>
                 </Grid>
             </Grid>
