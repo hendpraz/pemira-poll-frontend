@@ -3,6 +3,7 @@ import config from "../../../config";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
+import Footer from "../../../components/Footer"
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -46,7 +47,7 @@ export default function LoginSelect(props) {
                         </Grid>
                     </Grid>
 
-                    <Grid item xs={12} style={{marginTop:"30px"}}>
+                    <Grid item xs={12} style={{paddingTop:"30px"}}>
                         <Grid container justify="center" spacing={1}>
                             <a href="/login-lembaga" className={classes.image}>
                                 <Grid key={"login_lembaga"} item md={4}>
@@ -79,6 +80,8 @@ export default function LoginSelect(props) {
             </Hidden>
 
             <p className={classes.titleText}>Who are you?</p>
+
+            <Footer />
         </>
     );
 }
