@@ -5,6 +5,10 @@ const config = {
   // defaultURL: "https://demoku.site",
   // defaultPublicURL: "https://demoku.site",
   // defaultAPIURL: "https://api.demoku.site/v1",
+
+  assetsURL: {
+    image: "assets/images"
+  }
 };
 
 module.exports = config;
