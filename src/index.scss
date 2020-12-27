@@ -1,0 +1,63 @@
+$primary: #FDAF33;
+
+body {
+  margin: 0;
+}
+
+div, img {
+  transition: all 0.4s;
+}
+
+hr {
+  background-color: $primary;
+  height: 1px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inknut Antiqua', serif;
+  font-weight: bold;
+  color: $primary;
+  transition: all 0.4s;
+}
+
+p, a {
+  font-family: 'Nunito', sans-serif;
+  color: $primary!important;
+  transition: all 0.4s;
+}
+
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+
+}
+
+h6 {
+
+}
+
+p {
+
+}
+
+
+@import 'styles/layouts/DarkBlue.scss';
+@import 'styles/Nav.scss';
+@import 'styles/Footer.scss';
+@import 'styles/Carousel.scss';
+@import 'styles/pages/Home.scss';

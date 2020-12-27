@@ -1,10 +1,8 @@
-import './App.css';
-import Cloudy from "./layouts/DarkBlue/Cloudy"
-import LoginSelect from "./pages/Login/LoginSelect"
+import Home from './pages/Home'
 
 function App() {
   return (
-    <Cloudy variant="2" children={LoginSelect()}/>
+    <Home />
   );
 }
 

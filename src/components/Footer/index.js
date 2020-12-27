@@ -1,32 +1,56 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React from 'react';
 
-const useStyles = makeStyles(() => ({
-    text: {
-        textAlign: "center",
+const hashtag = [
+    {
+        link: '#',
+        name: 'Intro Pemira'
     },
-    title: {
-        fontSize: "24pt",
-        color: "#FEEF9F",
-        fontFamily: "'Inknut Antiqua', serif",
+    {
+        link: '#',
+        name: 'Top 5 Lembaga'
     },
-    subtitle: {
-        fontSize: "14pt",
-        color: "#AAAAAA",
-        fontFamily: "'Nunito', sans-serif",
+    {
+        link: '#',
+        name: 'Kandidat 2021'
+    },
+    {
+        link: '#',
+        name: 'Top 5 Quest'
+    },
+    {
+        link: '#',
+        name: 'FAQ'
+    },
+    {
+        link: '#',
+        name: 'Tutorial'
+    },
+    {
+        link: '#',
+        name: 'Sponsor'
     }
-}));
+]
 
-export default function Footer(props) {
-    const classes = useStyles();
-
-    return(
-        <div className={classes.text}>
-            <hr style={{border: "1px solid #F9F3A0"}}/>
-            <p>
-                <span className={classes.title} style={{lineHeight: "150%"}}>Pemira KM</span><br />
-                <span className={classes.subtitle}>All rights reserved.</span>
-            </p>
+function Footer() {
+    return (
+        <div className="footerContainer">
+            
+            <div className="hashtag">
+                {hashtag.map((item, index) => {
+                    return (
+                        <a className="hashtag-item" href={item.link}>
+                            {`#${item.name}`}
+                        </a>
+                    )
+                })}
+            </div>
+            <hr />
+            <div className="footer">
+                <h2>Pemira KM</h2>
+                <p>All Right Reserved</p>
+            </div>
         </div>
     );
 }
+
+export default Footer;

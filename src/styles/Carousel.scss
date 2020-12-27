@@ -1,0 +1,23 @@
+.carousel {
+    position: relative;
+    align-items: center;
+    padding: 8% 8% 0;
+
+    .arrow-container {
+        position: relative;
+        z-index: 3;
+        cursor: pointer;
+    }
+
+    .arrow-container:hover {
+        transform: scale(1.2);
+    }
+    
+    .left {
+        left: 10%;
+    }
+
+    .right {
+        right: 10%;
+    }
+}
