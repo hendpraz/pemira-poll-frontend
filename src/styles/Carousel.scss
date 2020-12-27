@@ -20,4 +20,14 @@
     .right {
         right: 10%;
     }
+
+    .slide {
+        opacity: 0;
+        transition: all 0.5s ;
+    }
+
+    .slide.active {
+        transition: all 0.5s ;
+        transform: scale(1.2);
+    }
 }
