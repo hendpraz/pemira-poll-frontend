@@ -1,0 +1,58 @@
+import React from 'react';
+
+function NavMain() {
+    return (
+        <div className="navMainContainer">
+            <nav className="navMain" role="navigation" aria-label="main navigation">
+                <div className="navbar-brand">
+                    <a className="navbar-item" href="#">
+                        <h1 className="web-title">Pemira KM</h1>
+                    </a>
+
+                </div>
+
+                <div id="navbarBasicExample" className="navbar-menu">
+                    <div className="navbar-start">
+                        <a className="navbar-item">
+                            FAQ
+                        </a>
+
+                        <a className="navbar-item">
+                            Tutorial
+                        </a>
+
+                        <a className="navbar-item">
+                            About Us
+                        </a>
+
+                    </div>
+
+                    <div className="navbar-end">
+                        <a className="navbar-item">
+                            Kandidat
+                        </a>
+
+                        <a className="navbar-item">
+                            Login
+                        </a>
+                    </div>
+                </div>
+                <a
+                    role="button"
+                    className="navbar-burger"
+                    aria-label="menu"
+                    aria-expanded="false"
+                    data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </nav>
+
+            <hr />
+        </div>
+
+    )
+}
+
+export default NavMain

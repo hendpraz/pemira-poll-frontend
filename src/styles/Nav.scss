@@ -1,0 +1,45 @@
+.navMainContainer {
+    
+    .navMain {
+        margin: auto 20px;
+        display: flex;
+        height: 80px;
+        align-items: center;
+    
+        .navbar-brand {
+            
+            display: inline-block;
+            position: absolute;
+            margin: 10px 30vw;
+            width: 40vw;
+            text-align: center;
+    
+            .navbar-item {
+                text-align: center;
+                margin: 0 auto;
+                display: inline-block;
+                padding: 0;
+                transform:  translateY(5px);
+            }
+    
+        }
+    
+        .navbar-menu {
+    
+            .navbar-item {
+                margin: 0 10px;
+                font-weight: bold;
+            }
+        }
+    }
+
+    hr {
+        width: 90%!important;
+        margin: 0 auto!important;
+    }
+}
+
+.navbar-item:hover {
+    transform: scale(1.1);
+    background: transparent!important;
+}
