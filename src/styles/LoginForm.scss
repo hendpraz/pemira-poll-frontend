@@ -1,0 +1,38 @@
+$fontCol: #02141D;
+$baseCol: #FCE0C4;
+
+.login-container {
+    input {
+        margin: 10px;
+        width: 25%;
+        height: 40px;
+        padding: 4px 2%;
+        border-radius: 10px;
+        background-color: $baseCol;
+        font-family: 'Nunito', sans-serif;
+        border: none;
+        font-size: 1rem;
+    }
+
+    ::placeholder {
+        color: $fontCol;
+    }
+
+    .btn-container {
+        margin-top: 3vw;
+
+        .details-btn {
+            
+            width: 20%;
+
+            img {
+                right: .5vw;
+            }
+
+            h3 {
+                top: 1vw;
+                color: $fontCol;
+            }
+        }
+    }
+}

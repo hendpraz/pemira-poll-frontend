@@ -4,7 +4,7 @@ body {
   margin: 0;
 }
 
-div, img, button {
+div, img, button, input {
   transition: all 0.4s;
 }
 
@@ -55,4 +55,8 @@ p {
 
 }
 
+.myContent {
+  min-height: 100vh;
+  // margin-bottom: 16vh;
+}
 

@@ -42,3 +42,38 @@ $yelfont: #F9F3A0;
   margin: 30px auto 50px;
   color: $yelfont;
 }
+
+.loginContentContainer {
+  background-color: #05354C ;
+  min-height: 100vh;
+
+  .footerContainer {
+    position: absolute;
+  }
+}
+
+.LoginContent {
+  .header {
+    padding: 10px 5%;
+  }
+
+  hr {
+    margin: 0 auto;
+    width: 90%;
+    
+  }
+
+  p {
+    text-align: center;
+    margin: 75px auto 40px;
+    font-size: 1.75rem;
+  }
+
+  .formContainer {
+    text-align: center;
+  }
+}
+
+.lembaga {
+  background-color: #660F12;
+}
