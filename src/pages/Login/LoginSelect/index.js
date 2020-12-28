@@ -1,9 +1,9 @@
 import React from 'react'
-import config from '../../../config'
-import '../../../styles/pages/Login.scss'
-import Button from '../../../components/Button'
-import DarkBlue from '../../../layouts/DarkBlue'
-import Footer from '../../../components/Footer'
+import config from 'config'
+import 'styles/pages/Login.scss'
+import Button from 'components/Button'
+import DarkBlue from 'layouts/DarkBlue'
+import Footer from 'components/Footer'
 
 const LoginSelect = () => {
     const { assetsURL } = config

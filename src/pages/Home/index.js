@@ -1,11 +1,11 @@
 import React from 'react';
-import NavMain from '../../components/Navbar/NavMain.js'
-import DarkBlue from '../../layouts/DarkBlue'
-import Carousel from '../../components/Carousel'
-import Footer from '../../components/Footer'
-import config from '../../config'
-import Button from '../../components/Button'
-import '../../styles/pages/Home.scss'
+import NavMain from 'components/Navbar/NavMain.js'
+import DarkBlue from 'layouts/DarkBlue'
+import Carousel from 'components/Carousel'
+import Footer from 'components/Footer'
+import config from 'config'
+import Button from 'components/Button'
+import 'styles/pages/Home.scss'
 
 function Home() {
     const { assetsURL } = config
