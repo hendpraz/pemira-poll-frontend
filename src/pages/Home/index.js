@@ -19,14 +19,11 @@ function Home() {
                 <div className="Content columns">
                     <div className="carousel-container column">
                         <Carousel />
-                        <button className="details-btn">
-                            <img src={`${image}/Tombol 5.png`} alt="" />
-                            <h3>Details</h3>
-                        </button>
+                        <Button file="details-btn" />
                     </div>
                     <div className="carousel-container column">
                         <Carousel />
-                        <Button name="Details" file="Tombol 5" />
+                        <Button file="details-btn" />
                     </div>
                    
                 </div>

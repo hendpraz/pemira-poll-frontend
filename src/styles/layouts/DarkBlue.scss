@@ -25,12 +25,12 @@ $dark-blue: #02141D;
     }
 
     .cloud-left {
-        position: absolute;
+        position: fixed;
         bottom: -5px;
     }
 
     .cloud-right {
-        position: absolute;
+        position: fixed;
         bottom: -5px;
         right: 0;
     }
