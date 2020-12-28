@@ -20,20 +20,5 @@ $baseCol: #FCE0C4;
 
     .btn-container {
         margin-top: 3vw;
-
-        .details-btn {
-            
-            width: 20%;
-
-            img {
-                right: .5vw;
-                z-index: 2;
-            }
-
-            h3 {
-                top: 1vw;
-                color: $fontCol;
-            }
-        }
     }
 }

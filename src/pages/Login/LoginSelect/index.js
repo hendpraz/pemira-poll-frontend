@@ -18,19 +18,19 @@ const LoginSelect = () => {
                         <div className="img-container">
                             <img src={`${image}/login-curt1.png`} />
                         </div>
-                        <Button file="Tombol 5" name="Login" />
+                        <Button file="login-button" />
                     </div>
                     <div className="login-role">
                         <div className="img-container">
                             <img src={`${image}/login-curt2.png`} />
                         </div>
-                        <Button file="Tombol 5" name="Login" />
+                        <Button file="login-button" />
                     </div>
                     <div className="login-role">
                         <div className="img-container">
                             <img src={`${image}/login-curt3.png`} />
                         </div>
-                        <Button file="Tombol 5" name="Login" />
+                        <Button file="login-button" />
                     </div>
                 </div>
 

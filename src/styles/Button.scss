@@ -1,27 +1,10 @@
 $yelfont: #F9F3A0;
 
 .details-btn {
+    display: inline-block;
     width: 40%;
-    position: relative;
-    background-color: transparent;
-    border: none;
-    margin-left: auto;
-    margin-right: auto;
-    display: inline;
-    
-    img {
-        position: absolute;
-        right: 0;
-        z-index: 1;
-    }
+    text-align: center;
 
-    h3 {
-        position: relative;
-        top: .75vw;
-        font-size: 1.5vw;
-        color:  $yelfont;
-        z-index: 2;
-    }
 }
 
 .details-btn:hover {
