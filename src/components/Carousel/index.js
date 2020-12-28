@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import config from '../../config'
 import presKM from './presKM'
+import '../../styles/Carousel.scss'
 
 const Carousel = () => {
     const { assetsURL} = config

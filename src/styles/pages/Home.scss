@@ -1,5 +1,10 @@
 $yelfont: #F9F3A0;
 
+.myContent {
+    min-height: 100vh;
+    // margin-bottom: 16vh;
+}
+
 .Content {
     width: 80%;
     margin: 20px auto;
@@ -8,7 +13,7 @@ $yelfont: #F9F3A0;
 .carousel-container {
     margin: auto;
     text-align: center;
-    margin-bottom: 15%;
+    margin-bottom: 9vh;
 
     .details-btn {
         width: 40%;

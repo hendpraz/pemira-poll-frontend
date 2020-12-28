@@ -4,6 +4,8 @@ import DarkBlue from '../../layouts/DarkBlue'
 import Carousel from '../../components/Carousel'
 import Footer from '../../components/Footer'
 import config from '../../config'
+import Button from '../../components/Button'
+import '../../styles/pages/Home.scss'
 
 function Home() {
     const { assetsURL } = config
@@ -24,10 +26,7 @@ function Home() {
                     </div>
                     <div className="carousel-container column">
                         <Carousel />
-                        <button className="details-btn">
-                            <img src={`${image}/Tombol 5.png`} alt="" />
-                            <h3>Details</h3>
-                        </button>
+                        <Button name="Details" file="Tombol 5" />
                     </div>
                    
                 </div>
