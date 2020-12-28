@@ -1,0 +1,44 @@
+$yelfont: #F9F3A0;
+
+.Content-login {
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+    .login-role {
+        margin: 0 15px;
+        padding: 0;
+        text-align: center;
+        display: inline;
+        
+      .img-container {
+          // display: inline-block;
+          // width: 60%;
+          text-align: center;
+          margin-bottom: 30px ;
+
+          img {
+            text-align: center!important;
+            width: 90%;
+        }
+      }
+
+      .details-btn {
+        width: 60%;
+
+        h3 {
+          font-size: 1.25rem;
+          top: 3px!important;
+        }
+      }
+    }
+}
+
+
+.way {
+  font-size: 3rem;
+  text-align: center;
+  margin: 30px auto 50px;
+  color: $yelfont;
+}

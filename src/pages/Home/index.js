@@ -14,7 +14,7 @@ function Home() {
     return (
         <div>
             <div className="myContent">
-                <DarkBlue/>
+                <DarkBlue hashtag="true"/>
                 <NavMain/>
                 <div className="Content columns">
                     <div className="carousel-container column">
@@ -31,7 +31,7 @@ function Home() {
                    
                 </div>
             </div>
-            <Footer/>
+            <Footer hashtag='true'/>
         </div>
     );
 }

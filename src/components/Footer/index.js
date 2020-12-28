@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../styles/Footer.scss'
 
-const hashtag = [
+const hashtags = [
     {
         link: '#',
         name: 'Intro Pemira'
@@ -32,12 +32,12 @@ const hashtag = [
     }
 ]
 
-function Footer() {
+function Footer({ hashtag }) {
     return (
-        <div className="footerContainer">
+        <div className="footerContainer" style={hashtag === 'true' ? {"height": "16vh"} : {"height": "12vh"}}>
             
-            <div className="hashtag">
-                {hashtag.map((item, index) => {
+            <div className="hashtag" style={hashtag === 'true' ? {display: 'block'} : {display: 'none'}}>
+                {hashtags.map((item, index) => {
                     return (
                         <a className="hashtag-item" href={item.link}>
                             {`#${item.name}`}
