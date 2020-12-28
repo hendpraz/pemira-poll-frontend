@@ -1,6 +1,6 @@
 import React from 'react'
-import config from '../../config'
-import '../../styles/Button.scss'
+import config from 'config'
+import 'styles/Button.scss'
 
 const Button = ({ file, name }) => {
     const { assetsURL } = config
