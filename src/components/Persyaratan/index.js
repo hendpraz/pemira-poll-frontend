@@ -1,8 +1,8 @@
 import React from 'react'
 import syaratK3M from './syaratK3M'
 import syaratMWA from './syaratMWA'
-import '../../styles/Persyaratan.scss'
-import Button from '../../components/Button'
+import 'styles/Persyaratan.scss'
+import Button from 'components/Button'
 
 const Persyaratan = ({tipe}) => {
     let listSyarat

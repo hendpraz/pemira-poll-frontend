@@ -1,6 +1,6 @@
 import React from 'react';
-import '../../styles/Footer.scss'
 import { Link } from 'react-router-dom'
+import 'styles/Footer.scss'
 
 const hashtags = [
     {

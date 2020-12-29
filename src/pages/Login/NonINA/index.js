@@ -1,7 +1,7 @@
 import React from 'react'
-import LoginForm from '../../../components/LoginForm'
-import'../../../styles/pages/Login.scss'
-import Footer from '../../../components/Footer'
+import LoginForm from 'components/LoginForm'
+import'styles/pages/Login.scss'
+import Footer from 'components/Footer'
 
 const NonINA = () => {
     return (

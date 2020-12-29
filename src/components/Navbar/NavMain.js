@@ -1,6 +1,6 @@
 import React from 'react';
-import '../../styles/Nav.scss'
 import { Link } from 'react-router-dom'
+import 'styles/Nav.scss'
 
 function NavMain() {
     return (
@@ -44,7 +44,9 @@ function NavMain() {
                     className="navbar-burger"
                     aria-label="menu"
                     aria-expanded="false"
-                    data-target="navbarBasicExample">
+                    data-target="navbarBasicExample"
+                    href="/"
+                    >
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>

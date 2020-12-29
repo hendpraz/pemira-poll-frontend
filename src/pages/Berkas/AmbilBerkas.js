@@ -1,8 +1,8 @@
 import React from 'react'
-import NavBerkas from '../../components/Navbar/NavBerkas.js'
-import Footer from '../../components/Footer'
-import DarkBlue from '../../layouts/DarkBlue'
-import Button from '../../components/Button'
+import NavBerkas from 'components/Navbar/NavBerkas.js'
+import Footer from 'components/Footer'
+import DarkBlue from 'layouts/DarkBlue'
+import Button from 'components/Button'
 
 import '../../styles/pages/Berkas.scss'
 

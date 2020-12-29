@@ -1,6 +1,6 @@
 import React from 'react';
-import config from '../../config'
-import '../../styles/layouts/DarkBlue.scss'
+import config from 'config'
+import 'styles/layouts/DarkBlue.scss'
 
 function DarkBlue({ hashtag }) {
     const { assetsURL } = config;
