@@ -1,6 +1,6 @@
 import React from 'react'
-import Footer from '../../components/Footer'
-import Persyaratan from '../../components/Persyaratan'
+import Footer from 'components/Footer'
+import Persyaratan from 'components/Persyaratan'
 
 const Pendaftaran = () => {
     return (

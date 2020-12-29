@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import 'styles/Nav.scss'
 
-function NavMain() {
+function NavLoggedIn() {
     return (
         <div className="navMainContainer">
             <nav className="navMain" role="navigation" aria-label="main navigation">
@@ -23,7 +23,7 @@ function NavMain() {
                             Tutorial
                         </Link>
 
-                        <Link className="navbar-item" to="/about-us">
+                        <Link className="navbar-item">
                             About Us
                         </Link>
 
@@ -31,11 +31,15 @@ function NavMain() {
 
                     <div className="navbar-end">
                         <Link className="navbar-item">
+                            Gift Shop
+                        </Link>
+
+                        <Link className="navbar-item">
                             Kandidat
                         </Link>
 
                         <Link className="navbar-item">
-                            Login
+                            Profile
                         </Link>
                     </div>
                 </div>
@@ -45,18 +49,17 @@ function NavMain() {
                     aria-label="menu"
                     aria-expanded="false"
                     data-target="navbarBasicExample"
-                    href="/"
-                    >
+                    href="/">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                 </Link>
             </nav>
 
-            <hr />
+            <hr/>
         </div>
 
     )
 }
 
-export default NavMain
+export default NavLoggedIn

@@ -1,3 +1,5 @@
+$yelfont: #F9F3A0;
+
 .carousel {
     position: relative;
     align-items: center;
@@ -5,7 +7,7 @@
 
     .arrow-container {
         position: relative;
-        z-index: 3;
+        z-index: 5;
         cursor: pointer;
     }
 
@@ -27,11 +29,59 @@
         width: 90%;
         text-align: center;
         margin: 25px auto;
+
     }
 
     .slide.active {
         opacity: 1;
         transition: all 0.5s ;
         transform: scale(1.2);
+    }
+}
+
+.carousel-v2 {
+    margin: 0 auto 7%!important;
+    .slide {
+        position: relative;
+        display: none;
+        margin-top: 0;
+        
+        h3 {
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+
+        img {
+            width: 65%;
+        }
+
+        button {
+            display: block;
+            text-align: center;
+            margin: 10px auto;
+            color: $yelfont;
+            background-color: transparent;
+            border: none;
+            font-family: 'Inknut Antiqua', serif;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+    }
+
+    .slide.active {
+        opacity: 1;
+        transition: all 0.5s ;
+        transform: scale(1.2);
+        display: block;
+    }
+
+    .left {
+        left: 6%;
+        margin-bottom: 5%;
+    }
+
+    .right {
+        right: 6%;
+        margin-bottom: 5%;
     }
 }

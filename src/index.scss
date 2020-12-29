@@ -8,6 +8,10 @@ div, img, button, input {
   transition: all 0.4s;
 }
 
+button:hover {
+  transform: scale(1.1);     
+}
+
 hr {
   background-color: $primary;
   height: 1px;
@@ -24,6 +28,7 @@ p, a {
   font-family: 'Nunito', sans-serif;
   color: $primary!important;
   transition: all 0.4s;
+  background-color: transparent!important;
 }
 
 

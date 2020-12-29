@@ -1,6 +1,8 @@
 $yelfont: #F9F3A0;
 
 .Content-login {
+    position: relative;
+    z-index: 3;
     margin: 0;
     align-items: center;
     justify-content: center;

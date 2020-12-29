@@ -1,0 +1,71 @@
+$primary: #FDAF33;
+
+.toggle-container {
+    margin: 3% auto 0;
+    text-align: center;
+    position: relative;
+    z-index: 5;
+
+    button {
+        border: none;
+        margin: 0;
+        width: 200px;
+        height: 50px;
+        font-family: 'Nunito', sans-serif;
+        padding: 10px 30px;
+        font-size: 1rem;
+        color: $primary;
+        cursor: pointer;
+    }
+
+    button:hover {
+        transform: scale(1.1);
+    }
+
+    .org-btn {
+        border-radius: 25px 0 0 25px;
+        background-color: #670C0D;
+    }
+
+    .vm-btn {
+        border-radius: 0 25px 25px 0;
+        background-color: #03354C;
+    }
+}
+
+.vm-container {
+    position: relative;
+    z-index: 2;
+    min-height: 80vh;
+
+    img {
+        width: 65%;
+        position: absolute;
+        text-align: center;
+        margin: 20px auto;
+        left: 14vw;
+    }
+
+    .vm-content {
+        position: relative;
+        z-index: 3;
+        margin: 20px auto;
+        width: 50%;
+        top: 12.5%;
+        padding: 0 20px;
+      
+
+        h4, h5 {
+            margin-top: 15px;
+            color: #02141D!important;
+        }
+
+        ol {
+            list-style-position: outside ;
+            color: #02141D!important;
+            text-align: left;
+            padding-left: 25px;
+            margin: 10px auto;
+        }
+    }
+}
