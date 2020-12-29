@@ -4,7 +4,8 @@ $yelfont: #F9F3A0;
     display: inline-block;
     width: 40%;
     text-align: center;
-
+    position: relative;
+    z-index: 2;
 }
 
 .details-btn:hover {

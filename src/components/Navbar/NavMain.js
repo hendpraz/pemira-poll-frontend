@@ -1,44 +1,45 @@
 import React from 'react';
 import '../../styles/Nav.scss'
+import { Link } from 'react-router-dom'
 
 function NavMain() {
     return (
         <div className="navMainContainer">
             <nav className="navMain" role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
-                    <a className="navbar-item" href="#">
+                    <Link className="navbar-item" to="#">
                         <h1 className="web-title">Pemira KM</h1>
-                    </a>
+                    </Link>
 
                 </div>
 
                 <div id="navbarBasicExample" className="navbar-menu">
                     <div className="navbar-start">
-                        <a className="navbar-item">
+                        <Link className="navbar-item">
                             FAQ
-                        </a>
+                        </Link>
 
-                        <a className="navbar-item">
+                        <Link className="navbar-item">
                             Tutorial
-                        </a>
+                        </Link>
 
-                        <a className="navbar-item">
+                        <Link className="navbar-item">
                             About Us
-                        </a>
+                        </Link>
 
                     </div>
 
                     <div className="navbar-end">
-                        <a className="navbar-item">
+                        <Link className="navbar-item">
                             Kandidat
-                        </a>
+                        </Link>
 
-                        <a className="navbar-item">
+                        <Link className="navbar-item">
                             Login
-                        </a>
+                        </Link>
                     </div>
                 </div>
-                <a
+                <Link
                     role="button"
                     className="navbar-burger"
                     aria-label="menu"
@@ -47,7 +48,7 @@ function NavMain() {
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
-                </a>
+                </Link>
             </nav>
 
             <hr />

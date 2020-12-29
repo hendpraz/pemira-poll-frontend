@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../styles/Footer.scss'
+import { Link } from 'react-router-dom'
 
 const hashtags = [
     {
@@ -39,9 +40,9 @@ function Footer({ hashtag }) {
             <div className="hashtag" style={hashtag === 'true' ? {display: 'block'} : {display: 'none'}}>
                 {hashtags.map((item, index) => {
                     return (
-                        <a className="hashtag-item" href={item.link}>
+                        <Link key={index} className="hashtag-item" to={item.link}>
                             {`#${item.name}`}
-                        </a>
+                        </Link>
                     )
                 })}
             </div>

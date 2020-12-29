@@ -1,9 +1,9 @@
 $yelfont: #F9F3A0;
 
 .footerContainer {
-    // position: absolute;
+    position: relative;
     bottom: 0;
-    z-index: 1;
+    z-index: 2;
     width: 100%;
     height: 16vh;
     
@@ -26,7 +26,6 @@ $yelfont: #F9F3A0;
     hr {
         position: relative;
         margin: 3px;
-        z-index: -1;
         width: 80%;
         margin: 2px auto;
     }

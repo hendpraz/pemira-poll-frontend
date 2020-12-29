@@ -1,7 +1,7 @@
 .navMainContainer {
     
     .navMain {
-        margin: auto 20px;
+        margin: auto 0;
         display: flex;
         height: 80px;
         align-items: center;
@@ -21,9 +21,23 @@
                 padding: 0;
                 transform:  translateY(5px);
             }
-    
+            
+            img {
+                position: relative;
+                width: 45%;
+                transform: translateY(35%);
+                z-index: 4;
+            }
         }
-    
+
+        .navbar-start {
+            padding-left: 20px;
+        }
+        
+        .navbar-end {
+            padding-right: 20px;
+        }
+
         .navbar-menu {
     
             .navbar-item {
@@ -36,6 +50,8 @@
     hr {
         width: 90%!important;
         margin: 0 auto!important;
+        position: relative;
+        z-index: 3;
     }
 }
 

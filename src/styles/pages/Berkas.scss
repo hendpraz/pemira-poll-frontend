@@ -1,0 +1,38 @@
+$yelfont: #F9F3A0;
+
+.berkas {
+    h1 {
+        position: relative;
+        z-index: 3;
+        line-height: 2;
+        color: $yelfont;
+        text-align: center;
+    }
+
+    .top-daf {
+        margin-top: 24vw;
+    }
+
+    .bot-daf {
+        margin-bottom: 25px;
+    }
+
+    .btn-container {
+        text-align: center;
+        margin-bottom: 75px;
+    }
+}
+
+.daftar {
+    // padding: 0 2%;
+    min-height: 100vh;
+
+    h2 {
+        font-weight: normal;
+    }
+
+    .formContainer {
+        padding: 0 5%;
+        position: relative;
+    }
+}

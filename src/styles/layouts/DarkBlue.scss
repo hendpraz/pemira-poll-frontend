@@ -5,7 +5,6 @@ $dark-blue: #02141D;
     display: flex;
     background-color: $dark-blue;
     width: 100%;
-    z-index: -2;
     min-height: 100vh;
 
     .star-left {
@@ -27,11 +26,13 @@ $dark-blue: #02141D;
     .cloud-left {
         position: fixed;
         bottom: -5px;
+        z-index: 5;
     }
 
     .cloud-right {
         position: fixed;
         bottom: -5px;
         right: 0;
+        z-index: 5;
     }
 }
