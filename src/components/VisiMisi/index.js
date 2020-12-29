@@ -15,7 +15,6 @@ const VisiMisi = () => {
                     mahasiswa ITB melalui konsep Game of Thrones
                 </h5>
                 <br />
-                <br /> 
                 <h4>Misi</h4>
                 <ol>
                     <li>
