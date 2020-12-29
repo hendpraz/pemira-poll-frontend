@@ -12,7 +12,7 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        {/* <Route exact path="/" render={() => <Home />} />
+        <Route exact path="/" render={() => <Home />} />
         
         <Route exact path="/login" render={() => <LoginSelect />} />
         <Route exact path="/login/lembaga" render={() => <Lembaga />} />
@@ -21,8 +21,7 @@ function App() {
         <Route exact path="/about-us" render={() => <AboutUs />} />
         <Route exact path="/daftar" render={() => <Pendaftaran />} />
         
-        <Route path="" render={() => <NotFound />} /> */}
-        <AboutUs />
+        <Route path="" render={() => <NotFound />} />
       </Switch>
     </BrowserRouter>
   );

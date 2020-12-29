@@ -36,14 +36,14 @@ $primary: #FDAF33;
 .vm-container {
     position: relative;
     z-index: 2;
-    min-height: 80vh;
+    height: 83vh;
 
     img {
         width: 65%;
-        position: absolute;
+        position: relative  ;
         text-align: center;
         margin: 20px auto;
-        left: 14vw;
+        // left: 14vw;
     }
 
     .vm-content {
@@ -51,7 +51,7 @@ $primary: #FDAF33;
         z-index: 3;
         margin: 20px auto;
         width: 50%;
-        top: 12.5%;
+        top: -80%;
         padding: 0 20px;
       
 
