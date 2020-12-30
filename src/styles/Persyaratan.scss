@@ -1,0 +1,71 @@
+$primary: #FDAF33;
+$fontCol: #02141D;
+$baseCol: #FCE0C4;
+
+.persyaratan {
+    position: relative;
+
+    
+    .syarat-title {
+        margin: 40px auto ;
+        text-align: left;
+    }
+
+    .list-syarat {
+
+        list-style-type: upper-greek;
+        list-style-position: inside;
+        text-align: left;
+
+        .item-syarat {
+            font-size: 1rem;
+            color: $primary;
+            margin-bottom: 4px;
+        }
+    }
+
+    input {
+        margin: 10px;
+        width: 80%;
+        height: 40px;
+        padding: 4px 2%;
+        border-radius: 10px;
+        background-color: $baseCol;
+        font-family: 'Nunito', sans-serif;
+        border: none;
+        font-size: 1rem;
+    }
+
+    ::placeholder {
+        color: $fontCol;
+    }
+
+    .btn-container {
+        margin: 2vw auto 5vw;
+        width: 80%;
+    }
+
+    .form-container {
+        position: absolute;
+        width: 95%;
+        top: 350px;
+        margin-bottom: 10vw;
+
+        .btn-container {
+            text-align: center;
+            // margin: 0 auto;
+        }
+    }
+
+}
+
+.persyaratan.K3M::after {
+    content: "";
+    background-color: $primary;
+    position: absolute;
+    top: 5%;
+    right: 0;
+    height: 275%;
+    width: 2px;
+}
+

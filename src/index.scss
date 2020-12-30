@@ -4,8 +4,12 @@ body {
   margin: 0;
 }
 
-div, img {
+div, img, button, input {
   transition: all 0.4s;
+}
+
+button:hover {
+  transform: scale(1.1);     
 }
 
 hr {
@@ -24,6 +28,7 @@ p, a {
   font-family: 'Nunito', sans-serif;
   color: $primary!important;
   transition: all 0.4s;
+  background-color: transparent!important;
 }
 
 
@@ -55,9 +60,8 @@ p {
 
 }
 
+.myContent {
+  min-height: 84vh;
+  // margin-bottom: 16vh;
+}
 
-@import 'styles/layouts/DarkBlue.scss';
-@import 'styles/Nav.scss';
-@import 'styles/Footer.scss';
-@import 'styles/Carousel.scss';
-@import 'styles/pages/Home.scss';

@@ -1,4 +1,4 @@
-import config from '../../config'
+import config from 'config'
 
 const { assetsURL } = config
 const { image } = assetsURL 

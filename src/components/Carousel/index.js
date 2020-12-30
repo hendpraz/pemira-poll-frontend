@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import config from '../../config'
+import config from 'config'
 import presKM from './presKM'
+import 'styles/Carousel.scss'
 
 const Carousel = () => {
     const { assetsURL} = config
@@ -21,7 +22,7 @@ const Carousel = () => {
     return (
         <div className="carousel columns">
             <div className="arrow-container  left" onClick={() => {prevSlide()}}>
-                <img src={`${image}/arrowleft.png`} className="arrow" />
+                <img src={`${image}/arrowleft.png`} className="arrow" alt="panah"/>
             </div>
            
             <div className="carousel-content column">
@@ -29,14 +30,14 @@ const Carousel = () => {
                 return (
                     <div key={index} 
                         className={index === current ? 'slide active' : 'slide'}>
-                        {index === current && <img src={image.url} alt="" />}
+                        {index === current && <img src={image.url} alt="konten" />}
                     </div>
                 )
             })}
             </div>
             
             <div className="arrow-container right" onClick={() => {nextSlide()}}>
-                <img src={`${image}/arrowright.png`} className="arrow" />
+                <img src={`${image}/arrowright.png`} className="arrow" alt="panah"/>
             </div>
            
         </div>

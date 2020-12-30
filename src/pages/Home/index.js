@@ -1,38 +1,33 @@
-import React from 'react';
-import NavMain from '../../components/Navbar/NavMain.js'
-import DarkBlue from '../../layouts/DarkBlue'
-import Carousel from '../../components/Carousel'
-import Footer from '../../components/Footer'
-import config from '../../config'
+import React, { useState } from 'react';
+import NavMain from 'components/Navbar/NavMain.js'
+import NavLoggedIn from 'components/Navbar/NavLoggedIn.js'
+import DarkBlue from 'layouts/DarkBlue'
+import Carousel from 'components/Carousel'
+import Footer from 'components/Footer'
+import Button from 'components/Button'
+import 'styles/pages/Home.scss'
 
 function Home() {
-    const { assetsURL } = config
-    const { image } = assetsURL
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
 
     return (
         <div>
             <div className="myContent">
-                <DarkBlue/>
-                <NavMain/>
+                <DarkBlue hashtag="true"/>
+                {isLoggedIn ? <NavLoggedIn /> : <NavMain />}
                 <div className="Content columns">
                     <div className="carousel-container column">
                         <Carousel />
-                        <button className="details-btn">
-                            <img src={`${image}/Tombol 5.png`} alt="" />
-                            <h3>Details</h3>
-                        </button>
+                        <Button file="details-btn" />
                     </div>
                     <div className="carousel-container column">
                         <Carousel />
-                        <button className="details-btn">
-                            <img src={`${image}/Tombol 5.png`} alt="" />
-                            <h3>Details</h3>
-                        </button>
+                        <Button file="details-btn" />
                     </div>
                    
                 </div>
             </div>
-            <Footer/>
+            <Footer hashtag='true'/>
         </div>
     );
 }

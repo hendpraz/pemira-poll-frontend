@@ -1,0 +1,14 @@
+$yelfont: #F9F3A0;
+
+.details-btn {
+    display: inline-block;
+    width: 40%;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.details-btn:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
