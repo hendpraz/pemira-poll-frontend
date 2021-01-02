@@ -8,7 +8,7 @@ const Button = ({ file, name }) => {
 
     return (
         <div className="details-btn">
-            <img src={`/${image}/${file}.png`} alt=""/>
+            <img src={`${image}/${file}.png`} alt=""/>
         </div>
     )
 }
