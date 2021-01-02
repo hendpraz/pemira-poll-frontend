@@ -7,7 +7,7 @@ const config = {
   // defaultAPIURL: "https://api.demoku.site/v1",
 
   assetsURL: {
-    image: "assets/images"
+    image: "/assets/images"
   }
 };
 
