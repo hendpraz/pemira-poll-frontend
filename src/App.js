@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Switch, Route, useHistory } from 'react-router-dom'
 import { AppContext } from "./libs/contextLib"
 import { onError } from "./libs/errorLib"
+import { getAuthCheck } from "resources/auth"
 import config from "config"
 
 // Pages
@@ -18,8 +19,7 @@ import NotFound from './pages/NotFound'
 
 function App() {
   const history = useHistory()
-  const token = localStorage.getItem('token')
-  const [isAuthenticated, userHasAuthenticated] = useState(token ? true : false)
+  const [isAuthenticated, userHasAuthenticated] = useState(localStorage.getItem('token') ? true : false)
   const [user, setUser] = useState(null)
   const { defaultAPIURL } = config
 
@@ -27,22 +27,19 @@ function App() {
     async function onLoad() {
       try {
         if (isAuthenticated) {
-          fetch(`${defaultAPIURL}/my-profile/`, {
-            headers: {
-              Authorization: `Bearer ${token}`
-            }
-          })
-            .then(res => res.json())
-            .then(json => {
-              setUser(json.data)
-            });
+          console.log("Fetching profile...")
+          const response = await getAuthCheck(localStorage.getItem('token'));
+          console.log(response);
+          if (response.detail) { // Permission error detail
+            history.push("/login");
+          } else {
+            const { data } = response;
+            setUser(data)
+          }
         }
-        userHasAuthenticated(true);
       }
       catch(e) {
-        if (e !== 'No current user') {
-          onError(e);
-        }
+        onError(e);
       }
     }
     
@@ -59,7 +56,7 @@ function App() {
 
   return (
     <AppContext.Provider
-      value={{ isAuthenticated, user }}
+      value={{ isAuthenticated, userHasAuthenticated, user, setUser }}
     >
     <BrowserRouter>
       <Switch>
