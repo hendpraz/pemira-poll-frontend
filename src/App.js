@@ -21,21 +21,31 @@ function App() {
   const history = useHistory()
   const [isAuthenticated, userHasAuthenticated] = useState(localStorage.getItem('token') ? true : false)
   const [user, setUser] = useState(null)
-  const { defaultAPIURL } = config
 
   useEffect(() => {
     async function onLoad() {
       try {
         if (isAuthenticated) {
           console.log("Fetching profile...")
-          const response = await getAuthCheck(localStorage.getItem('token'));
-          console.log(response);
-          if (response.detail) { // Permission error detail
-            history.push("/login");
-          } else {
-            const { data } = response;
-            setUser(data)
-          }
+          
+          fetch('http://localhost:8000/api/my-profile/', {
+            method: 'GET',
+            headers: {
+              'Authorization': `Bearer ${localStorage.getItem('token')}`
+            },
+          })
+            .then(res => res.json())
+            .then(json => {
+              if (json.detail) {
+                alert("Sesi login Anda telah berakhir, silakan login kembali.")
+                history.push("/login");
+              } else {
+                const { data } = json;
+                setUser(data)
+
+                console.log(data)
+              }
+            });
         }
       }
       catch(e) {
