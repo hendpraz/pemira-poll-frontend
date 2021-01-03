@@ -34,7 +34,7 @@ function NavMain() {
                             Kandidat
                         </Link>
 
-                        <Link className="navbar-item">
+                        <Link className="navbar-item" to="/login">
                             Login
                         </Link>
                     </div>
