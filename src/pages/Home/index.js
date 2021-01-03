@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import NavMain from 'components/Navbar/NavMain.js'
 import NavLoggedIn from 'components/Navbar/NavLoggedIn.js'
 import DarkBlue from 'layouts/DarkBlue'
@@ -8,13 +8,13 @@ import Button from 'components/Button'
 import 'styles/pages/Home.scss'
 
 function Home() {
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const isAuthenticated = localStorage.getItem('token') ? true : false
 
     return (
         <div>
             <div className="myContent">
                 <DarkBlue hashtag="true"/>
-                {isLoggedIn ? <NavLoggedIn /> : <NavMain />}
+                {isAuthenticated ? <NavLoggedIn /> : <NavMain />}
                 <div className="Content columns">
                     <div className="carousel-container column">
                         <Carousel />
