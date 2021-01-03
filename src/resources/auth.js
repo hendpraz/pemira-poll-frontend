@@ -22,3 +22,19 @@ exports.getAuthCheck = (token) =>
       reject(e);
     }
   });
+
+exports.loginNonINA = (username, password) =>
+  new Promise(async (resolve, reject) => {
+    try {
+      const config = {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+      const url = `${defaultAPIURL}/login/non-INA`;
+      const { data: response } = await axios.post(url, {username, password}, config);
+      resolve(response);
+    } catch (e) {
+      reject(e);
+    }
+  });
