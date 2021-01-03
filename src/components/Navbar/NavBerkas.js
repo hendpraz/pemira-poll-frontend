@@ -12,7 +12,7 @@ const NavBerkas = () => {
             <div className="navMainContainer">
                 <nav className="navMain" role="navigation" aria-label="main navigation">
                     <div className="navbar-brand">
-                        <img src={`${image}/ambil-berkas.png`} />
+                        <img src={`${image}/ambil-berkas.png`} alt="ambil-berkas"/>
                     </div>
 
                     <div id="navbarBasicExample" className="navbar-menu">

@@ -7,7 +7,7 @@ const VisiMisi = () => {
 
     return (
         <div className="vm-container">
-            <img src={`${image}/Scroll 5.png`}/>
+            <img src={`${image}/Scroll 5.png`} alt="scroll"/>
             <div className="vm-content">
                 <h4>Visi</h4>
                 <h5>

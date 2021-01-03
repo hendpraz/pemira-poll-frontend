@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Switch, Route, useHistory } from 'react-router-dom'
 import { AppContext } from "./libs/contextLib"
 import { onError } from "./libs/errorLib"
-import { getAuthCheck } from "resources/auth"
 import config from "config"
 
 // Pages
@@ -26,9 +25,10 @@ function App() {
     async function onLoad() {
       try {
         if (isAuthenticated) {
+          const { defaultAPIURL } = config
           console.log("Fetching profile...")
           
-          fetch('http://localhost:8000/api/my-profile/', {
+          fetch(`${defaultAPIURL}/my-profile/`, {
             method: 'GET',
             headers: {
               'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -54,7 +54,7 @@ function App() {
     }
     
     onLoad();
-  }, []);
+  }, [history, isAuthenticated]);
 
   async function handleLogout() {
     // sign out

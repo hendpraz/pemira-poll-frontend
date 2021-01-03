@@ -5,7 +5,7 @@ import 'styles/Persyaratan.scss'
 import Button from 'components/Button'
 
 const Persyaratan = ({tipe}) => {
-    let listSyarat
+    // let listSyarat
     return (
         <div className={`persyaratan ${tipe}`}>
             <p className="syarat-title">Persyaratan Calon {tipe}</p>

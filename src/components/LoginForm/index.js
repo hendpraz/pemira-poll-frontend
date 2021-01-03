@@ -1,12 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useHistory } from 'react-router-dom'
 import Button from 'components/Button'
 import 'styles/LoginForm.scss'
 
-import { useAppContext } from "libs/contextLib";
 import { useFormFields } from "libs/hooksLib";
-import { onError } from "libs/errorLib";
-import { loginNonINA } from "resources/auth"
 
 const LoginForm = () => {
     const history = useHistory();
