@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 // Libs
-import { BrowserRouter, Switch, Route, useHistory } from 'react-router-dom'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { AppContext } from "./libs/contextLib"
 import { onError } from "./libs/errorLib"
 import config from "config"
@@ -17,7 +17,6 @@ import AboutUs from './pages/AboutUs'
 import NotFound from './pages/NotFound'
 
 function App() {
-  const history = useHistory()
   const [isAuthenticated, userHasAuthenticated] = useState(localStorage.getItem('token') ? true : false)
   const [user, setUser] = useState(null)
 
@@ -38,7 +37,7 @@ function App() {
             .then(json => {
               if (json.detail) {
                 alert("Sesi login Anda telah berakhir, silakan login kembali.")
-                history.push("/login");
+                handleLogout()
               } else {
                 const { data } = json;
                 setUser(data)
@@ -54,14 +53,13 @@ function App() {
     }
     
     onLoad();
-  }, [history, isAuthenticated]);
+  }, [isAuthenticated]);
 
   async function handleLogout() {
     // sign out
     localStorage.removeItem('token');
   
     userHasAuthenticated(false);
-    history.push("/login");
   }
 
   return (
