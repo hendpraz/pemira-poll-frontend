@@ -36,3 +36,9 @@ $dark-blue: #02141D;
         z-index: 5;
     }
 }
+
+@media (max-width: 769px) {
+    .dark-blue {
+        min-height: 195vh!important;
+    }
+}

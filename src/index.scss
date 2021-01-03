@@ -61,7 +61,10 @@ p {
 }
 
 .myContent {
+  min-height: 100vh;
+}
+
+.mainContainer {
   min-height: 84vh;
-  // margin-bottom: 16vh;
 }
 

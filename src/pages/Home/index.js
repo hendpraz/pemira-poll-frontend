@@ -11,11 +11,11 @@ function Home() {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
 
     return (
-        <div>
-            <div className="myContent">
+        <div className="mainContainer">
+            <div className="home myContent">
                 <DarkBlue hashtag="true"/>
                 {isLoggedIn ? <NavLoggedIn /> : <NavMain />}
-                <div className="Content columns">
+                <div className="Content columns carContainer">
                     <div className="carousel-container column">
                         <Carousel />
                         <Button file="details-btn" />
