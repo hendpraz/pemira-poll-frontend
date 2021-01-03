@@ -8,7 +8,7 @@ import VisiMisi from 'components/VisiMisi'
 import 'styles/pages/AboutUs.scss'
 
 function AboutUs() {
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const isAuthenticated = localStorage.getItem('token') ? true : false
     const [tab, setTab] = useState('')
 
     const clickOrg = () => {
@@ -23,7 +23,7 @@ function AboutUs() {
         <div>
             <div className="myContent">
                 <DarkBlue hashtag="true"/>
-                {isLoggedIn ? <NavLoggedIn /> : <NavMain />}
+                {isAuthenticated ? <NavLoggedIn /> : <NavMain />}
                 <div className="Content">
                 <div className="toggle-container">
                     <button className="org-btn" onClick={() => {clickOrg()}}>Organogram</button>

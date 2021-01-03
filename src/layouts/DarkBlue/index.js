@@ -7,7 +7,7 @@ function DarkBlue({ hashtag }) {
     const { image } = assetsURL;
 
     return (
-        <div className="dark-blue" style={hashtag === "true" ? {"min-height": "124vh"} : {"min-height": "120vh"}}>
+        <div className="dark-blue" style={hashtag === "true" ? {"minHeight": "124vh"} : {"minHeight": "120vh"}}>
             <div className="star-left">
                 <img src={`${image}/star2left.png`} alt="" />
             </div>
