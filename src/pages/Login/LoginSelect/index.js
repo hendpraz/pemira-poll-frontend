@@ -20,7 +20,7 @@ const LoginSelect = () => {
                         <div className="img-container">
                             <img src={`${image}/login-curt1.png`} alt="tirai" />
                         </div>
-                        <Button file="login-button" onClick={e => history.push('/login/lembaga')}/>
+                        <Button file="login-button" onClick={() => history.push('/login/lembaga')}/>
                     </div>
                     <div className="login-role">
                         <div className="img-container">
@@ -32,7 +32,7 @@ const LoginSelect = () => {
                         <div className="img-container">
                             <img src={`${image}/login-curt3.png`} alt="tirai"/>
                         </div>
-                        <Button file="login-button" onClick={e => history.push('/login/nonina')}/>
+                        <Button file="login-button" onClick={() => history.push('/login/nonina')}/>
                     </div>
                 </div>
 

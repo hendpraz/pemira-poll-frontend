@@ -2,6 +2,7 @@ $primary: #FDAF33;
 
 body {
   margin: 0;
+  position: relative;
 }
 
 div, img, button, input {
@@ -60,11 +61,15 @@ p {
 
 }
 
-.myContent {
-  min-height: 100vh;
+.myContent, .Content {
+  margin-left: auto!important;
+  margin-right: auto!important;
+  position: relative;
+  padding-bottom: 0!important;
 }
 
-.mainContainer {
+.myContent, .mainContainer {
   min-height: 84vh;
 }
+
 

@@ -2,7 +2,7 @@ import React from 'react'
 import config from 'config'
 import 'styles/Button.scss'
 
-const Button = ({ file, name, onClick }) => {
+const Button = ({ file, onClick }) => {
     const { assetsURL } = config
     const { image } = assetsURL
 

@@ -1,10 +1,11 @@
 $yelfont: #F9F3A0;
 
 .footerContainer {
-    position: relative;
-    bottom: 0;
+    position: absolute;
+    // bottom: 0;
     z-index: 2;
     width: 100%;
+    
     
     .hashtag{
         position: relative;
