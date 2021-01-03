@@ -16,6 +16,7 @@ $baseCol: #FCE0C4;
         list-style-type: upper-greek;
         list-style-position: inside;
         text-align: left;
+        height: 35vh;
 
         .item-syarat {
             font-size: 1rem;
@@ -25,15 +26,16 @@ $baseCol: #FCE0C4;
     }
 
     input {
-        margin: 10px;
-        width: 80%;
+        display: block;
+        width: 96%;
         height: 40px;
-        padding: 4px 2%;
         border-radius: 10px;
         background-color: $baseCol;
         font-family: 'Nunito', sans-serif;
         border: none;
         font-size: 1rem;
+        text-align: left;
+        padding-left: 5%;
     }
 
     ::placeholder {
@@ -44,19 +46,6 @@ $baseCol: #FCE0C4;
         margin: 2vw auto 5vw;
         width: 80%;
     }
-
-    .form-container {
-        position: absolute;
-        width: 95%;
-        top: 350px;
-        margin-bottom: 10vw;
-
-        .btn-container {
-            text-align: center;
-            // margin: 0 auto;
-        }
-    }
-
 }
 
 .persyaratan.K3M::after {
@@ -65,7 +54,14 @@ $baseCol: #FCE0C4;
     position: absolute;
     top: 5%;
     right: 0;
-    height: 275%;
+    height: 70%;
     width: 2px;
 }
 
+@media (max-width: 769px) {
+    .persyaratan.K3M::after {
+        content: "";
+        height: 0;
+    }
+    
+}

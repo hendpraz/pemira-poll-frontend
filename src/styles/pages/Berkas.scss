@@ -1,6 +1,9 @@
 $yelfont: #F9F3A0;
 
 .berkas {
+
+    margin-bottom: 5vh;
+
     h1 {
         position: relative;
         z-index: 3;
@@ -24,9 +27,6 @@ $yelfont: #F9F3A0;
 }
 
 .daftar {
-    // padding: 0 2%;
-    min-height: 100vh;
-
     h2 {
         font-weight: normal;
     }
@@ -34,5 +34,23 @@ $yelfont: #F9F3A0;
     .formContainer {
         padding: 0 5%;
         position: relative;
+
+        .batas-login {
+            width: 100%;
+        }
+
+        @media (min-width:769px) {
+            .batas-login {
+                display: none;
+            }
+        }
     }
 }
+
+@media (max-width: 769px) {
+    .daftar {
+      .footerContainer {
+        position: relative;
+      }
+    }
+  }

@@ -16,6 +16,7 @@ const Pendaftaran = () => {
                         <div className="syarat-container column">
                             <Persyaratan tipe='K3M'/>
                         </div>
+                        <hr className="batas-login" />
                         <div className="syarat-container column">
                             <Persyaratan tipe='MWA'/>
                         </div> 
