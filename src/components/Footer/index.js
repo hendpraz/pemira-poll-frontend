@@ -35,7 +35,7 @@ const hashtags = [
 
 function Footer({ hashtag }) {
     return (
-        <div className="footerContainer" style={hashtag === 'true' ? {"height": "16vh"} : {"height": "12vh"}}>
+        <div className="footerContainer" style={hashtag === 'true' ? {"height": "128px"} : {"height": "95px"}}>
             
             <div className="hashtag" style={hashtag === 'true' ? {display: 'block'} : {display: 'none'}}>
                 {hashtags.map((item, index) => {
