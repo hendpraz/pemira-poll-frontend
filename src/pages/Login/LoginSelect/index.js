@@ -10,7 +10,7 @@ const LoginSelect = () => {
     const { image } = assetsURL
 
     return (
-        <div>
+        <div className="mainContainer">
             <div className="myContent">
                 <DarkBlue hashtag="false" />
                 <div className="Content-login">

@@ -43,6 +43,8 @@ $yelfont: #F9F3A0;
   text-align: center;
   margin: 30px auto 50px;
   color: $yelfont;
+  position: relative;
+  z-index: 5;
 }
 
 .loginContentContainer {
