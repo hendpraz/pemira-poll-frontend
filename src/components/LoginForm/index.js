@@ -2,6 +2,7 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import Button from 'components/Button'
 import 'styles/LoginForm.scss'
+import config from "config"
 
 import { useFormFields } from "libs/hooksLib";
 
@@ -11,13 +12,14 @@ const LoginForm = () => {
       username: "",
       password: ""
     });
+    const { defaultAPIURL } = config
 
     async function handleSubmit(event) {
         event.preventDefault();
     
         console.log("Logging in...")
 
-        fetch('http://localhost:8000/api/login/non-INA/', {
+        fetch(`${defaultAPIURL}/login/non-INA/`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
