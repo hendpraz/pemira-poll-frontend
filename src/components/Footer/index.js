@@ -1,43 +1,58 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
+import config from 'config'
 import 'styles/Footer.scss'
 
 const hashtags = [
     {
         link: '#',
         name: 'Intro Pemira'
-    },
-    {
+    }, {
         link: '#',
         name: 'Top 5 Lembaga'
-    },
-    {
+    }, {
         link: '#',
         name: 'Kandidat 2021'
-    },
-    {
+    }, {
         link: '#',
         name: 'Top 5 Quest'
-    },
-    {
+    }, {
         link: '#',
         name: 'FAQ'
-    },
-    {
+    }, {
         link: '#',
         name: 'Tutorial'
-    },
-    {
+    }, {
         link: '#',
         name: 'Sponsor'
     }
 ]
 
-function Footer({ hashtag }) {
+function Footer({hashtag}) {
+
+    const {assetsURL} = config;
+    const {image} = assetsURL;
+
     return (
-        <div className="footerContainer" style={hashtag === 'true' ? {"height": "128px"} : {"height": "95px"}}>
-            
-            <div className="hashtag" style={hashtag === 'true' ? {display: 'block'} : {display: 'none'}}>
+        <div
+            className="footerContainer"
+            style={hashtag === 'true'
+            ? {
+                "minHeight": "128px"
+            }
+            : {
+                "minHeight": "95px"
+            }}>
+
+            <div
+                className="hashtag"
+                style={hashtag === 'true'
+                ? {
+                    display: 'block'
+                }
+                : {
+                    display: 'none'
+                }}>
                 {hashtags.map((item, index) => {
                     return (
                         <Link key={index} className="hashtag-item" to={item.link}>
@@ -46,11 +61,19 @@ function Footer({ hashtag }) {
                     )
                 })}
             </div>
-            <hr />
+            <hr/>
             <div className="footer">
                 <h2>Pemira KM</h2>
                 <p>All Right Reserved</p>
+                <div className="cloud-left">
+                    <img src={`${image}/cloudleft.png`} alt=""/>
+                </div>
+
+                <div className="cloud-right">
+                    <img src={`${image}/cloudright.png`} alt=""/>
+                </div>
             </div>
+
         </div>
     );
 }

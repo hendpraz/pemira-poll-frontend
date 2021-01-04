@@ -21,7 +21,7 @@ function AboutUs() {
 
     return (
         <div>
-            <div className="myContent">
+            <div className="myContent about-us">
                 <DarkBlue hashtag="true"/>
                 {isAuthenticated ? <NavLoggedIn /> : <NavMain />}
                 <div className="Content">

@@ -1,30 +1,18 @@
-$dark-blue: #02141D;
+
 
 .dark-blue {
     position: absolute;
     display: flex;
-    background-color: $dark-blue;
+    background-color: transparent;
     width: 100%;
-    min-height: 136vh;  
-
-    @media (min-width: 1025px) and (max-width: 1280px) {
-        min-height: 130vh;
-    }
-
-    @media (min-width: 1281px) and (max-width: 1536px) {
-        min-height: 118vh;
-    }
-
-    @media (min-width: 1537px) {
-        min-height: 106vh;
-    }
+    min-height: 100vh;  
 
     .star-left {
         position: absolute;
         width: 20vw;
         left: 3vw;
         top: 100px;
-        z-index: -1;
+        z-index: 1;
     }
 
     .star-right {
@@ -32,19 +20,7 @@ $dark-blue: #02141D;
         margin-left: auto;
         right: 3vw;
         top: 100px;
-        z-index: -1;
-    }
-
-    .cloud-left {
-        position: fixed;
-        bottom: -5px;
-        z-index: 5;
-    }
-
-    .cloud-right {
-        position: fixed;
-        bottom: -5px;
-        right: 0;
-        z-index: 5;
+        z-index: 1;
     }
 }
+

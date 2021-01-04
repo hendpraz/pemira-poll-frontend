@@ -1,8 +1,9 @@
 $yelfont: #F9F3A0;
 
+
 .footerContainer {
     position: absolute;
-    // bottom: 0;
+    bottom: 0;
     z-index: 2;
     width: 100%;
     
@@ -34,7 +35,7 @@ $yelfont: #F9F3A0;
         background-color: transparent;
         text-align: center;
         padding: 0;
-        padding-top: 10px;
+        margin: 10px auto;
 
         h2 {
             color: $yelfont;
@@ -48,4 +49,17 @@ $yelfont: #F9F3A0;
 
 .hashtag-item:hover {
     transform: scale(1.1);
+}
+
+.cloud-left {
+    position: fixed;
+    bottom: -5px;
+    z-index: 5;
+}
+
+.cloud-right {
+    position: fixed;
+    bottom: -5px;
+    right: 0;
+    z-index: 5;
 }

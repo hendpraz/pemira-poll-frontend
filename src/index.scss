@@ -1,4 +1,5 @@
 $primary: #FDAF33;
+$dark-blue: #02141D;
 
 body {
   margin: 0;
@@ -65,11 +66,20 @@ p {
   margin-left: auto!important;
   margin-right: auto!important;
   position: relative;
-  padding-bottom: 0!important;
+  background-color: $dark-blue;
+}
+
+.Content {
+  padding: 0 5% 5%;
+}
+
+.myContent {
+  margin-bottom: -128px ;
+  padding-bottom: 128px!important;
 }
 
 .myContent, .mainContainer {
-  min-height: 84vh;
+  min-height: 100vh;
 }
 
 

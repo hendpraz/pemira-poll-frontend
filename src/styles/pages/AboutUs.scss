@@ -17,7 +17,6 @@ $primary: #FDAF33;
         color: $primary;
         cursor: pointer;
     }
-
     button:hover {
         transform: scale(1.1);
     }
@@ -44,7 +43,7 @@ $primary: #FDAF33;
     img {
 
         height: 82%;
-        position: relative  ;
+        position: relative;
         text-align: center;
         margin: 20px auto;
         // left: 14vw;
@@ -57,15 +56,15 @@ $primary: #FDAF33;
         width: 60%;
         top: -79%;
         padding: 0 20px;
-      
 
-        h4, h5 {
+        h4,
+        h5 {
             margin-top: 15px;
             color: #02141D!important;
         }
 
         ol {
-            list-style-position: outside ;
+            list-style-position: outside;
             color: #02141D!important;
             text-align: left;
             padding-left: 25px;
@@ -73,25 +72,23 @@ $primary: #FDAF33;
         }
     }
 }
-
 @media (max-width: 1200px) {
     .vm-content {
         width: 75%!important;
 
         h4 {
-            font-size: 1.2rem
+            font-size: 1.2rem;
         }
 
         h5 {
-            font-size: .9rem;
+            font-size: 0.9rem;
         }
 
         ol {
-            font-size: .9rem;
+            font-size: 0.9rem;
         }
     }
 }
-
 @media (max-width: 768px) {
     .vm-content {
         width: 80%!important;
@@ -101,11 +98,26 @@ $primary: #FDAF33;
         }
 
         h5 {
-            font-size: .75rem;
+            font-size: 0.75rem;
         }
 
         ol {
-            font-size: .75rem;
+            font-size: 0.75rem;
+        }
+    }
+}
+
+.about-us {
+    .dark-blue {
+        min-height: 140vh;
+        @media (min-width: 1366px) and (max-width: 1600px) {
+            min-height: 136vh;
+        }
+        @media (min-width: 1600px) and (max-width: 1919px) {
+            min-height: 127vh;
+        }
+        @media (min-width: 1920px) {
+            min-height: 120vh;
         }
     }
 }

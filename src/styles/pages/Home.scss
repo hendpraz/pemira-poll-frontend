@@ -16,22 +16,5 @@ $yelfont: #F9F3A0;
 }
 
 .carContainer {
-    padding: 0 5% 5%;
-}
-
-@media (max-width: 769px) {
-    .home.myContent {
-        .carousel {
-            display: flex;
-        }
-
-        .carousel-container {
-            height: 60vw;
-            padding: 0 5%;
-        }
-
-        .dark-blue {
-            min-height: 195vh!important;
-        }
-    }
+    padding: 0 5%;
 }
