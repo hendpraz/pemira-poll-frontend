@@ -11,24 +11,27 @@ function Home() {
     const isAuthenticated = localStorage.getItem('token') ? true : false
 
     return (
-        <div className="mainContainer">
-            <div className="home myContent">
-                <DarkBlue hashtag="true"/>
-                {isAuthenticated ? <NavLoggedIn /> : <NavMain />}
-                <div className="Content columns carContainer">
-                    <div className="carousel-container column">
-                        <Carousel />
-                        <Button file="details-btn" />
+        <>
+            <div className="mainContainer">
+                <div className="home myContent">
+                    <DarkBlue hashtag="true"/>
+                    {isAuthenticated ? <NavLoggedIn /> : <NavMain />}
+                    <div className="Content columns carContainer">
+                        <div className="carousel-container column">
+                            <Carousel />
+                            <Button file="details-btn" />
+                        </div>
+                        <div className="carousel-container column">
+                            <Carousel />
+                            <Button file="details-btn" />
+                        </div>
+                    
                     </div>
-                    <div className="carousel-container column">
-                        <Carousel />
-                        <Button file="details-btn" />
-                    </div>
-                   
                 </div>
             </div>
+
             <Footer hashtag='true'/>
-        </div>
+        </>
     );
 }
 

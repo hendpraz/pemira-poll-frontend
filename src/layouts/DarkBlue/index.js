@@ -16,11 +16,11 @@ function DarkBlue({ hashtag }) {
                 <img src={`${image}/star2right.png`} alt="" />
             </div>
 
-            <div className="cloud-left">
+            <div className="cloud-left is-hidden-touch">
                 <img src={`${image}/cloudleft.png`} alt="" />
             </div>
 
-            <div className="cloud-right">
+            <div className="cloud-right is-hidden-touch">
                 <img src={`${image}/cloudright.png`} alt="" />
             </div>
         </div>

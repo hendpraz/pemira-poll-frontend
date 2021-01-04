@@ -49,7 +49,7 @@ function Footer({ hashtag }) {
             <hr />
             <div className="footer">
                 <h2>Pemira KM</h2>
-                <p>All Right Reserved</p>
+                <p>All Rights Reserved</p>
             </div>
         </div>
     );

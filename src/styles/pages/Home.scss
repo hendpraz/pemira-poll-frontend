@@ -19,6 +19,13 @@ $yelfont: #F9F3A0;
     padding: 0 5% 5%;
 }
 
+@media (min-width: 770px) and (max-width: 1280px) {
+    .Content {
+        width: 90%;
+        margin: 50px auto;
+    }
+}
+
 @media (max-width: 769px) {
     .home.myContent {
         .carousel {
@@ -30,8 +37,23 @@ $yelfont: #F9F3A0;
             padding: 0 5%;
         }
 
-        .dark-blue {
-            min-height: 195vh!important;
+        // .dark-blue {
+        //     min-height: 195vh!important;
+        // }
+
+        .Content {
+            width: 80%;
+            margin: 50px auto;
         }
+    }
+
+    .mainContainer {
+        min-height: 135vh;
+    }
+}
+
+@media (max-width: 400px) {
+    .web-title {
+        font-size: 1.3rem;
     }
 }
