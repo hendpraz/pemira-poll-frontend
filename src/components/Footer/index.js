@@ -55,7 +55,7 @@ function Footer({hashtag}) {
                 }}>
                 {hashtags.map((item, index) => {
                     return (
-                        <Link key={index} className="hashtag-item" to={item.link}>
+                        <Link key={index} className="hashtag-item is-size-7-mobile" to={item.link}>
                             {`#${item.name}`}
                         </Link>
                     )

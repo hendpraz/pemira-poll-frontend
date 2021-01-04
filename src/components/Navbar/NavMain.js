@@ -8,7 +8,7 @@ function NavMain() {
             <nav className="navMain" role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
                     <Link className="navbar-item" to="#">
-                        <h1 className="web-title">Pemira KM</h1>
+                        <h1 className="web-title is-size-4-mobile">Pemira KM</h1>
                     </Link>
 
                 </div>

@@ -24,10 +24,10 @@ function AboutUs() {
             <div className="myContent about-us">
                 <DarkBlue hashtag="true"/>
                 {isAuthenticated ? <NavLoggedIn /> : <NavMain />}
-                <div className="Content">
+                <div className="Contentr">
                 <div className="toggle-container">
-                    <button className="org-btn" onClick={() => {clickOrg()}}>Organogram</button>
-                    <button className="vm-btn" onClick={() => {clickVM()}}>Visi Misi</button>
+                    <button className="org-btn px-0-mobile" onClick={() => {clickOrg()}}>Organogram</button>
+                    <button className="vm-btn p-0-mobile" onClick={() => {clickVM()}}>Visi Misi</button>
                 </div>
                     <div className="carousel-container columns">
                         {tab === "organogram" ? <CarouselV2 /> : <VisiMisi />}
