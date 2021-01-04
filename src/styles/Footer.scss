@@ -63,3 +63,9 @@ $yelfont: #F9F3A0;
     right: 0;
     z-index: 5;
 }
+
+@media (max-width:769px) {
+    .cloud-right, .cloud-left {
+        display: none;
+    }
+}
