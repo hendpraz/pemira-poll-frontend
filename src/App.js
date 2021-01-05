@@ -15,6 +15,7 @@ import AmbilBerkas from './pages/Berkas/AmbilBerkas'
 import Pendaftaran from './pages/Berkas/Pendaftaran'
 import AboutUs from './pages/AboutUs'
 import NotFound from './pages/NotFound'
+import Quest from 'pages/Quest'
 
 function App() {
   const [isAuthenticated, userHasAuthenticated] = useState(localStorage.getItem('token') ? true : false)
@@ -75,7 +76,7 @@ function App() {
         <Route exact path="/ambil-berkas" render={() => <AmbilBerkas />} />
         <Route exact path="/about-us" render={() => <AboutUs />} />
         <Route exact path="/daftar" render={() => <Pendaftaran />} />
-        
+        <Route exact path="/quest" render={() => <Quest />} />
         <Route path="" render={() => <NotFound />} />
       </Switch>
     </BrowserRouter>

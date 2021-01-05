@@ -1,5 +1,7 @@
-.navMainContainer {
-    
+$primary: #FDAF33;
+$dark-blue: #02141D;
+
+.navMainContainer {    
     .navMain {
         margin: auto 0;
         display: flex;
@@ -58,4 +60,51 @@
 .navbar-item:hover {
     transform: scale(1.1);
     background: transparent!important;
+}
+
+.quest-side {
+    position: relative;
+    display: block;
+    width: 210px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    text-align: center;
+    padding: 100px 0;
+    margin: 0 auto 5%;
+    z-index: 5;
+
+        li {
+            font-family: 'Inknut Antiqua', serif;
+            font-size: .85rem;
+            position: relative;
+            list-style: none;
+            padding: 7px 10px;
+            color: $primary;
+            border-bottom: 3px solid $dark-blue;
+            margin: 0 35px;
+            text-align: center;
+            
+            div {
+                cursor: pointer;
+                position: relative;
+                padding: 2px;
+                // width: 65px;
+                text-align: center;
+                border: 3px solid transparent;
+            }
+
+            div:hover {
+                border: 3px solid $primary;
+            }
+        }
+
+        li:last-child {
+            border: none;
+        }
+}
+
+.nobrands {
+    .navbar-start, .navbar-end {
+        padding: 0!important;
+    }
 }

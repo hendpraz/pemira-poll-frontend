@@ -1,0 +1,146 @@
+$dark-blue: #02141D;
+$primary: #FDAF33;
+
+.quest {
+    .left-quest, .right-quest {
+        text-align: center;
+        position: relative;
+    }
+
+    .cloud-left, .cloud-right {
+        visibility: hidden;
+    }
+
+    .details-btn {
+        width: 45%;
+        display: inline-block;
+        margin-right: 20px;
+    }
+
+    .btn-container {
+        position: relative;
+        align-items: center;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .btn-quest {
+        position: relative;
+        padding: 0 50px;
+    }
+
+    .hourglass, .lonceng {
+        display: inline-block;
+        width: 15%;
+    }
+
+    .right-quest {
+        padding-right: 5vw;
+    }
+}
+
+.quest-box {
+    font-family: 'Inknut Antiqua', serif;
+    background-repeat: no-repeat;
+    // background-position: center;
+    background-size: 100% 100%;
+    position: relative;
+    margin-right: 4vw;
+    min-height: 75vh;
+    
+    div {
+        position: relative;
+    }
+
+    .quest-nav {
+        position: absolute;
+        align-items: center;
+        background-color: #03354C;
+        width: 76vw;
+        right: -15.8%;
+        overflow: hidden;
+        padding: 2px;
+
+        ul {
+            text-align: center;
+            margin: 0 auto;
+            border-top: 3px solid $primary;
+            border-bottom: 3px solid $primary;
+            padding: 2px;
+
+            li {
+                display: inline-block;
+                padding: 0 3.5vw;
+                margin: 10px 0;
+                // width: 190px;
+                color: $primary;
+                border-right: 3px solid $primary ;
+               
+                div {
+                    padding: 10px;
+                    border: 2px  solid transparent;
+                    font-size: 1vw;
+                }
+
+                div:hover {
+                    padding: 10px;
+                    border: 2px solid $primary;
+                    cursor: pointer;
+                }
+            }
+
+            li:last-child {
+                border: none;
+            }
+        }
+
+        hr {
+            width: 100%;
+        }
+    }
+
+    .quest-container {
+        position: relative;
+        height: 10vw ;
+        top: -5vh;
+        padding: 2% 5% 0;
+        margin: 2vw!important;
+        border-radius: 4vw 4vw 0 0;
+        color: $primary;
+        font-size: 1.1vw;
+        align-items: flex-start;
+
+        .quest-btn {
+            display: flex;
+            margin-left: auto;
+
+            .details-btn {
+                position: relative;
+                text-align: center;
+                margin-right: 10px ;
+                width: 8vw;
+                right: -18%;
+            }
+        }
+    }
+
+    .mt-10 {
+        margin-top: 175px!important;
+    }
+    
+    .blue {
+        background-color: #03354C;
+    }
+
+    .red {
+        background-color: #670C0D;
+    }
+
+    .go-top {
+        margin-top: -7vw!important;
+    }
+
+    .bor-btm {
+        border-radius: 4vw 4vw 3.5vw 3.5vw!important;
+    }
+}
