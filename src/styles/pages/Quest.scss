@@ -2,12 +2,14 @@ $dark-blue: #02141D;
 $primary: #FDAF33;
 
 .quest {
-    .left-quest, .right-quest {
+    .left-quest,
+    .right-quest {
         text-align: center;
         position: relative;
     }
 
-    .cloud-left, .cloud-right {
+    .cloud-left,
+    .cloud-right {
         visibility: hidden;
     }
 
@@ -29,7 +31,8 @@ $primary: #FDAF33;
         padding: 0 50px;
     }
 
-    .hourglass, .lonceng {
+    .hourglass,
+    .lonceng {
         display: inline-block;
         width: 15%;
     }
@@ -47,10 +50,6 @@ $primary: #FDAF33;
     position: relative;
     margin-right: 4vw;
     min-height: 80vh;
-    
-    div {
-        position: relative;
-    }
 
     .quest-nav {
         position: absolute;
@@ -60,11 +59,9 @@ $primary: #FDAF33;
         right: -15.8%;
         overflow: hidden;
         padding: 2px;
-
         @media (min-width: 1537px) {
             width: 80vw;
         }
-
 
         ul {
             text-align: center;
@@ -79,14 +76,13 @@ $primary: #FDAF33;
                 margin: 10px 0;
                 // width: 190px;
                 color: $primary;
-                border-right: 3px solid $primary ;
-               
+                border-right: 3px solid $primary;
+
                 div {
                     padding: 10px;
-                    border: 2px  solid transparent;
+                    border: 2px solid transparent;
                     font-size: 1vw;
                 }
-
                 div:hover {
                     border: 2px solid $primary;
                     cursor: pointer;
@@ -96,7 +92,6 @@ $primary: #FDAF33;
                     border: 2px solid $primary;
                 }
             }
-
             li:last-child {
                 border: none;
             }
@@ -109,10 +104,10 @@ $primary: #FDAF33;
 
     .quest-container {
         position: relative;
-        height: 10vw ;
+        height: 10vw;
         top: -5vh;
         padding: 2% 5% 0;
-        margin: 2vw!important;
+        margin: 2vw !important;
         border-radius: 4vw 4vw 0 0;
         color: $primary;
         font-size: 1.1vw;
@@ -125,7 +120,7 @@ $primary: #FDAF33;
             .details-btn {
                 position: relative;
                 text-align: center;
-                margin-right: 15px ;
+                margin-right: 15px;
                 width: 8vw;
                 margin-left: auto;
             }
@@ -133,13 +128,12 @@ $primary: #FDAF33;
     }
 
     .mt-10 {
-        margin-top: 175px!important;
-
+        margin-top: 175px !important;
         @media (min-width: 1537px) {
-            margin-top: 210px!important;;
+            margin-top: 210px !important;
         }
     }
-    
+
     .blue {
         background-color: #03354C;
     }
@@ -149,7 +143,7 @@ $primary: #FDAF33;
     }
 
     .go-top {
-        margin-top: -7vw!important;
+        margin-top: -7vw !important;
     }
 
     .bor-btm {
@@ -157,13 +151,20 @@ $primary: #FDAF33;
     }
 }
 
+.quest-container.blue:hover {
+    background-color: #002a3d!important;
+    cursor: pointer;
+}
+.quest-container.red:hover {
+    background-color: #540304!important;
+    cursor: pointer;
+}
+
 .my-pagination {
     width: 60%;
-    margin: 0 auto;
-    margin-top: -8vw;
+    margin: -8vw auto 0;
     align-items: center;
     color: $primary;
-
     @media (max-width: 1024px) {
         margin-top: -10vw;
     }
@@ -174,7 +175,6 @@ $primary: #FDAF33;
         cursor: pointer;
         margin: 0 10px;
     }
-
     span:hover {
         transform: scale(1.1);
     }
@@ -186,4 +186,53 @@ $primary: #FDAF33;
     .details-btn {
         width: 50%;
     }
+}
+
+.modal {
+    text-align: left;
+    display: none;
+    position: fixed; 
+    z-index: 20;
+    padding: 150px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,.5);
+
+    .details-btn {
+        margin: 20px 0;
+        text-align: left;
+        bottom: 0;
+        position: absolute;
+    }
+}
+
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px 50px;
+    border: 1px solid #888;
+    width: 80%;
+    height: 90%;
+    border: none;
+    border-radius: 50px;
+}
+
+
+.close {
+    color: $primary;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    z-index: 2000;
+    color: white;
+}
+.close:focus,
+.close:hover {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
 }

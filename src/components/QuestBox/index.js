@@ -18,17 +18,22 @@ const QuestBox = () => {
         setResult] = useState([])
     const postPerPage = 3
 
-
     const clickNav = nav => {
         setTab(prev => {
             console.log(prev)
             if (nav != prev) {
-                document.querySelector(`.${prev}-tab`).classList.remove("active")
+                document
+                    .querySelector(`.${prev}-tab`)
+                    .classList
+                    .remove("active")
             }
-            
+
             return nav
         })
-        document.querySelector(`.${nav}-tab`).classList.add("active")
+        document
+            .querySelector(`.${nav}-tab`)
+            .classList
+            .add("active")
     }
 
     useEffect(() => {
@@ -90,24 +95,25 @@ const QuestBox = () => {
                     index={index}/>)
             })}
             <div className="my-pagination">
-                <span onClick={() => setCurrentPage(currentPage > 1 ? currentPage-1 : currentPage )}>&#60;</span>
+                <span
+                    onClick={() => setCurrentPage(currentPage > 1
+                    ? currentPage - 1
+                    : currentPage)}>&#60;</span>
                 {pageNumber.map(item => {
                     return (
                         <span onClick={() => setCurrentPage(item)} key={item} className="page-number">{item}</span>
                     )
                 })}
-                <span onClick={() => setCurrentPage(currentPage < currentResult.length-1 ? currentPage+1 : currentPage)}>&#62;</span>
+                <span
+                    onClick={() => setCurrentPage(currentPage < currentResult.length - 1
+                    ? currentPage + 1
+                    : currentPage)}>&#62;</span>
             </div>
             <div className="btm-container">
-                {tab == "quest"
-                    ? <div className="btn-container columns">
-                        <Button file="tambah-quest-btn" />
-                        <Button file="unggah-bukti-btn" />
-                    </div>
-                    : <div className="btn-container">
-                        <Button file="plus-btn" />
-                    </div>
-                }
+                <div className="btn-container columns">
+                    <Button file="tambah-quest-btn"/>
+                    <Button file="unggah-bukti-btn"/>
+                </div>
             </div>
         </div>
     )

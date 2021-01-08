@@ -27,7 +27,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.4s;
 }
 
-p, a {
+p, a, span {
   font-family: 'Nunito', sans-serif;
   color: $primary!important;
   transition: all 0.4s;
@@ -68,6 +68,7 @@ p {
   margin-right: auto!important;
   position: relative;
   background-color: $dark-blue;
+  position: static;
 }
 
 .Content {
@@ -85,4 +86,8 @@ p {
 
 .column {
   padding: 0;
+}
+
+.columns {
+  margin-bottom: 0!important;
 }
