@@ -6,7 +6,7 @@ import config from 'config'
 import NavNoBrands from 'components/Navbar/NavNoBrands'
 import QuestBox from 'components/QuestBox'
 
-const Quest = () => {
+const Profile = () => {
 
     const {assetsURL: {
             image
@@ -40,4 +40,4 @@ const Quest = () => {
     )
 }
 
-export default Quest
+export default Profile
