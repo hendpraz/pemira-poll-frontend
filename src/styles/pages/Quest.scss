@@ -152,9 +152,13 @@ $primary: #FDAF33;
 .my-pagination {
     width: 60%;
     margin: 0 auto;
-    margin-top: -8.5vw;
+    margin-top: -8vw;
     align-items: center;
     color: $primary;
+
+    @media (max-width: 1024px) {
+        margin-top: -10vw;
+    }
 
     span {
         transition: all 0.4s;
