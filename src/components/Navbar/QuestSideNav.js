@@ -1,6 +1,6 @@
 import React from 'react'
 import config from 'config'
-import Quest from 'styles/pages/Quest.scss'
+import 'styles/pages/Quest.scss'
 
 const QuestSideNav = () => {
 

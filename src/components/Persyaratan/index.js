@@ -30,9 +30,12 @@ const Persyaratan = ({tipe}) => {
       response = response.json()
       console.log(response)
 
-      alert("Anda telah berhasil submit NIM Anda")
-      // Download file berkas
+      // Alihkan ke link google drive
+      const url = "https://drive.google.com/file/d/1PG91qKUEfub-6a2uDqHYIrIWqPb92ugH/view"
+      const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
+      if (newWindow) newWindow.opener = null
 
+      alert("Anda telah berhasil submit NIM Anda, silakan unduh berkas di link Drive yang dibuka")
     } else {
       alert("NIM tidak valid!")
     }
