@@ -61,6 +61,10 @@ $primary: #FDAF33;
         overflow: hidden;
         padding: 2px;
 
+        @media (min-width: 1537px) {
+            width: 80vw;
+        }
+
 
         ul {
             text-align: center;
@@ -130,6 +134,10 @@ $primary: #FDAF33;
 
     .mt-10 {
         margin-top: 175px!important;
+
+        @media (min-width: 1537px) {
+            margin-top: 210px!important;;
+        }
     }
     
     .blue {
