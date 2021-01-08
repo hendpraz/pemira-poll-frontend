@@ -3,6 +3,7 @@ import config from "config";
 import Button from 'components/Button';
 import questList from './QuestList'
 import Quest from './Quest'
+import AddQuestModal from './AddQuestModal'
 
 const QuestBox = () => {
 
@@ -34,6 +35,12 @@ const QuestBox = () => {
             .querySelector(`.${nav}-tab`)
             .classList
             .add("active")
+    }
+
+    const addQuest = () => {
+        let modalAdd = document.getElementById("addQuest")
+
+        modalAdd.style.display = "block"
     }
 
     useEffect(() => {
@@ -111,10 +118,12 @@ const QuestBox = () => {
             </div>
             <div className="btm-container">
                 <div className="btn-container columns">
-                    <Button file="tambah-quest-btn"/>
+                    <Button file="tambah-quest-btn" onClick={addQuest}/>
                     <Button file="unggah-bukti-btn"/>
                 </div>
             </div>
+            <AddQuestModal />
+
         </div>
     )
 }

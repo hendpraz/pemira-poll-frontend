@@ -9,6 +9,10 @@ const QuestModal = ({index, item}) => {
         modal.style.display = "none"
     }
 
+    const tambahQuest = () => {
+
+    }
+
     console.log(item.penerima)
     return (
         <div>
@@ -28,11 +32,12 @@ const QuestModal = ({index, item}) => {
                     })}
                     <br />
                     <br />
+                    <h5>Tenggat waktu:</h5>
                     <p>{item.date}</p>
                     <br />
                     <h4>Detail Quest</h4>
                     <p>{item.detail}</p>
-                    <Button file="upvote-btn"/>
+                    <Button file={item.status === "acc" ? `cancel-btn` : `upvote-btn`} onClick={tambahQuest}/>
                 </div>
             </div>
         </div>

@@ -65,3 +65,9 @@ $baseCol: #FCE0C4;
     }
     
 }
+
+.syarat-container:first-child {
+    @media (min-width: 769px) {
+        padding-right: 30px ;
+    }
+}

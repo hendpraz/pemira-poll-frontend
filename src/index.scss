@@ -2,92 +2,109 @@ $primary: #FDAF33;
 $dark-blue: #02141D;
 
 body {
-  margin: 0;
-  position: relative;
+    margin: 0;
+    position: relative;
 }
 
-div, img, button, input {
-  transition: all 0.4s;
-  opacity: 1;
+button,
+div,
+img,
+input,
+textarea {
+    transition: all 0.4s;
+    opacity: 1;
+}
+
+input, textarea, select {
+    padding: 4px 15px;
+    font-family: 'Inknut Antiqua', serif;
+    font-weight: 400;
+    border-radius: 10px;
+    font-size: .75rem;
 }
 
 button:hover {
-  transform: scale(1.1);     
+    transform: scale(1.1);
 }
 
 hr {
-  background-color: $primary;
-  height: 1px;
+    background-color: $primary;
+    height: 1px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Inknut Antiqua', serif;
-  font-weight: bold;
-  color: $primary;
-  transition: all 0.4s;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Inknut Antiqua', serif;
+    font-weight: bold;
+    color: $primary;
+    transition: all 0.4s;
 }
 
-p, a, span {
-  font-family: 'Nunito', sans-serif;
-  color: $primary!important;
-  transition: all 0.4s;
-  background-color: transparent!important;
+a,
+p,
+span {
+    font-family: 'Nunito', sans-serif;
+    color: $primary!important;
+    transition: all 0.4s;
+    background-color: transparent!important;
 }
-
 
 h1 {
-  font-size: 2.5rem;
+    font-size: 2.5rem;
 }
 
 h2 {
-  font-size: 2rem;
+    font-size: 2rem;
 }
 
 h3 {
-  font-size: 1.5rem;
+    font-size: 1.5rem;
 }
 
 h4 {
-  font-size: 1.25rem;
+    font-size: 1.25rem;
 }
 
 h5 {
-
-}
+    }
 
 h6 {
-
-}
+    }
 
 p {
+    }
 
-}
-
-.myContent, .Content {
-  margin-left: auto!important;
-  margin-right: auto!important;
-  position: relative;
-  background-color: $dark-blue;
-  position: static;
+.Content,
+.myContent {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    position: relative;
+    background-color: $dark-blue;
+    position: static;
 }
 
 .Content {
-  padding: 0 5% 5%;
+    padding: 0 5% 5%;
 }
 
 .myContent {
-  margin-bottom: -128px ;
-  padding-bottom: 128px!important;
+    margin-bottom: -128px;
+    padding-bottom: 128px !important;
 }
 
-.myContent, .mainContainer {
-  min-height: 100vh;
+.mainContainer,
+.myContent {
+    min-height: 100vh;
 }
 
 .column {
-  padding: 0;
+    padding: 0;
 }
 
 .columns {
-  margin-bottom: 0!important;
+    margin: 0 auto !important;
 }

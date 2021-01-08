@@ -1,8 +1,10 @@
 import React from 'react'
 import config from 'config'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 const NavBerkas = () => {
+
+    const history = useHistory()
 
     const { assetsURL } = config
     const { image } = assetsURL
@@ -17,7 +19,7 @@ const NavBerkas = () => {
 
                     <div id="navbarBasicExample" className="navbar-menu">
                         <div className="navbar-start" style={{paddingLeft: "2.5vw"}}>
-                            <Link className="navbar-item">
+                            <Link className="navbar-item" onClick={history.goBack}>
                                 &#60; Kembali
                             </Link>
                         </div>
