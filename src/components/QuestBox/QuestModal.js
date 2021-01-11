@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Button from 'components/Button'
 import { upvoteQuest, cancelUpvoteQuest } from 'resources/quest'
 
-const QuestModal = ({index, item}) => {
+const QuestModal = ({index, item, numOfUpvotes, setNumOfUpvotes}) => {
 
     const [isUpvoted, setIsUpvoted] = useState(item.is_upvoted)
 
@@ -17,8 +17,10 @@ const QuestModal = ({index, item}) => {
 
         if (isUpvoted) {
             await cancelUpvoteQuest(questId)
+            setNumOfUpvotes(numOfUpvotes - 1)
         } else {
             await upvoteQuest(questId)
+            setNumOfUpvotes(numOfUpvotes + 1)
         }
 
         setIsUpvoted(!isUpvoted)

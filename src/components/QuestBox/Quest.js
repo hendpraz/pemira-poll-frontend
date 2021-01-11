@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from 'components/Button';
 import QuestModal from './QuestModal'
 
 const Quest = ({tab, item, last, index, id}) => {
+
+    const [numOfUpvotes, setNumOfUpvotes] = useState(item.upvotes)
 
     const openModal = () => {
         var modal = document.getElementById(`myModal-${index}`);
@@ -60,12 +62,12 @@ const Quest = ({tab, item, last, index, id}) => {
                     </div>
                     <div className="quest-btn column">
                         {tab === "accepted" && 
-                            <div style={{marginLeft: "auto"}}>Upvote: {item.upvotes}</div>
+                            <div style={{marginLeft: "auto"}}>Upvote: {numOfUpvotes}</div>
                         }
                     </div>
                 </div>
 
-                <QuestModal index={index} item={item}/>
+                <QuestModal index={index} item={item} numOfUpvotes={numOfUpvotes} setNumOfUpvotes={setNumOfUpvotes}/>
             </div>
         )
     }
