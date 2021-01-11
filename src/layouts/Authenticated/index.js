@@ -14,7 +14,6 @@ const Authenticated = (props) => {
         alert("Silakan login terlebih dahulu!")
         history.push("/login")
       }
-  
     };
 
     checkAuth();

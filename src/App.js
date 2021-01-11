@@ -58,21 +58,20 @@ function App() {
     <AppContext.Provider
       value={{ isAuthenticated, userHasAuthenticated, user, setUser }}
     >
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/" render={() => <Home handleLogout={handleLogout} />} />
-        <Route exact path="/login" render={() => <LoginSelect />} />
-        <Route exact path="/login/lembaga" render={() => <Lembaga />} />
-        <Route exact path="/login/nonina" render={() => <NonINA />} />
-        <Route exact path="/ambil-berkas" render={() => <AmbilBerkas />} />
-        <Route exact path="/about-us" render={() => <AboutUs />} />
-        <Route exact path="/daftar" render={() => <Pendaftaran />} />
-        <Route exact path="/profile" render={() => <Profile />} />
-        <Route path="" render={() => <NotFound />} />
-      </Switch>
-    </BrowserRouter>
-  </AppContext.Provider>
-
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" render={() => <Home handleLogout={handleLogout} />} />
+          <Route exact path="/login" render={() => <LoginSelect />} />
+          <Route exact path="/login/lembaga" render={() => <Lembaga />} />
+          <Route exact path="/login/nonina" render={() => <NonINA />} />
+          <Route exact path="/ambil-berkas" render={() => <AmbilBerkas />} />
+          <Route exact path="/about-us" render={() => <AboutUs />} />
+          <Route exact path="/daftar" render={() => <Pendaftaran />} />
+          <Route exact path="/profile" render={() => <Profile />} />
+          <Route path="" render={() => <NotFound />} />
+        </Switch>
+      </BrowserRouter>
+    </AppContext.Provider>
   );
 }
 

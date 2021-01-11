@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Button from 'components/Button';
 import QuestModal from './QuestModal'
+import { upvoteQuest, cancelUpvoteQuest } from 'resources/quest'
 
 const Quest = ({tab, item, last, index, id}) => {
 
@@ -19,7 +20,20 @@ const Quest = ({tab, item, last, index, id}) => {
         }
     }
 
-    if (id == 5) {
+    const changeUpvoteStatus = async () => {
+        const isUpvoted = item.is_upvoted
+        const questId = item.id
+
+        if (isUpvoted) {
+            await cancelUpvoteQuest(questId)
+        } else {
+            await upvoteQuest(questId)
+        }
+
+        item.is_upvoted = !item.is_upvoted
+    }
+
+    if (id === 5) { // Kandidat
 		console.log("masuk pak eko")
         return (
             <div id={`questItem-${index}`} onClick={() => openModal()}>
@@ -46,7 +60,7 @@ const Quest = ({tab, item, last, index, id}) => {
                 <QuestModal index={index} item={item}/>
             </div>
         )
-    } else {
+    } else { // Massa or Lembaga or Admin
         return (
             <div id={`questItem-${index}`} onClick={() => openModal()}>
                 <div
@@ -59,10 +73,14 @@ const Quest = ({tab, item, last, index, id}) => {
                         {index + 1}. {item.judul}
                     </div>
                     <div className="quest-btn column">
-                        {tab === "accepted" && <Button
-                            file={item.is_upvoted
-                            ? "cancel-btn"
-                            : "upvote-btn"}/>
+                        {tab === "accepted" && 
+                            <Button
+                                file={item.is_upvoted
+                                ? "cancel-btn"
+                                : "upvote-btn"
+                                }
+                                onClick={changeUpvoteStatus}
+                            />
 }
                     </div>
                 </div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from 'components/Button'
+import { upvoteQuest, cancelUpvoteQuest } from 'resources/quest'
 
 const QuestModal = ({index, item}) => {
 
@@ -9,8 +10,16 @@ const QuestModal = ({index, item}) => {
         modal.style.display = "none"
     }
 
-    const tambahQuest = () => {
+    const changeUpvoteStatus = async () => {
+        const { id, is_upvoted } = item
 
+        if (is_upvoted) {
+            await cancelUpvoteQuest(id)
+        } else {
+            await upvoteQuest(id)
+        }
+
+        item.is_upvoted = !item.is_upvoted
     }
 
     return (
@@ -29,7 +38,7 @@ const QuestModal = ({index, item}) => {
                     <br />
                     <h4>Detail Quest</h4>
                     <p>{item.deskripsi}</p>
-                    <Button file={item.is_upvoted ? `cancel-btn` : `upvote-btn`} onClick={tambahQuest}/>
+                    <Button file={item.is_upvoted ? `cancel-btn` : `upvote-btn`} onClick={changeUpvoteStatus}/>
                 </div>
             </div>
         </div>
