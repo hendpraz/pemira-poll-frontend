@@ -13,34 +13,35 @@ const Quest = ({tab, item, last, index}) => {
         }
 
         window.onclick = function (event) {
-            if (event.target == modal) {
+            if (event.target === modal) {
                 modal.style.display = "none";
             }
         }
     }
 
     return (
-        <div id={`questItem-${index}`} onClick={() => openModal(index)}>
-            <div
-                className={`quest-container columns${index == 0
-                ? ` mt-10`
-                : ` go-top`} ${last && ` bor-btm`} ${index % 2
-                    ? ' blue'
-                    : ` red`}`}>
-                <div className="quest-name column has-text-left">
-                    {index + 1}. {item.name}
-                </div>
-                <div className="quest-btn column">
-                    <Button
-                        file={item.status == "acc"
-                        ? "cancel-btn"
-                        : "upvote-btn"}/>
-                </div>
-            </div>
-           
-            <QuestModal index={index} item={item}/>
-
-        </div>
+			<div id={`questItem-${index}`} onClick={() => openModal()}>
+				<div
+					className={`quest-container columns${index === 0
+					? ` mt-10`
+					: ` go-top`} ${last && ` bor-btm`} ${index % 2
+						? ' blue'
+						: ` red`}`}>
+					<div className="quest-name column has-text-left">
+						{index + 1}. {item.judul}
+					</div>
+					<div className="quest-btn column">
+						{tab==="accepted" &&
+								<Button
+										file={item.is_upvoted
+										? "cancel-btn"
+										: "upvote-btn"}/>
+						}
+					</div>
+				</div>
+				
+				<QuestModal index={index} item={item}/>
+			</div>
     )
 
 }

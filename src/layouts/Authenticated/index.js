@@ -1,41 +1,23 @@
 import React from "react"
-import { useEffect, useContext } from "react"
-import { getAuthCheck } from "resources/auth"
-import { DispatchUserContext, StateUserContext } from "reducers/user"
+import { useEffect } from "react"
+import { useAppContext } from "libs/contextLib"
+import { useHistory } from 'react-router-dom'
 
 const Authenticated = (props) => {
-  const { children, ...rest } = props
-
-  const userState = useContext(StateUserContext)
-  const userDispatch = useContext(DispatchUserContext)
-
-  const token = localStorage.getItem('token')
-
-  const doAuth = async () => {
-    try {
-      const response = await getAuthCheck(token);
-      console.log(response);
-      if (response.detail) { // Permission error detail
-        history.push("/login");
-      } else {
-        const { data } = response;
-        userDispatch({
-          type: "set_user",
-          payload: data,
-        });
-      }
-    } catch (e) {
-      // setError('Error during contacting the server, please restart your page');
-    }
-  };
+  const history = useHistory()
+  const { children } = props
+  const { isAuthenticated } = useAppContext();
 
   useEffect(() => {
-    doAuth();
-  }, []);
+    const checkAuth = async () => {
+      if (!isAuthenticated) {
+        alert("Silakan login terlebih dahulu!")
+        history.push("/login")
+      }
+    };
 
-  if (!userState.user) {
-    return null;
-  }
+    checkAuth();
+  }, [history, isAuthenticated]);
 
   return (
     <>
