@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { AppContext } from "./libs/contextLib"
 import { onError } from "./libs/errorLib"
-import config from "config"
+import { getMyProfile } from "resources/auth"
 
 // Pages
 import Home from './pages/Home'
@@ -25,27 +25,18 @@ function App() {
     async function onLoad() {
       try {
         if (isAuthenticated) {
-          const { defaultAPIURL } = config
           console.log("Fetching profile...")
-          
-          fetch(`${defaultAPIURL}/my-profile/`, {
-            method: 'GET',
-            headers: {
-              'Authorization': `Bearer ${localStorage.getItem('token')}`
-            },
-          })
-            .then(res => res.json())
-            .then(json => {
-              if (json.detail) {
-                alert("Sesi login Anda telah berakhir, silakan login kembali.")
-                handleLogout()
-              } else {
-                const { data } = json;
-                setUser(data)
+          const response = await getMyProfile()
 
-                console.log(data)
-              }
-            });
+          if (response.detail) {
+            alert("Sesi login Anda telah berakhir, silakan login kembali.")
+            handleLogout()
+          } else {
+            const { data } = response;
+            setUser(data)
+
+            console.log(data)
+          }
         }
       }
       catch(e) {

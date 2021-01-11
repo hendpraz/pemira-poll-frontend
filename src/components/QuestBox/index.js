@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import config from "config";
 import Button from 'components/Button';
-import questList from './QuestList'
 import Quest from './Quest'
 import AddQuestModal from './AddQuestModal'
+import { getQuestList } from "resources/quest"
 
 const QuestBox = () => {
 
@@ -11,18 +11,15 @@ const QuestBox = () => {
             image
         }} = config
 
-    const [tab,
-        setTab] = useState("quest")
-    const [currentPage,
-        setCurrentPage] = useState(1)
-    const [result,
-        setResult] = useState([])
+    const [tab, setTab] = useState("accepted")
+    const [currentPage, setCurrentPage] = useState(1)
+    const [result, setResult] = useState([])
     const postPerPage = 3
 
     const clickNav = nav => {
         setTab(prev => {
             console.log(prev)
-            if (nav != prev) {
+            if (nav !== prev) {
                 document
                     .querySelector(`.${prev}-tab`)
                     .classList
@@ -32,9 +29,9 @@ const QuestBox = () => {
             return nav
         })
         document
-            .querySelector(`.${nav}-tab`)
-            .classList
-            .add("active")
+					.querySelector(`.${nav}-tab`)
+					.classList
+					.add("active")
     }
 
     const addQuest = () => {
@@ -44,16 +41,19 @@ const QuestBox = () => {
     }
 
     useEffect(() => {
-        if (tab == "quest") {
-            setResult(questList)
-        } else if (tab == "acc") {
-            setResult(questList.filter(item => item.status == "acc"))
-        } else if (tab == "acc") {
-            setResult(questList.filter(item => item.status == "acc"))
-        } else {
-            setResult(questList.filter(item => item.status == "acc" || item.status == "dec"))
-        }
-    }, [])
+        async function loadQuest() {
+					try {
+						let response = await getQuestList(tab)
+						console.log('questlist: ', response)
+						setResult(response)
+					}
+					catch(e) {
+						console.log(e)
+					}
+				}
+
+        loadQuest()
+    }, [tab])
 
     let lastIndex = currentPage * postPerPage
     let firstIndex = lastIndex - postPerPage
@@ -79,17 +79,17 @@ const QuestBox = () => {
             </div>
             <div className="quest-nav">
                 <ul>
-                    <li onClick={() => clickNav("quest")}>
-                        <div className="quest-tab">Daftar Quest</div>
+                    <li onClick={() => clickNav("accepted")}>
+                        <div className="accepted-tab">Daftar Quest</div>
                     </li>
-                    <li onClick={() => clickNav("acc")}>
-                        <div className="acc-tab">Quest Diterima</div>
+                    <li onClick={() => clickNav("running")}>
+                        <div className="running-tab">Quest Diterima</div>
                     </li>
-                    <li onClick={() => clickNav("prog")}>
-                        <div className="prog-tab">Progress Quest</div>
+                    <li onClick={() => clickNav("progress")}>
+                        <div className="progress-tab">Progress Quest</div>
                     </li>
-                    <li onClick={() => clickNav("history")}>
-                        <div className="history-tab">History Pengajuan Quest</div>
+                    <li onClick={() => clickNav("my")}>
+                        <div className="my-tab">History Pengajuan Quest</div>
                     </li>
                 </ul>
             </div>
@@ -98,7 +98,7 @@ const QuestBox = () => {
                     key={index}
                     tab={tab}
                     item={item}
-                    last={index == currentResult.length - 1}
+                    last={index === currentResult.length - 1}
                     index={index}/>)
             })}
             <div className="my-pagination">

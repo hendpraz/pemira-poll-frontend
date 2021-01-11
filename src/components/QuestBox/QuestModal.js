@@ -22,22 +22,15 @@ const QuestModal = ({index, item}) => {
                     ? ' blue'
                     : ` red`}`}>
                     <span className="close" id={`close-${index}`} onClick={() => closeModal()}>&times;</span>
-                    <h3>{item.name}</h3>
+                    <h3>{item.judul}</h3>
                     <hr/>
-                    <h5>Penerima:</h5>
-                    {item.penerima.map((person, index) => {
-                        return (
-                            <span key={index}>{index > 0 && ', '}{`${person.name}-${person.organisasi}'${person.angkatan.slice(2,4)}`}</span>
-                        )
-                    })}
-                    <br />
                     <br />
                     <h5>Tenggat waktu:</h5>
-                    <p>{item.date}</p>
+                    <p>{item.deadline}</p>
                     <br />
                     <h4>Detail Quest</h4>
-                    <p>{item.detail}</p>
-                    <Button file={item.status === "acc" ? `cancel-btn` : `upvote-btn`} onClick={tambahQuest}/>
+                    <p>{item.deskripsi}</p>
+                    <Button file={item.is_upvoted ? `cancel-btn` : `upvote-btn`} onClick={tambahQuest}/>
                 </div>
             </div>
         </div>

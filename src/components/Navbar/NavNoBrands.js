@@ -26,10 +26,6 @@ const NavNoBrands = () => {
                             <Link className="navbar-item">
                                 Kandidat
                             </Link>
-
-                            <Link className="navbar-item" to="/login">
-                                Login
-                            </Link>
                         </div>
                     </div>
                     <Link
