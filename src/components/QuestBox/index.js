@@ -3,7 +3,7 @@ import config from "config";
 import Button from 'components/Button';
 import Quest from './Quest'
 import AddQuestModal from './AddQuestModal'
-import questList from './QuestList'
+// import questList from './QuestList'
 import { useAppContext } from "libs/contextLib"
 import {getQuestList} from "resources/quest"
 
@@ -52,22 +52,20 @@ const QuestBox = () => {
 		if (user) {
 			setId(user.groups_id)
 		}
-	}, user)
+	}, [user])
 
     useEffect(() => {
-        // async function loadQuest() {
-        //     try {
-        //         let response = await getQuestList(tab)
-        //         console.log('questlist: ', response)
-        //         setResult(response)
-        //     } catch (e) {
-        //         console.log(e)
-        //     }
-        // }
+        async function loadQuest() {
+            try {
+                let response = await getQuestList(tab)
+                console.log('questlist: ', response)
+                setResult(response)
+            } catch (e) {
+                console.log(e)
+            }
+        }
 
-        // loadQuest()
-
-        setResult(questList)
+        loadQuest()
     }, [tab])
 
     console.log(result.length)
