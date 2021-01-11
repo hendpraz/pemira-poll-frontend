@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from 'components/Button'
 import { upvoteQuest, cancelUpvoteQuest } from 'resources/quest'
 
 const QuestModal = ({index, item}) => {
+
+    const [isUpvoted, setIsUpvoted] = useState(item.is_upvoted)
 
     const closeModal = () => {
         var modal = document.getElementById(`myModal-${index}`);
@@ -11,14 +13,15 @@ const QuestModal = ({index, item}) => {
     }
 
     const changeUpvoteStatus = async () => {
-        const { id, is_upvoted } = item
+        const questId = item.id
 
-        if (is_upvoted) {
-            await cancelUpvoteQuest(id)
+        if (isUpvoted) {
+            await cancelUpvoteQuest(questId)
         } else {
-            await upvoteQuest(id)
+            await upvoteQuest(questId)
         }
 
+        setIsUpvoted(!isUpvoted)
         item.is_upvoted = !item.is_upvoted
     }
 
@@ -38,7 +41,7 @@ const QuestModal = ({index, item}) => {
                     <br />
                     <h4>Detail Quest</h4>
                     <p>{item.deskripsi}</p>
-                    <Button file={item.is_upvoted ? `cancel-btn` : `upvote-btn`} onClick={changeUpvoteStatus}/>
+                    <Button file={isUpvoted ? `cancel-btn` : `upvote-btn`} onClick={changeUpvoteStatus}/>
                 </div>
             </div>
         </div>
