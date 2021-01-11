@@ -48,8 +48,14 @@ $primary: #FDAF33;
         .btm-container {
             width: 100%;
             position: absolute;
-            margin-left: auto;
             bottom: 0;
+
+        }
+
+        .not-candidate {
+            .details-btn {
+                width: 100%;
+            }
         }
     }
 }

@@ -1,20 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import Button from 'components/Button';
 import QuestModal from './QuestModal'
-import { useAppContext } from "libs/contextLib"
 
-const Quest = ({tab, item, last, index}) => {
-    const { user } = useAppContext()
-	console.log("ini dari quest", user)
-	const [id, setId] = useState(null)
-	console.log(tab)
-
-	useEffect(() => {
-		if (user) {
-			setId(user.groups_id)
-		}
-	}, user)
-	
+const Quest = ({tab, item, last, index, id}) => {
 
     const openModal = () => {
         var modal = document.getElementById(`myModal-${index}`);

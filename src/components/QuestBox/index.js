@@ -4,6 +4,7 @@ import Button from 'components/Button';
 import Quest from './Quest'
 import AddQuestModal from './AddQuestModal'
 import questList from './QuestList'
+import { useAppContext } from "libs/contextLib"
 import {getQuestList} from "resources/quest"
 
 const QuestBox = () => {
@@ -42,6 +43,16 @@ const QuestBox = () => {
 
         modalAdd.style.display = "block"
     }
+
+    const { user } = useAppContext()
+	
+	const [id, setId] = useState(null)
+	
+	useEffect(() => {
+		if (user) {
+			setId(user.groups_id)
+		}
+	}, user)
 
     useEffect(() => {
         // async function loadQuest() {
@@ -108,6 +119,7 @@ const QuestBox = () => {
             <div className="quest-content">
                 {currentResult.map((item, index) => {
                     return (<Quest
+                        id={id}
                         key={index}
                         tab={tab}
                         item={item}
@@ -132,10 +144,10 @@ const QuestBox = () => {
                         </div>
                     : null}
 
-                <div className="btm-container">
+                <div className="btm-container not-candidate">
                     <div className="btn-container columns">
                         <Button file="tambah-quest-btn" onClick={addQuest}/>
-                        <Button file="unggah-bukti-btn"/>
+                        {id === 5 && <Button file="unggah-bukti-btn"/> }
                     </div>
                 </div>
                 <AddQuestModal/>
