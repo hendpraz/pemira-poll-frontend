@@ -40,18 +40,17 @@ const AddQuestModal = () => {
                             <label>
                                 <h5 className="mb-2">Diperuntukkan bagi:</h5>
                             </label>
-                            <select id="quest-untuk" name="quest-untuk">
-                                <option disabled selected value>Pilih target</option>
-                                <option value="semua" defaultValue>Semua</option>
+                            <select id="quest-untuk" name="quest-untuk" placeholder="Pilih target">
+                                <option value="semua">Semua</option>
                                 <option value="K3M">K3M</option>
-                                <option value="MWAWM">MWAWM</option>
+                                <option value="MWAWM">MWA-WM</option>
                             </select>
 
                         </div>
                     </div>
                     <br/>
                     <input type="checkbox" name="setuju-add" id="setuju-add"/>
-                    <span for="setuju-add">Saya bersedia berbagi informasi kontak saya (email & HP) ke kandidat</span>
+                    <span className="setuju-add">Saya bersedia berbagi informasi kontak saya (email & HP) ke kandidat</span>
                     <br/>
                     <div className="btn-container">
                         <Button file="ok-cream-btn"/>

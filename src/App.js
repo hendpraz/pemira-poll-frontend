@@ -20,7 +20,6 @@ import Profile from 'pages/Profile'
 function App() {
   const [isAuthenticated, userHasAuthenticated] = useState(localStorage.getItem('token') ? true : false)
   const [user, setUser] = useState(null)
-  const [role] = useState('')
 
   useEffect(() => {
     async function onLoad() {
@@ -65,7 +64,7 @@ function App() {
         <Route exact path="/login" render={() => <LoginSelect />} />
         <Route exact path="/login/lembaga" render={() => <Lembaga />} />
         <Route exact path="/login/nonina" render={() => <NonINA />} />
-        <Route exact path="/ambil-berkas" render={() => <AmbilBerkas  role={role} />} />
+        <Route exact path="/ambil-berkas" render={() => <AmbilBerkas />} />
         <Route exact path="/about-us" render={() => <AboutUs />} />
         <Route exact path="/daftar" render={() => <Pendaftaran />} />
         <Route exact path="/profile" render={() => <Profile />} />

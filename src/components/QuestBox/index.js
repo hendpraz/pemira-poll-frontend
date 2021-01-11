@@ -3,17 +3,20 @@ import config from "config";
 import Button from 'components/Button';
 import Quest from './Quest'
 import AddQuestModal from './AddQuestModal'
-import { getQuestList } from "resources/quest"
+import questList from './QuestList'
+import {getQuestList} from "resources/quest"
 
-const QuestBox = ({role}) => {
-
+const QuestBox = () => {
     const {assetsURL: {
             image
         }} = config
 
-    const [tab, setTab] = useState("accepted")
-    const [currentPage, setCurrentPage] = useState(1)
-    const [result, setResult] = useState([])
+    const [tab,
+        setTab] = useState("accepted")
+    const [currentPage,
+        setCurrentPage] = useState(1)
+    const [result,
+        setResult] = useState([])
     const postPerPage = 3
 
     const clickNav = nav => {
@@ -29,9 +32,9 @@ const QuestBox = ({role}) => {
             return nav
         })
         document
-					.querySelector(`.${nav}-tab`)
-					.classList
-					.add("active")
+            .querySelector(`.${nav}-tab`)
+            .classList
+            .add("active")
     }
 
     const addQuest = () => {
@@ -41,23 +44,31 @@ const QuestBox = ({role}) => {
     }
 
     useEffect(() => {
-        async function loadQuest() {
-					try {
-						let response = await getQuestList(tab)
-						console.log('questlist: ', response)
-						setResult(response)
-					}
-					catch(e) {
-						console.log(e)
-					}
-				}
+        // async function loadQuest() {
+        //     try {
+        //         let response = await getQuestList(tab)
+        //         console.log('questlist: ', response)
+        //         setResult(response)
+        //     } catch (e) {
+        //         console.log(e)
+        //     }
+        // }
 
-        loadQuest()
+        // loadQuest()
+
+        setResult(questList)
     }, [tab])
 
+    console.log(result.length)
     let lastIndex = currentPage * postPerPage
     let firstIndex = lastIndex - postPerPage
-    let currentResult = result.slice(firstIndex, lastIndex)
+
+    let currentResult = []
+
+    if (result.length) {
+        currentResult = result.slice(firstIndex, lastIndex)
+    }
+    
 
     let pageNumber = []
     for (let i = 1; i <= Math.ceil(result.length / postPerPage); i++) {
@@ -94,36 +105,41 @@ const QuestBox = ({role}) => {
                     </li>
                 </ul>
             </div>
-            {currentResult.map((item, index) => {
-                return (<Quest
-                    key={index}
-                    tab={tab}
-                    item={item}
-                    last={index === currentResult.length - 1}
-                    index={index}/>)
-            })}
-            <div className="my-pagination">
-                <span
-                    onClick={() => setCurrentPage(currentPage > 1
-                    ? currentPage - 1
-                    : currentPage)}>&#60;</span>
-                {pageNumber.map(item => {
-                    return (
-                        <span onClick={() => setCurrentPage(item)} key={item} className="page-number">{item}</span>
-                    )
+            <div className="quest-content">
+                {currentResult.map((item, index) => {
+                    return (<Quest
+                        key={index}
+                        tab="quest-berjalan"
+                        item={item}
+                        last={index === currentResult.length - 1}
+                        index={index}/>)
                 })}
-                <span
-                    onClick={() => setCurrentPage(currentPage < currentResult.length - 1
-                    ? currentPage + 1
-                    : currentPage)}>&#62;</span>
-            </div>
-            <div className="btm-container">
-                <div className="btn-container columns">
-                    <Button file="tambah-quest-btn" onClick={addQuest}/>
-                    <Button file="unggah-bukti-btn"/>
+                {currentResult.length
+                    ? <div className="my-pagination">
+                            <span
+                                onClick={() => setCurrentPage(currentPage > 1
+                                ? currentPage - 1
+                                : currentPage)}>&#60;</span>
+                            {pageNumber.map(item => {
+                                return (
+                                    <span onClick={() => setCurrentPage(item)} key={item} className="page-number">{item}</span>
+                                )
+                            })}
+                            <span
+                                onClick={() => setCurrentPage(currentPage < currentResult.length - 1
+                                ? currentPage + 1
+                                : currentPage)}>&#62;</span>
+                        </div>
+                    : null}
+
+                <div className="btm-container">
+                    <div className="btn-container columns">
+                        <Button file="tambah-quest-btn" onClick={addQuest}/>
+                        <Button file="unggah-bukti-btn"/>
+                    </div>
                 </div>
+                <AddQuestModal/>
             </div>
-            <AddQuestModal/>
 
         </div>
     )

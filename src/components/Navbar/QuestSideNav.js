@@ -14,7 +14,7 @@ const QuestSideNav = () => {
             <li><div>Tim Sukses</div></li>
             <li><div>Algojo</div></li>
             <li><div>Hasil Pemira</div></li>
-            <li><div>-</div></li>
+            <li><div>Setting</div></li>
         </div>
     )
 }

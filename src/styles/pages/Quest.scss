@@ -40,6 +40,18 @@ $primary: #FDAF33;
     .right-quest {
         padding-right: 5vw;
     }
+
+    .quest-content {
+        min-height: 60vh;
+        position: relative;
+
+        .btm-container {
+            width: 100%;
+            position: absolute;
+            margin-left: auto;
+            bottom: 0;
+        }
+    }
 }
 
 .quest-box {
@@ -58,6 +70,7 @@ $primary: #FDAF33;
         width: 76vw;
         right: -15.8%;
         overflow: hidden;
+        z-index: 4;
         padding: 2px;
         @media (min-width: 1537px) {
             width: 80vw;
@@ -115,6 +128,7 @@ $primary: #FDAF33;
 
         .quest-btn {
             display: flex;
+            align-items: center;
             // margin-left: auto    ;
 
             .details-btn {
