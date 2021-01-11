@@ -1,11 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Button from 'components/Button';
 import QuestModal from './QuestModal'
-import { upvoteQuest, cancelUpvoteQuest } from 'resources/quest'
 
 const Quest = ({tab, item, last, index, id}) => {
-
-    const [isUpvoted, setIsUpvoted] = useState(item.is_upvoted)
 
     const openModal = () => {
         var modal = document.getElementById(`myModal-${index}`);
@@ -20,19 +17,6 @@ const Quest = ({tab, item, last, index, id}) => {
                 modal.style.display = "none";
             }
         }
-    }
-
-    const changeUpvoteStatus = async () => {
-        const questId = item.id
-
-        if (isUpvoted) {
-            await cancelUpvoteQuest(questId)
-        } else {
-            await upvoteQuest(questId)
-        }
-
-        setIsUpvoted(!isUpvoted)
-        item.is_upvoted = !item.is_upvoted
     }
 
     if (id === 5) { // Kandidat
@@ -76,14 +60,8 @@ const Quest = ({tab, item, last, index, id}) => {
                     </div>
                     <div className="quest-btn column">
                         {tab === "accepted" && 
-                            <Button
-                                file={isUpvoted
-                                ? "cancel-btn"
-                                : "upvote-btn"
-                                }
-                                onClick={changeUpvoteStatus}
-                            />
-}
+                            <div style={{marginLeft: "auto"}}>Upvote: {item.upvotes}</div>
+                        }
                     </div>
                 </div>
 
