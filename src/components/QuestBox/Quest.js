@@ -20,7 +20,7 @@ const Quest = ({tab, item, last, index}) => {
     }
 
     return (
-        <div id={`questItem-${index}`} onClick={() => openModal(index)}>
+        <div id={`questItem-${index}`} onClick={() => openModal()}>
             <div
                 className={`quest-container columns${index == 0
                 ? ` mt-10`
