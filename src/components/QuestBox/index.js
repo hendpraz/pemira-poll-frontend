@@ -109,7 +109,7 @@ const QuestBox = () => {
                 {currentResult.map((item, index) => {
                     return (<Quest
                         key={index}
-                        tab="quest-berjalan"
+                        tab={tab}
                         item={item}
                         last={index === currentResult.length - 1}
                         index={index}/>)
