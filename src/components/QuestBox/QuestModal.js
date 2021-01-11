@@ -13,7 +13,6 @@ const QuestModal = ({index, item}) => {
 
     }
 
-    console.log(item.penerima)
     return (
         <div>
             <div id={`myModal-${index}`} className="modal">

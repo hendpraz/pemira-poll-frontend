@@ -5,7 +5,7 @@ import questList from './QuestList'
 import Quest from './Quest'
 import AddQuestModal from './AddQuestModal'
 
-const QuestBox = () => {
+const QuestBox = ({role}) => {
 
     const {assetsURL: {
             image
@@ -21,7 +21,6 @@ const QuestBox = () => {
 
     const clickNav = nav => {
         setTab(prev => {
-            console.log(prev)
             if (nav != prev) {
                 document
                     .querySelector(`.${prev}-tab`)
@@ -44,15 +43,17 @@ const QuestBox = () => {
     }
 
     useEffect(() => {
-        if (tab == "quest") {
+        if (tab === "quest") {
             setResult(questList)
-        } else if (tab == "acc") {
+        }if (tab === "acc") {
             setResult(questList.filter(item => item.status == "acc"))
-        } else if (tab == "acc") {
+        }if (tab === "acc") {
             setResult(questList.filter(item => item.status == "acc"))
         } else {
             setResult(questList.filter(item => item.status == "acc" || item.status == "dec"))
         }
+
+        console.log(result)
     }, [])
 
     let lastIndex = currentPage * postPerPage
@@ -77,21 +78,38 @@ const QuestBox = () => {
             }}>
                 Banner ads
             </div>
+
             <div className="quest-nav">
-                <ul>
-                    <li onClick={() => clickNav("quest")}>
-                        <div className="quest-tab">Daftar Quest</div>
-                    </li>
-                    <li onClick={() => clickNav("acc")}>
-                        <div className="acc-tab">Quest Diterima</div>
-                    </li>
-                    <li onClick={() => clickNav("prog")}>
-                        <div className="prog-tab">Progress Quest</div>
-                    </li>
-                    <li onClick={() => clickNav("history")}>
-                        <div className="history-tab">History Pengajuan Quest</div>
-                    </li>
-                </ul>
+                {role
+                    ? <ul>
+                            <li onClick={() => clickNav("quest")}>
+                                <div className="quest-tab">Daftar Quest</div>
+                            </li>
+                            <li onClick={() => clickNav("acc")}>
+                                <div className="acc-tab">Quest Diterima</div>
+                            </li>
+                            <li onClick={() => clickNav("prog")}>
+                                <div className="prog-tab">Progress Quest</div>
+                            </li>
+                            <li onClick={() => clickNav("history")}>
+                                <div className="history-tab">History Pengajuan Quest</div>
+                            </li>
+                        </ul>
+                    : <ul>
+                        <li onClick={() => clickNav("quest")}>
+                            <div className="quest-tab">Daftar Quest</div>
+                        </li>
+                        <li onClick={() => clickNav("onprog")}>
+                            <div className="onprog-tab">Quest Berjalan</div>
+                        </li>
+                        <li onClick={() => clickNav("prog")}>
+                            <div className="prog-tab">Progress Quest</div>
+                        </li>
+                        <li onClick={() => clickNav("history")}>
+                            <div className="history-tab">History Pengajuan Quest</div>
+                        </li>
+                    </ul>}
+
             </div>
             {currentResult.map((item, index) => {
                 return (<Quest
@@ -122,7 +140,7 @@ const QuestBox = () => {
                     <Button file="unggah-bukti-btn"/>
                 </div>
             </div>
-            <AddQuestModal />
+            <AddQuestModal/>
 
         </div>
     )
