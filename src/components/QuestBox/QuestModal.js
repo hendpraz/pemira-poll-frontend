@@ -1,10 +1,18 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 import Button from 'components/Button'
-import { upvoteQuest, cancelUpvoteQuest } from 'resources/quest'
+import {upvoteQuest, cancelUpvoteQuest} from 'resources/quest'
 
-const QuestModal = ({index, item, numOfUpvotes, setNumOfUpvotes}) => {
-
-    const [isUpvoted, setIsUpvoted] = useState(item.is_upvoted)
+const QuestModal = ({
+    index,
+    item,
+    numOfUpvotes,
+    setNumOfUpvotes,
+    id,
+    tab
+}) => {
+    console.log(index, item, id, tab)
+    const [isUpvoted,
+        setIsUpvoted] = useState(item.is_upvoted)
 
     const closeModal = () => {
         var modal = document.getElementById(`myModal-${index}`);
@@ -12,7 +20,7 @@ const QuestModal = ({index, item, numOfUpvotes, setNumOfUpvotes}) => {
         modal.style.display = "none"
     }
 
-    const changeUpvoteStatus = async () => {
+    const changeUpvoteStatus = async() => {
         const questId = item.id
 
         if (isUpvoted) {
@@ -37,13 +45,27 @@ const QuestModal = ({index, item, numOfUpvotes, setNumOfUpvotes}) => {
                     <span className="close" id={`close-${index}`} onClick={() => closeModal()}>&times;</span>
                     <h3>{item.judul}</h3>
                     <hr/>
-                    <br />
+                    <br/>
                     <h5>Tenggat waktu:</h5>
                     <p>{item.deadline}</p>
-                    <br />
+                    <br/>
                     <h4>Detail Quest</h4>
                     <p>{item.deskripsi}</p>
-                    <Button file={isUpvoted ? `cancel-btn` : `upvote-btn`} onClick={changeUpvoteStatus}/>
+                    {id === 5
+                        ? <div className="modal-btm">{tab === "accepted" && <div className="btn-container columns">
+                                    <Button file="terima-btn"/>
+                                    <Button file="tolak-btn"/>
+                                </div>} {tab === "running" && <div className="btn-container columns">
+                                    <Button file="unggah-bukti-btn"/>
+                                    <Button file="menyerah-btn"/>
+                                </div>}
+                            </div>
+                        : <Button
+                            file={isUpvoted
+                            ? `cancel-btn`
+                            : `upvote-btn`}
+                            onClick={changeUpvoteStatus}/>}
+
                 </div>
             </div>
         </div>

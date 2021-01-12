@@ -11,11 +11,10 @@ $yelfont: #F9F3A0;
         z-index: 5;
         cursor: pointer;
     }
-
     .arrow-container:hover {
         transform: scale(1.2);
     }
-    
+
     .left {
         left: 10%;
     }
@@ -26,7 +25,7 @@ $yelfont: #F9F3A0;
 
     .slide {
         opacity: 0;
-        transition: all 0.5s ;
+        transition: all 0.5s;
         width: 90%;
         text-align: center;
         margin: 25px auto;
@@ -35,54 +34,51 @@ $yelfont: #F9F3A0;
 
     .slide.active {
         opacity: 1;
-        transition: all 0.5s ;
+        transition: all 0.5s;
         transform: scale(1.2);
     }
 }
 
-.carousel-v2 {
-    margin: 0 auto 7%!important;
-    .slide {
-        position: relative;
-        display: none;
-        margin-top: 0;
+.organogram {
+    display: flex;
+    padding: 3%;
+    justify-content: center;
+    align-items: flex-start;
+
+    .organogram-content {
+        width: 50%;
         
-        h3 {
-            margin-bottom: 10px;
-            font-weight: normal;
+        .slide {
+            opacity: 0;
+            transition: 0.4s;
         }
 
-        img {
-            width: 65%;
-        }
-
-        button {
-            display: block;
-            text-align: center;
-            margin: 10px auto;
-            color: $yelfont;
-            background-color: transparent;
-            border: none;
-            font-family: 'Inknut Antiqua', serif;
-            font-size: 1rem;
-            cursor: pointer;
+        .slide.active {
+            opacity: 1;
         }
     }
 
-    .slide.active {
-        opacity: 1;
-        transition: all 0.5s ;
+    .arrow-container {
+        position: relative;
+        z-index: 20;
+        top: 2.25vw;
+        width: 2%;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .arrow-container:hover {
         transform: scale(1.2);
-        display: block;
+        cursor: pointer;
     }
 
     .left {
-        left: 6%;
-        margin-bottom: 5%;
+        left: 12%;
     }
 
     .right {
-        right: 6%;
-        margin-bottom: 5%;
+        right: 12%;
     }
 }

@@ -17,8 +17,6 @@ const Carousel = () => {
         setCurrent(current === 0 ? length - 1 : current - 1)
     }
 
-    console.log(current)
-
     return (
         <div className="carousel columns">
             <div className="arrow-container  left" onClick={() => {prevSlide()}}>

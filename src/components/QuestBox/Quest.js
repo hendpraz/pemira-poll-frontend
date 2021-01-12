@@ -1,10 +1,13 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 import Button from 'components/Button';
 import QuestModal from './QuestModal'
 
 const Quest = ({tab, item, last, index, id}) => {
 
-    const [numOfUpvotes, setNumOfUpvotes] = useState(item.upvotes)
+    const modalTab = tab
+
+    const [numOfUpvotes,
+        setNumOfUpvotes] = useState(item.upvotes)
 
     const openModal = () => {
         var modal = document.getElementById(`myModal-${index}`);
@@ -22,7 +25,6 @@ const Quest = ({tab, item, last, index, id}) => {
     }
 
     if (id === 5) { // Kandidat
-		console.log("masuk pak eko")
         return (
             <div id={`questItem-${index}`} onClick={() => openModal()}>
                 <div
@@ -34,18 +36,15 @@ const Quest = ({tab, item, last, index, id}) => {
                     <div className="quest-name column has-text-left">
                         {index + 1}. {item.judul}
                     </div>
-                    {tab === "quest-berjalan" && <div className="quest-btn column">
-                        <Button file="unggah-bukti-btn"/>
-                        <Button file="menyerah-btn"/>
-                    </div>}
-					{tab === "quest" && <div className="quest-btn column">
-                        <Button file="terima-btn"/>
-                        <Button file="tolak-btn"/>
-                    </div>}
-
                 </div>
 
-                <QuestModal index={index} item={item}/>
+                <QuestModal
+                    index={index}
+                    tab={tab}
+                    id={id}
+                    item={item}
+                    numOfUpvotes={numOfUpvotes}
+                    setNumOfUpvotes={setNumOfUpvotes}/>
             </div>
         )
     } else { // Massa or Lembaga or Admin
@@ -61,13 +60,23 @@ const Quest = ({tab, item, last, index, id}) => {
                         {index + 1}. {item.judul}
                     </div>
                     <div className="quest-btn column">
-                        {tab === "accepted" && 
-                            <div style={{marginLeft: "auto"}}>Upvote: {numOfUpvotes}</div>
-                        }
+                        {tab === "accepted" && <div
+                            style={{
+                            marginLeft: "auto"
+                        }}>Upvote: {numOfUpvotes
+                                ? numOfUpvotes
+                                : 0}</div>
+}
                     </div>
                 </div>
 
-                <QuestModal index={index} item={item} numOfUpvotes={numOfUpvotes} setNumOfUpvotes={setNumOfUpvotes}/>
+                <QuestModal
+                    index={index}
+                    tab={tab}
+                    id={id}
+                    item={item}
+                    numOfUpvotes={numOfUpvotes}
+                    setNumOfUpvotes={setNumOfUpvotes}/>
             </div>
         )
     }

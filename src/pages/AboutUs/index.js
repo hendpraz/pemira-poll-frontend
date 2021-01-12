@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import NavMain from 'components/Navbar/NavMain.js'
 import NavLoggedIn from 'components/Navbar/NavLoggedIn.js'
 import DarkBlue from 'layouts/DarkBlue'
-import CarouselV2 from 'components/Carousel-V2'
 import Footer from 'components/Footer'
 import VisiMisi from 'components/VisiMisi'
 import 'styles/pages/AboutUs.scss'
+import Organogram from 'components/Organogram';
 
 function AboutUs() {
     const isAuthenticated = localStorage.getItem('token') ? true : false
@@ -30,7 +30,7 @@ function AboutUs() {
                     <button className="vm-btn p-0-mobile" onClick={() => {clickVM()}}>Visi Misi</button>
                 </div>
                     <div className="carousel-container columns">
-                        {tab === "organogram" ? <CarouselV2 /> : <VisiMisi />}
+                        {tab === "organogram" ? <Organogram /> : <VisiMisi />}
                     </div>
                    
                 </div>

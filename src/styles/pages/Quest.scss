@@ -42,8 +42,20 @@ $primary: #FDAF33;
     }
 
     .quest-content {
-        min-height: 60vh;
+        min-height: 420px;
         position: relative;
+
+        @media (min-width: 1537px) and (max-width: 1920px) {
+            min-height: 480px;
+        }
+
+        @media (max-width: 1200px) {
+            min-height: 350px;
+        }
+
+        @media (max-width: 1024px) {
+            min-height: 270px;
+        }
 
         .btm-container {
             width: 100%;
@@ -170,7 +182,6 @@ $primary: #FDAF33;
         border-radius: 4vw 4vw 3.5vw 3.5vw!important;
     }
 }
-
 .quest-container.blue:hover {
     background-color: #002a3d!important;
     cursor: pointer;
@@ -182,12 +193,11 @@ $primary: #FDAF33;
 
 .my-pagination {
     width: 60%;
-    margin: -8vw auto 0;
+    margin: -7.75vw auto 0;
     align-items: center;
     color: $primary;
     position: relative;
     z-index: 6;
-
     @media (max-width: 1024px) {
         margin-top: -10vw;
     }
@@ -214,7 +224,7 @@ $primary: #FDAF33;
 .modal {
     text-align: left;
     display: none;
-    position: fixed; 
+    position: fixed;
     z-index: 20;
     padding: 125px;
     left: 0;
@@ -232,7 +242,6 @@ $primary: #FDAF33;
     }
 }
 
-
 .modal-content {
     background-color: #fefefe;
     margin: auto;
@@ -243,7 +252,6 @@ $primary: #FDAF33;
     border: none;
     border-radius: 50px;
 }
-
 
 .close {
     color: $primary;
@@ -261,7 +269,7 @@ $primary: #FDAF33;
 }
 
 .add-quest {
-    padding: 0 10%!important;
+    padding: 0 10% !important;
 
     .add-quest-content {
         width: 100%;
@@ -290,8 +298,9 @@ $primary: #FDAF33;
         }
 
         .column {
-            
-            input, select {
+
+            input,
+            select {
                 width: 60%;
                 background-color: #FCE0C4;
             }
@@ -299,7 +308,7 @@ $primary: #FDAF33;
 
         input[type="checkbox"] {
             width: initial;
-            margin-right: 20px ;
+            margin-right: 20px;
         }
 
         .btn-container {
@@ -311,6 +320,41 @@ $primary: #FDAF33;
                 margin-bottom: 0;
                 margin-right: 30px;
             }
+        }
+    }
+}
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+span[class^='close']:hover {
+    animation-name: rotate;
+    animation-duration: 0.5s;
+    animation-iteration-count: 0.5;
+    animation-timing-function: linear;
+}
+
+.modal-btm {
+    position: absolute;
+    bottom: 0;
+    width: 85%;
+    display: block;
+    text-align: center;
+
+    .btn-container {
+        position: relative;
+        display: block;
+        text-align: center;
+
+        .details-btn {
+            position: relative;
+            width: 20%;
+            margin-left: 5px;
+            margin-right: 5px;
         }
     }
 }

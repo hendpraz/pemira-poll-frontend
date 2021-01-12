@@ -3,9 +3,9 @@ import config from "config";
 import Button from 'components/Button';
 import Quest from './Quest'
 import AddQuestModal from './AddQuestModal'
-// import questList from './QuestList'
-import { useAppContext } from "libs/contextLib"
-import { getQuestList } from "resources/quest"
+import questList from './QuestList'
+import {useAppContext} from "libs/contextLib"
+import {getQuestList} from "resources/quest"
 
 const QuestBox = () => {
     const {assetsURL: {
@@ -44,36 +44,24 @@ const QuestBox = () => {
         modalAdd.style.display = "block"
     }
 
-    const { user } = useAppContext()
-	
-	const [id, setId] = useState(null)
-	
-	useEffect(() => {
-		if (user) {
-            setId(user.groups_id)
-            
-            async function loadQuestMassaLembaga() {
-                try {
-                    let response = await getQuestList(tab)
-                    console.log('questlist: ', response)
-                    setResult(response)
-                } catch (e) {
-                    console.log(e)
-                }
-            }
-    
-            async function loadQuestKandidat() {
-                alert("Anda adalah kandidat")                
-            }
+    const {user} = useAppContext()
 
-            if (user.groups_id === 5) {
-                loadQuestKandidat()
-            } else {
-                loadQuestMassaLembaga()
-            }
-            
-		}
-	}, [user, tab])
+    const [id,
+        setId] = useState(null)
+
+    useEffect(() => {
+        if (user) {
+            setId(user.groups_id)
+
+            // async function loadQuestMassaLembaga() {     try {         let response =
+            // await getQuestList(tab)         console.log('questlist: ', response)
+            // setResult(response)     } catch (e) {         console.log(e)     } } async
+            // function loadQuestKandidat() {     alert("Anda adalah kandidat") } if
+            // (user.groups_id === 5) {     loadQuestKandidat() } else {
+            // loadQuestMassaLembaga() }
+            setResult(questList)
+        }
+    }, [user, tab])
 
     console.log(result.length)
     let lastIndex = currentPage * postPerPage
@@ -84,7 +72,6 @@ const QuestBox = () => {
     if (result.length) {
         currentResult = result.slice(firstIndex, lastIndex)
     }
-    
 
     let pageNumber = []
     for (let i = 1; i <= Math.ceil(result.length / postPerPage); i++) {
@@ -106,20 +93,35 @@ const QuestBox = () => {
             </div>
 
             <div className="quest-nav">
-                <ul>
-                    <li onClick={() => clickNav("accepted")}>
-                        <div className="accepted-tab">Daftar Quest</div>
-                    </li>
-                    <li onClick={() => clickNav("running")}>
-                        <div className="running-tab">Quest Diterima</div>
-                    </li>
-                    <li onClick={() => clickNav("progress")}>
-                        <div className="progress-tab">Progress Quest</div>
-                    </li>
-                    <li onClick={() => clickNav("my")}>
-                        <div className="my-tab">History Pengajuan Quest</div>
-                    </li>
-                </ul>
+                {id === 5
+                    ? <ul>
+                            <li onClick={() => clickNav("accepted")}>
+                                <div className="accepted-tab">Daftar Quest</div>
+                            </li>
+                            <li onClick={() => clickNav("running")}>
+                                <div className="running-tab">Quest Berjalan</div>
+                            </li>
+                            <li onClick={() => clickNav("success")}>
+                                <div className="success-tab">Quest Sukses</div>
+                            </li>
+                            <li onClick={() => clickNav("failed")}>
+                                <div className="failed-tab">Quest Gagal</div>
+                            </li>
+                        </ul>
+                    : <ul>
+                        <li onClick={() => clickNav("accepted")}>
+                            <div className="accepted-tab">Daftar Quest</div>
+                        </li>
+                        <li onClick={() => clickNav("running")}>
+                            <div className="running-tab">Quest Diterima</div>
+                        </li>
+                        <li onClick={() => clickNav("progress")}>
+                            <div className="progress-tab">Progress Quest</div>
+                        </li>
+                        <li onClick={() => clickNav("my")}>
+                            <div className="my-tab">History Pengajuan Quest</div>
+                        </li>
+                    </ul>}
             </div>
             <div className="quest-content">
                 {currentResult.map((item, index) => {
@@ -151,8 +153,7 @@ const QuestBox = () => {
 
                 <div className="btm-container not-candidate">
                     <div className="btn-container columns">
-                        <Button file="tambah-quest-btn" onClick={addQuest}/>
-                        {id === 5 && <Button file="unggah-bukti-btn"/> }
+                        <Button file="tambah-quest-btn" onClick={addQuest}/> {id === 5 && <Button file="unggah-bukti-btn"/>}
                     </div>
                 </div>
                 <AddQuestModal/>
