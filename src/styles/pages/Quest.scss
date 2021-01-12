@@ -94,8 +94,14 @@ $primary: #FDAF33;
         overflow: hidden;
         z-index: 4;
         padding: 2px;
+
         @media (min-width: 1537px) {
             width: 80vw;
+        }
+
+        @media (max-width: 1024px) {
+            width: 75vw;
+            right: -18.2%;
         }
 
         ul {
