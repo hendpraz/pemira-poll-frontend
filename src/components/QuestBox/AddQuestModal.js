@@ -3,6 +3,7 @@ import Button from 'components/Button'
 
 import { useAppContext } from "libs/contextLib"
 import { useFormFields } from "libs/hooksLib"
+import { createQuest } from "resources/quest"
 
 const AddQuestModal = () => {
     const { user } = useAppContext()
@@ -36,11 +37,18 @@ const AddQuestModal = () => {
             if (userId && userContact) {
                 console.log("OK")
 
-                let data = fields
+                let data = JSON.parse(JSON.stringify(fields))
                 data.user = userId
                 data.user_contact = userContact
+                data.deadline = data.deadline + " 23:59:59"
 
                 console.log(data)
+
+                const response = await createQuest(data)
+                console.log(response)
+
+                alert("Berhasil menambahkan quest, silakan tunggu konfirmasi dari admin.")
+                closeModal()
             } else {
                 alert("Terdapat masalah, mohon coba lagi beberapa saat.")
             }

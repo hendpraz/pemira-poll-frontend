@@ -5,7 +5,7 @@ import Quest from './Quest'
 import AddQuestModal from './AddQuestModal'
 // import questList from './QuestList'
 import { useAppContext } from "libs/contextLib"
-import {getQuestList} from "resources/quest"
+import { getQuestList } from "resources/quest"
 
 const QuestBox = () => {
     const {assetsURL: {
