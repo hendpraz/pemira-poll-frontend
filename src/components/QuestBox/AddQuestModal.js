@@ -1,16 +1,55 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Button from 'components/Button'
 
+import { useAppContext } from "libs/contextLib"
+import { useFormFields } from "libs/hooksLib"
+
 const AddQuestModal = () => {
+    const { user } = useAppContext()
+    const [fields, handleFieldChange] = useFormFields({
+        judul: "",
+        deskripsi: "",
+        deadline: null,
+        target: "all", // "all", "k3m", "mwa"
+    });
+
+    const [userContact, setUserContact] = useState("")
+    const [userId, setUserId] = useState("")
+    const [isAgree, setIsAgree] = useState(false)
+
+    useEffect(() => {
+		if (user) {
+            console.log(user)
+            setUserContact(`Email: ${user.email}, HP: ${user.phone_number}`)
+            setUserId(user.id)
+		}
+	}, [user])
 
     const closeModal = () => {
-        var modal = document.getElementById(`addQuest`);
+        var modal = document.getElementById(`addQuest`)
 
         modal.style.display = "none"
     }
 
-    return (
+    const submitQuest = async () => {
+        if (isAgree) {
+            if (userId && userContact) {
+                console.log("OK")
 
+                let data = fields
+                data.user = userId
+                data.user_contact = userContact
+
+                console.log(data)
+            } else {
+                alert("Terdapat masalah, mohon coba lagi beberapa saat.")
+            }
+        } else {
+            alert("Anda belum menyetujui ketersediaan berbagi informasi kontak Anda")
+        }
+    }
+
+    return (
         <div>
             <div id="addQuest" className="modal add-quest">
                 <div className="modal-content add-quest-content blue">
@@ -20,13 +59,13 @@ const AddQuestModal = () => {
                     <label>
                         <h5 className="mb-2">Judul Quest:</h5>
                     </label>
-                    <input type="text" id="judul-quest" name="judul-quest"/>
+                    <input type="text" id="judul" name="judul" value={fields.judul} onChange={handleFieldChange} />
                     <br/>
                     <br/>
                     <label>
                         <h5 className="mb-2">Detail Quest:</h5>
                     </label>
-                    <textarea name="detail-quest" id="detail-quest"/>
+                    <textarea name="deskripsi" id="deskripsi" value={fields.deskripsi} onChange={handleFieldChange} />
                     <br/>
                     <br/>
                     <div className="columns">
@@ -34,26 +73,26 @@ const AddQuestModal = () => {
                             <label>
                                 <h5 className="mb-2">Tenggat Quest:</h5>
                             </label>
-                            <input type="date"/>
+                            <input type="date" id="deadline" name="deadline" value={fields.deadline} onChange={handleFieldChange} />
                         </div>
                         <div className="column">
                             <label>
                                 <h5 className="mb-2">Diperuntukkan bagi:</h5>
                             </label>
-                            <select id="quest-untuk" name="quest-untuk" placeholder="Pilih target">
-                                <option value="semua">Semua</option>
-                                <option value="K3M">K3M</option>
-                                <option value="MWAWM">MWA-WM</option>
+                            <select id="target" name="target" placeholder="Pilih target" value={fields.target} onChange={handleFieldChange}>
+                                <option value="all">Semua</option>
+                                <option value="k3m">K3M</option>
+                                <option value="mwa">MWA-WM</option>
                             </select>
 
                         </div>
                     </div>
                     <br/>
-                    <input type="checkbox" name="setuju-add" id="setuju-add"/>
-                    <span className="setuju-add">Saya bersedia berbagi informasi kontak saya (email & HP) ke kandidat</span>
+                    <input type="checkbox" name="setuju" id="setuju" checked={isAgree} onChange={() => setIsAgree(!isAgree)} />
+                    <span className="setuju-add">Saya bersedia berbagi informasi kontak saya (email &amp; HP) ke kandidat</span>
                     <br/>
                     <div className="btn-container">
-                        <Button file="ok-cream-btn"/>
+                        <Button file="ok-cream-btn" onClick={submitQuest}/>
                         <Button file="cancel-cream-btn" onClick={closeModal}/>
                     </div>
                 </div>

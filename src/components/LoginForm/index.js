@@ -19,6 +19,7 @@ const LoginForm = () => {
     
         console.log("Logging in...")
 
+        // TODO: Move this to resources/auth
         fetch(`${defaultAPIURL}/login/non-INA/`, {
           method: 'POST',
           headers: {
