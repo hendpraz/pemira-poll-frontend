@@ -38,7 +38,7 @@ function NavLoggedIn() {
                             Kandidat
                         </Link>
 
-                        <Link className="navbar-item">
+                        <Link className="navbar-item" to="/profile">
                             Profile
                         </Link>
                     </div>
