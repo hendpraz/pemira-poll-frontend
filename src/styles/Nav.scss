@@ -80,21 +80,21 @@ $dark-blue: #02141D;
             list-style: none;
             padding: 7px 5px;
             color: $primary;
-            border-bottom: 3px solid $dark-blue;
+            border-bottom: 2px solid $dark-blue;
             margin: 0 35px;
             text-align: center;
             
             div {
                 cursor: pointer;
                 position: relative;
-                padding: 2px;
+                padding: 3px 2px;
                 // width: 65px;
                 text-align: center;
-                border: 3px solid transparent;
+                border: 2px solid transparent;
             }
 
             div:hover {
-                border: 3px solid $primary;
+                border: 2px solid $primary;
             }
         }
 
