@@ -2,19 +2,36 @@ import React from 'react'
 import config from 'config'
 import 'styles/pages/Quest.scss'
 
-const QuestSideNav = () => {
+const QuestSideNav = ({nav, setNav }) => {
 
     const { assetsURL: {image}} = config
 
+    const clickNav = clickedNav => {
+        setNav(prev => {
+            console.log(prev)
+            if (clickedNav !== prev) {
+                document
+                    .querySelector(`.${prev}`)
+                    .classList
+                    .remove("active")
+            }
+
+            return clickedNav
+        })
+        document
+            .querySelector(`.${clickedNav}`)
+            .classList
+            .add("active")
+    }
+
     return (
         <div className="quest-side is-hidden-mobile" style={{backgroundImage: `url(${image}/sidenavquest.png)`}}>
-            <li><div>Home</div></li>
-            <li><div>Quest Wall</div></li>
-            <li><div>Duel Wall</div></li>
-            <li><div>Tim Sukses</div></li>
-            <li><div>Algojo</div></li>
-            <li><div>Hasil Pemira</div></li>
-            <li><div>Setting</div></li>
+            <li><div className="home" onClick={() => clickNav("home")}>Home</div></li>
+            <li><div className="quest-wall" onClick={() => clickNav("quest-wall")}>Quest Wall</div></li>
+            <li><div className="duel-wall" onClick={() => clickNav("duel-wall")}>Duel Wall</div></li>
+            <li><div className="tim-sukses" onClick={() => clickNav("tim-sukses")}>Tim Sukses</div></li>
+            <li><div className="algojo" onClick={() => clickNav("algojo")}>Algojo</div></li>
+            <li><div className="hasil-pemira" onClick={() => clickNav("hasil-pemira")}>Hasil Pemira</div></li>
         </div>
     )
 }

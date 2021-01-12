@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import QuestSideNav from 'components/Navbar/QuestSideNav'
 import Footer from 'components/Footer'
 import Button from 'components/Button'
@@ -8,6 +8,7 @@ import QuestBox from 'components/QuestBox'
 import Authenticated from 'layouts/Authenticated'
 import { useHistory } from 'react-router-dom'
 import { useAppContext } from 'libs/contextLib'
+import DuelBox from 'components/Duel'
 
 const Profile = (props) => {
 
@@ -24,14 +25,24 @@ const Profile = (props) => {
         userHasAuthenticated(false);
         history.push("/")
     }
+
+    const [nav, setNav] = useState('quest-wall')
     
+    useEffect(() => {
+        let navLink = document.getElementsByClassName(nav)[0]
+
+        navLink
+            .classList
+            .add("active")
+
+    }, [nav])
 
     return (
         <Authenticated>
             <div className="quest">
                 <div className="myContent columns  ">
                     <div className="left-quest is-one-third column">
-                        <QuestSideNav/>
+                        <QuestSideNav nav={nav} setNav={setNav} />
                         <div className="btn-quest">
                             <div className="btn-container">
                                 <Button file="cream-btn"/>
@@ -47,7 +58,8 @@ const Profile = (props) => {
                     </div>
                     <div className="right-quest is-two-thirds column mr-4-desktop">
                         <NavNoBrands />
-                        <QuestBox />
+                        {nav === "quest-wall" && <QuestBox />}
+                        {nav === "duel-wall" && <DuelBox />}
                     </div>
                 </div>
                 <Footer/>

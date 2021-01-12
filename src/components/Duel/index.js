@@ -1,19 +1,19 @@
 import React, {useState, useEffect} from 'react'
 import config from "config";
 import Button from 'components/Button';
-import Quest from './Quest'
-import AddQuestModal from './AddQuestModal'
-import questList from './QuestList'
+import Quest from '../QuestBox/Quest'
+import AddQuestModal from '../QuestBox/AddQuestModal'
+import questList from '../QuestBox/QuestList'
 import {useAppContext} from "libs/contextLib"
 import {getQuestList} from "resources/quest"
 
-const QuestBox = () => {
+const DuelBox = () => {
     const {assetsURL: {
             image
         }} = config
 
     const [tab,
-        setTab] = useState("accepted")
+        setTab] = useState("duel-list")
     const [currentPage,
         setCurrentPage] = useState(1)
     const [result,
@@ -41,8 +41,10 @@ const QuestBox = () => {
     useEffect(() => {
         let navLink = document.getElementsByClassName(tab)[0]
 
-        navLink.classList.add("active")
-        
+        navLink
+            .classList
+            .add("active")
+
     }, [tab])
 
     const addQuest = () => {
@@ -87,7 +89,7 @@ const QuestBox = () => {
 
     return (
         <div
-            className="quest-box p-4 mt-5"
+            className="quest-box duel-box p-4 mt-5"
             style={{
             backgroundImage: `url(${image}/paper-parchment.png)`
         }}>
@@ -100,37 +102,22 @@ const QuestBox = () => {
             </div>
 
             <div className="quest-nav">
-                {id === 5
-                    ? <ul>
-                            <li onClick={() => clickNav("accepted")}>
-                                <div className="accepted">Daftar Quest</div>
-                            </li>
-                            <li onClick={() => clickNav("running")}>
-                                <div className="running">Quest Berjalan</div>
-                            </li>
-                            <li onClick={() => clickNav("success")}>
-                                <div className="success">Quest Sukses</div>
-                            </li>
-                            <li onClick={() => clickNav("failed")}>
-                                <div className="failed">Quest Gagal</div>
-                            </li>
-                        </ul>
-                    : <ul>
-                        <li onClick={() => clickNav("accepted")}>
-                            <div className="accepted">Daftar Quest</div>
-                        </li>
-                        <li onClick={() => clickNav("running")}>
-                            <div className="running">Quest Diterima</div>
-                        </li>
-                        <li onClick={() => clickNav("myprogress")}>
-                            <div className="myprogress">Progress Quest</div>
-                        </li>
-                        <li onClick={() => clickNav("my")}>
-                            <div className="my">History Pengajuan Quest</div>
-                        </li>
-                    </ul>}
+                <ul>
+                    <li onClick={() => clickNav("duel-list")}>
+                        <div className="duel-list">Daftar Duel</div>
+                    </li>
+                    <li onClick={() => clickNav("duel-running")}>
+                        <div className="duel-running">Duel Berjalan</div>
+                    </li>
+                    <li onClick={() => clickNav("duel-success")}>
+                        <div className="duel-success">Duel Sukses</div>
+                    </li>
+                    <li onClick={() => clickNav("duel-failed")}>
+                        <div className="duel-failed">Duel Gagal</div>
+                    </li>
+                </ul>
             </div>
-            <div className="quest-content">
+            <div className="duel-content">
                 {currentResult.map((item, index) => {
                     return (<Quest
                         id={id}
@@ -158,11 +145,11 @@ const QuestBox = () => {
                         </div>
                     : null}
 
-                <div className="btm-container not-candidate">
+                {/* <div className="btm-container not-candidate">
                     <div className="btn-container columns">
                         <Button file="tambah-quest-btn" onClick={addQuest}/> {id === 5 && <Button file="unggah-bukti-btn"/>}
                     </div>
-                </div>
+                </div> */}
                 <AddQuestModal/>
             </div>
 
@@ -170,4 +157,4 @@ const QuestBox = () => {
     )
 }
 
-export default QuestBox
+export default DuelBox

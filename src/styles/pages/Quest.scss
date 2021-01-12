@@ -8,6 +8,10 @@ $primary: #FDAF33;
         position: relative;
     }
 
+    div.active {
+        border: 2px solid $primary;
+    }
+
     .cloud-left,
     .cloud-right {
         visibility: hidden;
@@ -85,7 +89,7 @@ $primary: #FDAF33;
         position: absolute;
         align-items: center;
         background-color: #03354C;
-        width: 76vw;
+        width: 77vw;
         right: -15.8%;
         overflow: hidden;
         z-index: 4;
@@ -357,4 +361,26 @@ span[class^='close']:hover {
             margin-right: 5px;
         }
     }
+}
+
+.duel-box {
+    min-height: 50vh!important;
+}
+
+.duel-content {
+    min-height: 320px;
+    position: relative;
+
+    @media (min-width: 1537px) and (max-width: 1920px) {
+        min-height: 330px;
+    }
+
+    @media (max-width: 1200px) {
+        min-height: 230px;
+    }
+
+    @media (max-width: 1024px) {
+        min-height: 200px;
+    }
+
 }
