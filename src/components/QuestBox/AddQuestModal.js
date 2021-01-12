@@ -82,6 +82,7 @@ const AddQuestModal = () => {
                                 <h5 className="mb-2">Tenggat Quest:</h5>
                             </label>
                             <input type="date" id="deadline" name="deadline" value={fields.deadline} onChange={handleFieldChange} />
+                            <p style={{fontSize: "10pt", paddingTop: "5px"}}>Tenggat pada jam 23:59 WIB</p>
                         </div>
                         <div className="column">
                             <label>
