@@ -30,7 +30,11 @@ function App() {
 
           if (response.detail) {
             alert("Sesi login Anda telah berakhir, silakan login kembali.")
-            handleLogout()
+            
+            // sign out
+            localStorage.removeItem('token');
+          
+            userHasAuthenticated(false);
           } else {
             const { data } = response;
             setUser(data)
@@ -47,20 +51,13 @@ function App() {
     onLoad();
   }, [isAuthenticated]);
 
-  async function handleLogout() {
-    // sign out
-    localStorage.removeItem('token');
-  
-    userHasAuthenticated(false);
-  }
-
   return (
     <AppContext.Provider
       value={{ isAuthenticated, userHasAuthenticated, user, setUser }}
     >
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" render={() => <Home handleLogout={handleLogout} />} />
+          <Route exact path="/" render={() => <Home />} />
           <Route exact path="/login" render={() => <LoginSelect />} />
           <Route exact path="/login/lembaga" render={() => <Lembaga />} />
           <Route exact path="/login/nonina" render={() => <NonINA />} />

@@ -6,12 +6,25 @@ import config from 'config'
 import NavNoBrands from 'components/Navbar/NavNoBrands'
 import QuestBox from 'components/QuestBox'
 import Authenticated from 'layouts/Authenticated'
+import { useHistory } from 'react-router-dom'
+import { useAppContext } from 'libs/contextLib'
 
-const Profile = () => {
+const Profile = (props) => {
 
+    const history = useHistory()
+    const { userHasAuthenticated } = useAppContext()
     const {assetsURL: {
         image
     }} = config
+
+    async function handleLogout() {
+        // sign out
+        localStorage.removeItem('token');
+      
+        userHasAuthenticated(false);
+        history.push("/")
+    }
+    
 
     return (
         <Authenticated>
@@ -26,7 +39,7 @@ const Profile = () => {
                             </div>
                             <br/>
                             <div className="btn-container">
-                                <Button file="logout-button"/>
+                                <Button file="logout-button" onClick={handleLogout}/>
                                 <img src={`${image}/lonceng.png`} className="lonceng" alt="hourglass"/>
                             </div>
                         </div>

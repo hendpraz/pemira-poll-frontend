@@ -50,23 +50,30 @@ const QuestBox = () => {
 	
 	useEffect(() => {
 		if (user) {
-			setId(user.groups_id)
-		}
-	}, [user])
-
-    useEffect(() => {
-        async function loadQuest() {
-            try {
-                let response = await getQuestList(tab)
-                console.log('questlist: ', response)
-                setResult(response)
-            } catch (e) {
-                console.log(e)
+            setId(user.groups_id)
+            
+            async function loadQuestMassaLembaga() {
+                try {
+                    let response = await getQuestList(tab)
+                    console.log('questlist: ', response)
+                    setResult(response)
+                } catch (e) {
+                    console.log(e)
+                }
             }
-        }
+    
+            async function loadQuestKandidat() {
+                alert("Anda adalah kandidat")                
+            }
 
-        loadQuest()
-    }, [tab])
+            if (user.groups_id === 5) {
+                loadQuestKandidat()
+            } else {
+                loadQuestMassaLembaga()
+            }
+            
+		}
+	}, [user, tab])
 
     console.log(result.length)
     let lastIndex = currentPage * postPerPage
