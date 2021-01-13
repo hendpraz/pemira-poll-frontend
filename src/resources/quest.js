@@ -103,13 +103,66 @@ exports.createQuest = (data) =>
   });
 
 // Kandidat
-
 exports.getQuestListKandidat= async (status) =>
   new Promise(async (resolve, reject) => {    
     try {
       const token = localStorage.getItem('token')
       let response = await fetch(`${defaultAPIURL}/quests-kandidat/${status}/`, {
         method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
+      })
+      response = response.json()
+
+      resolve(response);
+    } catch (e) {
+      reject(e);
+    }
+  });
+
+exports.acceptQuestKandidat= async (questId) =>
+  new Promise(async (resolve, reject) => {    
+    try {
+      const token = localStorage.getItem('token')
+      let response = await fetch(`${defaultAPIURL}/quests-kandidat/accept/${questId}/`, {
+        method: 'PATCH',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
+      })
+      response = response.json()
+
+      resolve(response);
+    } catch (e) {
+      reject(e);
+    }
+  });
+
+exports.declineQuestKandidat= async (questId) =>
+  new Promise(async (resolve, reject) => {    
+    try {
+      const token = localStorage.getItem('token')
+      let response = await fetch(`${defaultAPIURL}/quests-kandidat/decline/${questId}/`, {
+        method: 'PATCH',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
+      })
+      response = response.json()
+
+      resolve(response);
+    } catch (e) {
+      reject(e);
+    }
+  });
+
+exports.forfeitQuestKandidat= async (questId) =>
+  new Promise(async (resolve, reject) => {    
+    try {
+      const token = localStorage.getItem('token')
+      let response = await fetch(`${defaultAPIURL}/quests-kandidat/forfeit/${questId}/`, {
+        method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${token}`
         },

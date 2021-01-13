@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import Button from 'components/Button'
-import {upvoteQuest, cancelUpvoteQuest} from 'resources/quest'
+import {upvoteQuest, cancelUpvoteQuest, acceptQuestKandidat, declineQuestKandidat, forfeitQuestKandidat} from 'resources/quest'
 
 const QuestModal = ({
     index,
@@ -13,7 +13,7 @@ const QuestModal = ({
     console.log(index, item, id, tab)
     const [isUpvoted,
         setIsUpvoted] = useState(item.is_upvoted)
-
+    
     const closeModal = () => {
         var modal = document.getElementById(`myModal-${index}`);
 
@@ -35,35 +35,53 @@ const QuestModal = ({
         item.is_upvoted = !item.is_upvoted
     }
 
+    const reloadPage = async () => {
+        window.location.reload();
+    }
+
     const terimaQuest = async () => {
         const r = window.confirm(`Apakah Anda yakin ingin MENERIMA quest berjudul ${item.judul}?`)
         if (r) {
-            alert("Anda menekan yes")
-        } else {
-            alert("Anda menekan no")
+            const response = await acceptQuestKandidat(item.id)
+            console.log(response)
+            reloadPage()
         }
     }
 
     const tolakQuest = async () => {
         const r = window.confirm(`Apakah Anda yakin ingin MENOLAK quest berjudul ${item.judul}?`)
         if (r) {
-            alert("Anda menekan yes")
-        } else {
-            alert("Anda menekan no")
+            const response = await declineQuestKandidat(item.id)
+            console.log(response)
+            reloadPage()
         }
     }
 
     const menyerahQuest = async () => {
         const r = window.confirm(`Apakah Anda yakin ingin MENYERAH pada quest berjudul ${item.judul}?`)
         if (r) {
-            alert("Anda menekan yes")
-        } else {
-            alert("Anda menekan no")
+            const response = await forfeitQuestKandidat(item.id)
+            console.log(response)
+            reloadPage()
         }
     }
 
     const unggahBukti = async () => {
         alert("Anda menekan tombol unggah bukti")
+    }
+
+    const getStatusDescription = (status) => {
+        console.log("Status quest:", status)
+        const description = {
+            "pending": "Pending - Belum Anda terima/tolak",
+            "accepted": "Accepted - Telah Anda terima",
+            "declined": "Declined - Telah Anda tolak",
+            "to_be_proven": "To Be Proven - Bukti telah diunggah, menunggu verifikasi",
+            "proof_rejected": "Proof Rejected - Bukti ditolak, silakan upload ulang bukti jik ada.",
+            "expired": "Expired - Quest telah melewati waktu tenggat"
+        }
+
+        return description[status]
     }
 
     return (
@@ -82,6 +100,10 @@ const QuestModal = ({
                     <br/>
                     <h4>Detail Quest</h4>
                     <p>{item.deskripsi}</p>
+                    <br/>
+                    <h5>Status:</h5>
+                    <p>{getStatusDescription(item.status_by_kandidat)}</p>
+                    <br/>
                     {id === 5
                         ? <div className="modal-btm">{tab === "pending" && <div className="btn-container columns">
                                     <Button file="terima-btn" onClick={terimaQuest} />
