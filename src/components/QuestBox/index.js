@@ -156,6 +156,9 @@ const QuestBox = () => {
                         last={index === currentResult.length - 1}
                         index={index}/>)
                 })}
+                {
+                    result.length === 0 && <div style={{paddingTop: "180px"}}>Quest kosong.</div>
+                }
                 {currentResult.length
                     ? <div className="my-pagination">
                             <span
@@ -176,9 +179,8 @@ const QuestBox = () => {
 
                 <div className="btm-container not-candidate">
                     <div className="btn-container columns">
-                        {id === 5 ? 
-                            <Button file="unggah-bukti-btn"/> 
-                            : <Button file="tambah-quest-btn" onClick={addQuest}/> 
+                        {id !== 5 && 
+                            <Button file="tambah-quest-btn" onClick={addQuest} /> 
                         }
                     </div>
                 </div>
