@@ -3,9 +3,9 @@ import config from "config";
 import Button from 'components/Button';
 import Quest from './Quest'
 import AddQuestModal from './AddQuestModal'
-import questList from './QuestList'
+// import questList from './QuestList'
 import {useAppContext} from "libs/contextLib"
-import {getQuestList} from "resources/quest"
+import {getQuestListMassaLembaga, getQuestListKandidat} from "resources/quest"
 
 const QuestBox = () => {
     const {assetsURL: {
@@ -60,13 +60,29 @@ const QuestBox = () => {
         if (user) {
             setId(user.groups_id)
 
-            // async function loadQuestMassaLembaga() {     try {         let response =
-            // await getQuestList(tab)         console.log('questlist: ', response)
-            // setResult(response)     } catch (e) {         console.log(e)     } } async
-            // function loadQuestKandidat() {     alert("Anda adalah kandidat") } if
-            // (user.groups_id === 5) {     loadQuestKandidat() } else {
-            // loadQuestMassaLembaga() }
-            setResult(questList)
+            async function loadQuestMassaLembaga() {
+                try {
+                    let response = await getQuestListMassaLembaga(tab)
+                    console.log('questlist: ', response)
+                    setResult(response)     
+                } catch (e) {
+                    console.log(e)     
+                } 
+            } async function loadQuestKandidat() {
+                try {
+                    let response = await getQuestListKandidat(tab)
+                    console.log('questlist: ', response)
+                    setResult(response)     
+                } catch (e) {
+                    console.log(e)     
+                }
+            }
+
+            if (user.groups_id === 5) {
+                loadQuestKandidat() 
+            } else {
+                loadQuestMassaLembaga() 
+            }
         }
     }, [user, tab])
 
@@ -102,17 +118,17 @@ const QuestBox = () => {
             <div className="quest-nav">
                 {id === 5
                     ? <ul>
+                            <li onClick={() => clickNav("pending")}>
+                                <div className="pending">Daftar Quest</div>
+                            </li>
                             <li onClick={() => clickNav("accepted")}>
-                                <div className="accepted">Daftar Quest</div>
+                                <div className="accepted">Quest Berjalan</div>
                             </li>
-                            <li onClick={() => clickNav("running")}>
-                                <div className="running">Quest Berjalan</div>
+                            <li onClick={() => clickNav("approved")}>
+                                <div className="approved">Quest Sukses</div>
                             </li>
-                            <li onClick={() => clickNav("success")}>
-                                <div className="success">Quest Sukses</div>
-                            </li>
-                            <li onClick={() => clickNav("failed")}>
-                                <div className="failed">Quest Gagal</div>
+                            <li onClick={() => clickNav("forfeited")}>
+                                <div className="forfeited">Quest Gagal</div>
                             </li>
                         </ul>
                     : <ul>
@@ -160,7 +176,10 @@ const QuestBox = () => {
 
                 <div className="btm-container not-candidate">
                     <div className="btn-container columns">
-                        <Button file="tambah-quest-btn" onClick={addQuest}/> {id === 5 && <Button file="unggah-bukti-btn"/>}
+                        {id === 5 ? 
+                            <Button file="unggah-bukti-btn"/> 
+                            : <Button file="tambah-quest-btn" onClick={addQuest}/> 
+                        }
                     </div>
                 </div>
                 <AddQuestModal/>

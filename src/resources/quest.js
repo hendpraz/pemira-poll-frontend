@@ -1,6 +1,8 @@
 const { defaultAPIURL } = require("../config");
 
-exports.getQuestList = async (status) =>
+
+// Massa atau Lembaga
+exports.getQuestListMassaLembaga = async (status) =>
   new Promise(async (resolve, reject) => {    
     try {
       const token = localStorage.getItem('token')
@@ -93,6 +95,26 @@ exports.createQuest = (data) =>
       })
       response = response.json()
       console.log(response)
+
+      resolve(response);
+    } catch (e) {
+      reject(e);
+    }
+  });
+
+// Kandidat
+
+exports.getQuestListKandidat= async (status) =>
+  new Promise(async (resolve, reject) => {    
+    try {
+      const token = localStorage.getItem('token')
+      let response = await fetch(`${defaultAPIURL}/quests-kandidat/${status}/`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
+      })
+      response = response.json()
 
       resolve(response);
     } catch (e) {
