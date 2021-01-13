@@ -23,7 +23,7 @@ function NavLoggedIn() {
                             Tutorial
                         </Link>
 
-                        <Link className="navbar-item">
+                        <Link className="navbar-item" to="/about-us">
                             About Us
                         </Link>
 

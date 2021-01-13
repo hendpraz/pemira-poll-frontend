@@ -1,27 +1,33 @@
 import React from 'react'
 import config from 'config'
 import 'styles/pages/Quest.scss'
+import { useHistory } from 'react-router-dom'
 
 const QuestSideNav = ({nav, setNav }) => {
 
+    const history = useHistory()
     const { assetsURL: {image}} = config
 
     const clickNav = clickedNav => {
-        setNav(prev => {
-            console.log(prev)
-            if (clickedNav !== prev) {
-                document
-                    .querySelector(`.${prev}`)
-                    .classList
-                    .remove("active")
-            }
-
-            return clickedNav
-        })
-        document
-            .querySelector(`.${clickedNav}`)
-            .classList
-            .add("active")
+        if (clickedNav == "home") {
+            history.push("/")
+        } else {
+            setNav(prev => {
+                console.log(prev)
+                if (clickedNav !== prev) {
+                    document
+                        .querySelector(`.${prev}`)
+                        .classList
+                        .remove("active")
+                }
+    
+                return clickedNav
+            })
+            document
+                .querySelector(`.${clickedNav}`)
+                .classList
+                .add("active")
+        }
     }
 
     return (
@@ -32,6 +38,7 @@ const QuestSideNav = ({nav, setNav }) => {
             <li><div className="tim-sukses" onClick={() => clickNav("tim-sukses")}>Tim Sukses</div></li>
             <li><div className="algojo" onClick={() => clickNav("algojo")}>Algojo</div></li>
             <li><div className="hasil-pemira" onClick={() => clickNav("hasil-pemira")}>Hasil Pemira</div></li>
+            <li>-</li>
         </div>
     )
 }
