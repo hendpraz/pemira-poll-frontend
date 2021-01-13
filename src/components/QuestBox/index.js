@@ -42,8 +42,10 @@ const QuestBox = () => {
     useEffect(() => {
         let navLink = document.getElementsByClassName(tab)[0]
 
-        navLink.classList.add("active")
-        
+        navLink
+            .classList
+            .add("active")
+
     }, [tab])
 
     const addQuest = () => {
@@ -61,29 +63,14 @@ const QuestBox = () => {
         if (user) {
             setId(user.groups_id)
             setResult(questList)
-            // async function loadQuestMassaLembaga() {
-            //     try {
-            //         let response = await getQuestListMassaLembaga(tab)
-            //         console.log('questlist: ', response)
-            //         setResult(response)     
-            //     } catch (e) {
-            //         console.log(e)     
-            //     } 
-            // } async function loadQuestKandidat() {
-            //     try {
-            //         let response = await getQuestListKandidat(tab)
-            //         console.log('questlist: ', response)
-            //         setResult(response)     
-            //     } catch (e) {
-            //         console.log(e)     
-            //     }
-            // }
-
-            // if (user.groups_id === 5) {
-            //     loadQuestKandidat() 
-            // } else {
-            //     loadQuestMassaLembaga() 
-            // }
+            // async function loadQuestMassaLembaga() {     try {         let response =
+            // await getQuestListMassaLembaga(tab)         console.log('questlist: ',
+            // response)         setResult(response)     } catch (e) {
+            // console.log(e)     } } async function loadQuestKandidat() {     try {
+            // let response = await getQuestListKandidat(tab)
+            // console.log('questlist: ', response)         setResult(response)     } catch
+            // (e) {         console.log(e)     } } if (user.groups_id === 5) {
+            // loadQuestKandidat() } else {     loadQuestMassaLembaga() }
         }
     }, [user, tab])
 
@@ -157,6 +144,10 @@ const QuestBox = () => {
                         last={index === currentResult.length - 1}
                         index={index + firstIndex}/>)
                 })}
+                {result.length === 0 && <div style={{
+                    paddingTop: "180px"
+                }}>Quest kosong.</div>
+}
                 {currentResult.length
                     ? <div className="my-pagination">
                             <span
@@ -165,7 +156,10 @@ const QuestBox = () => {
                                 : currentPage)}>&#60;</span>
                             {pageNumber.map(item => {
                                 return (
-                                    <span onClick={() => setCurrentPage(item)} key={item} className={`page-number ${currentPage === item && `current-page`}`}>{item}</span>
+                                    <span
+                                        onClick={() => setCurrentPage(item)}
+                                        key={item}
+                                        className={`page-number ${currentPage === item && `current-page`}`}>{item}</span>
                                 )
                             })}
                             <span
@@ -177,12 +171,12 @@ const QuestBox = () => {
 
                 <div className="btm-container not-candidate">
                     <div className="btn-container columns">
-                        {id !== 5 && <Button file="tambah-quest-btn" onClick={addQuest}/> 
-                        }
+                        {id !== 5 && <Button file="tambah-quest-btn" onClick={addQuest}/>
+}
                     </div>
                 </div>
-                <AddQuestModal />
-                
+                <AddQuestModal/>
+
             </div>
 
         </div>
