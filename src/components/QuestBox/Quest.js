@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
-import Button from 'components/Button';
+// import Button from 'components/Button';
 import QuestModal from './QuestModal'
 
 const Quest = ({tab, item, last, index, id}) => {
 
-    const modalTab = tab
+    // const modalTab = tab
 
     const [numOfUpvotes,
         setNumOfUpvotes] = useState(item.upvotes)

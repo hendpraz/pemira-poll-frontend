@@ -9,7 +9,7 @@ const QuestSideNav = ({nav, setNav }) => {
     const { assetsURL: {image}} = config
 
     const clickNav = clickedNav => {
-        if (clickedNav == "home") {
+        if (clickedNav === "home") {
             history.push("/")
         } else {
             setNav(prev => {

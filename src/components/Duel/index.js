@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import config from "config";
-import Button from 'components/Button';
+// import Button from 'components/Button';
 import Quest from '../QuestBox/Quest'
 import AddQuestModal from '../QuestBox/AddQuestModal'
 import questList from '../QuestBox/QuestList'
 import {useAppContext} from "libs/contextLib"
-import {getQuestList} from "resources/quest"
+// import {getQuestList} from "resources/quest"
 
 const DuelBox = () => {
     const {assetsURL: {
@@ -46,12 +46,6 @@ const DuelBox = () => {
             .add("active")
 
     }, [tab])
-
-    const addQuest = () => {
-        let modalAdd = document.getElementById("addQuest")
-
-        modalAdd.style.display = "block"
-    }
 
     const {user} = useAppContext()
 

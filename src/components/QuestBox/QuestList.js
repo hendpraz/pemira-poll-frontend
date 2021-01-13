@@ -1,83 +1,99 @@
 const questList = [
     {
-        name: "Habib Riziq",
-        status: "acc",
-        detail: "Habib Riziq gurune NU",
-        date: "17 Agustus 1945",
-        penerima: [
-            {
-                name: "Rudi",
-                angkatan: "2016",
-                organisasi: "Ubala"
-            },
-            {
-                name: "Tabuti",
-                angkatan: "2017",
-                organisasi: "HMIF"
-            }
-        ]
+        "id": "816b78b2-fd3c-4e2a-b151-d44c5a1350f7",
+        "judul": "Judul Quest",
+        "deskripsi": "Ini deskripsi quest ke7",
+        "user_contact": "email: mhendryp99@gmail.com, HP: 08xx",
+        "upvotes": 0,
+        "tipe": "optional",
+        "game_point": 0,
+        "status": "accepted",
+        "target": "all",
+        "deadline": "2021-01-09 21:51:32",
+        "created_at": "2021-01-09 16:58:23",
+        "updated_at": "2021-01-13 07:33:25",
+        "user": "7ef646a8-2693-4f4f-bdac-7266fd782877",
+        "is_upvoted": false
     },
     {
-        name: "Gus Nur",
-        status: "dec",
-        detail: "Iri? bilang bos hahahay",
-        date: "17 Agustus 1945",
-        penerima: [
-            {
-                name: "Rudi",
-                angkatan: "2016",
-                organisasi: "Ubala"
-            },
-            {
-                name: "Tabuti",
-                angkatan: "2017",
-                organisasi: "HMIF"
-            }
-        ]
+        "id": "d5e3b6d3-d688-4f85-b30c-54c7f1cd352a",
+        "judul": "Judul quest baru",
+        "deskripsi": "Contoh detail quest, midnight",
+        "user_contact": "Email: biasa1@mail.com, HP: 081234567890",
+        "upvotes": 0,
+        "tipe": "optional",
+        "game_point": 0,
+        "status": "accepted",
+        "target": "k3m",
+        "deadline": "2021-01-31 00:00:00",
+        "created_at": "2021-01-12 16:34:04",
+        "updated_at": "2021-01-13 07:32:10",
+        "user": "cc99c6b4-6000-4d16-9779-0c5feeccd027",
+        "is_upvoted": false
     },
     {
-        name: "Habib Selon",
-        status: "",
-        detail: "Makanya ganteng, ******!",
-        date: "17 Agustus 1945",
-        penerima: [
-            {
-                name: "Rudi",
-                angkatan: "2016",
-                organisasi: "Ubala"
-            }
-        ]
+        "id": "87abd1fa-a4f2-4e1e-a8db-009b45a90ee2",
+        "judul": "Judul quest baru",
+        "deskripsi": "Contoh detail quest, midnight",
+        "user_contact": "Email: biasa1@mail.com, HP: 081234567890",
+        "upvotes": 0,
+        "tipe": "optional",
+        "game_point": 0,
+        "status": "accepted",
+        "target": "k3m",
+        "deadline": "2021-01-13 00:00:00",
+        "created_at": "2021-01-12 16:35:08",
+        "updated_at": "2021-01-13 07:31:58",
+        "user": "cc99c6b4-6000-4d16-9779-0c5feeccd027",
+        "is_upvoted": false
     },
     {
-        name: "Ustadz Anwar Madura",
-        status: "acc",
-        detail: "Koka kola Coca cola",
-        date: "17 Agustus 1945",
-        penerima: [
-            {
-                name: "Rudi",
-                angkatan: "2016",
-                organisasi: "Ubala"
-            },
-            {
-                name: "Tabuti",
-                angkatan: "2017",
-                organisasi: "HMIF"
-            }
-        ]
+        "id": "fbcf5349-739f-4809-b54f-44202cf62ef3",
+        "judul": "Judul quest baru 3",
+        "deskripsi": "Contoh detail quest, midnight",
+        "user_contact": "Email: biasa1@mail.com, HP: 081234567890",
+        "upvotes": 0,
+        "tipe": "optional",
+        "game_point": 0,
+        "status": "accepted",
+        "target": "k3m",
+        "deadline": "2021-02-03 23:59:59",
+        "created_at": "2021-01-12 16:37:11",
+        "updated_at": "2021-01-13 07:31:20",
+        "user": "cc99c6b4-6000-4d16-9779-0c5feeccd027",
+        "is_upvoted": false
     },
     {
-        name: "Abdul Shomad",
-        status: "dec",
-        detail: "Bukan bom bunuh diri, itu namanya istisyhadiyah",
-        date: "17 Agustus 1945",
-        penerima: [
-            {
-                name: "Rudi",
-                angkatan: "2016",
-                organisasi: "Ubala"
-            }
-        ]
+        "id": "c6708293-6426-454f-a1ad-c17f96be2ff2",
+        "judul": "Judul quest baru 1637",
+        "deskripsi": "Contoh detail quest, midnight",
+        "user_contact": "Email: biasa1@mail.com, HP: 081234567890",
+        "upvotes": 0,
+        "tipe": "optional",
+        "game_point": 0,
+        "status": "accepted",
+        "target": "k3m",
+        "deadline": "2021-02-18 23:59:59",
+        "created_at": "2021-01-12 16:37:46",
+        "updated_at": "2021-01-13 07:31:11",
+        "user": "cc99c6b4-6000-4d16-9779-0c5feeccd027",
+        "is_upvoted": false
+    },
+    {
+        "id": "2b9719b1-6d99-4326-9f31-8aa0c4faccf6",
+        "judul": "Quest baru 1638",
+        "deskripsi": "Detail quest 1638",
+        "user_contact": "Email: biasa1@mail.com, HP: 081234567890",
+        "upvotes": 0,
+        "tipe": "optional",
+        "game_point": 0,
+        "status": "accepted",
+        "target": "mwa",
+        "deadline": "2021-01-22 23:59:59",
+        "created_at": "2021-01-12 16:38:45",
+        "updated_at": "2021-01-13 07:30:26",
+        "user": "cc99c6b4-6000-4d16-9779-0c5feeccd027",
+        "is_upvoted": false
     }
 ]
 
