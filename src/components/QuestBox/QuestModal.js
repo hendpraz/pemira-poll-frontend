@@ -35,6 +35,37 @@ const QuestModal = ({
         item.is_upvoted = !item.is_upvoted
     }
 
+    const terimaQuest = async () => {
+        const r = window.confirm(`Apakah Anda yakin ingin MENERIMA quest berjudul ${item.judul}?`)
+        if (r) {
+            alert("Anda menekan yes")
+        } else {
+            alert("Anda menekan no")
+        }
+    }
+
+    const tolakQuest = async () => {
+        const r = window.confirm(`Apakah Anda yakin ingin MENOLAK quest berjudul ${item.judul}?`)
+        if (r) {
+            alert("Anda menekan yes")
+        } else {
+            alert("Anda menekan no")
+        }
+    }
+
+    const menyerahQuest = async () => {
+        const r = window.confirm(`Apakah Anda yakin ingin MENYERAH pada quest berjudul ${item.judul}?`)
+        if (r) {
+            alert("Anda menekan yes")
+        } else {
+            alert("Anda menekan no")
+        }
+    }
+
+    const unggahBukti = async () => {
+        alert("Anda menekan tombol unggah bukti")
+    }
+
     return (
         <div>
             <div id={`myModal-${index}`} className="modal">
@@ -52,12 +83,12 @@ const QuestModal = ({
                     <h4>Detail Quest</h4>
                     <p>{item.deskripsi}</p>
                     {id === 5
-                        ? <div className="modal-btm">{tab === "accepted" && <div className="btn-container columns">
-                                    <Button file="terima-btn"/>
-                                    <Button file="tolak-btn"/>
-                                </div>} {tab === "running" && <div className="btn-container columns">
-                                    <Button file="unggah-bukti-btn"/>
-                                    <Button file="menyerah-btn"/>
+                        ? <div className="modal-btm">{tab === "pending" && <div className="btn-container columns">
+                                    <Button file="terima-btn" onClick={terimaQuest} />
+                                    <Button file="tolak-btn" onClick={tolakQuest} />
+                                </div>} {tab === "accepted" && <div className="btn-container columns">
+                                    <Button file="unggah-bukti-btn" onClick={unggahBukti}/>
+                                    <Button file="menyerah-btn" onClick={menyerahQuest}/>
                                 </div>}
                             </div>
                         : <Button
