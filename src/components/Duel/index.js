@@ -129,7 +129,7 @@ const DuelBox = () => {
                                 : currentPage)}>&#60;</span>
                             {pageNumber.map(item => {
                                 return (
-                                    <span onClick={() => setCurrentPage(item)} key={item} className="page-number">{item}</span>
+                                    <span onClick={() => setCurrentPage(item)} key={item} className={`page-number ${currentPage === item && `current-page`}`}>{item}</span>
                                 )
                             })}
                             <span

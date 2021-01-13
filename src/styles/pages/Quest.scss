@@ -48,15 +48,12 @@ $primary: #FDAF33;
     .quest-content {
         min-height: 400px;
         position: relative;
-
         @media (min-width: 1537px) and (max-width: 1920px) {
             min-height: 480px;
         }
-
         @media (max-width: 1200px) {
             min-height: 350px;
         }
-
         @media (max-width: 1024px) {
             min-height: 270px;
         }
@@ -84,7 +81,6 @@ $primary: #FDAF33;
     position: relative;
     margin-right: 4vw;
     min-height: 80vh;
-
     @media (min-width:1536px) and (max-width:1920px) {
         min-height: 60vh;
     }
@@ -98,11 +94,9 @@ $primary: #FDAF33;
         overflow: hidden;
         z-index: 4;
         padding: 2px;
-
         @media (min-width: 1537px) {
             width: 80vw;
         }
-
         @media (max-width: 1024px) {
             width: 75vw;
             right: -18.2%;
@@ -390,15 +384,12 @@ span[class^='close']:hover {
 .duel-content {
     min-height: 320px;
     position: relative;
-
     @media (min-width: 1537px) and (max-width: 1920px) {
         min-height: 380px;
     }
-
     @media (max-width: 1200px) {
         min-height: 230px;
     }
-
     @media (max-width: 1024px) {
         min-height: 200px;
     }
@@ -407,4 +398,40 @@ span[class^='close']:hover {
 
 .unggah-bukti {
     z-index: 2000;
+    color: #FCE0C4!important;
+
+    .status {
+        text-transform: capitalize;
+    }
+
+    .inputfile {
+        width: 0.1px!important;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute; 
+        z-index: -1;
+    }
+
+    .inputfile + label {
+        font-size: 2rem;
+        padding: 2%;
+        width: 100%;
+        border-radius: 20px;
+        color: black;
+        background-color: #FCE0C4;
+        display: inline-block;
+        text-align: center;
+
+        img {
+            width: 10%;
+            text-align: center;
+        }
+    }
+    
+    .inputfile:focus + label,
+    .inputfile + label:hover {
+        background-color: #d1b9a1;
+        cursor: pointer;
+    }
 }

@@ -71,7 +71,6 @@ const QuestModal = ({
 
     const unggahBukti = () => {
         let modalUnggah = document.getElementById("unggahBukti")
-        console.log(modalUnggah)
         modalUnggah.style.display = "block"
     }
 
@@ -126,7 +125,7 @@ const QuestModal = ({
 
                 </div>
             </div>
-            {id === 1 && <UnggahBuktiModal />}
+            {id === 1 && <UnggahBuktiModal item={item} />}
         </div>
     )
 }

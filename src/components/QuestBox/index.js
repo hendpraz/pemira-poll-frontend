@@ -182,7 +182,7 @@ const QuestBox = () => {
                     </div>
                 </div>
                 <AddQuestModal />
-                <UnggahBuktiModal />
+                
             </div>
 
         </div>
