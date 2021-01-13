@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import Button from 'components/Button'
 import {upvoteQuest, cancelUpvoteQuest, acceptQuestKandidat, declineQuestKandidat, forfeitQuestKandidat} from 'resources/quest'
+import UnggahBuktiModal from './UnggahBuktiModal'
 
 const QuestModal = ({
     index,
@@ -10,10 +11,10 @@ const QuestModal = ({
     id,
     tab
 }) => {
-    console.log(index, item, id, tab)
+
     const [isUpvoted,
         setIsUpvoted] = useState(item.is_upvoted)
-    
+
     const closeModal = () => {
         var modal = document.getElementById(`myModal-${index}`);
 
@@ -35,11 +36,13 @@ const QuestModal = ({
         item.is_upvoted = !item.is_upvoted
     }
 
-    const reloadPage = async () => {
-        window.location.reload();
+    const reloadPage = async() => {
+        window
+            .location
+            .reload();
     }
 
-    const terimaQuest = async () => {
+    const terimaQuest = async() => {
         const r = window.confirm(`Apakah Anda yakin ingin MENERIMA quest berjudul ${item.judul}?`)
         if (r) {
             const response = await acceptQuestKandidat(item.id)
@@ -48,7 +51,7 @@ const QuestModal = ({
         }
     }
 
-    const tolakQuest = async () => {
+    const tolakQuest = async() => {
         const r = window.confirm(`Apakah Anda yakin ingin MENOLAK quest berjudul ${item.judul}?`)
         if (r) {
             const response = await declineQuestKandidat(item.id)
@@ -57,7 +60,7 @@ const QuestModal = ({
         }
     }
 
-    const menyerahQuest = async () => {
+    const menyerahQuest = async() => {
         const r = window.confirm(`Apakah Anda yakin ingin MENYERAH pada quest berjudul ${item.judul}?`)
         if (r) {
             const response = await forfeitQuestKandidat(item.id)
@@ -66,8 +69,10 @@ const QuestModal = ({
         }
     }
 
-    const unggahBukti = async () => {
-        alert("Anda menekan tombol unggah bukti")
+    const unggahBukti = () => {
+        let modalUnggah = document.getElementById("unggahBukti")
+        console.log(modalUnggah)
+        modalUnggah.style.display = "block"
     }
 
     const getStatusDescription = (status) => {
@@ -103,11 +108,10 @@ const QuestModal = ({
                     <br/>
                     <h5>Status:</h5>
                     <p>{getStatusDescription(item.status_by_kandidat)}</p>
-                    <br/>
-                    {id === 5
+                    <br/> {id === 1
                         ? <div className="modal-btm">{tab === "pending" && <div className="btn-container columns">
-                                    <Button file="terima-btn" onClick={terimaQuest} />
-                                    <Button file="tolak-btn" onClick={tolakQuest} />
+                                    <Button file="terima-btn" onClick={terimaQuest}/>
+                                    <Button file="tolak-btn" onClick={tolakQuest}/>
                                 </div>} {tab === "accepted" && <div className="btn-container columns">
                                     <Button file="unggah-bukti-btn" onClick={unggahBukti}/>
                                     <Button file="menyerah-btn" onClick={menyerahQuest}/>
@@ -118,9 +122,11 @@ const QuestModal = ({
                             ? `cancel-btn`
                             : `upvote-btn`}
                             onClick={changeUpvoteStatus}/>}
+                    
 
                 </div>
             </div>
+            {id === 1 && <UnggahBuktiModal />}
         </div>
     )
 }

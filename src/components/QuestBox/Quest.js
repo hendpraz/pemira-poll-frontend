@@ -25,14 +25,14 @@ const Quest = ({tab, item, last, index, id}) => {
     }
 
     if (id === 5) { // Kandidat
+        console.log(index)
         return (
             <div id={`questItem-${index}`} onClick={() => openModal()}>
                 <div
-                    className={`quest-container columns${index === 0
-                    ? ` mt-10`
-                    : ` go-top`} ${last && ` bor-btm`} ${index % 2
-                        ? ' blue'
-                        : ` red`}`}>
+                    className={`quest-container columns
+                        ${index % 3 === 0 ? ` mt-10`: ` go-top`} 
+                        ${last && ` bor-btm`} 
+                        ${index % 2 ? ' blue' : ` red`}`}>
                     <div className="quest-name column has-text-left">
                         {index + 1}. {item.judul}
                     </div>
@@ -51,7 +51,7 @@ const Quest = ({tab, item, last, index, id}) => {
         return (
             <div id={`questItem-${index}`} onClick={() => openModal()}>
                 <div
-                    className={`quest-container columns${index === 0
+                    className={`quest-container columns${index % 3 === 0
                     ? ` mt-10`
                     : ` go-top`} ${last && ` bor-btm`} ${index % 2
                         ? ' blue'

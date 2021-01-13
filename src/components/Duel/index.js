@@ -119,7 +119,7 @@ const DuelBox = () => {
                         tab={tab}
                         item={item}
                         last={index === currentResult.length - 1}
-                        index={index}/>)
+                        index={index+firstIndex}/>)
                 })}
                 {currentResult.length
                     ? <div className="my-pagination">

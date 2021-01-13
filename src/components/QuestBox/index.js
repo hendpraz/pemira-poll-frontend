@@ -3,9 +3,10 @@ import config from "config";
 import Button from 'components/Button';
 import Quest from './Quest'
 import AddQuestModal from './AddQuestModal'
-// import questList from './QuestList'
+import questList from './QuestList'
 import {useAppContext} from "libs/contextLib"
 import {getQuestListMassaLembaga, getQuestListKandidat} from "resources/quest"
+import UnggahBuktiModal from './UnggahBuktiModal';
 
 const QuestBox = () => {
     const {assetsURL: {
@@ -59,30 +60,30 @@ const QuestBox = () => {
     useEffect(() => {
         if (user) {
             setId(user.groups_id)
+            setResult(questList)
+            // async function loadQuestMassaLembaga() {
+            //     try {
+            //         let response = await getQuestListMassaLembaga(tab)
+            //         console.log('questlist: ', response)
+            //         setResult(response)     
+            //     } catch (e) {
+            //         console.log(e)     
+            //     } 
+            // } async function loadQuestKandidat() {
+            //     try {
+            //         let response = await getQuestListKandidat(tab)
+            //         console.log('questlist: ', response)
+            //         setResult(response)     
+            //     } catch (e) {
+            //         console.log(e)     
+            //     }
+            // }
 
-            async function loadQuestMassaLembaga() {
-                try {
-                    let response = await getQuestListMassaLembaga(tab)
-                    console.log('questlist: ', response)
-                    setResult(response)     
-                } catch (e) {
-                    console.log(e)     
-                } 
-            } async function loadQuestKandidat() {
-                try {
-                    let response = await getQuestListKandidat(tab)
-                    console.log('questlist: ', response)
-                    setResult(response)     
-                } catch (e) {
-                    console.log(e)     
-                }
-            }
-
-            if (user.groups_id === 5) {
-                loadQuestKandidat() 
-            } else {
-                loadQuestMassaLembaga() 
-            }
+            // if (user.groups_id === 5) {
+            //     loadQuestKandidat() 
+            // } else {
+            //     loadQuestMassaLembaga() 
+            // }
         }
     }, [user, tab])
 
@@ -132,11 +133,11 @@ const QuestBox = () => {
                             </li>
                         </ul>
                     : <ul>
-                        <li onClick={() => clickNav("accepted")}>
-                            <div className="accepted">Daftar Quest</div>
+                        <li onClick={() => clickNav("pending")}>
+                            <div className="pending">Daftar Quest</div>
                         </li>
-                        <li onClick={() => clickNav("running")}>
-                            <div className="running">Quest Diterima</div>
+                        <li onClick={() => clickNav("accepted")}>
+                            <div className="accepted">Quest Diterima</div>
                         </li>
                         <li onClick={() => clickNav("myprogress")}>
                             <div className="myprogress">Progress Quest</div>
@@ -154,7 +155,7 @@ const QuestBox = () => {
                         tab={tab}
                         item={item}
                         last={index === currentResult.length - 1}
-                        index={index}/>)
+                        index={index + firstIndex}/>)
                 })}
                 {currentResult.length
                     ? <div className="my-pagination">
@@ -164,7 +165,7 @@ const QuestBox = () => {
                                 : currentPage)}>&#60;</span>
                             {pageNumber.map(item => {
                                 return (
-                                    <span onClick={() => setCurrentPage(item)} key={item} className="page-number">{item}</span>
+                                    <span onClick={() => setCurrentPage(item)} key={item} className={`page-number ${currentPage === item && `current-page`}`}>{item}</span>
                                 )
                             })}
                             <span
@@ -176,13 +177,12 @@ const QuestBox = () => {
 
                 <div className="btm-container not-candidate">
                     <div className="btn-container columns">
-                        {id === 5 ? 
-                            <Button file="unggah-bukti-btn"/> 
-                            : <Button file="tambah-quest-btn" onClick={addQuest}/> 
+                        {id !== 5 && <Button file="tambah-quest-btn" onClick={addQuest}/> 
                         }
                     </div>
                 </div>
-                <AddQuestModal/>
+                <AddQuestModal />
+                <UnggahBuktiModal />
             </div>
 
         </div>

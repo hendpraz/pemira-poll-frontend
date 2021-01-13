@@ -46,7 +46,7 @@ $primary: #FDAF33;
     }
 
     .quest-content {
-        min-height: 420px;
+        min-height: 400px;
         position: relative;
 
         @media (min-width: 1537px) and (max-width: 1920px) {
@@ -84,6 +84,10 @@ $primary: #FDAF33;
     position: relative;
     margin-right: 4vw;
     min-height: 80vh;
+
+    @media (min-width:1536px) and (max-width:1920px) {
+        min-height: 60vh;
+    }
 
     .quest-nav {
         position: absolute;
@@ -217,14 +221,19 @@ $primary: #FDAF33;
         font-size: 1.25vw;
         cursor: pointer;
         margin: 0 10px;
+        color: white!important;
     }
     span:hover {
         transform: scale(1.1);
     }
+
+    .current-page {
+        color: $primary!important;
+    }
 }
 
 .btm-container {
-    padding: 3vw;
+    padding: 0 3vw 3vw;
 
     .details-btn {
         width: 50%;
@@ -351,7 +360,7 @@ span[class^='close']:hover {
 .modal-btm {
     position: absolute;
     bottom: 0;
-    width: 85%;
+    width: calc(100% - 100px);
     display: block;
     text-align: center;
 
@@ -362,9 +371,14 @@ span[class^='close']:hover {
 
         .details-btn {
             position: relative;
-            width: 20%;
-            margin-left: 5px;
-            margin-right: 5px;
+            width: 15%;
+            margin-left: 10px;
+            margin-right: 10px;
+
+            img {
+                margin: 0 auto;
+                width: 100%;
+            }
         }
     }
 }
@@ -378,7 +392,7 @@ span[class^='close']:hover {
     position: relative;
 
     @media (min-width: 1537px) and (max-width: 1920px) {
-        min-height: 330px;
+        min-height: 380px;
     }
 
     @media (max-width: 1200px) {
@@ -389,4 +403,8 @@ span[class^='close']:hover {
         min-height: 200px;
     }
 
+}
+
+.unggah-bukti {
+    z-index: 2000;
 }

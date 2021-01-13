@@ -38,7 +38,6 @@ const QuestSideNav = ({nav, setNav }) => {
             <li><div className="tim-sukses" onClick={() => clickNav("tim-sukses")}>Tim Sukses</div></li>
             <li><div className="algojo" onClick={() => clickNav("algojo")}>Algojo</div></li>
             <li><div className="hasil-pemira" onClick={() => clickNav("hasil-pemira")}>Hasil Pemira</div></li>
-            <li>-</li>
         </div>
     )
 }
