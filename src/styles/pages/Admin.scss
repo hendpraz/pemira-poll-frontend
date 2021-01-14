@@ -1,0 +1,189 @@
+.admin-page {
+
+    a,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+        font-family: 'Nunito', sans-serif!important;
+    }
+
+    .navbar {
+        padding: 5px 20px;
+        box-shadow: 0 0.5px 10px 0.25px rgb(108, 108, 108);
+
+        .navbar-brand {
+            font-weight: 900;
+            font-size: 1.75rem;
+            padding: 0 15px;
+
+            h3 {
+                font-size: 1.825rem;
+                line-height: 1;
+                font-family: 'Nunito', sans-serif!important;
+            }
+
+            h5 {
+                font-size: 1rem;
+                letter-spacing: 2.25px;
+                line-height: 1;
+                font-family: 'Nunito', sans-serif!important;
+            }
+        }
+
+        .navbar-menu {
+            padding: 0 20px;
+        }
+
+        .navbar-item,
+        .navbar-link {
+            color: hsl(171, 100%, 41%)!important;
+            margin: 0 10px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+        }
+
+        .navbar-link::after {
+            font-size: 0.75rem;
+            border-color: hsl(171, 100%, 41%)!important;
+        }
+        .navbar-item:hover {
+            background-color: rgba(0,0,0, 0.1)!important;
+        }
+    }
+
+    .user {
+        position: relative;
+        width: 100%;
+        padding: 5%;
+
+        .user-list-content {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap!important;
+            flex-direction: row;
+            justify-content: flex-start;
+
+            .user-list-item {
+                width: 50%;
+
+                .user-item-list-content {
+                    border-radius: 8px;
+                    box-shadow: .5px .5px 5px .5px rgba(0,0,0,0.3);
+                    padding: 20px;
+
+                    .is-flex {
+                        align-items: center;
+                        
+                        h3, p {
+                            color: hsl(171, 100%, 41%)!important;
+                        }
+                        h5 {
+                            margin-left: auto;
+                        }
+                    }
+
+                    h5 {
+                        color: #a7a7a7;
+                        font-weight: 400;
+                    }
+                }
+
+                .user-item-list-content:hover    {
+                    cursor: pointer;
+                    background-color: rgba(0,0,0,.05);
+                }
+
+                .modal {
+                   
+
+                    .modal-card {
+                        .modal-card-body {
+                            border-radius: 0 0 8px 8px!important;
+                        }
+                    }
+
+                    h3, h5, p    {
+                        font-weight: 400;
+                        color: hsl(171, 100%, 41%);
+                    }
+
+                    h5 {
+                        font-size: 1.25rem;
+                    }
+
+                    span {
+                        color: #2c2c2c!important
+                    }
+
+                    .username {
+                        color: hsl(348, 100%, 61%)!important;
+                    }
+
+                    table {
+                        td {
+                            padding: 5px;
+                        }
+
+                        td:last-child {
+                            h5 {
+                                color: #2c2c2c!important;
+                            }
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+
+    .pagination {
+        padding: 20px;
+        position: relative;
+
+        a {
+            box-shadow: 0 0.1px 1px 0.25px rgb(108, 108, 108);
+            color:hsl(348, 100%, 61%);
+        }
+
+        a:hover {
+            background-color: rgba(0,0,0, .05)!important;
+        }
+    }
+
+    .create-user-container {
+        .input-container{
+            padding: 30px 20px;
+
+            label h5 {
+                color: hsl(171, 100%, 41%)!important;
+            }
+
+            input {
+                width: 100%!important;
+                // border: none;
+                border: solid 1px rgb(176, 175, 175)!important;
+                font-family: 'Nunito', sans-serif;
+                padding: 8px 15px;
+                font-size: 1rem;
+                border-radius: 4px!important;
+            }
+
+            .select {
+                width: 100%;
+                
+                select {
+                    font-family: 'Nunito', sans-serif!important;
+                    width: 100%;
+                };
+            }
+
+            input:focus {
+                border: solid 2px hsl(348, 100%, 61%)!important;
+            }
+        }
+    }
+}

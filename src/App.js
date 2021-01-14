@@ -16,6 +16,7 @@ import Pendaftaran from './pages/Berkas/Pendaftaran'
 import AboutUs from './pages/AboutUs'
 import NotFound from './pages/NotFound'
 import Profile from 'pages/Profile'
+import Admin from 'pages/AdminPage'
 
 function App() {
   const [isAuthenticated, userHasAuthenticated] = useState(localStorage.getItem('token') ? true : false)
@@ -65,6 +66,7 @@ function App() {
           <Route exact path="/about-us" render={() => <AboutUs />} />
           <Route exact path="/daftar" render={() => <Pendaftaran />} />
           <Route exact path="/profile" render={() => <Profile />} />
+          <Route exact path="/admin" render={() => <Admin />} />
           <Route path="" render={() => <NotFound />} />
         </Switch>
       </BrowserRouter>
