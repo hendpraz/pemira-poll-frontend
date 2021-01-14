@@ -26,12 +26,12 @@ const Pagination = ({length, currentPage, setCurrentPage, postPerPage}) => {
         <div>
             <nav className="pagination is-right" role="navigation" aria-label="pagination">
                 <a
-                    onClick={() => setCurrentPage(currentPage < length - 1
-                    ? currentPage + 1
-                    : currentPage)}className="pagination-previous">Previous</a>
-                <a
                     onClick={() => setCurrentPage(currentPage > 1
                     ? currentPage - 1
+                    : currentPage)}className="pagination-previous">Previous</a>
+                <a
+                    onClick={() => setCurrentPage(currentPage < page.length
+                    ? currentPage + 1
                     : currentPage)}
                     className="pagination-next">Next page</a>
                 <ul className="pagination-list">
