@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import UserModal from './userModal'
 import list from './listOfQuest'
 import QuestModal from './QuestModal'
 import Pagination from './Pagination'
@@ -14,7 +13,7 @@ const UserList = () => {
     
     useEffect(() => {
         setResult(list)
-    }, [list])
+    }, [])
 
     const lastIndex = postPerPage * currentPage
     const firstIndex = lastIndex - postPerPage

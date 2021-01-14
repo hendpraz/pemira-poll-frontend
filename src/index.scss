@@ -1,9 +1,14 @@
 $primary: #FDAF33;
 $dark-blue: #02141D;
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     position: relative;
+
     @media (max-width: 768px){
         display: none;
     }
