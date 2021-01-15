@@ -9,6 +9,7 @@ import Authenticated from 'layouts/Authenticated'
 import { useHistory } from 'react-router-dom'
 import { useAppContext } from 'libs/contextLib'
 import DuelBox from 'components/Duel'
+import HomeProfile from 'components/HomeProfile'
 
 const Profile = (props) => {
 
@@ -58,8 +59,11 @@ const Profile = (props) => {
                     </div>
                     <div className="right-quest is-two-thirds column mr-4-desktop">
                         <NavNoBrands />
+                        {nav === "home" && <HomeProfile />}
                         {nav === "quest-wall" && <QuestBox />}
                         {nav === "duel-wall" && <DuelBox />}
+                        
+
                     </div>
                 </div>
                 <Footer/>

@@ -1,4 +1,5 @@
 $yelfont: #F9F3A0;
+$primary: #FDAF33;
 
 .Content {
     width: 80%;
@@ -13,8 +14,133 @@ $yelfont: #F9F3A0;
     .details-btn {
         margin-top: 20px;
     }
+
+    h2 {
+        font-weight: 400;
+        color: $yelfont;
+        margin-bottom: 50px;
+        font-size: 2.25vw;
+    }
 }
 
 .carContainer {
     padding: 0 5%;
+}
+
+.margincuy {
+    margin: 33% 0 0;
+    width: 100%;
+    padding: 0;
+    position: relative;
+
+    hr {
+        position: relative;
+        height: 4px;
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    .home-landing-content {
+        text-align: center;
+        width: 40%;
+        margin: 0 auto;
+
+        h2,
+        p {
+            text-align: center;
+            padding: 20px 20px 0;
+        }
+
+        h2 {
+            font-weight: 600;
+            font-size: 2.5rem;
+        }
+
+        p {
+            font-size: 1.25rem;
+        }
+    }
+
+    .cloud-container {
+        position: relative;
+        width: 100%;
+        left: 0;
+        display: flex;
+        margin-top: -15vw;
+
+        .cloud-left {
+            position: relative;
+        }
+
+        .cloud-right {
+            position: relative;
+            margin-left: auto;
+        }
+
+        img {
+            transform: translateY(4px);
+        }
+    }
+}
+
+.container-kematian {
+
+    .border-luar-item {
+        border-top: solid 4px black;
+        border-bottom: solid 4px black;
+    }
+
+    .border-dalem-item {
+        border: solid 6px black;
+    }
+
+    .border-luar-kuning {
+        border: solid 12px $primary;
+    }
+
+    .border-dalem-kuning {
+        border: solid 10px $yelfont;
+    }
+    
+
+    .contentnyacok {
+        min-height: 100vh;
+
+        .judul-container {
+            position: absolute;
+            z-index: 6;
+            margin-top: 5%;
+            border-top: solid 5px $primary;
+            border-bottom: solid 5px $primary;
+            width: 100%;
+            left: 0;
+            background-color: #62070a;
+
+            h2 {
+                margin: 4px 0;
+                border-top: solid 3px $primary;
+                border-bottom: solid 3px $primary;
+                padding: 20px;
+                font-weight: 400;
+            }
+        }
+
+        .content-container {
+            margin-top: 16vw;
+            margin-bottom: 3vw;
+
+            .kandidat-profile {
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+
+                img {
+                    text-align: left;
+                    position: relative;
+                    width: 60%;
+                    padding: 20% 10% 40%;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
 }
