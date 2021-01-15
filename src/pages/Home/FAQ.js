@@ -9,7 +9,7 @@ const FAQ = () => {
                         <div className="border-dalem-kuning">
                             <div className="border-dalem-item contentnyacok">
                                 <div className="judul-container">
-                                    <h2 className="has-text-centered">FAQ</h2>
+                                    <h2 className="has-text-centered" id="FAQ">FAQ</h2>
                                 </div>
                                 <div className="content-container">
                                     

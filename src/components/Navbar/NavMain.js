@@ -23,13 +23,13 @@ function NavMain() {
 
                 <div id="navbarBasicExample" className="navbar-menu">
                     <div className="navbar-start">
-                        <Link className="navbar-item">
+                        <a className="navbar-item" href="#FAQ">
                             FAQ
-                        </Link>
+                        </a>
 
-                        <Link className="navbar-item">
+                        <a className="navbar-item" href="#Tutorial">
                             Tutorial
-                        </Link>
+                        </a>
 
                         <Link className="navbar-item" to="/about-us">
                             About Us
@@ -38,16 +38,16 @@ function NavMain() {
                     </div>
 
                     <div className="navbar-end">
-                        <Link className="navbar-item">
+                        <a className="navbar-item" href="#Kandidat">
                             Kandidat
-                        </Link>
+                        </a>
 
                         <Link className="navbar-item" to="/login">
                             Login
                         </Link>
                     </div>
                 </div>
-                <Link
+                <a
                     role="button"
                     className="navbar-burger"
                     aria-label="menu"
@@ -57,7 +57,7 @@ function NavMain() {
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
-                </Link>
+                </a>
             </nav>
 
             <hr/>

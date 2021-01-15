@@ -10,7 +10,7 @@ const Kandidat = () => {
                     <div className="border-dalem-item">
                         <div className="border-dalem-kuning">
                             <div className="border-dalem-item contentnyacok">
-                                <div className="judul-container">
+                                <div className="judul-container"  id="Kandidat">
                                     <h2 className="has-text-centered">Kandidat 2021</h2>
                                 </div>
                                 <div className="content-container">
