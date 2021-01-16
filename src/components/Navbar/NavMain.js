@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import config from 'config'
 import 'styles/Nav.scss'
 
-function NavMain() {
+function NavMain({logo}) {
     const {assetsURL: {
             image
         }} = config
@@ -12,9 +12,9 @@ function NavMain() {
         <div className="navMainContainer">
             <nav className="navMain" role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
-                    <div className="home-logo">
+                    {logo && <div className="home-logo">
                         <img src={`${image}/home-logo.png`} alt=""/>
-                    </div>
+                    </div>}
                     <Link className="navbar-item" to="#">
                         <h1 className="web-title is-size-4-mobile">Pemira KM</h1>
                     </Link>

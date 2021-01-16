@@ -224,6 +224,14 @@ $primary: #FDAF33;
 
 .faq-content {
     padding: 1% 5%;
+
+    p {
+        font-size: 1.25rem;
+        @media (min-width: 1537px) {
+            font-size: 1.75rem;
+        }
+    }
+
 }
 
 .home-bottom {
