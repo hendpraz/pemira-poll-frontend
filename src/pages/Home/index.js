@@ -11,6 +11,7 @@ import Kandidat from './Kandidat';
 import TopFive from './TopFive';
 import Tutorial from './Tutorial';
 import FAQ from './FAQ';
+import HomeBottom from './HomeBottom';
 
 function Home() {
     const {assetsURL: {
@@ -49,6 +50,7 @@ function Home() {
                 <TopFive />
                 <Tutorial />
                 <FAQ />
+                <HomeBottom />
             </div>
 
             <Footer hashtag='true'/>

@@ -12,7 +12,14 @@ const FAQ = () => {
                                     <h2 className="has-text-centered" id="FAQ">FAQ</h2>
                                 </div>
                                 <div className="content-container">
-                                    
+                                    <div className="faq-content">
+                                        <div className="faq-container">
+                                            <p className="question-field">Q: Apa syarat bisa menjadi pemilih?</p>
+                                            <p className="answer-field">A: masih hidup dan mahasiswa ITB</p>
+                                            <p className="question-field">Q: Golput boleh ga?</p>
+                                            <p className="question-field">A: g</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
