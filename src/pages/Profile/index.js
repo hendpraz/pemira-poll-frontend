@@ -44,6 +44,9 @@ const Profile = (props) => {
                 <div className="myContent columns  ">
                     <div className="left-quest is-one-third column">
                         <QuestSideNav nav={nav} setNav={setNav} />
+                        <div className="ads-profile">
+
+                        </div>
                         <div className="btn-quest">
                             <div className="btn-container">
                                 <Button file="cream-btn"/>

@@ -46,16 +46,16 @@ $primary: #FDAF33;
     }
 
     .quest-content {
-        min-height: 400px;
+        min-height: 470px;
         position: relative;
         @media (min-width: 1537px) and (max-width: 1920px) {
-            min-height: 480px;
+            min-height: 550px;
         }
         @media (max-width: 1200px) {
-            min-height: 350px;
+            min-height: 500px;
         }
         @media (max-width: 1024px) {
-            min-height: 270px;
+            min-height: 340px;
         }
 
         .btm-container {
@@ -80,9 +80,9 @@ $primary: #FDAF33;
     background-size: 100% 100%;
     position: relative;
     margin-right: 4vw;
-    min-height: 80vh;
-    @media (min-width:1536px) and (max-width:1920px) {
-        min-height: 60vh;
+    min-height: 85vh;
+    @media (min-width:1537px) and (max-width:1920px) {
+        min-height: 65vh;
     }
 
     .quest-nav {
@@ -434,4 +434,11 @@ span[class^='close']:hover {
         background-color: #d1b9a1;
         cursor: pointer;
     }
+}
+
+.ads-profile {
+    background-color: #C4C4C4;
+    padding: 40px 0;
+    width: 50%;
+    margin: 0 auto 20px;
 }

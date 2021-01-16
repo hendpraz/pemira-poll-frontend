@@ -33,6 +33,10 @@ $primary: #FDAF33;
     padding: 0;
     position: relative;
 
+    @media (min-width: 1537px) {
+        margin-top: 35%;
+    }
+
     hr {
         position: relative;
         height: 4px;
