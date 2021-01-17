@@ -62,11 +62,11 @@ function App() {
           <Route exact path="/login" render={() => <LoginSelect />} />
           <Route exact path="/login/lembaga" render={() => <Lembaga />} />
           <Route exact path="/login/nonina" render={() => <NonINA />} />
-          <Route exact path="/ambil-berkas" render={() => <AmbilBerkas />} />
+          {/* <Route exact path="/ambil-berkas" render={() => <AmbilBerkas />} /> */}
           <Route exact path="/about-us" render={() => <AboutUs />} />
-          <Route exact path="/daftar" render={() => <Pendaftaran />} />
+          {/* <Route exact path="/daftar" render={() => <Pendaftaran />} /> */}
           <Route exact path="/profile" render={() => <Profile />} />
-          <Route exact path="/admin" render={() => <Admin />} />
+          {/* <Route exact path="/admin" render={() => <Admin />} /> */}
           <Route path="" render={() => <NotFound />} />
         </Switch>
       </BrowserRouter>

@@ -27,7 +27,7 @@ const Profile = (props) => {
         history.push("/")
     }
 
-    const [nav, setNav] = useState('quest-wall')
+    const [nav, setNav] = useState('home')
     
     useEffect(() => {
         let navLink = document.getElementsByClassName(nav)[0]
@@ -65,8 +65,6 @@ const Profile = (props) => {
                         {nav === "home" && <HomeProfile />}
                         {nav === "quest-wall" && <QuestBox />}
                         {nav === "duel-wall" && <DuelBox />}
-                        
-
                     </div>
                 </div>
                 <Footer/>
