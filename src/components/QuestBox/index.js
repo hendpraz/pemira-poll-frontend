@@ -3,10 +3,10 @@ import config from "config";
 import Button from 'components/Button';
 import Quest from './Quest'
 import AddQuestModal from './AddQuestModal'
-import questList from './QuestList'
+// import questList from './QuestList'
 import {useAppContext} from "libs/contextLib"
 import {getQuestListMassaLembaga, getQuestListKandidat} from "resources/quest"
-import UnggahBuktiModal from './UnggahBuktiModal';
+// import UnggahBuktiModal from './UnggahBuktiModal';
 
 const QuestBox = () => {
     const {assetsURL: {
@@ -62,15 +62,32 @@ const QuestBox = () => {
     useEffect(() => {
         if (user) {
             setId(user.groups_id)
-            setResult(questList)
-            // async function loadQuestMassaLembaga() {     try {         let response =
-            // await getQuestListMassaLembaga(tab)         console.log('questlist: ',
-            // response)         setResult(response)     } catch (e) {
-            // console.log(e)     } } async function loadQuestKandidat() {     try {
-            // let response = await getQuestListKandidat(tab)
-            // console.log('questlist: ', response)         setResult(response)     } catch
-            // (e) {         console.log(e)     } } if (user.groups_id === 5) {
-            // loadQuestKandidat() } else {     loadQuestMassaLembaga() }
+            // setResult(questList)
+            async function loadQuestMassaLembaga() {
+                try {
+                    let response = await getQuestListMassaLembaga(tab)         
+                    console.log('questlist: ', response)         
+                    setResult(response)
+                } catch (e) {
+                    console.log(e)
+                }
+            }
+            
+            async function loadQuestKandidat() {
+                try {
+                    let response = await getQuestListKandidat(tab)
+                    console.log('questlist: ', response)         
+                    setResult(response)
+                } catch (e) {
+                    console.log(e)
+                }
+            } 
+            
+            if (user.groups_id === 5) {
+                loadQuestKandidat()
+            } else {
+                loadQuestMassaLembaga()
+            }
         }
     }, [user, tab])
 

@@ -1,11 +1,11 @@
 import React from 'react'
 import config from 'config'
 import 'styles/pages/Quest.scss'
-import {useHistory} from 'react-router-dom'
+// import {useHistory} from 'react-router-dom'
 
 const QuestSideNav = ({nav, setNav}) => {
 
-    const history = useHistory()
+    // const history = useHistory()
     const {assetsURL: {
             image
         }} = config
