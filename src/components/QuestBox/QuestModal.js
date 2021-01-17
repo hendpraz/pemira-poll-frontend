@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import Button from 'components/Button'
-import {upvoteQuest, cancelUpvoteQuest, acceptQuestKandidat, declineQuestKandidat, forfeitQuestKandidat} from 'resources/quest'
+import { upvoteQuest, cancelUpvoteQuest, acceptQuestKandidat, declineQuestKandidat, forfeitQuestKandidat } from 'resources/quest'
 import UnggahBuktiModal from './UnggahBuktiModal'
 
 const QuestModal = ({

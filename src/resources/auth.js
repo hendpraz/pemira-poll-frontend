@@ -1,6 +1,6 @@
 const { defaultAPIURL } = require("../config");
 
-export const getMyProfile = async () =>
+exports.getMyProfile = async () =>
   new Promise(async (resolve, reject) => {    
     try {
       const token = localStorage.getItem('token')
