@@ -103,7 +103,7 @@ exports.createQuest = (data) =>
   });
 
 // Kandidat
-exports.getQuestListKandidat= async (status) =>
+exports.getQuestListKandidat = async (status) =>
   new Promise(async (resolve, reject) => {    
     try {
       const token = localStorage.getItem('token')
@@ -121,7 +121,7 @@ exports.getQuestListKandidat= async (status) =>
     }
   });
 
-exports.acceptQuestKandidat= async (questId) =>
+exports.acceptQuestKandidat = async (questId) =>
   new Promise(async (resolve, reject) => {    
     try {
       const token = localStorage.getItem('token')
@@ -139,7 +139,7 @@ exports.acceptQuestKandidat= async (questId) =>
     }
   });
 
-exports.declineQuestKandidat= async (questId) =>
+exports.declineQuestKandidat = async (questId) =>
   new Promise(async (resolve, reject) => {    
     try {
       const token = localStorage.getItem('token')
@@ -157,7 +157,7 @@ exports.declineQuestKandidat= async (questId) =>
     }
   });
 
-exports.forfeitQuestKandidat= async (questId) =>
+exports.forfeitQuestKandidat = async (questId) =>
   new Promise(async (resolve, reject) => {    
     try {
       const token = localStorage.getItem('token')
