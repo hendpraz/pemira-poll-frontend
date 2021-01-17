@@ -1,12 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
+import config from 'config'
 import 'styles/Nav.scss'
 
-function NavMain() {
+function NavMain({logo}) {
+    const {assetsURL: {
+            image
+        }} = config
+
     return (
         <div className="navMainContainer">
             <nav className="navMain" role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
+                    {logo && <div className="home-logo">
+                        <img src={`${image}/home-logo.png`} alt=""/>
+                    </div>}
                     <Link className="navbar-item" to="#">
                         <h1 className="web-title is-size-4-mobile">Pemira KM</h1>
                     </Link>
@@ -15,13 +23,13 @@ function NavMain() {
 
                 <div id="navbarBasicExample" className="navbar-menu">
                     <div className="navbar-start">
-                        <Link className="navbar-item">
+                        <a className="navbar-item" href="#FAQ">
                             FAQ
-                        </Link>
+                        </a>
 
-                        <Link className="navbar-item">
+                        <a className="navbar-item" href="#Tutorial">
                             Tutorial
-                        </Link>
+                        </a>
 
                         <Link className="navbar-item" to="/about-us">
                             About Us
@@ -30,30 +38,29 @@ function NavMain() {
                     </div>
 
                     <div className="navbar-end">
-                        <Link className="navbar-item">
+                        <a className="navbar-item" href="#Kandidat">
                             Kandidat
-                        </Link>
+                        </a>
 
                         <Link className="navbar-item" to="/login">
                             Login
                         </Link>
                     </div>
                 </div>
-                <Link
+                <a
                     role="button"
                     className="navbar-burger"
                     aria-label="menu"
                     aria-expanded="false"
                     data-target="navbarBasicExample"
-                    href="/"
-                    >
+                    href="/">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
-                </Link>
+                </a>
             </nav>
 
-            <hr />
+            <hr/>
         </div>
 
     )

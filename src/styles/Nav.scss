@@ -7,6 +7,7 @@ $dark-blue: #02141D;
         display: flex;
         height: 80px;
         align-items: center;
+        position: relative;
     
         .navbar-brand {
             
@@ -15,7 +16,21 @@ $dark-blue: #02141D;
             margin: 10px 25vw;
             width: 50vw;
             text-align: center;
-    
+            
+            .home-logo {
+                position: absolute;
+                margin: 0 auto;
+                text-align: center;
+                left: calc(50% - 10vw);
+
+                img {
+                    transform: translateY(-100px);
+                    width: 20vw;
+                    text-align: center;
+                   
+                }
+            }
+            
             .navbar-item {
                 text-align: center;
                 margin: 0 auto;
@@ -29,6 +44,14 @@ $dark-blue: #02141D;
                 width: 30%;
                 transform: translateY(35%);
                 z-index: 4;
+            }
+
+            a {
+                z-index: 100;
+
+                h1 {
+                    font-size: 2.7vw;
+                }
             }
         }
 
@@ -53,7 +76,7 @@ $dark-blue: #02141D;
         width: 90%!important;
         margin: 0 auto!important;
         position: relative;
-        z-index: 3;
+        z-index: 8;
     }
 }
 
@@ -70,7 +93,7 @@ $dark-blue: #02141D;
     background-size: contain;
     text-align: center;
     padding: 100px 0 ;
-    margin: 0 auto 5%;
+    margin: 0 auto 3%;
     z-index: 5;
 
         li {

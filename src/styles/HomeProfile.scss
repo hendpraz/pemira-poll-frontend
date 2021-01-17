@@ -1,0 +1,106 @@
+$primary: #FDAF33;
+
+.home-profile {
+    .quest-nav {
+        h2 {
+            border-top: 2px solid $primary;
+            border-bottom: 2px solid $primary;
+            text-align: left;
+            padding: 10px 17.5%;
+        }
+    }
+
+    .home-profile-content {
+        margin-top: 100px;
+        align-items: center;
+        // justify-content: left;
+
+        .photo-container {
+            position: relative;
+            text-align: center;
+            padding: 5% 5% 2%;
+            width: 40%;
+            height: 120%;
+
+            .background-profile {
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+
+                img {
+                    text-align: left;
+                    position: relative;
+                    width: 100%;
+                    padding: 30% 10% 10%;
+                    margin: 0 auto;
+                }
+            }
+        }
+
+        .user-profile-content {
+            text-align: left;
+            margin-left: 20px;
+
+            table {
+                td {
+                    padding: 2px;
+                    position: relative;
+                }
+            }
+        }
+    }
+
+    .home-profile-btm {
+        margin-bottom: 6%;
+        padding: 0 5%;
+
+        .left-side-btm {
+            align-items: flex-end;
+            width: 100%;
+        }
+
+        .user-gain {
+            width: 17.5%;
+            margin: 0 5px;
+
+            p {
+                color: black!important;
+                font-size: 1vw;
+            }
+
+            .hijau-btn {
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+
+                div {
+                    color: #FDE0C2;
+                    padding: 20px;
+                }
+            }
+        }
+
+        .right-side-btm {
+            margin-left: auto;
+            align-items: flex-end;
+            width: 35%;
+
+            p {
+                color: black!important;
+                font-size: 1vw;
+                margin-bottom: .5vw;
+            }
+
+            .user-gain {
+                width: 35%;
+                margin: 0;
+                p {
+                    font-size: 0.8vw;
+                }
+            }
+
+            .sponsor-container {
+                justify-content: center;
+            }
+
+        }
+    }
+}

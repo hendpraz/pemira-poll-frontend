@@ -65,13 +65,7 @@ function Footer({hashtag}) {
             <div className="footer">
                 <h2>Pemira KM</h2>
                 <p>All Right Reserved</p>
-                <div className="cloud-left is-hidden-mobile">
-                    <img src={`${image}/cloudleft.png`} alt=""/>
-                </div>
-
-                <div className="cloud-right is-hidden-mobile">
-                    <img src={`${image}/cloudright.png`} alt=""/>
-                </div>
+                
             </div>
 
         </div>

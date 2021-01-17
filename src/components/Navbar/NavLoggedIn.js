@@ -1,12 +1,18 @@
+import config from 'config';
 import React from 'react';
 import {Link} from 'react-router-dom'
 import 'styles/Nav.scss'
 
-function NavLoggedIn() {
+function NavLoggedIn({ logo }) {
+    const { assetsURL: {image}} = config
+
     return (
         <div className="navMainContainer">
             <nav className="navMain" role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
+                    {logo && <div className="home-logo">
+                        <img src={`${image}/home-logo.png`} alt=""/>
+                    </div>}
                     <Link className="navbar-item" to="#">
                         <h1 className="web-title">Pemira KM</h1>
                     </Link>
@@ -15,13 +21,13 @@ function NavLoggedIn() {
 
                 <div id="navbarBasicExample" className="navbar-menu">
                     <div className="navbar-start">
-                        <Link className="navbar-item">
+                        <a className="navbar-item" href="#FAQ">
                             FAQ
-                        </Link>
+                        </a>
 
-                        <Link className="navbar-item">
+                        <a className="navbar-item" href="#Tutorial">
                             Tutorial
-                        </Link>
+                        </a>
 
                         <Link className="navbar-item" to="/about-us">
                             About Us
@@ -34,9 +40,9 @@ function NavLoggedIn() {
                             Gift Shop
                         </Link>
 
-                        <Link className="navbar-item">
+                        <a className="navbar-item" href="#Kandidat">
                             Kandidat
-                        </Link>
+                        </a>
 
                         <Link className="navbar-item" to="/profile">
                             Profile

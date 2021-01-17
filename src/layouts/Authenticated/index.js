@@ -9,7 +9,7 @@ const Authenticated = (props) => {
 
   useEffect(() => {
     const checkAuth = async () => {
-      if (!isAuthenticated) {
+      if (isAuthenticated) {
         alert("Silakan login terlebih dahulu!")
         history.push("/login")
       }
