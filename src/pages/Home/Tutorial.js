@@ -36,7 +36,9 @@ const Tutorial = () => {
                                                     src="https://www.youtube.com/embed/9xANkfQu73c"
                                                     frameborder="0"
                                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                                    allowfullscreen></iframe>
+                                                    allowfullscreen
+                                                    title="Tutorial"
+                                                    ></iframe>
                                             </div>
                                         </div>
                                     </div>
