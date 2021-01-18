@@ -19,6 +19,7 @@ const INA = () => {
           } else {
             localStorage.setItem('token', response.token);
             history.push('/profile')
+            window.location.reload();
           }
         }
       }
