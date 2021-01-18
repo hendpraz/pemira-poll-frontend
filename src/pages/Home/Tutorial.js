@@ -33,7 +33,7 @@ const Tutorial = () => {
                                                 backgroundImage: `url('${image}/paper-parchment.png')`
                                             }}>
                                                 <iframe
-                                                    src="https://www.youtube.com/embed/9xANkfQu73c"
+                                                    src="https://www.youtube.com/embed/3-zcB0Kf7kU"
                                                     frameborder="0"
                                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                                     allowfullscreen

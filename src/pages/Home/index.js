@@ -26,7 +26,7 @@ function Home() {
         <div className="mainContainer">
             <div className="home myContent">
                 <DarkBlue hashtag="true"/> {isAuthenticated
-                    ? <NavLoggedIn/>
+                    ? <NavLoggedIn logo={true}/>
                     : <NavMain logo={true} />}
                 <div className="Content carContainer margincuy">
                     <hr/>

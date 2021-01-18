@@ -66,9 +66,9 @@ function App() {
           <Route exact path="/ambil-berkas" render={() => <AmbilBerkas />} />
           <Route exact path="/pengembalian-berkas" render={() => <PengembalianBerkas />} />
           <Route exact path="/about-us" render={() => <AboutUs />} />
-          <Route exact path="/daftar" render={() => <Pendaftaran />} />
+          {/* <Route exact path="/daftar" render={() => <Pendaftaran />} /> */}
           <Route exact path="/profile" render={() => <Profile />} />
-          <Route exact path="/admin" render={() => <Admin />} />
+          {/* <Route exact path="/admin" render={() => <Admin />} /> */}
           <Route path="" render={() => <NotFound />} />
         </Switch>
       </BrowserRouter>

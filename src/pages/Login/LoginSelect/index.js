@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import config from 'config'
 import 'styles/pages/Login.scss'
 import Button from 'components/Button'
@@ -10,6 +10,18 @@ const LoginSelect = () => {
     const history = useHistory()
     const { assetsURL } = config
     const { image } = assetsURL
+    const isAuthenticated = localStorage.getItem('token') ? true : false
+
+    useEffect(() => {
+        const checkAuth = async () => {
+          if (isAuthenticated) {
+            alert("Anda sudah login!")
+            history.push("/")
+          }
+        };
+    
+        checkAuth();
+    }, [history, isAuthenticated]);
 
     return (
         <div className="mainContainer">
