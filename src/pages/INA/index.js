@@ -18,7 +18,7 @@ const INA = () => {
             alert("Invalid INA login, please try again.")
           } else {
             localStorage.setItem('token', response.token);
-            history.push('/')
+            history.push('/profile')
           }
         }
       }
