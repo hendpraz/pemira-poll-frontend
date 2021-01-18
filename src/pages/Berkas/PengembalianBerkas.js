@@ -2,13 +2,12 @@ import React, { Component} from 'react'
 import NavBerkas from 'components/Navbar/NavBerkas.js'
 import Footer from 'components/Footer'
 import DarkBlue from 'layouts/DarkBlue'
+import Button from 'components/Button'
 
-// import '../../styles/pages/Berkas.scss'
+import '../../styles/pages/Berkas.scss'
 
 class PengembalianBerkas extends Component {
     state={
-        name: "Tifany",
-        email: "tifanyangelia28@gmail.com",
         fileberkas: null,
         filename: null
     }
@@ -49,8 +48,6 @@ class PengembalianBerkas extends Component {
         if(this.validateForm()){
             var reader = new FileReader();
             var file = this.state.fileberkas;
-            document.getElementById('name').value = this.state.name;
-            document.getElementById('email').value = this.state.email;
             reader.onload = function(e){
                 document.getElementById('filename').value = file.name;
                 document.getElementById('filecontent').value = e.target.result.replace(/^.*,/, '');
@@ -69,21 +66,21 @@ class PengembalianBerkas extends Component {
                 <div className="myContent berkas">
                     <DarkBlue />
                     <NavBerkas />
-                    <h1>Halo, {this.state.name}</h1>
-                    <form className="container p-3" name="FormKembalikanBerkas">
-                        <div className="btninputfile">
+                    <h1 className="top-daf">Pengembalian Berkas</h1>
+                    <form name="FormKembalikanBerkas">
+                        <div className="btn-container">
                             <input type="file" name="file" id="filezip" hidden="hidden" onChange={this.handleFile} required/> 
-                            <button type="button" class="btn-submit" id="custom-buttom" onClick={this.handlecustom}><i class="fa fa-upload" aria-hidden="true"></i> choose a file</button>
+                            <Button file="choose-file-btn" onClick={this.handlecustom}/>
                             <div id="custom-text">{this.state.filename}</div>
                         </div>
-                        <input type="hidden" id="name" name="name"/>
-                        <input type="hidden" id="email" name="email"/>
+                        <input type="hidden" id="name" name="name" value="Tifany"/>
+                        <input type="hidden" id="email" name="email" value="tifanyangelia28@gmail.com"/>
                         <input type="hidden" id="filename" name="filename"/>
                         <input type="hidden" id="filecontent" name="filecontent"/>
-                        
-                        <div className="box-submitted">
-                            <button className="submitted" type="button" onClick={this.handleSubmit}>Upload Berkas</button>
-                        </div>
+
+                        <div className="btn-container">
+                            <Button file="kembalikan-berkas-btn" onClick={this.handleSubmit}/>
+                        </div> 
                     </form>
                 </div>
                <Footer hashtag="false" />

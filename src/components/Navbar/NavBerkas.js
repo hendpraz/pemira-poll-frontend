@@ -25,11 +25,11 @@ const NavBerkas = () => {
                         </div>
 
                         <div className="navbar-end" style={{paddingRight: "3.5vw"}}>
-                            <Link className="navbar-item">
+                            <Link className="navbar-item" to="/ambil-berkas">
                                 Ambil Berkas
                             </Link>
 
-                            <Link className="navbar-item">
+                            <Link className="navbar-item" to="/pengembalian-berkas">
                                 Kembalikan Berkas
                             </Link>
                         </div>
