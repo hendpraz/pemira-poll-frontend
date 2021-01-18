@@ -23,6 +23,13 @@ const LoginSelect = () => {
         checkAuth();
     }, [history, isAuthenticated]);
 
+    async function handleINALogin(event) {
+        event.preventDefault();
+
+        const url = 'https://login.itb.ac.id/cas/login?service=https%3A%2F%2Fpemira.km.itb.ac.id/INA'
+        window.open(url)
+    }
+
     return (
         <div className="mainContainer">
             <div className="myContent">
@@ -38,7 +45,7 @@ const LoginSelect = () => {
                         <div className="img-container">
                             <img src={`${image}/login-curt2.png`} alt="tirai" />
                         </div>
-                        <Button file="login-button" />
+                        <Button file="login-button" onClick={handleINALogin}/>
                     </div>
                     <div className="login-role">
                         <div className="img-container">
