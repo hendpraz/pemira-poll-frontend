@@ -12,7 +12,10 @@ import LoginSelect from './pages/Login/LoginSelect'
 import NonINA from './pages/Login/NonINA'
 import Lembaga from './pages/Login/Lembaga'
 import AmbilBerkas from './pages/Berkas/AmbilBerkas'
-import Pendaftaran from './pages/Berkas/Pendaftaran'
+import PengembalianBerkas from './pages/Berkas/PengembalianBerkas'
+import INA from './pages/INA'
+
+// import Pendaftaran from './pages/Berkas/Pendaftaran'
 import AboutUs from './pages/AboutUs'
 import NotFound from './pages/NotFound'
 import Profile from 'pages/Profile'
@@ -62,8 +65,10 @@ function App() {
           <Route exact path="/login" render={() => <LoginSelect />} />
           <Route exact path="/login/lembaga" render={() => <Lembaga />} />
           <Route exact path="/login/nonina" render={() => <NonINA />} />
-          {/* <Route exact path="/ambil-berkas" render={() => <AmbilBerkas />} /> */}
+          <Route exact path="/ambil-berkas" render={() => <AmbilBerkas />} />
+          <Route exact path="/pengembalian-berkas" render={() => <PengembalianBerkas />} />
           <Route exact path="/about-us" render={() => <AboutUs />} />
+          <Route exact path="/INA" render={() => <INA />} />
           {/* <Route exact path="/daftar" render={() => <Pendaftaran />} /> */}
           <Route exact path="/profile" render={() => <Profile />} />
           {/* <Route exact path="/admin" render={() => <Admin />} /> */}

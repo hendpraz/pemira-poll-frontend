@@ -1,12 +1,22 @@
 import React, {useState, useEffect} from 'react'
 import config from "config";
-import Button from 'components/Button';
+// import Button from 'components/Button';
+import {useAppContext} from "libs/contextLib"
 import 'styles/HomeProfile.scss';
 
 const HomeProfile = () => {
+    const {user} = useAppContext()
+    const [pageUser, setPageUser] = useState({})
+
     const {assetsURL: {
             image
         }} = config
+
+    useEffect(() => {
+        if (user) {
+            setPageUser(user)
+        }
+    }, [user])
 
     return (
         <div className="home-profile">
@@ -42,27 +52,27 @@ const HomeProfile = () => {
                             <tbody>
                                 <tr>
                                     <td>Nama</td>
-                                    <td>:
+                                    <td>: {pageUser.fullname}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>NIM</td>
-                                    <td>:
+                                    <td>: {pageUser.nim}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Fakultas/Sekolah</td>
-                                    <td>:
+                                    <td>: {pageUser.ou}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Email</td>
-                                    <td>:
+                                    <td>: {pageUser.email_non_itb}, {pageUser.email}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Nomor HP</td>
-                                    <td>:
+                                    <td>: {pageUser.phone_number}
                                     </td>
                                 </tr>
                             </tbody>
@@ -98,11 +108,11 @@ const HomeProfile = () => {
                                 style={{
                                 backgroundImage: `url('${image}/hijau-btn.png')`
                             }}>
-                                <div>xxx</div>
+                                <div>{pageUser.game_point}</div>
                             </div>
                         </div>
                         <div className="right-side-btm">
-                            <p>Terafiliasi dengan organisasi</p>
+                            {/* <p>Terafiliasi dengan organisasi</p>
                             <div className="is-flex sponsor-container">
                                 <div className="user-gain ">
                                     <img src={`${image}/loedroek.png`} alt="" />
@@ -112,8 +122,7 @@ const HomeProfile = () => {
                                     <img src={`${image}/lfm.png`} alt="" />
                                     <p>LFM ITB</p>
                                 </div>
-                            </div>
-
+                            </div> */}
                         </div>
                     </div>
 

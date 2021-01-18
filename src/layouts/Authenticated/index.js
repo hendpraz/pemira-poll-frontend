@@ -20,7 +20,7 @@ const Authenticated = (props) => {
 
   return (
     <>
-      {children}
+      {isAuthenticated && children}
     </>
   );
 };
