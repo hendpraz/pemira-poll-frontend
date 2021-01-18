@@ -71,7 +71,7 @@ function App() {
           <Route exact path="/INA" render={() => <INA />} />
           {/* <Route exact path="/daftar" render={() => <Pendaftaran />} /> */}
           <Route exact path="/profile" render={() => <Profile />} />
-          {/* <Route exact path="/admin" render={() => <Admin />} /> */}
+          <Route exact path="/admin" render={() => <Admin />} />
           <Route path="" render={() => <NotFound />} />
         </Switch>
       </BrowserRouter>
