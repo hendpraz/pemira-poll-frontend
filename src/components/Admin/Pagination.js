@@ -15,7 +15,7 @@ const Pagination = ({length, currentPage, setCurrentPage, postPerPage}) => {
             .classList
             .remove('has-text-primary')
 
-        if (page.textContent == currentPage) {
+        if (page.textContent === currentPage) {
             page
                 .classList
                 .toggle('has-text-primary')

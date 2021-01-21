@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import Button from 'components/Button'
 import config from 'config'
 import firebase from 'config/firebase-init'
@@ -27,13 +27,13 @@ const UnggahBuktiModal = ({item}) => {
         console.log('File ' + filePath + ' available at', downloadURL);
         alert('Your File has been Uploaded!')
 
+        setFileName(file.name)
         closeModal();
     }
 
     console.log(item)
 
-    const [fileName,
-        setFileName] = useState('')
+    const [fileName, setFileName] = useState('')
 
     const showFileName = () => {
         let fileUnggah = document.querySelector("#fileUnggah")

@@ -2,9 +2,9 @@ import React from 'react';
 import NavMain from 'components/Navbar/NavMain.js'
 import NavLoggedIn from 'components/Navbar/NavLoggedIn.js'
 import DarkBlue from 'layouts/DarkBlue'
-import Carousel from 'components/Carousel'
+// import Carousel from 'components/Carousel'
 import Footer from 'components/Footer'
-import Button from 'components/Button'
+// import Button from 'components/Button'
 import 'styles/pages/Home.scss'
 import config from 'config';
 import Kandidat from './Kandidat';

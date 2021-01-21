@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import Button from 'components/Button'
-import {upvoteQuest, cancelUpvoteQuest, acceptQuestKandidat, declineQuestKandidat, forfeitQuestKandidat} from 'resources/quest'
+import { upvoteQuest, cancelUpvoteQuest, acceptQuestKandidat, declineQuestKandidat, forfeitQuestKandidat } from 'resources/quest'
 import UnggahBuktiModal from './UnggahBuktiModal'
 
 const QuestModal = ({
@@ -107,7 +107,7 @@ const QuestModal = ({
                     <br/>
                     <h5>Status:</h5>
                     <p>{getStatusDescription(item.status_by_kandidat)}</p>
-                    <br/> {id === 1
+                    <br/> {id === 5
                         ? <div className="modal-btm">{tab === "pending" && <div className="btn-container columns">
                                     <Button file="terima-btn" onClick={terimaQuest}/>
                                     <Button file="tolak-btn" onClick={tolakQuest}/>
@@ -125,7 +125,7 @@ const QuestModal = ({
 
                 </div>
             </div>
-            {id === 1 && <UnggahBuktiModal item={item} />}
+            {id === 5 && <UnggahBuktiModal item={item} />}
         </div>
     )
 }
