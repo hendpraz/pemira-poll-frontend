@@ -1,0 +1,309 @@
+$myred: #62070a;
+$primary: #FDAF33;
+$secondary: #03354C;
+
+.main-container {
+    padding-bottom: 95px;
+    background-color: #02141D;
+    min-height: 100vh;
+}
+
+.vote-page {
+    position: relative;
+    min-height: 85vh;
+
+    .background-image {
+        margin: 0 !important;
+        width: 100%;
+    }
+
+    .vote-left {
+        position: relative;
+        width: 83%;
+        margin: auto 0;
+        margin-left: -15%;
+        padding: 3% 0;
+        align-items: center;
+
+        .pemilihan-k3m {
+            padding: 4.25vw 10% 6vw;
+            width: 100%;
+
+            h2 {
+                color: black;
+                font-weight: 400;
+                font-size: 2.5vw;
+                margin-bottom: 1.5vw;
+                margin-left: 14%;
+            }
+
+            .priority-container {
+                margin: 8px;
+                padding: 4px;
+                background-color: #62070a;
+                border: solid 3px $primary;
+
+                .priority {
+                    background-color: #62070a;
+                    border: solid 3px $primary;
+                    padding: 10px 10px 10px 16%;
+                    min-height: 6vw;
+                    display: flex;
+                    position: relative;
+                    align-items: center;
+                    @media (max-width: 1024px) {
+                        min-height: 6.75vw;
+                    }
+
+                    .img-container {
+                        margin-right: 20px;
+                        width: 4vw;
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    .text-container {
+                        text-align: left;
+
+                        h4 {
+                            font-weight: 400!important;
+                            font-size: 1.35vw;
+                            @media (max-width: 1024px) {
+                                font-size: 1.6vw;
+                            }
+                        }
+
+                        p {
+                            font-size: 1vw;
+                            @media (max-width: 1024px) {
+                                font-size: 1.2vw;
+                            }
+                        }
+                    }
+
+                    .btn-container {
+                        position: relative;
+                        left: 38%;
+                        @media (max-width: 1024px) {
+                            left: 32%;
+                        }
+
+                        .details-btn {
+                            width: 80%;
+                        }
+
+                        img {
+                            width: 100%;
+
+                            @media (max-width: 1024px) {
+                                width: 75%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .vote-right {
+        position: relative;
+        margin: -20px auto 0;
+        width: 22%;
+
+        .vote-right-content {
+            text-align: center;
+            padding: 25% 10% 45%;
+
+            h2 {
+                font-weight: 400;
+                font-size: 2vw;
+            }
+
+            h5 {
+                font-weight: 400;
+                font-size: 1.25vw;
+            }
+
+            p {
+                font-size: 1.1vw;
+                line-height: 1.75;
+            }
+
+            p:last-child {
+                margin-bottom: 40px;
+            }
+
+            .details-btn {
+                display: block;
+                text-align: center;
+                margin: 5px auto 0;
+                width: 50%;
+            }                
+        }
+    }
+
+    .red {
+        background-color: $myred!important;
+    }
+
+    .blue {
+        background-color: $secondary!important;
+    }
+}
+
+.konfirmasi-coblos {
+    .close {
+        color: #f9f3a0!important;
+    }
+
+    .modal-content {
+        background-color: $secondary;
+        border-radius: 4px!important;
+        text-align: center;
+        padding: 1.5% 3%;
+        width: 700px;
+        height: 400px;
+        margin: 0 auto;
+
+        @media (max-width:1024px){
+            width: 90%;
+        }
+
+        h3 {
+            text-align: left;
+            color: #F9F3A0;
+        }
+
+        hr {
+            margin: 2.5% 0;
+            background-color: #F9F3A0!important;
+        }
+
+        p {
+            color: #F9F3A0!important;
+            font-size: 1.1rem;
+            width: 90%;
+            margin: 0 auto;
+            
+            @media (max-width: 1024px) {
+                font-size: 1rem;
+            }
+        }
+
+        .setuju-coblos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+
+            input {
+                margin-right: 10px;
+                position: relative;
+            }
+
+            input::before {
+                content: '';
+                position: absolute;
+                width: 13px;
+                border: solid 1px black;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                height: 13px;
+                background-color: #f9f3a0;
+            }
+
+            input:hover {
+                cursor: pointer;
+            }
+
+            input:checked::after {
+                background: transparent;
+                position: absolute;
+                content: '\2714';
+                font-weight: 700;
+                color: black;
+                margin-left: 2px ;
+                margin-top: -10px;
+            }
+
+            label {
+                color: #F9F3A0 ;
+                position: relative;
+            }
+        }
+
+        .captcha {
+            width: 200px;
+            height: 40px;
+            background-color: gray;
+            margin: 15px auto;
+        }
+
+        .container {
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .details-btn {
+                position: relative;
+                text-align: center;
+                width: 20%;
+                margin: 0 20px;
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.pilih-urutan {
+    padding: 5%;
+
+    h3, .close {
+        color: #f9f3a0!important;
+    }
+
+    hr {
+        margin-bottom: 0;
+        background-color: #f9f3a0;
+    }
+
+    .pilih-urutan-body {
+        width: 90%;
+        height: 100%;
+        position: relative;
+
+        .pilih-urutan-content {
+            display: flex;
+            width: 100%;
+            position: relative;
+            height: 80%;
+            align-items: center;
+        }
+
+        .carousel-v2 {
+            align-items: center;
+
+            .kandidat-profile {
+                background-repeat: no-repeat;
+                background-size: 100% 100% ;
+                text-align: center;
+
+                img {
+                    width: 60%;
+                    padding: 20% 10% 40%;
+
+                }
+            }
+
+            div[class^="arrow-container"]:hover {
+                transform: scale(1.2);
+                cursor: pointer;
+            }
+        }
+    }
+}

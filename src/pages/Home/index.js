@@ -26,9 +26,9 @@ function Home() {
         <div className="mainContainer">
             <div className="home myContent">
                 <DarkBlue hashtag="true"/> {isAuthenticated
-                    ? <NavLoggedIn logo={true}/>
+                    ? <NavLoggedIn logo={true} />
                     : <NavMain logo={true} />}
-                <div className="Content carContainer margincuy">
+                <div className="margincuy">
                     <hr/>
                     <div className="home-landing-content">
                         <h2 >Pemira KM ITB 2021</h2>
