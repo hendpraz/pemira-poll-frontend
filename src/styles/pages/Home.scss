@@ -42,7 +42,8 @@ $primary: #FDAF33;
     position: relative;
 
     @media (min-width: 1537px) {
-        margin-top: 35%;
+        margin-top: 37vw;
+        
     }
 
     hr {
@@ -66,10 +67,18 @@ $primary: #FDAF33;
         h2 {
             font-weight: 600;
             font-size: 2.5rem;
+
+            @media (min-width: 1537px) {
+                font-size: 2.5vw;
+            } 
         }
 
         p {
             font-size: 1.25rem;
+
+            @media (min-width: 1537px) {
+                font-size: 1.2vw;
+            } 
         }
     }
 
