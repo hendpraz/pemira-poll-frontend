@@ -1,8 +1,7 @@
 const { defaultAPIURL } = require("../config");
 
-
 // Massa atau Lembaga
-exports.getQuestListMassaLembaga = async (status) =>
+export const getQuestListMassaLembaga = async (status) =>
   new Promise(async (resolve, reject) => {    
     try {
       const token = localStorage.getItem('token')
@@ -20,7 +19,7 @@ exports.getQuestListMassaLembaga = async (status) =>
     }
   });
 
-exports.getQuestDetails = (id) =>
+export const getQuestDetails = (id) =>
   new Promise(async (resolve, reject) => {    
     try {
       const token = localStorage.getItem('token')
@@ -39,7 +38,7 @@ exports.getQuestDetails = (id) =>
     }
   });
 
-exports.upvoteQuest = (questId) =>
+export const upvoteQuest = (questId) =>
   new Promise(async (resolve, reject) => {    
     try {
       const token = localStorage.getItem('token')
@@ -62,7 +61,7 @@ exports.upvoteQuest = (questId) =>
     }
   });
 
-exports.cancelUpvoteQuest = (questId) =>
+export const cancelUpvoteQuest = (questId) =>
   new Promise(async (resolve, reject) => {    
     try {
       const token = localStorage.getItem('token')
@@ -81,7 +80,7 @@ exports.cancelUpvoteQuest = (questId) =>
     }
   });
 
-exports.createQuest = (data) =>
+export const createQuest = (data) =>
   new Promise(async (resolve, reject) => {    
     try {
       const token = localStorage.getItem('token')
@@ -103,7 +102,7 @@ exports.createQuest = (data) =>
   });
 
 // Kandidat
-exports.getQuestListKandidat= async (status) =>
+export const getQuestListKandidat = async (status) =>
   new Promise(async (resolve, reject) => {    
     try {
       const token = localStorage.getItem('token')
@@ -121,7 +120,7 @@ exports.getQuestListKandidat= async (status) =>
     }
   });
 
-exports.acceptQuestKandidat= async (questId) =>
+export const acceptQuestKandidat = async (questId) =>
   new Promise(async (resolve, reject) => {    
     try {
       const token = localStorage.getItem('token')
@@ -139,7 +138,7 @@ exports.acceptQuestKandidat= async (questId) =>
     }
   });
 
-exports.declineQuestKandidat= async (questId) =>
+export const declineQuestKandidat = async (questId) =>
   new Promise(async (resolve, reject) => {    
     try {
       const token = localStorage.getItem('token')
@@ -157,7 +156,7 @@ exports.declineQuestKandidat= async (questId) =>
     }
   });
 
-exports.forfeitQuestKandidat= async (questId) =>
+export const forfeitQuestKandidat = async (questId) =>
   new Promise(async (resolve, reject) => {    
     try {
       const token = localStorage.getItem('token')

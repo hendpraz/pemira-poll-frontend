@@ -37,7 +37,8 @@ const LoginForm = () => {
             } else {
               localStorage.setItem('token', json.token);
               console.log(json.token)
-              history.push("/")
+              history.push("/profile")
+              window.location.reload();
             }
           });
     }

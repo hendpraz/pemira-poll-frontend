@@ -15,6 +15,7 @@ const Profile = (props) => {
 
     const history = useHistory()
     const { userHasAuthenticated } = useAppContext()
+    const isAuthenticated = localStorage.getItem('token') ? true : false
     const {assetsURL: {
         image
     }} = config
@@ -27,16 +28,17 @@ const Profile = (props) => {
         history.push("/")
     }
 
-    const [nav, setNav] = useState('quest-wall')
+    const [nav, setNav] = useState('home')
     
     useEffect(() => {
-        let navLink = document.getElementsByClassName(nav)[0]
+        if (isAuthenticated) {
+            let navLink = document.getElementsByClassName(nav)[0]
 
-        navLink
-            .classList
-            .add("active")
-
-    }, [nav])
+            navLink
+                .classList
+                .add("active")
+        }
+    }, [nav, isAuthenticated])
 
     return (
         <Authenticated>
@@ -65,8 +67,6 @@ const Profile = (props) => {
                         {nav === "home" && <HomeProfile />}
                         {nav === "quest-wall" && <QuestBox />}
                         {nav === "duel-wall" && <DuelBox />}
-                        
-
                     </div>
                 </div>
                 <Footer/>
