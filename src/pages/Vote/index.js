@@ -4,11 +4,17 @@ import 'styles/pages/Vote.scss'
 import Priority from 'components/Vote/Priority'
 import Footer from 'components/Footer'
 import Button from 'components/Button'
+import ModalSubmit from 'components/Vote/ModalSubmit'
 
 const Vote = () => {
     const {assetsURL: {
             image
         }} = config
+
+    const openModal = () => {
+        let modalUnggah = document.getElementById("konfirmasiCoblos")
+        modalUnggah.style.display = "block"
+    }
 
     return (
         <div className="main-container">
@@ -43,13 +49,14 @@ const Vote = () => {
                                 <p>kandidat diurutkan:</p>
                                 <p>Ada captcha disini</p>
                             </div>
-                            <Button file="submit"/>
+                            <Button file="submit" onClick={openModal}/>
                             <Button file="reset"/>
                             <Button file="batal"/>
                         </div>
                     </div>
                 </div>
             </div>
+            <ModalSubmit />
             <Footer/>
         </div>
     )

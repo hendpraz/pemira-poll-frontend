@@ -9,6 +9,12 @@ const presKM = [
     },
     {
         url: `${image}/Tameng Organogram.png`
+    },
+    {
+        url: `${image}/Tameng Organogram.png`
+    },
+    {
+        url: `${image}/Tameng Organogram.png`
     }
 ]
 

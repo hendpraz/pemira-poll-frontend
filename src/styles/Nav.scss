@@ -77,6 +77,14 @@ $dark-blue: #02141D;
         margin: 0 auto!important;
         position: relative;
         z-index: 8;
+
+        @media (max-width: 1024px) {
+            margin-top: -2vw!important;
+        }
+
+        @media (max-width: 800px) {
+            margin-top: -3.5vw!important;
+        }
     }
 }
 

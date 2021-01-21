@@ -4,12 +4,16 @@ $primary: #FDAF33;
 .Content {
     width: 80%;
     margin: 50px auto;
+    padding: 7.5% 12.5%!important;
+
+    @media (max-width: 1024px) {
+        width: 100%;
+    }
 }
 
 .carousel-container {
     margin: auto;
     text-align: center;
-    margin-bottom: 9vh;
 
     .details-btn {
         margin-top: 20px;
@@ -25,6 +29,10 @@ $primary: #FDAF33;
 
 .carContainer {
     padding: 0 5%;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    margin-top: 5vh;
 }
 
 .margincuy {
@@ -129,8 +137,18 @@ $primary: #FDAF33;
         }
 
         .content-container {
-            margin-top: 16vw;
-            margin-bottom: 3vw;
+            margin-top: 10vw;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+
+            // @media (max-width: 1024px) {
+            //     margin-top: 20vh;
+            // }
+
+            .columns {
+                width: 100%;
+            }
 
             .kandidat-profile {
                 background-size: 100% 100%;
@@ -151,11 +169,11 @@ $primary: #FDAF33;
 .background-image {
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    margin: 5% 0;
+    margin: 7.5% 0;
     width: 60%;
 
     .top-lembaga {
-        padding: 30% 15%;
+        padding: 25% 15%;
 
         h3 {
             font-weight: 400;
@@ -178,6 +196,10 @@ $primary: #FDAF33;
         position: relative;
         margin-left: auto;
         margin-right: 5%;
+
+        @media (max-width: 1024px) {
+            width: 80%;
+        }
     }
 }
 
@@ -187,6 +209,10 @@ $primary: #FDAF33;
     .background-image {
         position: relative;
         margin-left: 5%;
+
+        @media (max-width: 1024px) {
+            width: 80%;
+        }
     }
 }
 

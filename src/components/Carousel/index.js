@@ -7,7 +7,7 @@ const Carousel = ({kandidat}) => {
     const {assetsURL: {
             image
         }} = config
-    console.log(image)
+
     const [current,
         setCurrent] = useState(0)
     const length = presKM.length
