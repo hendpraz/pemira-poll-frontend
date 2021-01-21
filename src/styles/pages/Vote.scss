@@ -5,10 +5,12 @@ $secondary: #03354C;
 .main-container {
     padding-bottom: 95px;
     background-color: #02141D;
+    min-height: 100vh;
 }
 
 .vote-page {
     position: relative;
+    min-height: 85vh;
 
     .background-image {
         margin: 0 !important;
@@ -18,8 +20,10 @@ $secondary: #03354C;
     .vote-left {
         position: relative;
         width: 83%;
+        margin: auto;
         margin-left: -15%;
         padding: 3% 0;
+        align-items: center;
 
         .pemilihan-k3m {
             padding: 4.25vw 10% 6vw;
@@ -90,6 +94,10 @@ $secondary: #03354C;
 
                         img {
                             width: 100%;
+
+                            @media (max-width: 1024px) {
+                                width: 75%;
+                            }
                         }
                     }
                 }
