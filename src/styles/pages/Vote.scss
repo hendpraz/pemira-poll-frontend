@@ -1,0 +1,144 @@
+$myred: #62070a;
+$primary: #FDAF33;
+$secondary: #03354C;
+
+.main-container {
+    padding-bottom: 95px;
+    background-color: #02141D;
+}
+
+.vote-page {
+    position: relative;
+
+    .background-image {
+        margin: 0 !important;
+        width: 100%;
+    }
+
+    .vote-left {
+        position: relative;
+        width: 83%;
+        margin-left: -15%;
+        padding: 3% 0;
+
+        .pemilihan-k3m {
+            padding: 4.25vw 10% 6vw;
+            width: 100%;
+
+            h2 {
+                color: black;
+                font-weight: 400;
+                font-size: 2.5vw;
+                margin-bottom: 1.5vw;
+                margin-left: 14%;
+            }
+
+            .priority-container {
+                margin: 8px;
+                padding: 4px;
+                background-color: #62070a;
+                border: solid 3px $primary;
+
+                .priority {
+                    background-color: #62070a;
+                    border: solid 3px $primary;
+                    padding: 10px 10px 10px 16%;
+                    min-height: 6vw;
+                    display: flex;
+                    position: relative;
+                    align-items: center;
+                    @media (max-width: 1024px) {
+                        min-height: 6.75vw;
+                    }
+
+                    .img-container {
+                        margin-right: 20px;
+                        width: 4vw;
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    .text-container {
+                        text-align: left;
+
+                        h4 {
+                            font-weight: 400!important;
+                            font-size: 1.35vw;
+                            @media (max-width: 1024px) {
+                                font-size: 1.6vw;
+                            }
+                        }
+
+                        p {
+                            font-size: 1vw;
+                            @media (max-width: 1024px) {
+                                font-size: 1.2vw;
+                            }
+                        }
+                    }
+
+                    .btn-container {
+                        position: relative;
+                        left: 38%;
+                        @media (max-width: 1024px) {
+                            left: 32%;
+                        }
+
+                        .details-btn {
+                            width: 80%;
+                        }
+
+                        img {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .vote-right {
+        position: relative;
+        margin: -20px auto 0;
+        width: 22%;
+
+        .vote-right-content {
+            text-align: center;
+            padding: 25% 10% 45%;
+
+            h2 {
+                font-weight: 400;
+                font-size: 2vw;
+            }
+
+            h5 {
+                font-weight: 400;
+                font-size: 1.25vw;
+            }
+
+            p {
+                font-size: 1.1vw;
+                line-height: 1.75;
+            }
+
+            p:last-child {
+                margin-bottom: 40px;
+            }
+
+            .details-btn {
+                display: block;
+                text-align: center;
+                margin: 5px auto 0;
+                width: 50%;
+            }                
+        }
+    }
+
+    .red {
+        background-color: $myred!important;
+    }
+
+    .blue {
+        background-color: $secondary!important;
+    }
+}
