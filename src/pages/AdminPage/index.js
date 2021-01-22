@@ -4,6 +4,7 @@ import 'styles/pages/Admin.scss'
 import UserList from 'components/Admin/userList'
 import QuestList from 'components/Admin/QuestList'
 import CreateUser from 'components/Admin/CreateUser'
+import CreateKandidat from 'components/Admin/CreateKandidat'
 import UserAssociation from 'components/Admin/UserAssociation'
 import AdminAuth from 'layouts/AdminAuth'
 
@@ -18,12 +19,15 @@ const Admin = () => {
                         <UserList />
                     </div>
                     <div id="createUser">
-                        <h1 className="has-text-centered has-text-primary">Create User</h1>
+                        <h1 className="has-text-centered has-text-primary">Create Non-Kandidat Account</h1>
                         <CreateUser />
                     </div>
-
+                    <div id="userList" className="mb-6">
+                        <h1 className="has-text-centered has-text-primary">Create Kandidat Account</h1>
+                        <CreateKandidat />
+                    </div>
                     <div id="associateUser">
-                        <h1 className="has-text-centered has-text-primary">Associate User with Lembaga</h1>
+                        <h1 className="has-text-centered has-text-primary">Associate Massa with Lembaga</h1>
                         <UserAssociation />
                     </div>
                 </div>

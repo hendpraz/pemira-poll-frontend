@@ -39,7 +39,7 @@ const Pagination = ({length, currentPage, setCurrentPage, postPerPage}) => {
                         return (
                             <li key={item}>
                                 <a
-                                    class="pagination-link"
+                                    className="pagination-link"
                                     onClick={() => setCurrentPage(item)}
                                     aria-label={`Goto page ${item}`}>{item}</a>
                             </li>

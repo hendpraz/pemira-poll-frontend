@@ -21,30 +21,32 @@ const UserModal = ({ item, id }) => {
                       
                       
                        <table>
-                            <tr>
-                               <td><h5>Fullname</h5></td>
-                               <td><h5>{`: ${item.fullname}`}</h5></td>
-                           </tr>
-                           <tr>
-                               <td><h5>Groups</h5></td>
-                               <td><h5>{`: ${item.groups}`}</h5></td>
-                           </tr>
-                           <tr>
-                               <td><h5>Email</h5></td>
-                               <td><h5>{`: ${item.email}`}</h5></td>
-                           </tr>
-                           <tr>
-                               <td><h5>Phone Number</h5></td>
-                               <td><h5>{`: ${item.phone_number}`}</h5></td>
-                           </tr>
-                           <tr>
-                               <td><h5>ID Line</h5></td>
-                               <td><h5>{`: ${item.id_line}`}</h5></td>
-                           </tr>
-                           <tr>
-                               <td><h5>Address</h5></td>
-                               <td><h5>{`: ${item.address}`}</h5></td>
-                           </tr>
+                           <tbody>
+                                <tr>
+                                    <td><h5>Fullname</h5></td>
+                                    <td><h5>{`: ${item.fullname}`}</h5></td>
+                                </tr>
+                                <tr>
+                                    <td><h5>Groups</h5></td>
+                                    <td><h5>{`: ${item.groups}`}</h5></td>
+                                </tr>
+                                <tr>
+                                    <td><h5>Email</h5></td>
+                                    <td><h5>{`: ${item.email}`}</h5></td>
+                                </tr>
+                                <tr>
+                                    <td><h5>Phone Number</h5></td>
+                                    <td><h5>{`: ${item.phone_number}`}</h5></td>
+                                </tr>
+                                <tr>
+                                    <td><h5>ID Line</h5></td>
+                                    <td><h5>{`: ${item.id_line}`}</h5></td>
+                                </tr>
+                                <tr>
+                                    <td><h5>Address</h5></td>
+                                    <td><h5>{`: ${item.address}`}</h5></td>
+                                </tr>
+                           </tbody>
                        </table>
                       
                     </section>
