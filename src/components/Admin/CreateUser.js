@@ -10,7 +10,7 @@ const CreateUser = () => {
         fullname: "",
         email: "",
         phone_number: "",
-        id_line: "",
+        line_id: "",
         address: "",
         groups: "3",
         tipe_kandidat: "non"
@@ -38,9 +38,17 @@ const CreateUser = () => {
                 
                 if (data.groups !== "5") {
                     data.tipe_kandidat = "non"
+                } else if (data.tipe_kandidat === "non"){
+                    alert("Ada kesalahan! Role kandidat tidak dapat diisi dengan tipe 'Non-Kandidat'")
+                } else {
+                    data.groups = parseInt(data.groups)
+                    console.log(data)
+                    const response = await createUser(data)
+                    
+                    console.log(response)
+                    alert("Berhasil menambahkan user.")
+                    window.location.reload();
                 }
-                console.log(data)
-                // await createUser(data)
             }
         } else {
             alert("Data tidak valid! Silakan cek kembali.")
@@ -51,7 +59,7 @@ const CreateUser = () => {
         <div>
             <div className="create-user-container columns">
                 <div className="input-container column">
-                    <label><h5>Username</h5></label>
+                    <label><h5>Username (dapat menggunakan NIM)</h5></label>
                     <input type="text" required name="username" id="username" value={fields.username} onChange={handleFieldChange}/>
                     <br/><br/>
                     
@@ -81,7 +89,7 @@ const CreateUser = () => {
                     <br/><br/>
                     
                     <label><h5>ID Line</h5></label>
-                    <input type="text" required name="id_line" id="id_line" value={fields.id_line} onChange={handleFieldChange}/>
+                    <input type="text" required name="line_id" id="line_id" value={fields.line_id} onChange={handleFieldChange}/>
                     <br/><br/>
 
                     <label><h5>Address</h5></label>
