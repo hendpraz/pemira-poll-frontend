@@ -14,7 +14,7 @@ const UserModal = ({ item, id }) => {
                 <div className="modal-background"></div>
                 <div className="modal-card">
                     <header className="modal-card-head">
-                        <p className="modal-card-title has-text-primary">Username: <span className="username">{item.userName}</span></p>
+                        <p className="modal-card-title has-text-primary">Username: <span className="username">{item.username}</span></p>
                         <button onClick={closeModal} className="delete" aria-label="close"></button>
                     </header>
                     <section className="modal-card-body">
@@ -23,7 +23,7 @@ const UserModal = ({ item, id }) => {
                        <table>
                             <tr>
                                <td><h5>Fullname</h5></td>
-                               <td><h5>{`: ${item.fullName}`}</h5></td>
+                               <td><h5>{`: ${item.fullname}`}</h5></td>
                            </tr>
                            <tr>
                                <td><h5>Groups</h5></td>
@@ -39,7 +39,7 @@ const UserModal = ({ item, id }) => {
                            </tr>
                            <tr>
                                <td><h5>ID Line</h5></td>
-                               <td><h5>{`: ${item.idLine}`}</h5></td>
+                               <td><h5>{`: ${item.id_line}`}</h5></td>
                            </tr>
                            <tr>
                                <td><h5>Address</h5></td>

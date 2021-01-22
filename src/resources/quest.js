@@ -173,3 +173,5 @@ export const forfeitQuestKandidat = async (questId) =>
       reject(e);
     }
   });
+
+// Get all quest list
