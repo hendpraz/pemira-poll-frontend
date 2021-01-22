@@ -13,6 +13,7 @@ import NonINA from './pages/Login/NonINA'
 import Lembaga from './pages/Login/Lembaga'
 import AmbilBerkas from './pages/Berkas/AmbilBerkas'
 import PengembalianBerkas from './pages/Berkas/PengembalianBerkas'
+import LembarDukungan from './pages/Dukungan'
 import INA from './pages/INA'
 
 // import Pendaftaran from './pages/Berkas/Pendaftaran'
@@ -68,6 +69,7 @@ function App() {
           <Route exact path="/login/nonina" render={() => <NonINA />} />
           <Route exact path="/ambil-berkas" render={() => <AmbilBerkas />} />
           <Route exact path="/pengembalian-berkas" render={() => <PengembalianBerkas />} />
+	  <Route exact path="/lembar-dukungan" render={() => <LembarDukungan />} />
           <Route exact path="/about-us" render={() => <AboutUs />} />
           <Route exact path="/INA" render={() => <INA />} />
           {/* <Route exact path="/daftar" render={() => <Pendaftaran />} /> */}
