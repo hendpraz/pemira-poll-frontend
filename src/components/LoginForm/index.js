@@ -4,7 +4,7 @@ import Button from 'components/Button'
 import 'styles/LoginForm.scss'
 import config from "config"
 
-import { useFormFields } from "libs/hooksLib";
+import { useFormFields } from "libs/hooksLib"
 
 const LoginForm = () => {
     const history = useHistory();

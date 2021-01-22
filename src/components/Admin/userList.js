@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import UserModal from './userModal'
 import list from './listOfUsers'
 import Pagination from './Pagination'
+import { listUsers } from 'resources/user'
 
 const UserList = () => {
 
@@ -12,8 +13,21 @@ const UserList = () => {
         setResult] = useState(list)
     
     useEffect(() => {
-        setResult(list)
-    }, [list])
+        async function loadUsers() {
+            try {
+                let response = await listUsers()                
+                setResult(response)
+            } catch (e) {
+                console.log(e)
+            }
+        }
+
+        async function onLoad() {
+            loadUsers()
+        }
+        
+        onLoad()
+    }, [])
 
     const lastIndex = postPerPage * currentPage
     const firstIndex = lastIndex - postPerPage
@@ -36,6 +50,18 @@ const UserList = () => {
         }
     }
 
+    const getRole = (groups_id) => {
+        const roles = {
+            1: "Superuser",
+            2: "Admin",
+            3: "Massa",
+            4: "Lembaga",
+            5: "Kandidat"
+        }
+
+        return roles[groups_id]
+    }
+
     return (
         <div >
             <div id="userList" className="user-list-content is-flex">
@@ -48,11 +74,11 @@ const UserList = () => {
                             className="user-list-item p-4">
                             <div className="user-item-list-content">
                                 <div className="is-flex">
-                                    <h3>{item.fullName}</h3>
-                                    <h5>{item.userName}</h5>
+                                    <h3>{item.fullname}</h3>
+                                    <h5>{item.username}</h5>
                                 </div>
                                 <h5>{item.email}</h5>
-                                <p className="has-text-danger">{`Group: ${item.groups}`}</p>
+                                <p className="has-text-danger">{`Role: ${getRole(item.groups)}`}</p>
                             </div>
                             <UserModal item={item} id={`modal-user-${index}`}/>
                         </div>

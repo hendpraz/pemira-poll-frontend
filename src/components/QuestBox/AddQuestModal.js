@@ -33,7 +33,6 @@ const AddQuestModal = () => {
         modal.style.display = "none"
     }
 
-
     const submitQuest = async() => {
         if (isAgree) {
             if (userId && userContact) {
