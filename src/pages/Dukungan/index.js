@@ -54,14 +54,14 @@ const LembarDukungan = (props) => {
                         <li>
                             <form name="dukungan1">
                                 <div>
-                                    <h3>Nama Calon Pertama</h3> 
+                                    <h3>Trian Verson - Fisika 17</h3> 
                                     <div className="flex-right">
                                         {support1 && <Button file="dukung-btn" onClick={handleSupport1}/>}
                                     </div>
                                 </div>
                                 <input type="hidden" name="name" value={pageUser.fullname}/>
                                 <input type="hidden" name="nim" value={pageUser.nim}/>
-                                <input type="hidden" name="dukung" value="Kandidat 1"/>
+                                <input type="hidden" name="dukung" value="Trian Verson - Fisika 17"/>
                             </form>
                         </li>
                         <li>
