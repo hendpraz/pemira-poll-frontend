@@ -44,7 +44,7 @@ const PengembalianBerkas = (props) => {
 
     const validateForm = () => {
         if (fileberkas) {
-            return this.validateFile(fileberkas);
+            return validateFile(fileberkas);
         }
         else {
             return false;   
@@ -58,11 +58,16 @@ const PengembalianBerkas = (props) => {
         if(validateForm()){
             var reader = new FileReader();
             reader.onload = function(e){
-                document.getElementById('filename').value = filename;
-                document.getElementById('filecontent').value = e.target.result.replace(/^.*,/, '');
-                fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => console.log('Success!', response))
-                .catch(error => console.error('Error!', error.message));
+                document.getElementById('filename').value = filename
+                document.getElementById('filecontent').value = e.target.result.replace(/^.*,/, '')
+                const body = new FormData(form)
+                fetch(scriptURL,
+                    { 
+                        method: 'POST',
+                        body
+                    })
+                    .then(response => console.log('Success!', response))
+                    .catch(error => console.error('Error!', error.message));
                 alert("Berhasil upload berkas");
                 form.reset();
             }

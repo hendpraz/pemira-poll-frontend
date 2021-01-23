@@ -36,9 +36,14 @@ const LembarDukungan = (props) => {
         e.preventDefault();
         const form = document.forms[formname];
         let scriptURL = "https://script.google.com/macros/s/AKfycbxesL1pljDg4e9XODi21hDMumP7vfKN1cj7KtsxbnMZgmKrAaQTLOkH/exec";
-        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => console.log('Success!', response))
-        .catch(error => console.error('Error!', error.message));
+        const body = new FormData(form)
+        fetch(scriptURL,
+            {
+                method: 'POST',
+                body
+            })
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message));
         alert("Berhasil beri dukungan");
         form.reset();
     }
