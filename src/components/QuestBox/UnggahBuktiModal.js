@@ -59,7 +59,7 @@ const UnggahBuktiModal = ({item}) => {
 
                 <br/>
                 <h5 className="mb-2">Unggah File Bukti:</h5>
-                <input type="file" name="file" id="fileUnggah" class="inputfile" onChange={showFileName} />
+                <input type="file" name="file" id="fileUnggah" className="inputfile" onChange={showFileName} />
                 <label for="fileUnggah"><img src={`${image}/input-file.png`} alt="Choose Your File"/></label>
                 <p id="fileName" className="mt-3 has-text-danger">{fileName && `File Uploaded ${fileName}`}</p>
                 <br/>

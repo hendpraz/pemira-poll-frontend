@@ -13,9 +13,10 @@ import NonINA from './pages/Login/NonINA'
 import Lembaga from './pages/Login/Lembaga'
 import AmbilBerkas from './pages/Berkas/AmbilBerkas'
 import PengembalianBerkas from './pages/Berkas/PengembalianBerkas'
+import LembarDukungan from './pages/Dukungan'
 import INA from './pages/INA'
 
-// import Pendaftaran from './pages/Berkas/Pendaftaran'
+import Pendaftaran from './pages/Berkas/Pendaftaran'
 import AboutUs from './pages/AboutUs'
 import NotFound from './pages/NotFound'
 import Profile from 'pages/Profile'
@@ -70,9 +71,10 @@ function App() {
           <Route exact path="/login/nonina" render={() => <NonINA />} />
           <Route exact path="/ambil-berkas" render={() => <AmbilBerkas />} />
           <Route exact path="/pengembalian-berkas" render={() => <PengembalianBerkas />} />
+	        <Route exact path="/lembar-dukungan" render={() => <LembarDukungan />} />
           <Route exact path="/about-us" render={() => <AboutUs />} />
           <Route exact path="/INA" render={() => <INA />} />
-          {/* <Route exact path="/daftar" render={() => <Pendaftaran />} /> */}
+          <Route exact path="/daftar" render={() => <Pendaftaran />} />
           <Route exact path="/profile" render={() => <Profile />} />
           <Route exact path="/admin" render={() => <Admin />} />
           <Route exact path="/vote" render={() => <VoteAfter />} />

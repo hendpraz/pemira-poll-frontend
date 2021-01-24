@@ -1,0 +1,53 @@
+$yelfont: #F9F3A0;
+
+.dukungan{
+
+    .title-dukungan {
+        position: relative;
+        margin-top: 5vw;
+        padding-left: 7vw;
+        z-index: 3;
+        line-height: 2;
+        color: $yelfont;
+    }
+
+    ul {
+        padding-left: 7vw;
+
+        li {
+            margin-top: 2.5vw;
+
+            form{
+                
+                div{
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    h3 {
+                        color: $yelfont;
+                        flex: 35%;
+                    }
+
+                    .flex-right{
+                        flex: 65%;
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 870px) {
+    .dukungan{
+        ul{
+            li{
+                form{
+                    div{
+                        h3, .flex-right{
+                            flex: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,28 +1,38 @@
-import React, { Component} from 'react'
+import React, {useState, useEffect} from 'react'
 import NavBerkas from 'components/Navbar/NavBerkas.js'
 import Footer from 'components/Footer'
 import DarkBlue from 'layouts/DarkBlue'
 import Button from 'components/Button'
+import Authenticated from 'layouts/Authenticated'
+import { useAppContext } from 'libs/contextLib'
 
 import '../../styles/pages/Berkas.scss'
 
-class PengembalianBerkas extends Component {
-    state={
-        fileberkas: null,
-        filename: null
+const PengembalianBerkas = (props) => {
+
+    const [fileberkas, setBerkas] = useState(null)
+    const [filename, setFilename] = useState(null)
+
+    const {user} = useAppContext()
+    const [pageUser, setPageUser] = useState({})
+
+    useEffect(() => {
+        if (user) {
+            setPageUser(user)
+        }
+    }, [user])
+
+    const handleFile = (e) => {
+        setBerkas(e.target.files[0]);
+        setFilename(e.target.files[0].name);
     }
 
-    handleFile = (e) => {
-        this.setState({fileberkas:e.target.files[0]});
-        this.setState({filename:e.target.files[0].name});
-    }
-
-    handlecustom = () => {
+    const handlecustom = () => {
         const realFileBtn = document.getElementById("filezip");
         realFileBtn.click();
     }
 
-    validateFile = (file) => {
+    const validateFile = (file) => {
         var filename = file.name; 
         var formatfile = filename.substring(filename.lastIndexOf('.')+1);
         if(!formatfile.match("zip")){
@@ -32,36 +42,40 @@ class PengembalianBerkas extends Component {
         return true;
     }
 
-    validateForm = () => {
-        if (this.state.fileberkas) {
-            return this.validateFile(this.state.fileberkas);
+    const validateForm = () => {
+        if (fileberkas) {
+            return validateFile(fileberkas);
         }
         else {
             return false;   
         }
     }
 
-    handleSubmit = (e) =>{
+    const handleSubmit = (e) =>{
         e.preventDefault();
         const form = document.forms['FormKembalikanBerkas'];
         let scriptURL = "https://script.google.com/macros/s/AKfycbx840cGMu_0dGtqs1IwpKHI-1FP3vsdcqK2TbgAxr2UlgbxkkJhwrEHIg/exec";
-        if(this.validateForm()){
+        if(validateForm()){
             var reader = new FileReader();
-            var file = this.state.fileberkas;
             reader.onload = function(e){
-                document.getElementById('filename').value = file.name;
-                document.getElementById('filecontent').value = e.target.result.replace(/^.*,/, '');
-                fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => console.log('Success!', response))
-                .catch(error => console.error('Error!', error.message));
+                document.getElementById('filename').value = filename
+                document.getElementById('filecontent').value = e.target.result.replace(/^.*,/, '')
+                const body = new FormData(form)
+                fetch(scriptURL,
+                    { 
+                        method: 'POST',
+                        body
+                    })
+                    .then(response => console.log('Success!', response))
+                    .catch(error => console.error('Error!', error.message));
                 alert("Berhasil upload berkas");
                 form.reset();
             }
-            reader.readAsDataURL(file);
+            reader.readAsDataURL(fileberkas);
         }
     }
-    render(){
-        return (
+    return (
+        <Authenticated>    
             <div className="mainContainer">
                 <div className="myContent berkas">
                     <DarkBlue />
@@ -69,24 +83,24 @@ class PengembalianBerkas extends Component {
                     <h1 className="top-daf">Pengembalian Berkas</h1>
                     <form name="FormKembalikanBerkas">
                         <div className="btn-container">
-                            <input type="file" name="file" id="filezip" hidden="hidden" onChange={this.handleFile} required/> 
-                            <Button file="choose-file-btn" onClick={this.handlecustom}/>
-                            <div id="custom-text">{this.state.filename}</div>
+                            <input type="file" name="file" id="filezip" hidden="hidden" onChange={handleFile} required/> 
+                            <Button file="choose-file-btn" onClick={handlecustom}/>
+                            <div id="custom-text">{filename}</div>
                         </div>
-                        <input type="hidden" id="name" name="name" value="Tifany"/>
-                        <input type="hidden" id="email" name="email" value="tifanyangelia28@gmail.com"/>
+                        <input type="hidden" id="name" name="name" value={pageUser.fullname}/>
+                        <input type="hidden" id="email" name="email" value={pageUser.email_non_itb}/>
                         <input type="hidden" id="filename" name="filename"/>
                         <input type="hidden" id="filecontent" name="filecontent"/>
 
                         <div className="btn-container">
-                            <Button file="kembalikan-berkas-btn" onClick={this.handleSubmit}/>
+                            <Button file="kembalikan-berkas-btn" onClick={handleSubmit}/>
                         </div> 
                     </form>
                 </div>
                <Footer hashtag="false" />
             </div>
-        );
-    }
+        </Authenticated>
+    )
 }
 
 export default PengembalianBerkas
