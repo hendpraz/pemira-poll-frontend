@@ -158,9 +158,13 @@ $secondary: #03354C;
         border-radius: 4px!important;
         text-align: center;
         padding: 1.5% 3%;
-        width: 700px;
-        height: 400px;
+        width: 70%;
+        height: 500px;
         margin: 0 auto;
+        border-radius: 8px;
+
+
+
         @media (max-width:1024px) {
             width: 90%;
         }
@@ -235,10 +239,14 @@ $secondary: #03354C;
 
         .container {
             width: 100%;
-            position: relative;
+            position: absolute;
+            width: 94%;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-top: 50px;
+            bottom: 0;
+            padding-bottom: 4%;
 
             .details-btn {
                 position: relative;
