@@ -20,7 +20,9 @@ import AboutUs from './pages/AboutUs'
 import NotFound from './pages/NotFound'
 import Profile from 'pages/Profile'
 import Admin from 'pages/AdminPage'
-import Vote from 'pages/Vote'
+import VoteAfter from 'pages/Vote/After'
+import VoteBefore from 'pages/Vote/Before'
+import VoteSuccess from 'pages/Vote/VoteSuccess'
 
 function App() {
   const [isAuthenticated, userHasAuthenticated] = useState(localStorage.getItem('token') ? true : false)
@@ -73,7 +75,9 @@ function App() {
           {/* <Route exact path="/daftar" render={() => <Pendaftaran />} /> */}
           <Route exact path="/profile" render={() => <Profile />} />
           <Route exact path="/admin" render={() => <Admin />} />
-          <Route exact path="/vote" render={() => <Vote />} />
+          <Route exact path="/vote" render={() => <VoteAfter />} />
+          <Route exact path="/votebefore" render={() => <VoteBefore />} />
+          <Route exact path="/votesuccess" render={() => <VoteSuccess />} />
           <Route path="" render={() => <NotFound />} />
         </Switch>
       </BrowserRouter>

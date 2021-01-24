@@ -82,3 +82,39 @@ $yelfont: #F9F3A0;
         right: 12%;
     }
 }
+
+.carousel-v2 {
+    display: flex;
+    align-items: center;
+}
+
+.carouselv3-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+
+    .carousel-content {
+        width: 25%;
+        margin: 2%;
+        text-align: center;
+
+        .kandidat-profile {
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+
+            img {
+                padding: 20% 25% 40%
+            }
+        }
+
+        .btn-container {
+            margin: 10px 0;
+
+            .details-btn {
+                margin: 5px;
+            }
+        }
+    }
+}

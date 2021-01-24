@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from 'components/Button'
 
-const ModalSubmit = () => {
+const ModalSubmit = ({onClick}) => {
 
     const closeModal = () => {
         var modal = document.getElementById(`konfirmasiCoblos`)
@@ -34,7 +34,7 @@ const ModalSubmit = () => {
                     </div>
 
                     <div className="container">
-                        <Button file="coblos"/>
+                        <Button file="coblos" onClick={onClick} />
                         <Button file="batal-merah"/>
                     </div>
                 </div>

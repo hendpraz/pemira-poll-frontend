@@ -6,7 +6,7 @@ import Footer from 'components/Footer'
 import Button from 'components/Button'
 import ModalSubmit from 'components/Vote/ModalSubmit'
 
-const Vote = () => {
+const VoteAfter = () => {
     const {assetsURL: {
             image
         }} = config
@@ -62,4 +62,4 @@ const Vote = () => {
     )
 }
 
-export default Vote
+export default VoteAfter
