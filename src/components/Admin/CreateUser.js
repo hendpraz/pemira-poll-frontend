@@ -33,6 +33,7 @@ const CreateUser = () => {
                 let data = JSON.parse(JSON.stringify(fields))
                 
                 data.groups = parseInt(data.groups)
+                data.email_non_itb = fields.email
                 console.log(data)
                 const response = await createUser(data)
                 
