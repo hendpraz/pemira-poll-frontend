@@ -5,34 +5,12 @@ const { image } = assetsURL
 
 const presKM = [
     {
+        name: `Hanif Syahbandi`,
         url: `${image}/Tameng Organogram.png`
     },
     {
-        url: `${image}/Tameng Organogram.png`
-    },
-    {
-        url: `${image}/Tameng Organogram.png`
-    },
-    {
-        url: `${image}/Tameng Organogram.png`
-    },
-    {
-        url: `${image}/Tameng Organogram.png`
-    },
-    {
-        url: `${image}/Tameng Organogram.png`
-    },
-    {
-        url: `${image}/Tameng Organogram.png`
-    },
-    {
-        url: `${image}/Tameng Organogram.png`
-    },
-    {
-        url: `${image}/submit.png`
-    },
-    {
-        url: `${image}/Tameng Organogram.png`
+        name: `Lala Widy`,
+        url: `${image}/Koin 2.png`
     }
 ]
 

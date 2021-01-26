@@ -290,9 +290,11 @@ $secondary: #03354C;
 
         .carousel-v2 {
             align-items: center;
+            width: 100% ;
 
             .carousel-content {
                 margin: 20px;
+                width: 250px;
             }
 
             .kandidat-profile {
@@ -361,10 +363,6 @@ $secondary: #03354C;
         transform: scale(1.2);
         cursor: pointer;
     }
-
-    .hidden {
-        visibility: hidden;
-    }
 }
 
 .vote-success {
@@ -404,3 +402,6 @@ $secondary: #03354C;
     }
 }
 
+.hidden {
+    visibility: hidden;
+}

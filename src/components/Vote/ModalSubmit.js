@@ -26,7 +26,7 @@ const ModalSubmit = ({onClick}) => {
                         </p>
                         <div className="setuju-coblos">
                             <input id="setujuCoblos" type="checkbox" />
-                            <label forHtml="setujuCoblos">Saya setuju dengan pernyataan diatas</label>
+                            <label forhtml="setujuCoblos">Saya setuju dengan pernyataan diatas</label>
                         </div>
                     </div>
                     <div className="captcha">
