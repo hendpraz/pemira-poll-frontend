@@ -163,6 +163,26 @@ $secondary: #03354C;
         margin: 0 auto;
         border-radius: 8px;
 
+        .container {
+            width: 94%;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            bottom: 0;
+            padding-bottom: 4%;
+
+            .details-btn {
+                position: relative;
+                text-align: center;
+                width: 200px;
+                margin: 0 10px;
+                img {
+                    width: 100%;
+                }
+            }
+        }
 
 
         @media (max-width:1024px) {
