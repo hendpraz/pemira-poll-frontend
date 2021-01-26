@@ -37,6 +37,10 @@ const VoteAfter = () => {
         setMyCalon([...myCalon, chosenCalon[0]])
     }
 
+    const reset = () => {
+        setMyCalon([]);
+        setCalon(presKM);
+    }
 
     return (
         <div className="main-container">
@@ -49,10 +53,10 @@ const VoteAfter = () => {
                     }}>
                         <div className="pemilihan-k3m">
                             <h2>Pemilihan K3M</h2>
-                            <Priority pilihCalon={pilihCalon} calon={calon} value={myCalon[0]} no={1}/>
-                            <Priority pilihCalon={pilihCalon} calon={calon} value={myCalon[1]} no={2}/>
-                            <Priority pilihCalon={pilihCalon} calon={calon} value={myCalon[2]} no={3}/>
-                            <Priority pilihCalon={pilihCalon} calon={calon} value={myCalon[3]} no={4}/>
+                            <Priority pilihCalon={pilihCalon} calon={calon} value={myCalon[0]} no={1} reset={reset}/>
+                            <Priority pilihCalon={pilihCalon} calon={calon} value={myCalon[1]} no={2} reset={reset}/>
+                            <Priority pilihCalon={pilihCalon} calon={calon} value={myCalon[2]} no={3} reset={reset}/>
+                            <Priority pilihCalon={pilihCalon} calon={calon} value={myCalon[3]} no={4} reset={reset}/>
                         </div>
                     </div>
                 </div>
@@ -72,13 +76,13 @@ const VoteAfter = () => {
                                 <p>Ada captcha disini</p>
                             </div>
                             <Button file="submit" onClick={openModal}/>
-                            <Button file="reset"/>
+                            <Button file="reset" onClick={reset}/>
                             <Button file="batal"/>
                         </div>
                     </div>
                 </div>
             </div>
-            <ModalSubmit/>
+            <ModalSubmit />
             <Footer/>
         </div>
     )

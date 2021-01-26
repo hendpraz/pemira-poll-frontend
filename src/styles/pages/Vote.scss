@@ -283,9 +283,9 @@ $secondary: #03354C;
             display: flex;
             width: 100%;
             position: relative;
-            height: 80%;
+            height: 68%;
             align-items: center;
-            padding: 5%;
+            padding: 0 5%;
         }
 
         .carousel-v2 {
@@ -404,4 +404,17 @@ $secondary: #03354C;
 
 .hidden {
     visibility: hidden;
+}
+
+.reset-btn-container {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin: 10px auto;
+
+    .details-btn {
+        width: 15%;
+        position: relative;
+        margin: 0;
+    }
 }

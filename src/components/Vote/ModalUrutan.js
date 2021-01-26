@@ -3,7 +3,7 @@ import Button from 'components/Button'
 import Carousel from 'components/Carousel'
 import CarouselV2 from 'components/Carousel-v2'
 
-const ModalUrutan = ({pilihCalon, calon}) => {
+const ModalUrutan = ({pilihCalon, calon, reset}) => {
 
     const closeModal = () => {
         var modal = document.getElementById(`pilihUrutan`)
@@ -20,7 +20,10 @@ const ModalUrutan = ({pilihCalon, calon}) => {
                     <hr/>
                     <br/>
                     <div className="pilih-urutan-content">
-                        <CarouselV2 pilihCalon={pilihCalon}  calon={calon}/>
+                        <CarouselV2 pilihCalon={pilihCalon} calon={calon}/>
+                    </div>
+                    <div className="reset-btn-container">
+                        <Button file='reset' onClick={reset}/>
                     </div>
                 </div>
             </div>

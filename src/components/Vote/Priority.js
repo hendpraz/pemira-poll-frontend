@@ -3,7 +3,7 @@ import config from 'config'
 import Button from 'components/Button'
 import ModalUrutan from './ModalUrutan'
 
-const Priority = ({value, pilihCalon, calon, no}) => {
+const Priority = ({value, pilihCalon, calon, no, reset}) => {
     const { assetsURL: {image}} = config
 
     const openModal = () => {
@@ -25,7 +25,7 @@ const Priority = ({value, pilihCalon, calon, no}) => {
                     {!value && <div className="btn-container"><Button file="plus-btn" onClick={openModal}/></div>}
                 </div>
             </div>
-            <ModalUrutan pilihCalon={pilihCalon} calon={calon}/>
+            <ModalUrutan pilihCalon={pilihCalon} calon={calon} reset={reset} />
         </div>
     )
 }
