@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import config from 'config'
 import presKM from 'components/Carousel/presKM'
 import 'styles/Carousel.scss'
+import Button from 'components/Button'
 
 const CarouselV2 = () => {
     const {assetsURL: {
@@ -26,7 +27,7 @@ const CarouselV2 = () => {
     const prevSlide = () => {
         setCurrent(current.map(item => {
             if (item == 0) {
-                return length-1
+                return length - 1
             } else {
                 return item - 1
             }
@@ -63,6 +64,10 @@ const CarouselV2 = () => {
                                         <img src={`${image}/Koin.png`} alt="kandidat-picture"/>
                                     </div>}
                                 </div>
+                                {index === current[0] && <div className="container">
+                                    <Button file="pilih-btn"/>
+                                    <Button file="batal-merah"/>
+                                </div>}
                             </div>
                         )
                     })}
@@ -84,6 +89,10 @@ const CarouselV2 = () => {
                                         <img src={`${image}/Koin.png`} alt="kandidat-picture"/>
                                     </div>}
                                 </div>
+                                {index === current[1] && <div className="container">
+                                    <Button file="pilih-btn"/>
+                                    <Button file="batal-merah"/>
+                                </div>}
                             </div>
                         )
                     })}
@@ -105,6 +114,12 @@ const CarouselV2 = () => {
                                         <img src={`${image}/Koin.png`} alt="kandidat-picture"/>
                                     </div>}
                                 </div>
+
+                                {index === current[2] && <div className="container">
+                                    <Button file="pilih-btn"/>
+                                    <Button file="batal-merah"/>
+                                </div>}
+
                             </div>
                         )
                     })}
