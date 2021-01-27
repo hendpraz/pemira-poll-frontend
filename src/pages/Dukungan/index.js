@@ -9,6 +9,10 @@ import { useAppContext } from 'libs/contextLib'
 import '../../styles/pages/Dukungan.scss'
 import NavLoggedIn from 'components/Navbar/NavLoggedIn'
 
+// confirm alert
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
+
 const LembarDukungan = (props) => {
 
     const [candidates, setCandidates] = useState([])
@@ -39,39 +43,71 @@ const LembarDukungan = (props) => {
         onLoad()
     }, [])
 
-    const handleSubmit = async (e, index) =>{
-        e.preventDefault();
+    const continueSubmit = async (index) => {
         const candidate = candidates[index]
-        const r = window.confirm(`Apakah Anda yakin akan memberi dukungan untuk kandidat ${candidate.fullname}?`)
-        if (r) {
-            const formname = `dukungan-${index}`
-            const form = document.forms[formname]
-            let scriptURL = "https://script.google.com/macros/s/AKfycbxesL1pljDg4e9XODi21hDMumP7vfKN1cj7KtsxbnMZgmKrAaQTLOkH/exec"
-            const body = new FormData(form)
-    
-            const res = await dukungKandidat(candidate.id)
-            console.log(res.status)
+        const formname = `dukungan-${index}`
+        const form = document.forms[formname]
+        let scriptURL = "https://script.google.com/macros/s/AKfycbxesL1pljDg4e9XODi21hDMumP7vfKN1cj7KtsxbnMZgmKrAaQTLOkH/exec"
+        const body = new FormData(form)
 
-            if (res.status !== 200) {
-                if (res.status === 403) {
-                    alert("Tidak berhasil. Anda tidak memiliki hak untuk mendukung kandidat.")
-                } else {
-                    alert("Tidak berhasil. Silakan coba kembali.")
-                }
+        const res = await dukungKandidat(candidate.id)
+        console.log(res.status)
+
+        if (res.status !== 200) {
+            if (res.status === 403) {
+                confirmAlert({
+                    title: 'Gagal',
+                    message: `Gagal beri dukungan untuk kandidat ${candidates[index].fullname}? Anda tidak memiliki hak untuk mendukung kandidat.`,
+                    buttons: [
+                      {
+                        label: 'OK'
+                      }
+                    ]
+                })
             } else {
-                await fetch(scriptURL,
-                    {
-                        method: 'POST',
-                        body
-                    })
-                    .then(response => console.log('Success!', response))
-                    .catch(error => console.error('Error!', error.message))
-
-                form.reset()
-                window.location.reload()
-                alert("Berhasil beri dukungan")
+                alert("Tidak berhasil. Silakan coba kembali.")
             }
+        } else {
+            await fetch(scriptURL,
+                {
+                    method: 'POST',
+                    body
+                })
+                .then(response => console.log('Success!', response))
+                .catch(error => console.error('Error!', error.message))
+
+
+            confirmAlert({
+                title: 'Berhasil',
+                message: `Berhasil beri dukungan untuk kandidat ${candidates[index].fullname}, ${candidates[index].ou}`,
+                buttons: [
+                    {
+                        label: 'OK',
+                        onClick: () => { 
+                            form.reset()
+                            window.location.reload()
+                        }
+                    }
+                ]
+            })
         }
+    }
+
+    const handleSubmit = async (e, index) =>{
+        e.preventDefault()
+        confirmAlert({
+            title: 'Konfirmasi',
+            message: `Apakah Anda yakin akan memberi dukungan untuk kandidat ${candidates[index].fullname}, ${candidates[index].ou}?`,
+            buttons: [
+              {
+                label: 'Yes',
+                onClick: () => continueSubmit(index)
+              },
+              {
+                label: 'No',
+              }
+            ]
+        })
     }
 
     return(
@@ -95,7 +131,7 @@ const LembarDukungan = (props) => {
                                                     <div className="flex-right">
                                                         { item.is_supported 
                                                         ? <p>Telah Anda dukung.</p>
-                                                        : <Button file="dukung-btn" onClick={e => handleSubmit(e, index)}/>
+                                                        : <div style={{height: "50px", width: "100%"}}><Button file="dukung-btn" onClick={e => handleSubmit(e, index)}/></div>
                                                         }
                                                     </div>
                                                 </div>
