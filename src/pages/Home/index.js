@@ -46,11 +46,11 @@ function Home() {
                         </div>
                     </div>
                 </div>
-                <Kandidat />
-                <TopFive />
-                <Tutorial />
-                <FAQ />
-                <HomeBottom />
+                {/* <Kandidat /> */}
+                {/* <TopFive /> */}
+                {/* <Tutorial /> */}
+                <FAQ /><br />
+                {/* <HomeBottom /> */}
             </div>
 
             <Footer hashtag='true'/>
