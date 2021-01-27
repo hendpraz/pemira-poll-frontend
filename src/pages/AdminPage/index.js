@@ -6,6 +6,8 @@ import QuestList from 'components/Admin/QuestList'
 import CreateUser from 'components/Admin/CreateUser'
 import CreateKandidat from 'components/Admin/CreateKandidat'
 import UserAssociation from 'components/Admin/UserAssociation'
+import BakalCalonList from 'components/Admin/BakalCalon/BakalCalonList'
+import CreateBakalCalon from 'components/Admin/BakalCalon/CreateBakalCalon'
 import AdminAuth from 'layouts/AdminAuth'
 
 const Admin = () => {
@@ -13,6 +15,16 @@ const Admin = () => {
         <AdminAuth>
             <div className="admin-page">
                 <NavAdmin/>
+                <div className="user">
+                    <div id="bakalCalonList" className="mb-6">
+                        <h1 className="has-text-centered has-text-primary">List Bakal calon</h1>
+                        <BakalCalonList />
+                    </div>
+                    <div id="createUser">
+                        <h1 className="has-text-centered has-text-primary">Input Data Bakal Calon Kandidat</h1>
+                        <CreateBakalCalon />
+                    </div>
+                </div>
                 <div className="user">
                     <div id="userList" className="mb-6">
                         <h1 className="has-text-centered has-text-primary">User List</h1>
