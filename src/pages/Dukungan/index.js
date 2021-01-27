@@ -91,7 +91,7 @@ const LembarDukungan = (props) => {
                                         <li key={`list-dukungan-${index}`}>
                                             <form name={`dukungan-${index}`} >
                                                 <div>
-                                                    <h3>{item.fullname + ' - ' + item.ou}</h3> 
+                                                    <h3>{`${item.fullname} - ${item.ou} ${item.angkatan} - ${item.tipe_kandidat}`}</h3> 
                                                     <div className="flex-right">
                                                         { item.is_supported 
                                                         ? <p>Telah Anda dukung.</p>
