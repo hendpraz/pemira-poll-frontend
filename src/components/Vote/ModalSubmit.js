@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Button from 'components/Button'
 import { useHistory } from 'react-router-dom'
 
@@ -13,8 +13,14 @@ const ModalSubmit = ({prefsString, user}) => {
     }
 
     const submitVote = () => {
-        history.push('votesuccess')
+        if (isAgree) {
+            history.push('votesuccess')
+        } else {
+            alert("Anda belum menyetujui pernyataannya.")
+        }
     }
+
+    const [isAgree, setIsAgree] = useState(false)
 
     return (
         <div>
@@ -32,7 +38,7 @@ const ModalSubmit = ({prefsString, user}) => {
                             Segala keputusan Anda tidak dapat diubah lagi ketika sudah klik setuju.
                         </p>
                         <div className="setuju-coblos">
-                            <input id="setujuCoblos" type="checkbox" />
+                            <input id="setujuCoblos" type="checkbox" checked={isAgree} onChange={() => setIsAgree(!isAgree)}/>
                             <label forhtml="setujuCoblos">Saya setuju dengan pernyataan diatas</label>
                         </div>
                     </div>

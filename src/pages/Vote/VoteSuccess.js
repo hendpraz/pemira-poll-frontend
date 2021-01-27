@@ -24,7 +24,7 @@ const VoteSuccess = () => {
                 }}>
                     <div className="kembali-scroll">
                         <h1>Pemilihan K3M</h1>
-                        <Button file="kembali" onClick={() => history.push('vote')}/>
+                        <Button file="kembali" onClick={() => history.push('/')}/>
                     </div>
                 </div>
             </div>
