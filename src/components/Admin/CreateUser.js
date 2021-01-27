@@ -43,10 +43,16 @@ const CreateUser = () => {
                 }
                 console.log(data)
                 const response = await createUser(data)
-                
+                const status = response.httpStatus
                 console.log(response)
-                alert("Berhasil menambahkan user.")
-                window.location.reload();
+
+                if (status >= 200 && status < 300) {
+                    alert("Berhasil menambahkan user.")
+                    window.location.reload();
+                    window.location.reload();
+                } else {
+                    alert("Tidak berhasil. Silakan coba kembali")
+                }
             }
         } else {
             alert("Data tidak valid! Silakan cek kembali.")

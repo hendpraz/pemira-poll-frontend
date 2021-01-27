@@ -31,10 +31,12 @@ export const createUser = async (data) =>
         },
         body: JSON.stringify(data)
       })
-      response = response.json()
-      console.log(response)
 
-      resolve(response);
+      const httpStatus = response.status
+      const res = JSON.parse(JSON.stringify(response.json()))
+      res.httpStatus = httpStatus
+
+      resolve(res);
     } catch (e) {
       reject(e);
     }
