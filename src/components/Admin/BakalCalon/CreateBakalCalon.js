@@ -32,19 +32,19 @@ const CreateUser = () => {
             console.log(data)
             
             if(isValidData()) {
-                const r = window.confirm(`Apakah Anda yakin dengan data user ${fields.username} yang diisi?`)
+                const r = window.confirm(`Apakah Anda yakin dengan data user ${fields.fullname} yang diisi?`)
                 if (r) {
                     // Create kandidat data
                     let response = await createBakalCalon(data)
                     const status = response.status
                     
                     response = response.json()
-                    console.log(response)
+                    console.log(status)
     
-                    if (status !== 200) {
-                        alert("Tidak berhasil. Silakan coba kembali")
-                    } else {
+                    if (status >= 200 && status < 300)  {
                         alert("Berhasil menambahkan kandidat.")
+                    } else {
+                        alert("Tidak berhasil. Silakan coba kembali")
                     }
                     // window.location.reload();
                 }
