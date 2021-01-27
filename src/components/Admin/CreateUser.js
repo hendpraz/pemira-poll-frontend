@@ -14,6 +14,9 @@ const CreateUser = () => {
         address: "",
         groups: "3",
         photo_url: "",
+        fakultas: "",
+        jurusan: "",
+        is_akmet: "",
     });
 
     const isValidData = () => {
@@ -34,6 +37,10 @@ const CreateUser = () => {
                 
                 data.groups = parseInt(data.groups)
                 data.email_non_itb = fields.email
+
+                if (data.is_akmet === "Akmet") {
+                    data.ou = "Akmet"
+                }
                 console.log(data)
                 const response = await createUser(data)
                 
@@ -76,12 +83,12 @@ const CreateUser = () => {
                     
                     <label><h5>Email*</h5></label>
                     <input type="email" required name="email" id="email" value={fields.email} onChange={handleFieldChange}/>
-                </div>
-                <div className="input-container column">
+                    <br/><br/>
+
                     <label><h5>Phone Number*</h5></label>
                     <input type="text" required name="phone_number" id="phone_number" value={fields.phone_number} onChange={handleFieldChange}/>
-                    <br/><br/>
-                    
+                </div>
+                <div className="input-container column">
                     <label><h5>ID Line*</h5></label>
                     <input type="text" required name="line_id" id="line_id" value={fields.line_id} onChange={handleFieldChange}/>
                     <br/><br/>
@@ -101,12 +108,31 @@ const CreateUser = () => {
                     </div>
                     <br/>
                     <br/>
+
+                    <label><h5>Apakah merupakan mahasiswa Akmet?*</h5></label>
+                    <div className="select">
+                        <select name="is_akmet" id="is_akmet" value={fields.is_akmet} onChange={handleFieldChange} required>
+                            <option value=''>Bukan Akmet</option>
+                            <option value='Akmet'>Akmet</option>
+                        </select>
+                    </div>
+                    <br/><br/>
+
+                    <label><h5>Fakultas/Sekolah (gunakan singkatan)*</h5></label>
+                    <input type="text" required name="fakultas" id="fakultas" value={fields.fakultas} onChange={handleFieldChange}/>
+                    <p>Jika akmet, kolom ini dapat Anda kosongkan</p>
+                    <br/>
+
+                    <label><h5>Jurusan*</h5></label>
+                    <input type="text" required name="jurusan" id="jurusan" value={fields.jurusan} onChange={handleFieldChange}/>
+                    <p>Jika akmet, kolom ini dapat Anda kosongkan</p>
+                    <br/><br/>
                 </div>
             </div>
             <div className="has-text-centered my-5">
                 <button className="button is-primary is-large" onClick={submitUser}>Submit</button>
             </div>
-
+            <br />
         </div>
     )
 }
