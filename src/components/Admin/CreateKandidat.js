@@ -65,12 +65,12 @@ const CreateUser = () => {
                     response = response.json()
                     console.log(response)
     
-                    if (status !== 200) {
-                        alert("Tidak berhasil. Silakan coba kembali")
-                    } else {
+                    if (status >= 200 && status < 300) {
                         alert("Berhasil menambahkan kandidat.")
+                        window.location.reload();
+                    } else {
+                        alert("Tidak berhasil. Silakan coba kembali")
                     }
-                    // window.location.reload();
                 }
             } else {
                 alert("Data tidak valid! Silakan cek kembali.")
