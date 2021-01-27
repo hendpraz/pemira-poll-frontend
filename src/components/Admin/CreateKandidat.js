@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFormFields } from "libs/hooksLib"
-import { createUser, createKandidat } from "resources/user"
+import { createKandidat } from "resources/user"
 
 const CreateUser = () => {
     const [fields, handleFieldChange] = useFormFields({

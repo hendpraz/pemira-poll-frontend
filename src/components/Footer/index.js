@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
-import config from 'config'
+// import config from 'config'
 import 'styles/Footer.scss'
 
 const hashtags = [
@@ -30,8 +30,8 @@ const hashtags = [
 
 function Footer({hashtag}) {
 
-    const {assetsURL} = config;
-    const {image} = assetsURL;
+    // const {assetsURL} = config;
+    // const {image} = assetsURL;
 
     return (
         <div

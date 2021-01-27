@@ -44,7 +44,7 @@ const HomeProfile = () => {
                             style={{
                             backgroundImage: `url('${image}/Tameng v2 2.png')`
                         }}>
-                            <img src={`${image}/stone 2.png`} alt="profile picture"/>
+                            <img src={`${image}/stone 2.png`} alt="prof-pic"/>
                         </div>
                     </div>
                     <div className="user-profile-content">

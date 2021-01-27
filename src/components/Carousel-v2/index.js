@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import config from 'config'
-import presKM from 'components/Carousel/presKM'
+// import presKM from 'components/Carousel/presKM'
 import 'styles/Carousel.scss'
 import Button from 'components/Button'
 
@@ -54,7 +54,7 @@ const CarouselV2 = ({pilihCalon, calon}) => {
                                         style={{
                                         backgroundImage: `url('${image}/bg-kandidat.png')`
                                     }}>
-                                        <img src={item.photo_url} alt="kandidat-picture"/>
+                                        <img src={item.photo_url} alt="kandidat"/>
                                     </div>}
                                 </div>
                                 {index === current[0] && <div className="container">
@@ -78,7 +78,7 @@ const CarouselV2 = ({pilihCalon, calon}) => {
                                         style={{
                                         backgroundImage: `url('${image}/bg-kandidat.png')`
                                     }}>
-                                        <img src={item.photo_url} alt="kandidat-picture"/>
+                                        <img src={item.photo_url} alt="kandidat"/>
                                     </div>}
                                 </div>
                                 {index === current[1] && <div className="container">
@@ -102,7 +102,7 @@ const CarouselV2 = ({pilihCalon, calon}) => {
                                         style={{
                                         backgroundImage: `url('${image}/bg-kandidat.png')`
                                     }}>
-                                        <img src={item.photo_url} alt="kandidat-picture"/>
+                                        <img src={item.photo_url} alt="kandidat"/>
                                     </div>}
                                 </div>
 

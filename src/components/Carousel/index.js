@@ -49,7 +49,7 @@ const Carousel = ({kandidat}) => {
                                     style={{
                                     backgroundImage: `url('${image}/bg-kandidat.png')`
                                 }}>
-                                    <img src={`${image}/Koin.png`} alt="kandidat-picture"/>
+                                    <img src={`${image}/Koin.png`} alt="kandidat"/>
                                 </div>}
                             </div>
                         </div>

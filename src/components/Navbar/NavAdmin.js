@@ -5,7 +5,7 @@ const NavAdmin = () => {
         <div>
             <nav className="navbar" role="navigation" aria-label="main navidgation">
                 <div className="navbar-brand">
-                    <a className="navbar-item" href="https://bulma.io">
+                    <a className="navbar-item" href="/">
                         <div className="navbar-brand-content">
                             <h3 className="has-text-primary">PEMIRA</h3>
 
@@ -18,7 +18,8 @@ const NavAdmin = () => {
                         className="navbar-burger"
                         aria-label="menu"
                         aria-expanded="false"
-                        data-target="navbarBasicExample">
+                        data-target="navbarBasicExample"
+                        >
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>

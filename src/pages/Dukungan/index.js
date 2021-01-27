@@ -53,7 +53,7 @@ const LembarDukungan = (props) => {
             console.log(res.status)
 
             if (res.status !== 200) {
-                if (res.status == 403) {
+                if (res.status === 403) {
                     alert("Tidak berhasil. Anda tidak memiliki hak untuk mendukung kandidat.")
                 } else {
                     alert("Tidak berhasil. Silakan coba kembali.")
