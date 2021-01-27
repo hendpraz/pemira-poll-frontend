@@ -22,7 +22,7 @@ import NotFound from './pages/NotFound'
 import Profile from 'pages/Profile'
 import Admin from 'pages/AdminPage'
 import VoteAfter from 'pages/Vote/After'
-import VoteBefore from 'pages/Vote/Before'
+// import VoteBefore from 'pages/Vote/Before'
 import VoteSuccess from 'pages/Vote/VoteSuccess'
 
 function App() {
@@ -78,7 +78,7 @@ function App() {
           <Route exact path="/profile" render={() => <Profile />} />
           <Route exact path="/admin" render={() => <Admin />} />
           <Route exact path="/vote" render={() => <VoteAfter />} />
-          <Route exact path="/votebefore" render={() => <VoteBefore />} />
+          {/* <Route exact path="/votebefore" render={() => <VoteBefore />} /> */}
           <Route exact path="/votesuccess" render={() => <VoteSuccess />} />
           <Route path="" render={() => <NotFound />} />
         </Switch>

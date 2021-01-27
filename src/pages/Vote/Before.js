@@ -7,10 +7,6 @@ import {useHistory} from 'react-router-dom'
 const VoteBefore = () => {
     const history = useHistory()
 
-    const onClick = () => {
-        history.push('votesuccess')
-    }
-
     return (
         <div className="vote-before">
             <DarkBlue />
@@ -20,7 +16,7 @@ const VoteBefore = () => {
             <div className="container-asik">
                 <CarouselV3 />
             </div>
-            <ModalSubmit onClick={onClick}/>
+            <ModalSubmit />
         </div>
     )
 }

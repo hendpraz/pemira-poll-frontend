@@ -1,12 +1,19 @@
 import React from 'react'
 import Button from 'components/Button'
+import { useHistory } from 'react-router-dom'
 
-const ModalSubmit = ({onClick}) => {
+const ModalSubmit = ({prefsString, user}) => {
+
+    const history = useHistory()
 
     const closeModal = () => {
         var modal = document.getElementById(`konfirmasiCoblos`)
 
         modal.style.display = "none"
+    }
+
+    const submitVote = () => {
+        history.push('votesuccess')
     }
 
     return (
@@ -18,11 +25,11 @@ const ModalSubmit = ({onClick}) => {
                     <hr/>
                     <br/>
                     <div className="coblos-content">
-                        <p>Saya Hafid Abi D / 16519371 akan memilh kandidat No X atas nama (nama
-                            kandidat) atas inisiatif saya sendiri, tanpa dipaksa, bla bla bla
+                        <p>Saya {user.fullname} / {user.nim} akan memilih preferensi kandidat {prefsString} atas
+                        inisiatif saya sendiri dan tanpa dipaksa.
                             <br/>
                             <br/>
-                            segala keputusan anda tidak dapat diubah lagi ketika sudah klik setuju
+                            Segala keputusan Anda tidak dapat diubah lagi ketika sudah klik setuju.
                         </p>
                         <div className="setuju-coblos">
                             <input id="setujuCoblos" type="checkbox" />
@@ -34,8 +41,8 @@ const ModalSubmit = ({onClick}) => {
                     </div>
 
                     <div className="container">
-                        <Button file="coblos" onClick={onClick} />
-                        <Button file="batal-merah"/>
+                        <Button file="coblos" onClick={submitVote} />
+                        <Button file="batal-merah" onClick={closeModal}/>
                     </div>
                 </div>
             </div>

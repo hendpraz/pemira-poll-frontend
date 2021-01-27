@@ -54,7 +54,7 @@ const CarouselV2 = ({pilihCalon, calon}) => {
                                         style={{
                                         backgroundImage: `url('${image}/bg-kandidat.png')`
                                     }}>
-                                        <img src={item.url} alt="kandidat-picture"/>
+                                        <img src={item.photo_url} alt="kandidat-picture"/>
                                     </div>}
                                 </div>
                                 {index === current[0] && <div className="container">
@@ -78,7 +78,7 @@ const CarouselV2 = ({pilihCalon, calon}) => {
                                         style={{
                                         backgroundImage: `url('${image}/bg-kandidat.png')`
                                     }}>
-                                        <img src={item.url} alt="kandidat-picture"/>
+                                        <img src={item.photo_url} alt="kandidat-picture"/>
                                     </div>}
                                 </div>
                                 {index === current[1] && <div className="container">
@@ -102,7 +102,7 @@ const CarouselV2 = ({pilihCalon, calon}) => {
                                         style={{
                                         backgroundImage: `url('${image}/bg-kandidat.png')`
                                     }}>
-                                        <img src={item.url} alt="kandidat-picture"/>
+                                        <img src={item.photo_url} alt="kandidat-picture"/>
                                     </div>}
                                 </div>
 

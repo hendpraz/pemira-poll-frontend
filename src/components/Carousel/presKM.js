@@ -5,12 +5,14 @@ const { image } = assetsURL
 
 const presKM = [
     {
-        name: `Hanif Syahbandi`,
-        url: `${image}/Tameng Organogram.png`
+        id: "asdasdasdsad-1234",
+        fullname: `Hanif Syahbandi`,
+        photo_url: `${image}/Tameng Organogram.png`
     },
     {
-        name: `Lala Widy`,
-        url: `${image}/Koin 2.png`
+        id: "asdasdasdsad-1234",
+        fullname: `Lala Widy`,
+        photo_url: `${image}/Koin 2.png`
     }
 ]
 
