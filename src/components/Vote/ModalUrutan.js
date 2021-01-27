@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from 'components/Button'
-import Carousel from 'components/Carousel'
+// import Carousel from 'components/Carousel'
 import CarouselV2 from 'components/Carousel-v2'
 
 const ModalUrutan = ({pilihCalon, calon, reset}) => {

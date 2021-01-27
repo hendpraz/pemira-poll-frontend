@@ -88,7 +88,7 @@ const HomeProfile = () => {
                                 style={{
                                 backgroundImage: `url('${image}/hijau-btn.png')`
                             }}>
-                                <div>x</div>
+                                <div>{pageUser.vote_k3m_status === "notyet" ? <>&#10006;</> : <>&#x2714;</>}</div>
                             </div>
                         </div>
                         <div className="user-gain">
@@ -98,7 +98,7 @@ const HomeProfile = () => {
                                 style={{
                                 backgroundImage: `url('${image}/hijau-btn.png')`
                             }}>
-                                <div>x</div>
+                                <div>{pageUser.vote_mwa_status === "notyet" ? <>&#10006;</> : <>&#x2714;</>}</div>
                             </div>
                         </div>
                         <div className="user-gain">

@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import NavMain from 'components/Navbar/NavMain.js'
 import Footer from 'components/Footer'
 import DarkBlue from 'layouts/DarkBlue'
 import Button from 'components/Button'
@@ -8,6 +7,7 @@ import { listKandidatDukungan, dukungKandidat } from 'resources/user'
 import { useAppContext } from 'libs/contextLib'
 
 import '../../styles/pages/Dukungan.scss'
+import NavLoggedIn from 'components/Navbar/NavLoggedIn'
 
 const LembarDukungan = (props) => {
 
@@ -49,24 +49,28 @@ const LembarDukungan = (props) => {
             let scriptURL = "https://script.google.com/macros/s/AKfycbxesL1pljDg4e9XODi21hDMumP7vfKN1cj7KtsxbnMZgmKrAaQTLOkH/exec"
             const body = new FormData(form)
     
-    
-            // for (var pair of body.entries()) {
-            //     console.log(pair[0]+ ', ' + pair[1]); 
-            // }
-            await fetch(scriptURL,
-                {
-                    method: 'POST',
-                    body
-                })
-                .then(response => console.log('Success!', response))
-                .catch(error => console.error('Error!', error.message))
-    
             const res = await dukungKandidat(candidate.id)
-            console.log(res)
-            
-            alert("Berhasil beri dukungan")
-            form.reset()
-            window.location.reload()
+            console.log(res.status)
+
+            if (res.status !== 200) {
+                if (res.status == 403) {
+                    alert("Tidak berhasil. Anda tidak memiliki hak untuk mendukung kandidat.")
+                } else {
+                    alert("Tidak berhasil. Silakan coba kembali.")
+                }
+            } else {
+                await fetch(scriptURL,
+                    {
+                        method: 'POST',
+                        body
+                    })
+                    .then(response => console.log('Success!', response))
+                    .catch(error => console.error('Error!', error.message))
+
+                form.reset()
+                window.location.reload()
+                alert("Berhasil beri dukungan")
+            }
         }
     }
 
@@ -75,7 +79,7 @@ const LembarDukungan = (props) => {
             <div className="mainContainer">
                 <div className="myContent dukungan">
                     <DarkBlue />
-                    <NavMain logo={false}/>
+                    <NavLoggedIn logo={false}/>
                     <h1 className="title-dukungan">Lembar Dukungan</h1>
                     <ul>
                         {

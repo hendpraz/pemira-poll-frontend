@@ -54,13 +54,13 @@ const DuelBox = () => {
 
     useEffect(() => {
         if (user) {
-            setId(user.groups_id)
+            setId(user.groups)
 
             // async function loadQuestMassaLembaga() {     try {         let response =
             // await getQuestList(tab)         console.log('questlist: ', response)
             // setResult(response)     } catch (e) {         console.log(e)     } } async
             // function loadQuestKandidat() {     alert("Anda adalah kandidat") } if
-            // (user.groups_id === 5) {     loadQuestKandidat() } else {
+            // (user.groups === 5) {     loadQuestKandidat() } else {
             // loadQuestMassaLembaga() }
             setResult(questList)
         }

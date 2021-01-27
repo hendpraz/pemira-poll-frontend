@@ -50,7 +50,7 @@ const UserList = () => {
         }
     }
 
-    const getRole = (groups_id) => {
+    const getRole = (groups) => {
         const roles = {
             1: "Superuser",
             2: "Admin",
@@ -59,7 +59,7 @@ const UserList = () => {
             5: "Kandidat"
         }
 
-        return roles[groups_id]
+        return roles[groups]
     }
 
     return (

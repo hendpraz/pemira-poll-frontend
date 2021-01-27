@@ -61,7 +61,7 @@ const QuestBox = () => {
 
     useEffect(() => {
         if (user) {
-            setId(user.groups_id)
+            setId(user.groups)
             // setResult(questList)
             async function loadQuestMassaLembaga() {
                 try {
@@ -83,7 +83,7 @@ const QuestBox = () => {
                 }
             } 
             
-            if (user.groups_id === 5) {
+            if (user.groups === 5) {
                 loadQuestKandidat()
             } else {
                 loadQuestMassaLembaga()

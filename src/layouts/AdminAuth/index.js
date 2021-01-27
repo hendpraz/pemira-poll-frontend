@@ -23,7 +23,7 @@ const AdminAuth = (props) => {
 
   useEffect(() => {
     if (user) {
-      const userId = user.groups_id
+      const userId = user.groups
 
       // check if current user is not an admin
       if (userId !== 1 && userId !== 2) {
