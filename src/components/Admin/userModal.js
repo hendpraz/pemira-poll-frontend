@@ -27,6 +27,10 @@ const UserModal = ({ item, id }) => {
                                     <td><h5>{`: ${item.fullname}`}</h5></td>
                                 </tr>
                                 <tr>
+                                    <td><h5>NIM</h5></td>
+                                    <td><h5>: {item.nim}{item.nim_2 ? `, ${item.nim_2}` : ""}</h5></td>
+                                </tr>
+                                <tr>
                                     <td><h5>Groups</h5></td>
                                     <td><h5>{`: ${item.groups}`}</h5></td>
                                 </tr>

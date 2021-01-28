@@ -57,7 +57,7 @@ const HomeProfile = () => {
                                 </tr>
                                 <tr>
                                     <td>NIM</td>
-                                    <td>: {pageUser.nim}
+                                    <td>: {pageUser.nim}{pageUser.nim_2 ? `, ${item.nim_2}` : ""}
                                     </td>
                                 </tr>
                                 <tr>
