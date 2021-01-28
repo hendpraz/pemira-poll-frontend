@@ -8,6 +8,18 @@ const UserModal = ({ item, id }) => {
         modal.style.display = "none"
     }
 
+    const getRole = (groups) => {
+        const roles = {
+            1: "Superuser",
+            2: "Admin",
+            3: "Massa",
+            4: "Lembaga",
+            5: "Kandidat"
+        }
+
+        return roles[groups]
+    }
+
     return (
         <div>
             <div className="modal" id={id}>
@@ -31,8 +43,8 @@ const UserModal = ({ item, id }) => {
                                     <td><h5>: {item.nim}{item.nim_2 ? `, ${item.nim_2}` : ""}</h5></td>
                                 </tr>
                                 <tr>
-                                    <td><h5>Groups</h5></td>
-                                    <td><h5>{`: ${item.groups}`}</h5></td>
+                                    <td><h5>Role</h5></td>
+                                    <td><h5>{`: ${getRole(item.groups)}`}</h5></td>
                                 </tr>
                                 <tr>
                                     <td><h5>Email</h5></td>
