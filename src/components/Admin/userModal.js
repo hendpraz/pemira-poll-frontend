@@ -36,7 +36,7 @@ const UserModal = ({ item, id }) => {
                                 </tr>
                                 <tr>
                                     <td><h5>Email</h5></td>
-                                    <td><h5>{`: ${item.email}`}</h5></td>
+                                    <td><h5>{`: ${item.email_non_itb}, ${item.email}`}</h5></td>
                                 </tr>
                                 <tr>
                                     <td><h5>Phone Number</h5></td>
