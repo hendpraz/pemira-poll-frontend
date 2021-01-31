@@ -2,13 +2,14 @@ import React, {useRef, useState} from 'react'
 import Button from 'components/Button'
 import { useHistory } from 'react-router-dom'
 import ReCAPTCHA from "react-google-recaptcha"
+import { voteK3M, voteMWA } from 'resources/vote'
 
-const ModalSubmit = ({prefsString, user}) => {
+const ModalSubmit = ({prefsString, prefIds, user, tipe}) => {
 
     const history = useHistory()
     const recaptchaRef = useRef()
     const [isAgree, setIsAgree] = useState(false)
-    const [captchaSolved, setCaptchaSolved] = useState(false)
+    const [captchaSolved, setCaptchaSolved] = useState(true)
 
     const closeModal = () => {
         var modal = document.getElementById(`konfirmasiCoblos`)
@@ -16,11 +17,32 @@ const ModalSubmit = ({prefsString, user}) => {
         modal.style.display = "none"
     }
 
-    const submitVote = () => {
+    const submitVote = async () => {
         if (isAgree && captchaSolved) {
-            history.push('votesuccess')
+            const data = {
+                massa: user.id,
+                preferensi: prefIds
+            }
+            let response
+
+            if (tipe === "k3m") {
+                response = await voteK3M(data)
+            } else { // tipe === "mwa"
+                response = await voteMWA(data)
+            }
+            console.log(response)
+
+            const status = response.httpStatus
+            if (status >= 200 && status < 300) {
+                alert("Vote telah diterima")
+                history.push('votesuccess')
+                window.location.reload()
+            } else {
+                alert("Ada masalah. Silakan coba kembali.")
+            }
+            
         } else {
-            alert("Anda belum menyetujui pernyataannya.")
+            alert("Anda belum menyetujui pernyataannya dan/atau menyelesaikan captcha.")
         }
     }
 
@@ -49,13 +71,13 @@ const ModalSubmit = ({prefsString, user}) => {
                             <label forhtml="setujuCoblos">Saya setuju dengan pernyataan diatas</label>
                         </div>
                     </div>
-                    <div className="mycaptcha" style={{marginLeft: "auto", marginRight: "auto", width: "50%", paddingTop: "10px"}}>
+                    {/* <div className="mycaptcha" style={{marginLeft: "auto", marginRight: "auto", width: "50%", paddingTop: "10px"}}>
                         <ReCAPTCHA
                             ref={recaptchaRef}
                             sitekey="6Lc9-EMaAAAAAHUlDptobHxG9aRCgx0SToMlyJgD"
                             onChange={onSolve}
                         />
-                    </div>
+                    </div> */}
 
                     <div className="container">
                         <Button file="coblos" onClick={submitVote} />

@@ -78,6 +78,7 @@ const VoteAfter = ({tipe}) => {
     }, [])
 
     const [prefsString, setPrefsString] = useState("-")
+    const [prefIds, setPrefIds] = useState("-")
     const [calon, setCalon] = useState([])
     const [myCalon, setMyCalon] = useState([])
     const [allCalon, setAllCalon] = useState([])
@@ -106,6 +107,7 @@ const VoteAfter = ({tipe}) => {
         console.log(newMyCalonArray)
 
         let tempPrefsString = ""
+        let tempPrefIds = ""
 
         const n = newMyCalonArray.length
         let count = 0
@@ -113,11 +115,14 @@ const VoteAfter = ({tipe}) => {
             const element = newMyCalonArray[i];
             if (count === 0) {
                 tempPrefsString += `(${i+1}). ${element.fullname}`
+                tempPrefIds += `${element.id}`
             } else {
                 tempPrefsString += ` - (${i+1}). ${element.fullname}` 
+                tempPrefIds += `&${element.id}`
             }
             count += 1
         }
+        setPrefIds(tempPrefIds)
         setPrefsString(tempPrefsString)
     }
 
@@ -171,7 +176,7 @@ const VoteAfter = ({tipe}) => {
                             </div>
                         </div>
                     </div>
-                    <ModalSubmit prefsString={prefsString} user={pageUser}/>
+                    <ModalSubmit prefsString={prefsString} prefIds={prefIds} user={pageUser} tipe={tipe}/>
                     <Footer/>
                 </div>
             }
