@@ -9,7 +9,7 @@ import presKM from 'components/Carousel/presKM'
 import { useAppContext } from 'libs/contextLib'
 import Authenticated from 'layouts/Authenticated'
 
-const VoteAfter = () => {
+const VoteAfter = ({tipe}) => {
     const {assetsURL: {
             image
         }} = config
@@ -82,7 +82,7 @@ const VoteAfter = () => {
                             backgroundImage: `url('${image}/Scroll medium 2.png')`
                         }}>
                             <div className="pemilihan-k3m">
-                                <h2>Pemilihan K3M</h2>
+                                <h2>Pemilihan {tipe === "k3m" ? "K3M" : "MWA-WM"}</h2>
                                 <Priority pilihCalon={pilihCalon} calon={calon} value={myCalon[0]} no={1} reset={reset}/>
                                 <Priority pilihCalon={pilihCalon} calon={calon} value={myCalon[1]} no={2} reset={reset}/>
                                 <Priority pilihCalon={pilihCalon} calon={calon} value={myCalon[2]} no={3} reset={reset}/>

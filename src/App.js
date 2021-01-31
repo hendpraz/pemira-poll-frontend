@@ -77,7 +77,8 @@ function App() {
           <Route exact path="/daftar" render={() => <Pendaftaran />} />
           <Route exact path="/profile" render={() => <Profile />} />
           <Route exact path="/admin" render={() => <Admin />} />
-          <Route exact path="/vote" render={() => <VoteAfter />} />
+          <Route exact path="/vote-k3m" render={() => <VoteAfter tipe="k3m"/>} />
+          <Route exact path="/vote-mwawm" render={() => <VoteAfter tipe="mwa"/>} />
           {/* <Route exact path="/votebefore" render={() => <VoteBefore />} /> */}
           <Route exact path="/votesuccess" render={() => <VoteSuccess />} />
           <Route path="" render={() => <NotFound />} />
