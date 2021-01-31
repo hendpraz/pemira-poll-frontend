@@ -16,7 +16,7 @@ const ModalUrutan = ({pilihCalon, calon, reset}) => {
             <div id="pilihUrutan" className="modal pilih-urutan">
                 <div className="modal-content pilih-urutan-body blue">
                     <span className="close" onClick={() => closeModal()}>&times;</span>
-                    <h3>Daftar Calon K3M</h3>
+                    <h3>Daftar Calon</h3>
                     <hr/>
                     <br/>
                     <div className="pilih-urutan-content">
