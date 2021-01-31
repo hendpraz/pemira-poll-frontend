@@ -49,7 +49,7 @@ const VoteAfter = ({tipe}) => {
                 history.push("/profile")
             }
         }
-    }, [user, history])
+    }, [user, history, tipe])
 
     useEffect(() => {
         async function loadCandidates() {
@@ -75,7 +75,7 @@ const VoteAfter = ({tipe}) => {
         }
         
         onLoad()
-    }, [])
+    }, [tipe])
 
     const [prefsString, setPrefsString] = useState("-")
     const [prefIds, setPrefIds] = useState("-")
@@ -84,10 +84,10 @@ const VoteAfter = ({tipe}) => {
     const [allCalon, setAllCalon] = useState([])
 
     const pilihCalon = (e) => {
-        let src = e.target.parentElement.parentElement.parentElement.firstChild.firstChild.firstChild.src;
-        let sourceImage = src
-            .slice(21, src.length)
-            .replace("%20", " ");
+        // let src = e.target.parentElement.parentElement.parentElement.firstChild.firstChild.firstChild.src;
+        // let sourceImage = src
+        //     .slice(21, src.length)
+        //     .replace("%20", " ");
 
         let imgId = e.target.parentElement.parentElement.parentElement.firstChild.firstChild.firstChild.id;
         let chosenCalon = calon.filter(item => {

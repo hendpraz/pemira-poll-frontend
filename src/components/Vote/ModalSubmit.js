@@ -9,7 +9,7 @@ const ModalSubmit = ({prefsString, prefIds, user, tipe}) => {
     const history = useHistory()
     const recaptchaRef = useRef()
     const [isAgree, setIsAgree] = useState(false)
-    const [captchaSolved, setCaptchaSolved] = useState(true)
+    const [captchaSolved, setCaptchaSolved] = useState(false)
 
     const closeModal = () => {
         var modal = document.getElementById(`konfirmasiCoblos`)
@@ -71,13 +71,13 @@ const ModalSubmit = ({prefsString, prefIds, user, tipe}) => {
                             <label forhtml="setujuCoblos">Saya setuju dengan pernyataan diatas</label>
                         </div>
                     </div>
-                    {/* <div className="mycaptcha" style={{marginLeft: "auto", marginRight: "auto", width: "50%", paddingTop: "10px"}}>
+                    <div className="mycaptcha" style={{marginLeft: "auto", marginRight: "auto", width: "50%", paddingTop: "10px"}}>
                         <ReCAPTCHA
                             ref={recaptchaRef}
                             sitekey="6Lc9-EMaAAAAAHUlDptobHxG9aRCgx0SToMlyJgD"
                             onChange={onSolve}
                         />
-                    </div> */}
+                    </div>
 
                     <div className="container">
                         <Button file="coblos" onClick={submitVote} />

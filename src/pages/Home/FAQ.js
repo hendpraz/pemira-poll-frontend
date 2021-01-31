@@ -26,7 +26,7 @@ Sedangkan MWAWM atau Wakil Mahasiswa di Majelis Wali Amanat ITB adalah perwakila
 
                                             <p className="question-field">Q : Kalau mau baca ketentuan atau syarat yang berlaku di PEMIRA KM ITB sekarang di mana?</p>
                                             <p className="answer-field">A : bisa banget baca di 
-                                                <a href="https://bit.ly/TAP001KongresKMITB2021" target="_blank">bit.ly/TAP001KongresKMITB2021</a>
+                                                <a href="https://bit.ly/TAP001KongresKMITB2021" target="_blank" rel="noreferrer">bit.ly/TAP001KongresKMITB2021</a>
                                             </p>
                                             <br />
 
@@ -36,7 +36,7 @@ Sedangkan MWAWM atau Wakil Mahasiswa di Majelis Wali Amanat ITB adalah perwakila
 
                                             <p className="question-field">Q : Bagaimana ketentuan Quest dan Duel?</p>
                                             <p className="answer-field">A : Semua hal terkait Quest dan Duel bisa dilihat di 
-                                                <a href="https://bit.ly/GuideBookGoT" target="_blank">bit.ly/GuideBookGoT</a>
+                                                <a href="https://bit.ly/GuideBookGoT" target="_blank" rel="noreferrer">bit.ly/GuideBookGoT</a>
                                             </p>
                                             <br />
 
