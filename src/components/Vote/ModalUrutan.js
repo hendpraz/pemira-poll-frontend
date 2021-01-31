@@ -22,9 +22,6 @@ const ModalUrutan = ({pilihCalon, calon, reset}) => {
                     <div className="pilih-urutan-content">
                         <CarouselV2 pilihCalon={pilihCalon} calon={calon}/>
                     </div>
-                    <div className="reset-btn-container">
-                        <Button file='reset' onClick={reset}/>
-                    </div>
                 </div>
             </div>
         </div>

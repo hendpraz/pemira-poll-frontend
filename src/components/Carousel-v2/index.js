@@ -61,7 +61,6 @@ const CarouselV2 = ({pilihCalon, calon}) => {
                                     </div>
                                     {index === current[0] && <div className="container">
                                         <Button file="pilih-btn" onClick={pilihCalon}/>
-                                        <Button file="batal-merah"/>
                                     </div>}
                                 </div>
                             )
@@ -85,7 +84,6 @@ const CarouselV2 = ({pilihCalon, calon}) => {
                                     </div>
                                     {index === current[1] && <div className="container">
                                         <Button file="pilih-btn" onClick={pilihCalon}/>
-                                        <Button file="batal-merah"/>
                                     </div>}
                                 </div>
                             )
