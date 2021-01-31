@@ -100,3 +100,41 @@ export const dukungKandidat = (kandidatId) =>
       reject(e);
     }
   });
+
+export const listKandidatK3M = async () =>
+  new Promise(async (resolve, reject) => {    
+    try {
+      const token = localStorage.getItem('token')
+      let response = await fetch(`${defaultAPIURL}/list-kandidat-k3m/`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
+      })
+      response = response.json()
+      console.log(response)
+
+      resolve(response);
+    } catch (e) {
+      reject(e);
+    }
+  });
+
+export const listKandidatMWAWM = async () =>
+  new Promise(async (resolve, reject) => {    
+    try {
+      const token = localStorage.getItem('token')
+      let response = await fetch(`${defaultAPIURL}/list-kandidat-mwawm/`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
+      })
+      response = response.json()
+      console.log(response)
+
+      resolve(response);
+    } catch (e) {
+      reject(e);
+    }
+  });

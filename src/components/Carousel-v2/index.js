@@ -32,99 +32,102 @@ const CarouselV2 = ({pilihCalon, calon}) => {
 
     return (
         <div>
-            <div className="carousel-v2">
-                <div
-                    className={`arrow-container left ${current[0] < 3 && 'hidden'}`}
-                    onClick={() => {
-                    prevSlide()
-                }}>
-                    <img src={`${image}/arrowleft.png`} className="arrow" alt="panah"/>
-                </div>
+            {
+                calon &&
+                <div className="carousel-v2">
+                    <div
+                        className={`arrow-container left ${current[0] < 3 && 'hidden'}`}
+                        onClick={() => {
+                        prevSlide()
+                    }}>
+                        <img src={`${image}/arrowleft.png`} className="arrow" alt="panah"/>
+                    </div>
 
-                <div className="carousel-content">
-                    {calon.map((item, index) => {
-                        return (
-                            <div key={index}>
-                                <div
-                                    className={index === current[0]
-                                    ? 'slide active'
-                                    : 'slide'}>
-                                    {index === current[0] && <div
-                                        className="kandidat-profile"
-                                        style={{
-                                        backgroundImage: `url('${image}/bg-kandidat.png')`
-                                    }}>
-                                        <img src={item.photo_url} alt="kandidat"/>
+                    <div className="carousel-content">
+                        {calon.map((item, index) => {
+                            return (
+                                <div key={index}>
+                                    <div
+                                        className={index === current[0]
+                                        ? 'slide active'
+                                        : 'slide'}>
+                                        {index === current[0] && <div
+                                            className="kandidat-profile"
+                                            style={{
+                                            backgroundImage: `url('${image}/bg-kandidat.png')`
+                                        }}>
+                                            <img src={item.photo_url} alt="kandidat" id={item.id}/>
+                                        </div>}
+                                    </div>
+                                    {index === current[0] && <div className="container">
+                                        <Button file="pilih-btn" onClick={pilihCalon}/>
+                                        <Button file="batal-merah"/>
                                     </div>}
                                 </div>
-                                {index === current[0] && <div className="container">
-                                    <Button file="pilih-btn" onClick={pilihCalon}/>
-                                    <Button file="batal-merah"/>
-                                </div>}
-                            </div>
-                        )
-                    })}
-                </div>
-                <div className="carousel-content">
-                    {calon.map((item, index) => {
-                        return (
-                            <div key={index}>
-                                <div
-                                    className={index === current[1]
-                                    ? 'slide active'
-                                    : 'slide'}>
-                                    {index === current[1] && <div
-                                        className="kandidat-profile"
-                                        style={{
-                                        backgroundImage: `url('${image}/bg-kandidat.png')`
-                                    }}>
-                                        <img src={item.photo_url} alt="kandidat"/>
+                            )
+                        })}
+                    </div>
+                    <div className="carousel-content">
+                        {calon.map((item, index) => {
+                            return (
+                                <div key={index}>
+                                    <div
+                                        className={index === current[1]
+                                        ? 'slide active'
+                                        : 'slide'}>
+                                        {index === current[1] && <div
+                                            className="kandidat-profile"
+                                            style={{
+                                            backgroundImage: `url('${image}/bg-kandidat.png')`
+                                        }}>
+                                            <img src={item.photo_url} alt="kandidat" id={item.id}/>
+                                        </div>}
+                                    </div>
+                                    {index === current[1] && <div className="container">
+                                        <Button file="pilih-btn" onClick={pilihCalon}/>
+                                        <Button file="batal-merah"/>
                                     </div>}
                                 </div>
-                                {index === current[1] && <div className="container">
-                                    <Button file="pilih-btn" onClick={pilihCalon}/>
-                                    <Button file="batal-merah"/>
-                                </div>}
-                            </div>
-                        )
-                    })}
-                </div>
-                <div className="carousel-content">
-                    {calon.map((item, index) => {
-                        return (
-                            <div key={index}>
-                                <div
-                                    className={index === current[2]
-                                    ? 'slide active'
-                                    : 'slide'}>
-                                    {index === current[2] && <div
-                                        className="kandidat-profile"
-                                        style={{
-                                        backgroundImage: `url('${image}/bg-kandidat.png')`
-                                    }}>
-                                        <img src={item.photo_url} alt="kandidat"/>
+                            )
+                        })}
+                    </div>
+                    <div className="carousel-content">
+                        {calon.map((item, index) => {
+                            return (
+                                <div key={index}>
+                                    <div
+                                        className={index === current[2]
+                                        ? 'slide active'
+                                        : 'slide'}>
+                                        {index === current[2] && <div
+                                            className="kandidat-profile"
+                                            style={{
+                                            backgroundImage: `url('${image}/bg-kandidat.png')`
+                                        }}>
+                                            <img src={item.photo_url} alt="kandidat" id={item.id}/>
+                                        </div>}
+                                    </div>
+
+                                    {index === current[2] && <div className="container">
+                                        <Button file="pilih-btn" onClick={pilihCalon}/>
+                                        <Button file="batal-merah"/>
                                     </div>}
+
                                 </div>
+                            )
+                        })}
+                    </div>
 
-                                {index === current[2] && <div className="container">
-                                    <Button file="pilih-btn" onClick={pilihCalon}/>
-                                    <Button file="batal-merah"/>
-                                </div>}
+                    <div
+                        className={`arrow-container right ${current[2] > length - 4 && 'hidden'}`}
+                        onClick={() => {
+                        nextSlide()
+                    }}>
+                        <img src={`${image}/arrowright.png`} className="arrow" alt="panah"/>
+                    </div>
 
-                            </div>
-                        )
-                    })}
                 </div>
-
-                <div
-                    className={`arrow-container right ${current[2] > length - 4 && 'hidden'}`}
-                    onClick={() => {
-                    nextSlide()
-                }}>
-                    <img src={`${image}/arrowright.png`} className="arrow" alt="panah"/>
-                </div>
-
-            </div>
+            }
             {/* <Button file="" */}
         </div>
     )

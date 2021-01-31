@@ -7,7 +7,9 @@ import Button from 'components/Button'
 import ModalSubmit from 'components/Vote/ModalSubmit'
 import presKM from 'components/Carousel/presKM'
 import { useAppContext } from 'libs/contextLib'
-import Authenticated from 'layouts/Authenticated'
+import { useHistory } from 'react-router-dom'
+import MassaOnly from 'layouts/MassaOnly'
+import { listKandidatK3M, listKandidatMWAWM} from 'resources/user'
 
 const VoteAfter = ({tipe}) => {
     const {assetsURL: {
@@ -23,99 +25,157 @@ const VoteAfter = ({tipe}) => {
         }
     }
 
+    const history = useHistory()
     const { user } = useAppContext()
     const [pageUser, setPageUser] = useState({})
+    const [canVote, setCanVote] = useState(false)
 
     useEffect(() => {
-        if (user) {
+        if (user && history) {
             setPageUser(user)
+
+            // set canVote here
+            let canVoteCondition = false
+            if (tipe === "k3m") {
+                canVoteCondition = (user.vote_k3m_status === "notyet")
+            } else { // tipe === "mwa"
+                canVoteCondition = (user.vote_mwa_status === "notyet")
+            }
+
+            if (canVoteCondition) {
+                setCanVote(canVoteCondition)
+            } else {
+                alert(`Anda sudah tidak dapat melakukan vote ${tipe === "k3m" ? "K3M" : "MWA-WM"}.`)
+                history.push("/profile")
+            }
         }
-    }, [user])
+    }, [user, history])
+
+    useEffect(() => {
+        async function loadCandidates() {
+            try {
+                let response
+                
+                if (tipe === "k3m") {
+                    response = await listKandidatK3M()
+                } else {
+                    response = await listKandidatMWAWM()
+                }
+
+                console.log(response)
+                setAllCalon(response)
+                setCalon(response)
+            } catch (e) {
+                console.log(e)
+            }
+        }
+
+        async function onLoad() {
+            loadCandidates()
+        }
+        
+        onLoad()
+    }, [])
 
     const [prefsString, setPrefsString] = useState("-")
-    const [calon, setCalon] = useState(presKM)
+    const [calon, setCalon] = useState([])
     const [myCalon, setMyCalon] = useState([])
+    const [allCalon, setAllCalon] = useState([])
 
     const pilihCalon = (e) => {
         let src = e.target.parentElement.parentElement.parentElement.firstChild.firstChild.firstChild.src;
         let sourceImage = src
             .slice(21, src.length)
             .replace("%20", " ");
+
+        let imgId = e.target.parentElement.parentElement.parentElement.firstChild.firstChild.firstChild.id;
         let chosenCalon = calon.filter(item => {
-            return item.photo_url === sourceImage
+            return item.id === imgId
         })
 
-        setCalon(calon.filter(item => item.photo_url !== sourceImage))
+        console.log("Selecting calon...")
+        console.log(chosenCalon)
+
+        const calonList = calon.filter(item => item.id !== imgId)
+        setCalon(calonList)
 
         const newMyCalonArray = [...myCalon, chosenCalon[0]]
         setMyCalon(newMyCalonArray)
 
+        console.log(calonList)
         console.log(newMyCalonArray)
 
         let tempPrefsString = ""
 
         const n = newMyCalonArray.length
+        let count = 0
         for (let i = 0; i < n; i++) {   
             const element = newMyCalonArray[i];
-            if (i === 0){
-                tempPrefsString += `${i+1}. ${element.fullname}` 
+            if (count === 0) {
+                tempPrefsString += `(${i+1}). ${element.fullname}`
             } else {
-                tempPrefsString += ` - ${i+1}. ${element.fullname}` 
-            }       
+                tempPrefsString += ` - (${i+1}). ${element.fullname}` 
+            }
+            count += 1
         }
         setPrefsString(tempPrefsString)
     }
 
     const reset = () => {
-        setMyCalon([]);
-        setCalon(presKM);
+        if (allCalon) {
+            setMyCalon([]);
+            setCalon(allCalon);
+        }
     }
 
     return (
-        <Authenticated>
-            <div className="main-container">
-                <div className="vote-page is-flex">
-                    <div className="vote-left">
-                        <div
-                            className="background-image"
-                            style={{
-                            backgroundImage: `url('${image}/Scroll medium 2.png')`
-                        }}>
-                            <div className="pemilihan-k3m">
-                                <h2>Pemilihan {tipe === "k3m" ? "K3M" : "MWA-WM"}</h2>
-                                <Priority pilihCalon={pilihCalon} calon={calon} value={myCalon[0]} no={1} reset={reset}/>
-                                <Priority pilihCalon={pilihCalon} calon={calon} value={myCalon[1]} no={2} reset={reset}/>
-                                <Priority pilihCalon={pilihCalon} calon={calon} value={myCalon[2]} no={3} reset={reset}/>
-                                <Priority pilihCalon={pilihCalon} calon={calon} value={myCalon[3]} no={4} reset={reset}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="vote-right">
-                        <div
-                            className="background-image"
-                            style={{
-                            backgroundImage: `url('${image}/hahahay.png')`
-                        }}>
-                            <div className="vote-right-content">
-                                <h2>{pageUser.fullname}</h2>
-                                <h5>{pageUser.nim}</h5>
-                                <hr/>
-                                <div className="has-text-left">
-                                    <p>Total calon:</p>
-                                    <p>Kandidat diurutkan: </p>
-                                    <p>Ada captcha disini</p>
+        <MassaOnly>
+            {
+                canVote && calon &&
+                <div className="main-container">
+                    <div className="vote-page is-flex">
+                        <div className="vote-left">
+                            <div
+                                className="background-image"
+                                style={{
+                                backgroundImage: `url('${image}/Scroll medium 2.png')`
+                            }}>
+                                <div className="pemilihan-k3m">
+                                    <h2>Pemilihan {tipe === "k3m" ? "K3M" : "MWA-WM"}</h2>
+                                    <Priority pilihCalon={pilihCalon} calon={calon} value={myCalon[0]} no={1} reset={reset}/>
+                                    <Priority pilihCalon={pilihCalon} calon={calon} value={myCalon[1]} no={2} reset={reset}/>
+                                    <Priority pilihCalon={pilihCalon} calon={calon} value={myCalon[2]} no={3} reset={reset}/>
+                                    <Priority pilihCalon={pilihCalon} calon={calon} value={myCalon[3]} no={4} reset={reset}/>
                                 </div>
-                                <Button file="submit" onClick={openModal}/>
-                                <Button file="reset" onClick={reset}/>
-                                <Button file="batal"/>
+                            </div>
+                        </div>
+                        <div className="vote-right">
+                            <div
+                                className="background-image"
+                                style={{
+                                backgroundImage: `url('${image}/hahahay.png')`
+                            }}>
+                                <div className="vote-right-content">
+                                    <h2>{pageUser.fullname}</h2>
+                                    <h5>{pageUser.nim}</h5>
+                                    <hr/>
+                                    <div className="has-text-left">
+                                        <p>Total calon:</p>
+                                        <p>Kandidat diurutkan: </p>
+                                        <p>Ada captcha disini</p>
+                                    </div>
+                                    <Button file="submit" onClick={openModal}/>
+                                    <Button file="reset" onClick={reset}/>
+                                    <Button file="batal"/>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <ModalSubmit prefsString={prefsString} user={pageUser}/>
+                    <Footer/>
                 </div>
-                <ModalSubmit prefsString={prefsString} user={pageUser}/>
-                <Footer/>
-            </div>
-        </Authenticated>
+            }
+        </MassaOnly>
     )
 }
 
