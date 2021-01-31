@@ -1,10 +1,14 @@
-import React, {useState} from 'react'
+import React, {useRef, useState} from 'react'
 import Button from 'components/Button'
 import { useHistory } from 'react-router-dom'
+import ReCAPTCHA from "react-google-recaptcha"
 
 const ModalSubmit = ({prefsString, user}) => {
 
     const history = useHistory()
+    const recaptchaRef = useRef()
+    const [isAgree, setIsAgree] = useState(false)
+    const [captchaSolved, setCaptchaSolved] = useState(false)
 
     const closeModal = () => {
         var modal = document.getElementById(`konfirmasiCoblos`)
@@ -13,14 +17,17 @@ const ModalSubmit = ({prefsString, user}) => {
     }
 
     const submitVote = () => {
-        if (isAgree) {
+        if (isAgree && captchaSolved) {
             history.push('votesuccess')
         } else {
             alert("Anda belum menyetujui pernyataannya.")
         }
     }
 
-    const [isAgree, setIsAgree] = useState(false)
+    function onSolve(value) {
+        console.log("Captcha value:", value)
+        setCaptchaSolved(true)
+    }
 
     return (
         <div>
@@ -42,8 +49,12 @@ const ModalSubmit = ({prefsString, user}) => {
                             <label forhtml="setujuCoblos">Saya setuju dengan pernyataan diatas</label>
                         </div>
                     </div>
-                    <div className="captcha">
-
+                    <div className="mycaptcha" style={{marginLeft: "auto", marginRight: "auto", width: "50%", paddingTop: "10px"}}>
+                        <ReCAPTCHA
+                            ref={recaptchaRef}
+                            sitekey="6Lc9-EMaAAAAAHUlDptobHxG9aRCgx0SToMlyJgD"
+                            onChange={onSolve}
+                        />
                     </div>
 
                     <div className="container">
