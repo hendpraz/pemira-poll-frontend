@@ -19,8 +19,8 @@ const Priority = ({value, pilihCalon, calon, no, reset}) => {
                         <img src={`${image}/Koin 2.png`} alt=""/>
                     </div>}
                     {value && <div className="text-container">
-                        <h4>{`${no}st priority`}</h4>
-                        <p>{value.name}</p>
+                        <h4>{`Prioritas ke-${no}`}</h4>
+                        <p>{value.fullname}</p>
                     </div>}
                     {!value && <div className="btn-container"><Button file="plus-btn" onClick={openModal}/></div>}
                 </div>
