@@ -101,6 +101,27 @@ export const createQuest = (data) =>
     }
   });
 
+export const createQuestAdmin = (data) =>
+  new Promise(async (resolve, reject) => {    
+    try {
+      const token = localStorage.getItem('token')
+      let response = await fetch(`${defaultAPIURL}/quests-admin/`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+      response = response.json()
+      console.log(response)
+
+      resolve(response);
+    } catch (e) {
+      reject(e);
+    }
+  });
+
 // Kandidat
 export const getQuestListKandidat = async (status) =>
   new Promise(async (resolve, reject) => {    

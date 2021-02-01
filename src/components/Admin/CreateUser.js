@@ -49,7 +49,6 @@ const CreateUser = () => {
                 if (status >= 200 && status < 300) {
                     alert("Berhasil menambahkan user.")
                     window.location.reload();
-                    window.location.reload();
                 } else {
                     alert("Tidak berhasil. Silakan coba kembali")
                 }

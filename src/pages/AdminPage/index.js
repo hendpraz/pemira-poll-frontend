@@ -8,6 +8,7 @@ import CreateKandidat from 'components/Admin/CreateKandidat'
 import UserAssociation from 'components/Admin/UserAssociation'
 import BakalCalonList from 'components/Admin/BakalCalon/BakalCalonList'
 import CreateBakalCalon from 'components/Admin/BakalCalon/CreateBakalCalon'
+import CreateQuest from 'components/Admin/CreateQuest'
 import AdminAuth from 'layouts/AdminAuth'
 
 const Admin = () => {
@@ -44,12 +45,21 @@ const Admin = () => {
                     </div>
                 </div>
                 <div className="user">
+                    <div id="createQuest">
+                        <h1 className="has-text-centered has-text-primary">Buat Quest</h1>
+                        <CreateQuest />
+                    </div>
                     <div id="questList" className="mb-6">
-                        <h1 className="has-text-centered has-text-primary">Quest List</h1>
+                        <h1 className="has-text-centered has-text-primary">Daftar Quest yang Diajukan</h1>
                         <QuestList />
                     </div>
-                    <div id="createQuest">
-                        <h1 className="has-text-centered has-text-primary">Create Quest</h1>
+                    <div id="questList2" className="mb-6">
+                        <h1 className="has-text-centered has-text-primary">Daftar Semua Quest</h1>
+                        <QuestList />
+                    </div>
+                    <div id="questList" className="mb-6">
+                        <h1 className="has-text-centered has-text-primary">Daftar Bukti Quest</h1>
+                        <QuestList />
                     </div>
                 </div>
             </div>
