@@ -2,9 +2,16 @@ import React, {useState} from 'react'
 import Button from 'components/Button'
 import config from 'config'
 import firebase from 'config/firebase-init'
+import { createQuestProof } from 'resources/quest'
+import { useAppContext } from 'libs/contextLib'
+import { useFormFields } from 'libs/hooksLib'
 
 const UnggahBuktiModal = ({item}) => {
 
+    const { user } = useAppContext()
+    const [fields, handleFieldChange] = useFormFields({
+        deskripsi: ""
+    })
     const {assetsURL: {
             image
         }} = config
@@ -28,6 +35,16 @@ const UnggahBuktiModal = ({item}) => {
         alert('Your File has been Uploaded!')
 
         setFileName(file.name)
+
+        const data = {
+            quest: item.id,
+            user: user.id,
+            photo_url: downloadURL,
+            description: fields.deskripsi,
+            status: "pending"
+        }
+        const response = await createQuestProof(data)
+        console.log(response)
         closeModal();
     }
 
@@ -64,8 +81,8 @@ const UnggahBuktiModal = ({item}) => {
                 <p id="fileName" className="mt-3 has-text-danger">{fileName && `File Uploaded ${fileName}`}</p>
                 <br/>
                 <br/>
-                <h5 className="mb-2">Deskripsi:</h5>
-                <textarea name="deskripsi" id="deskripsi"/>
+                <h5 className="mb-2">Deskripsi Bukti:</h5>
+                <textarea name="deskripsi" id="deskripsi" value={fields.deskripsi} onChange={handleFieldChange}/>
 
                 <br/>
                 <div className="btn-container">
