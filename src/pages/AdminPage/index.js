@@ -31,6 +31,10 @@ const Admin = () => {
                         <h1 className="has-text-centered has-text-primary">User List</h1>
                         <UserList />
                     </div>
+                    <div id="associateUser">
+                        <h1 className="has-text-centered has-text-primary">Associate Massa with Lembaga</h1>
+                        <UserAssociation />
+                    </div>
                     <div id="createUser">
                         <h1 className="has-text-centered has-text-primary">Create Non-Kandidat Account</h1>
                         <CreateUser />
@@ -38,10 +42,6 @@ const Admin = () => {
                     <div id="userList" className="mb-6">
                         <h1 className="has-text-centered has-text-primary">Create Kandidat Account</h1>
                         <CreateKandidat />
-                    </div>
-                    <div id="associateUser">
-                        <h1 className="has-text-centered has-text-primary">Associate Massa with Lembaga</h1>
-                        <UserAssociation />
                     </div>
                 </div>
                 <div className="user">

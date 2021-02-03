@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFormFields } from "libs/hooksLib"
+import { associateUser } from 'resources/user';
 
 const UserAccociation = () => {
     const [fields, handleFieldChange] = useFormFields({
@@ -10,7 +11,17 @@ const UserAccociation = () => {
     const submitUser = async () => {
         const r = window.confirm(`Apakah Anda yakin akan mengasosiasikan user ${fields.username1} dengan lembaga ${fields.username2}?`)
         if (r) {
-            alert("Feature not finished yet!")
+            console.log(fields)
+            const response = await associateUser(fields)
+            const status = response.httpStatus
+            console.log(response)
+
+            if (status >= 200 && status < 300) {
+                alert("Berhasil mengasosiasi user.")
+                window.location.reload();
+            } else {
+                alert("Tidak berhasil. Silakan coba kembali")
+            }
         }
     }
 
