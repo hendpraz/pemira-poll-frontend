@@ -16,13 +16,17 @@ $baseCol: #FCE0C4;
         list-style-type: upper-greek;
         list-style-position: inside;
         text-align: left;
-        height: 35vh;
+        height: 600px;
 
         .item-syarat {
             font-size: 1rem;
             color: $primary;
             margin-bottom: 4px;
         }
+    }
+
+    .item-syarat {
+        padding-right: 30px;
     }
 
     input {

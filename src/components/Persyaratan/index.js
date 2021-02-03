@@ -8,7 +8,15 @@ import config from "config"
 const Persyaratan = ({tipe}) => {
   const [nim, setNim] = useState("")
   const { defaultAPIURL } = config
-
+  const syaratKandidat = [
+    "Mahasiswa ITB aktif.",
+    "Tidak memiliki afiliasi atau merupakan anggota partai politik, organisasi sayap, dan turunannya.",
+    "Mendeklarasikan segala afiliasi atau keanggotaan organisasi selain yang merupakan partai politik, organisasi sayap, dan turunannya.",
+    "Tidak sedang dikenai atau memiliki riwayat sanksi akademik ITB atau sedang berada dalam kasus pelanggaran akademik ITB.",
+    "Tidak dikenai sanksi organisasi KM ITB.",
+    "Bersedia menaati aturan yang ditetapkan oleh Kongres, serta tata cara dan petunjuk pelaksanaan yang ditentukan oleh Panitia Pelaksana.",
+    "Melaksanakan syarat pengunduran diri sesuai dengan ketentuan yang ditentukan oleh Panitia Pelaksana dan disetujui oleh Kongres, apabila di masa depan Kandidat ingin mengundurkan diri."
+  ]
   const isValidNim = () => {
     return nim.length === 8
   }
@@ -46,16 +54,26 @@ const Persyaratan = ({tipe}) => {
       <p className="syarat-title">Persyaratan Calon {tipe}</p>
       {tipe === "K3M"
           ? <ol className="list-syarat">
-              {syaratK3M.map((item, index) => {
+              {syaratKandidat.map((item, index) => {
                 return (
                     <li className="item-syarat" key={index}>{item}</li>
                 )
               })}
+              {syaratK3M.map((item, index) => {
+                return (
+                    <li className="item-syarat" key={index}><b>{item}</b></li>
+                )
+              })}
             </ol>
           : <ol className="list-syarat">
+            {syaratKandidat.map((item, index) => {
+              return (
+                  <li className="item-syarat" key={index}>{item}</li>
+              )
+            })}
             {syaratMWA.map((item, index) => {
               return (
-                <li className="item-syarat" key={index}>{item}</li>
+                <li className="item-syarat" key={index}><b>{item}</b></li>
               )
             })}
           </ol>}
