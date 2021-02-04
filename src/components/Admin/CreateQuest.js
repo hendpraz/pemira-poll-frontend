@@ -1,33 +1,22 @@
 import React, {useEffect, useState} from 'react'
 import { useFormFields } from "libs/hooksLib"
 import { createQuestAdmin } from "resources/quest"
-import { useAppContext } from 'libs/contextLib'
-import Button from 'components/Button'
 
-const CreateQuest = () => {
-    const user = useAppContext()
-    const [userContact,
-        setUserContact] = useState("")
-    const [userId,
-        setUserId] = useState("")
+const CreateQuest = ({pageUser}) => {
+    const userId = pageUser.id
+    const userContact = `Email: ${pageUser.email_non_itb}, HP: ${pageUser.phone_number}`
+
     const [fields, handleFieldChange] = useFormFields({
         judul: "",
         deskripsi: "",
-        target: "",
+        target: "all",
         deadline: ""
     });
-
-    useEffect(() => {
-        if (user) {
-            console.log(user)
-            setUserContact(`Email: ${user.email}, HP: ${user.phone_number}`)
-            setUserId(user.id)
-        }
-    }, [user])
 
     const submitQuest = async () => {
         const r = window.confirm(`Apakah Anda yakin dengan data quest yang diisi?`)
         if (r) {
+            console.log(userId, userContact)
             if (userId && userContact) {
                 console.log("OK")
 
@@ -42,8 +31,13 @@ const CreateQuest = () => {
                 const response = await createQuestAdmin(data)
                 console.log(response)
 
-                alert("Berhasil menambahkan quest.")
-                window.location.reload()
+                const status = response.httpStatus
+                if (status >= 200 && status < 300) {
+                    alert("Berhasil menambahkan quest.")
+                    window.location.reload()
+                } else {
+                    alert("Tidak berhasil. Silakan coba kembali")
+                }
             } else {
                 alert("Terdapat masalah, mohon coba lagi beberapa saat.")
             }
