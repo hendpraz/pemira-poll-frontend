@@ -1,4 +1,5 @@
-const { defaultAPIURL } = require("../config");
+const { defaultAPIURL } = require("../config")
+const { get, patch, post } = require("./helper")
 
 // Massa atau Lembaga
 export const getQuestListMassaLembaga = async (status) =>
@@ -80,6 +81,7 @@ export const cancelUpvoteQuest = (questId) =>
     }
   });
 
+// Massa, Lembaga, or Admin can use this
 export const createQuest = (data) =>
   new Promise(async (resolve, reject) => {    
     try {
@@ -218,3 +220,21 @@ export const createQuestProof = (data) =>
       reject(e);
     }
   });
+
+// Admin
+
+export const getAllNotAcceptedQuest = async () =>
+  {
+    const url = `${defaultAPIURL}/quests-admin/list/not-accepted/`
+    const response = await get(url)
+
+    return response
+  }
+
+export const getAllEverAcceptedQuest = async () =>
+  {
+    const url = `${defaultAPIURL}/quests-admin/list/ever-accepted/`
+    const response = await get(url)
+
+    return response
+  }

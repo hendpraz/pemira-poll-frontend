@@ -1,23 +1,47 @@
 import React, { useState, useEffect } from 'react'
-import list from './listOfQuest'
 import QuestModal from './QuestModal'
 import Pagination from './Pagination'
+import { getAllEverAcceptedQuest, getAllNotAcceptedQuest } from 'resources/quest'
 
-const UserList = () => {
+const QuestList = ({tipe}) => {
 
     const postPerPage = 4
-    const [currentPage,
-        setCurrentPage] = useState(1)
-    const [result,
-        setResult] = useState(list)
+    const [currentPage, setCurrentPage] = useState(1)
+    const [result, setResult] = useState([])
+    const [currentResult, setCurrentResult] = useState([])
     
     useEffect(() => {
-        setResult(list)
+        async function loadUsers() {
+            try {
+                console.log(tipe)
+                let response
+                if (tipe === "not-accepted") {
+                    response = await getAllNotAcceptedQuest()
+                } else {
+                    response = await getAllEverAcceptedQuest()
+                }
+                
+                console.log(response)
+                setResult(response)
+                setCurrentResult(response.slice(firstIndex, lastIndex))
+            } catch (e) {
+                console.log(e)
+            }
+        }
+
+        async function onLoad() {
+            loadUsers()
+        }
+        
+        onLoad()
     }, [])
+
+    useEffect(() => {
+        setCurrentResult(result.slice(firstIndex, lastIndex))
+    }, [currentPage])
 
     const lastIndex = postPerPage * currentPage
     const firstIndex = lastIndex - postPerPage
-    const currentResult = result.slice(firstIndex, lastIndex)
 
     const detailUser = (index) => {
         var modal = document.getElementById(`modal-quest-${index}`);
@@ -48,12 +72,12 @@ const UserList = () => {
                             className="user-list-item p-4">
                             <div className="user-item-list-content">
                                 <div className="is-flex">
-                                    <h3>{item.name}</h3>
-                                    <h5>{item.createdBy}</h5>
+                                    <h3>{item.judul}</h3>
+                                    <h5>{item.user.fullname}</h5>
                                 </div>
                                 <h5>Deskripsi:</h5>
                                 <p>{item.deskripsi}</p>
-                                <p className="has-text-danger">{`Deadline: ${item.deadLine}`}</p>
+                                <p className="has-text-danger">{`Deadline: ${item.deadline}`}</p>
                             </div>
                             <QuestModal item={item} id={`modal-quest-${index}`}/>
                         </div>
@@ -69,4 +93,4 @@ const UserList = () => {
     )
 }
 
-export default UserList
+export default QuestList

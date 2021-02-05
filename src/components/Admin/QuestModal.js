@@ -22,20 +22,20 @@ const QuestModal = ({ item, id }) => {
                        <table>
                            <tbody>
                             <tr>
-                                <td><h5>Date Created</h5></td>
-                                <td><h5>{`: ${item.dateCreated}`}</h5></td>
+                                <td><h5>Quest Creator</h5></td>
+                                <td><h5>{`: ${item.user.fullname}${item.user.nim ? " - " + item.user.nim : ""}`}</h5></td>
                             </tr>
                             <tr>
                                 <td><h5>Deadline</h5></td>
-                                <td><h5>{`: ${item.deadLine}`}</h5></td>
+                                <td><h5>{`: ${item.deadline}`}</h5></td>
                             </tr>
                             <tr>
                                 <td><h5>Deskripsi</h5></td>
                                 <td><h5>{`: ${item.deskripsi}`}</h5></td>
                             </tr>
                             <tr>
-                                <td><h5>Created By</h5></td>
-                                <td><h5>{`: ${item.createdBy}`}</h5></td>
+                                <td><h5>Created At</h5></td>
+                                <td><h5>{`: ${item.created_at}`}</h5></td>
                             </tr>
                            </tbody>
                        </table>

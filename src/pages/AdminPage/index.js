@@ -63,12 +63,12 @@ const Admin = () => {
                             <CreateQuest pageUser={pageUser}/>
                         </div>
                         <div id="questList" className="mb-6">
-                            <h1 className="has-text-centered has-text-primary">Daftar Quest yang Diajukan</h1>
-                            <QuestList />
+                            <h1 className="has-text-centered has-text-primary">Daftar Quest yang Belum Diterima</h1>
+                            <QuestList tipe="not-accepted"/>
                         </div>
                         <div id="questList2" className="mb-6">
-                            <h1 className="has-text-centered has-text-primary">Daftar Semua Quest</h1>
-                            <QuestList />
+                            <h1 className="has-text-centered has-text-primary">Daftar Quest yang Pernah di-Accept</h1>
+                            <QuestList tipe="ever-accepted"/>
                         </div>
                         <div id="questList" className="mb-6">
                             <h1 className="has-text-centered has-text-primary">Daftar Bukti Quest</h1>
