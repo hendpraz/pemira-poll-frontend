@@ -79,7 +79,7 @@ const QuestList = ({tipe}) => {
                                 <p>{item.deskripsi}</p>
                                 <p className="has-text-danger">{`Deadline: ${item.deadline}`}</p>
                             </div>
-                            <QuestModal item={item} id={`modal-quest-${index}`}/>
+                            <QuestModal item={item} id={`modal-quest-${index}`} tipe={tipe}/>
                         </div>
                     )
                 })}
