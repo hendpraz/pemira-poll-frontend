@@ -32,9 +32,7 @@ function Home() {
                     <hr/>
                     <div className="home-landing-content">
                         <h2 >Pemira KM ITB 2021</h2>
-                        <p>pemira km itb ada sarana untuk memberi warna pada kampus supaya berwarna
-                            misal kaya gambar disamping pemira km itb ada sarana untuk memberi warna pada
-                            kampus supaya berwarna misal kaya gambar disamping</p>
+                        <p>Pemira KM ITB 2020 sebagai pesta demokrasi yang mewujudkan partisipasi aktif mahasiswa ITB melalui konsep Game of Thrones</p>
                     </div>
                     <div className="cloud-container">
                         <div className="cloud-left is-hidden-mobile">
