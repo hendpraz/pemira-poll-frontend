@@ -76,7 +76,7 @@ const QuestSideNav = ({nav, setNav}) => {
                                 <div className="vote-k3m" onClick={() => history.push("/vote-k3m")}>Pemilihan K3M</div>
                             </li>
                             <li>
-                                <div className="vote-k3m" onClick={() => history.push("/vote-k3m")}>Pemilihan MWAWM</div>
+                                <div className="vote-mwa" onClick={() => history.push("/vote-mwawm")}>Pemilihan MWAWM</div>
                             </li>
                             <li>
                                 <div>-</div>
