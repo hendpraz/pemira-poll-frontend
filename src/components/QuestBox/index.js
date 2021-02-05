@@ -137,11 +137,11 @@ const QuestBox = () => {
                             </li>
                         </ul>
                     : <ul>
-                        <li onClick={() => clickNav("pending")}>
-                            <div className="pending">Daftar Quest</div>
-                        </li>
                         <li onClick={() => clickNav("accepted")}>
-                            <div className="accepted">Quest Diterima</div>
+                            <div className="accepted">Daftar Quest</div>
+                        </li>
+                        <li onClick={() => clickNav("running")}>
+                            <div className="running">Quest Diterima</div>
                         </li>
                         <li onClick={() => clickNav("myprogress")}>
                             <div className="myprogress">Progress Quest</div>
