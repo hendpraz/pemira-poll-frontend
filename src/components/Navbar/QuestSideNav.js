@@ -79,7 +79,7 @@ const QuestSideNav = ({nav, setNav}) => {
                                 <div className="vote-mwa" onClick={() => history.push("/vote-mwawm")}>Pemilihan MWAWM</div>
                             </li>
                             <li>
-                            <div className="quest-wall" onClick={() => clickNav("quest-wall")}>Quest Wall</div>
+                                <div className="quest-wall" onClick={() => clickNav("quest-wall")}>Quest Wall</div>
                             </li>
                             <li>
                                 <div>-</div>
