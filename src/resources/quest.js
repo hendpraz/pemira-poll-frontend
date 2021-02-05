@@ -238,3 +238,19 @@ export const getAllEverAcceptedQuest = async () =>
 
     return response
   }
+
+export const adminQuestAccept = async (questId) =>
+  {
+    const url = `${defaultAPIURL}/quests-admin/accept/${questId}/`
+    const response = await patch(url)
+
+    return response
+  }
+
+  export const adminQuestReject = async (questId) =>
+  {
+    const url = `${defaultAPIURL}/quests-admin/reject/${questId}/`
+    const response = await patch(url)
+
+    return response
+  }
