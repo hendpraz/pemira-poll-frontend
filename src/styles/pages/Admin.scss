@@ -163,7 +163,7 @@
                 color: hsl(171, 100%, 41%)!important;
             }
 
-            input {
+            input:not([type="checkbox"]) {
                 width: 100%!important;
                 // border: none;
                 border: solid 1px rgb(176, 175, 175)!important;

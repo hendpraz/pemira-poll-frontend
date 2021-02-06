@@ -10,12 +10,12 @@ const CreateQuestion = ({pageUser}) => {
         deskripsi: "",
         start_date: "",
         end_date: "",
-        allow_mhs_s1: "",
-        allow_mhs_akmet: "",
-        allow_mhs_s2: "",
-        allow_lembaga: "",
-        allow_kandidat_k3m: "",
-        allow_kandidat_mwa: "",
+        allow_mhs_s1: false,
+        allow_mhs_akmet: false,
+        allow_mhs_s2: false,
+        allow_lembaga: false,
+        allow_kandidat_k3m: false,
+        allow_kandidat_mwa: false,
         choices: "",
     });
 
@@ -35,7 +35,9 @@ const CreateQuestion = ({pageUser}) => {
                     console.log(data)
     
                     const response = await createQuestion(data)
-                    console.log(response)   
+                    console.log(response)
+
+                    alert("Berhasil membuat question baru")
                 } catch (error) {
                     alert(error)
                 }
@@ -68,8 +70,8 @@ const CreateQuestion = ({pageUser}) => {
                         id="deskripsi"
                         value={fields.deskripsi}
                         onChange={handleFieldChange}
-                        rows="10"
-                        placeholder="Deskripsi quest"
+                        rows="5"
+                        placeholder="Deskripsi pertanyaan"
                         style={{width: "100%"}}
                         />
                     <br/>
@@ -109,41 +111,41 @@ const CreateQuestion = ({pageUser}) => {
                                 }}>Pada jam 23:59 WIB</p>
                             </div>
                         </div>
-                        <div className="column">
+                        <div className="column p-4">
                             <label>
                                 <h5 className="mb-2">Diperuntukkan bagi:</h5>
                             </label>
 
                             <input type="checkbox" id="allow_mhs_s1" name="allow_mhs_s1" checked={fields.allow_mhs_s1} onChange={handleFieldChange}/>
-                            <label for="allow_mhs_s1">Mahasiswa S1</label><br /><br />
+                            <label for="allow_mhs_s1"> Mahasiswa S1</label><br />
 
                             <input type="checkbox" id="allow_mhs_akmet" name="allow_mhs_akmet" checked={fields.allow_mhs_akmet} onChange={handleFieldChange}/>
-                            <label for="allow_mhs_akmet">Mahasiswa Akmet</label><br /><br />
+                            <label for="allow_mhs_akmet"> Mahasiswa Akmet</label><br />
 
                             <input type="checkbox" id="allow_mhs_s2" name="allow_mhs_s2" checked={fields.allow_mhs_s2} onChange={handleFieldChange}/>
-                            <label for="allow_mhs_s2">Mahasiswa S2</label><br /><br />
+                            <label for="allow_mhs_s2"> Mahasiswa S2</label><br />
 
                             <input type="checkbox" id="allow_lembaga" name="allow_lembaga" checked={fields.allow_lembaga} onChange={handleFieldChange}/>
-                            <label for="allow_lembaga">Lembaga</label><br /><br />
+                            <label for="allow_lembaga"> Lembaga</label><br />
 
-                            <input type="checkbox" id="allow_mhs_s2" name="allow_mhs_s2" checked={fields.allow_mhs_s2} onChange={handleFieldChange}/>
-                            <label for="vehicle1">Kandidat K3M</label><br />
+                            <input type="checkbox" id="allow_kandidat_k3m" name="allow_kandidat_k3m" checked={fields.allow_kandidat_k3m} onChange={handleFieldChange}/>
+                            <label for="allow_kandidat_k3m"> Kandidat K3M</label><br />
 
-                            <input type="checkbox" id="allow_mhs_s2" name="allow_mhs_s2" checked={fields.allow_mhs_s2} onChange={handleFieldChange}/>
-                            <label for="vehicle3">Kandidat MWA-WM</label><br /><br />
+                            <input type="checkbox" id="allow_kandidat_mwa" name="allow_kandidat_mwa" checked={fields.allow_kandidat_mwa} onChange={handleFieldChange}/>
+                            <label for="allow_kandidat_mwa"> Kandidat MWA-WM</label><br />
                         </div>
                     </div>
 
                     <label>
-                        <h5 className="mb-2">Daftar Opsi: (Pisahkan dengan koma)</h5>
+                        <h5 className="mb-2">Daftar Opsi: (Pisahkan dengan titik koma ";")</h5>
                     </label>
                     <textarea
-                        name="deskripsi"
-                        id="deskripsi"
+                        name="choices"
+                        id="choices"
                         value={fields.choices}
                         onChange={handleFieldChange}
-                        rows="10"
-                        placeholder="Opsi 1, Opsi 2, Opsi 3"
+                        rows="2"
+                        placeholder="Opsi 1; Opsi 2; Opsi 3"
                         style={{width: "100%"}}
                         />
                     <br/>

@@ -66,17 +66,17 @@ const Admin = () => {
                     <div className="user">
                         <div id="createQuestion">
                             <h1 className="has-text-centered has-text-primary">Buat Pertanyaan</h1>
-                            <CreateQuestion/>
+                            <CreateQuestion pageUser={pageUser}/>
                         </div>
 
                         <div id="questList" className="mb-6">
                             <h1 className="has-text-centered has-text-primary">Daftar Pertanyaan</h1>
-                            <QuestionList tipe="not-accepted"/>
+                            <QuestionList />
                         </div>
 
                         <div id="questList" className="mb-6">
                             <h1 className="has-text-centered has-text-primary">Daftar Jawaban</h1>
-                            <AnswerList tipe="not-accepted"/>
+                            <AnswerList />
                         </div>
                     </div>
 

@@ -69,11 +69,12 @@ const QuestionList = ({tipe}) => {
                             <div className="user-item-list-content">
                                 <div className="is-flex">
                                     <h3>{item.judul}</h3>
-                                    <h5>{item.user.fullname}</h5>
+                                    <h5>{item.creator.fullname}</h5>
                                 </div>
                                 <h5>Deskripsi:</h5>
                                 <p>{item.deskripsi}</p>
-                                <p className="has-text-danger">{`Deadline: ${item.deadline}`}</p>
+                                <p className="has-text-danger">{`Start Date: ${item.start_date}`}</p>
+                                <p className="has-text-danger">{`Deadline: ${item.end_date}`}</p>
                             </div>
                             <QuestionModal item={item} id={`modal-quest-${index}`} tipe={tipe}/>
                         </div>
