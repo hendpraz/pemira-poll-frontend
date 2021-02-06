@@ -50,3 +50,11 @@ export const getMyAnswers = async () =>
 
     return response
   }
+
+export const createAnswer = async (data) =>
+  {
+    const url = `${defaultAPIURL}/answers/`
+    const response = await post(url, data)
+
+    return response
+  }
