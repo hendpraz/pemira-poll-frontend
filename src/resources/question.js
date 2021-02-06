@@ -4,7 +4,7 @@ const { get, patch, post } = require("./helper")
 // Admin
 export const getAllQuestions = async () =>
   {
-    const url = `${defaultAPIURL}/answers/all/`
+    const url = `${defaultAPIURL}/questions/all/`
     const response = await get(url)
 
     return response
@@ -12,7 +12,7 @@ export const getAllQuestions = async () =>
 
 export const getAllAnswers = async () =>
   {
-    const url = `${defaultAPIURL}/questions/all/`
+    const url = `${defaultAPIURL}/answers/all/`
     const response = await get(url)
 
     return response
