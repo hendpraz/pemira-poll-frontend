@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import QuestionModal from './QuestionModal'
+import AnswerModal from './AnswerModal'
 import Pagination from '../Pagination'
 import { getAllAnswers } from 'resources/question'
 
@@ -68,14 +68,14 @@ const QuestionList = ({tipe}) => {
                             className="user-list-item p-4">
                             <div className="user-item-list-content">
                                 <div className="is-flex">
-                                    <h3>{item.judul}</h3>
-                                    <h5>{item.user.fullname}</h5>
+                                    <h3>{item.question.judul}</h3>
+                                    <h5>{item.answerer.fullname}</h5>
                                 </div>
-                                <h5>Deskripsi:</h5>
-                                <p>{item.deskripsi}</p>
-                                <p className="has-text-danger">{`Deadline: ${item.deadline}`}</p>
+                                <h5>Jawaban:</h5>
+                                <p>{item.preferences}</p>
+                                <p className="has-text-danger">{`Created at: ${item.created_at}`}</p>
                             </div>
-                            <QuestionModal item={item} id={`modal-quest-${index}`} tipe={tipe}/>
+                            <AnswerModal item={item} id={`modal-quest-${index}`} tipe={tipe}/>
                         </div>
                     )
                 })}
