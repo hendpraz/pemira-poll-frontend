@@ -73,6 +73,7 @@ const QuestionList = ({tipe}) => {
                                 </div>
                                 <h5>Deskripsi:</h5>
                                 <p>{item.deskripsi}</p>
+                                <p className="has-text-danger">Pilihan jawaban: {item.choices}</p>
                                 <p className="has-text-danger">{`Start Date: ${item.start_date}`}</p>
                                 <p className="has-text-danger">{`Deadline: ${item.end_date}`}</p>
                             </div>

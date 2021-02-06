@@ -28,6 +28,10 @@ const QuestionModal = ({ item, id }) => {
                                     <td><h5>{`: ${item.deskripsi}`}</h5></td>
                                 </tr>
                                 <tr>
+                                    <td><h5>Pilihan Jawaban</h5></td>
+                                    <td><h5>{`: ${item.choices}`}</h5></td>
+                                </tr>
+                                <tr>
                                     <td><h5>Waktu Mulai</h5></td>
                                     <td><h5>{`: ${item.start_date}`}</h5></td>
                                 </tr>
