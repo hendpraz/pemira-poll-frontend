@@ -12,6 +12,10 @@ import CreateQuest from 'components/Admin/CreateQuest'
 import AdminAuth from 'layouts/AdminAuth'
 import { useAppContext } from 'libs/contextLib'
 
+import CreateQuestion from 'components/Admin/Question/CreateQuestion'
+import QuestionList from 'components/Admin/Question/QuestionList'
+import AnswerList from 'components/Admin/Question/AnswerList'
+
 const Admin = () => {
     const { user } = useAppContext()
     const [pageUser, setPageUser] = useState()
@@ -39,6 +43,7 @@ const Admin = () => {
                             <CreateBakalCalon />
                         </div>
                     </div>
+
                     <div className="user">
                         <div id="userList" className="mb-6">
                             <h1 className="has-text-centered has-text-primary">User List</h1>
@@ -57,6 +62,24 @@ const Admin = () => {
                             <CreateKandidat />
                         </div>
                     </div>
+
+                    <div className="user">
+                        <div id="createQuestion">
+                            <h1 className="has-text-centered has-text-primary">Buat Pertanyaan</h1>
+                            <CreateQuestion/>
+                        </div>
+
+                        <div id="questList" className="mb-6">
+                            <h1 className="has-text-centered has-text-primary">Daftar Pertanyaan</h1>
+                            <QuestionList tipe="not-accepted"/>
+                        </div>
+
+                        <div id="questList" className="mb-6">
+                            <h1 className="has-text-centered has-text-primary">Daftar Jawaban</h1>
+                            <AnswerList tipe="not-accepted"/>
+                        </div>
+                    </div>
+
                     <div className="user">
                         <div id="createQuest">
                             <h1 className="has-text-centered has-text-primary">Buat Quest</h1>
@@ -72,7 +95,6 @@ const Admin = () => {
                         </div>
                         <div id="questList" className="mb-6">
                             <h1 className="has-text-centered has-text-primary">Daftar Bukti Quest</h1>
-                            <QuestList />
                         </div>
                     </div>
                 </div>

@@ -8,9 +8,15 @@ export const get = async (url) =>
           'Authorization': `Bearer ${token}`
         },
       })
-      response = await response.json()
+      const { status } = response
 
-      resolve(response)
+      if (status >= 200 && status < 400) {
+        response = await response.json()
+
+        resolve(response)
+      } else {
+        throw Error("Terjadi kesalahan. Silakan coba kembali.")
+      }
     } catch (e) {
       reject(e);
     }
@@ -28,9 +34,15 @@ export const post = (url, data) =>
         },
         body: JSON.stringify(data)
       })
-      response = await response.json()
+      const { status } = response
 
-      resolve(response)
+      if (status >= 200 && status < 400) {
+        response = await response.json()
+
+        resolve(response)
+      } else {
+        throw Error("Terjadi kesalahan. Silakan coba kembali.")
+      }
     } catch (e) {
       reject(e);
     }
@@ -46,9 +58,15 @@ export const patch = async (url) =>
           'Authorization': `Bearer ${token}`
         },
       })
-      response = await response.json()
+      const { status } = response
 
-      resolve(response)
+      if (status >= 200 && status < 400) {
+        response = await response.json()
+
+        resolve(response)
+      } else {
+        throw Error("Terjadi kesalahan. Silakan coba kembali.")
+      }
     } catch (e) {
       reject(e);
     }
