@@ -34,15 +34,15 @@ export const post = (url, data) =>
         },
         body: JSON.stringify(data)
       })
-      const { status } = response
-      response = await response.json()
+      const httpStatus = response.status
+      const res = JSON.parse(JSON.stringify(await response.json()))
 
-      if (status >= 200 && status < 400) {
-        resolve(response)
-      } else {
-        alert(response.message ? response.message : "Terjadi kesalahan. Silakan coba kembali.")
-        throw Error("Terjadi kesalahan. Silakan coba kembali.")
+      const finalRes = {
+        data: res,
+        status: httpStatus
       }
+
+      resolve(finalRes)
     } catch (e) {
       reject(e);
     }
@@ -58,15 +58,15 @@ export const patch = async (url) =>
           'Authorization': `Bearer ${token}`
         },
       })
-      const { status } = response
-      response = await response.json()
+      const httpStatus = response.status
+      const res = JSON.parse(JSON.stringify(await response.json()))
 
-      if (status >= 200 && status < 400) {
-        resolve(response)
-      } else {
-        alert(response.message ? response.message : "Terjadi kesalahan. Silakan coba kembali.")
-        throw Error("Terjadi kesalahan. Silakan coba kembali.")
+      const finalRes = {
+        data: res,
+        status: httpStatus
       }
+
+      resolve(finalRes)
     } catch (e) {
       reject(e);
     }
@@ -84,15 +84,15 @@ export const patchWithBody = async (url, data) =>
         },
         body: JSON.stringify(data)
       })
-      const { status } = response
-      response = await response.json()
+      const httpStatus = response.status
+      const res = JSON.parse(JSON.stringify(await response.json()))
 
-      if (status >= 200 && status < 400) {
-        resolve(response)
-      } else {
-        alert(response.message ? response.message : "Terjadi kesalahan. Silakan coba kembali.")
-        throw Error("Terjadi kesalahan. Silakan coba kembali.")
+      const finalRes = {
+        data: res,
+        status: httpStatus
       }
+
+      resolve(finalRes)
     } catch (e) {
       reject(e);
     }

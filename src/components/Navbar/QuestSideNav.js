@@ -82,7 +82,7 @@ const QuestSideNav = ({nav, setNav}) => {
                                 <div className="quest-wall" onClick={() => clickNav("quest-wall")}>Quest Wall</div>
                             </li>
                             <li>
-                                <div>-</div>
+                                <div className="question-wall" onClick={() => clickNav("question-wall")}>Question Wall</div>
                             </li>
                             <li>
                                 <div>-</div>

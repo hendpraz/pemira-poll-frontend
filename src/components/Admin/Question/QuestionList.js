@@ -18,8 +18,8 @@ const QuestionList = ({tipe}) => {
                 response = await getAllQuestions()
                 
                 console.log(response)
-                setResult(response)
-                setCurrentResult(response.slice(firstIndex, lastIndex))
+                setResult(response.data)
+                setCurrentResult(response.data.slice(firstIndex, lastIndex))
             } catch (e) {
                 console.log(e)
             }

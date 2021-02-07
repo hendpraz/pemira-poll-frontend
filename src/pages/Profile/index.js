@@ -10,6 +10,7 @@ import { useHistory } from 'react-router-dom'
 import { useAppContext } from 'libs/contextLib'
 import DuelBox from 'components/Duel'
 import HomeProfile from 'components/HomeProfile'
+import QuestionBox from 'components/QuestionBox'
 
 const Profile = (props) => {
 
@@ -67,6 +68,7 @@ const Profile = (props) => {
                         {nav === "home" && <HomeProfile />}
                         {nav === "quest-wall" && <QuestBox />}
                         {nav === "duel-wall" && <DuelBox />}
+                        {nav === "question-wall" && <QuestionBox />}
                     </div>
                 </div>
                 <Footer/>
