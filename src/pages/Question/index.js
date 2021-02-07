@@ -82,13 +82,13 @@ const Question = ({match}) => {
     const pilihCalon = (e) => {
         let imgId = e.target.parentElement.parentElement.parentElement.firstChild.firstChild.firstChild.id;
         let chosenCalon = calon.filter(item => {
-            return item.id === imgId
+            return item === imgId
         })
 
         console.log("Selecting calon...")
         console.log(chosenCalon)
 
-        const calonList = calon.filter(item => item.id !== imgId)
+        const calonList = calon.filter(item => item !== imgId)
         setCalon(calonList)
 
         const newMyCalonArray = [...myCalon, chosenCalon[0]]
