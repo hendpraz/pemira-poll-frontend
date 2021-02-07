@@ -16,8 +16,8 @@ const Question = ({match}) => {
         }} = config
 
     const openModal = () => {
-        if (allCalon.length > myCalon.length) {
-            alert("Anda belum memilih urutan untuk semua calon!")
+        if (allCalon.length !== myCalon.length) {
+            alert("Anda belum memilih urutan untuk semua opsi!")
         } else {
             let modalUnggah = document.getElementById("konfirmasiCoblos")
             modalUnggah.style.display = "block"
