@@ -130,11 +130,6 @@ const QuestBox = () => {
             </div>
             <div className="quest-content">
                 {
-                    tab === "my" ?
-                    <div style={{
-                        paddingTop: "180px"
-                    }}>Kosong.</div>
-                    :
                     <>
                         {currentResult.map((item, index) => {
                             return (<Question

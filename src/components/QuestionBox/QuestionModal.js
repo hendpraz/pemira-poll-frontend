@@ -16,6 +16,8 @@ const QuestModal = ({
         modal.style.display = "none"
     }
 
+    const question = tab === "my" && item.question ? item.question : item
+
     return (
         <div>
             <div id={`myModal-${index}`} className="modal">
@@ -24,20 +26,28 @@ const QuestModal = ({
                     ? ' blue'
                     : ` red`}`}>
                     <span className="close" id={`close-${index}`} onClick={() => closeModal()}>&times;</span>
-                    <h3>{item.judul}</h3>
+                    <h3>{question.judul}</h3>
                     <hr/>
                     <br/>
                     <h4>Deskripsi Pertanyaan</h4>
-                    <p>{item.deskripsi}</p>
+                    <p>{question.deskripsi}</p>
                     <br/>
                     <h5>Tanggal Mulai:</h5>
-                    <p>{item.start_date}</p>
+                    <p>{question.start_date}</p>
                     <br/>
                     <h5>Tanggal Berakhir:</h5>
-                    <p>{item.end_date}</p>
-                    <br/> 
+                    <p>{question.end_date}</p>
+                    <br/>
+                    {
+                        tab === "my" &&
+                        <>
+                            <h5>Jawaban Saya:</h5>
+                                <p>{item.preferences}</p>
+                            <br/>
+                        </>
+                    }
                     { isAvailable &&
-                        <a className="is-primary button" href={"/pertanyaan/" + item.id} target="_blank">Jawab Pertanyaan Ini</a>
+                        <a className="is-primary button" href={"/pertanyaan/" + question.id} target="_blank">Jawab Pertanyaan Ini</a>
                     }
                 </div>
             </div>

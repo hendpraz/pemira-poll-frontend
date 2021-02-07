@@ -67,7 +67,7 @@ const Question = ({match}) => {
                         setAllCalon(tempChoices)
                         setCalon(tempChoices)
                     } else {
-                        alert(`Anda sudah tidak dapat menjawab pertanyaan ini.`)
+                        alert(`Anda sudah pernah menjawab pertanyaan ini.`)
                         history.push("/profile")
                     }
                 } else {

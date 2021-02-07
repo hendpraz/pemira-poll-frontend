@@ -9,7 +9,7 @@ const ModalSubmit = ({prefsString, prefIds, user, questionId}) => {
     const history = useHistory()
     const recaptchaRef = useRef()
     const [isAgree, setIsAgree] = useState(false)
-    const [captchaSolved, setCaptchaSolved] = useState(false)
+    const [captchaSolved, setCaptchaSolved] = useState(true)
 
     const closeModal = () => {
         var modal = document.getElementById(`konfirmasiCoblos`)
@@ -22,17 +22,23 @@ const ModalSubmit = ({prefsString, prefIds, user, questionId}) => {
             try {
                 const data = {
                     answerer: user.id,
-                    preferensi: prefIds,
+                    preferences: prefIds,
                     question: questionId
                 }
-                let response
-    
-                response = await createAnswer(data)
-                console.log(response)
 
-                alert("Jawaban telah diterima")
+                console.log(data)
+                let response
+                response = await createAnswer(data)
+                console.log(response.data)
+
+                const { status } = response
+                if (status >= 200 && status < 300) {
+                    alert("Jawaban telah diterima")
                 history.push('/profile')
                 window.location.reload()
+                } else {
+                    alert("Tidak berhasil. Silakan coba kembali")
+                }
             } catch (error) {
                 alert("Ada masalah. Silakan coba kembali.")
             }
@@ -75,7 +81,7 @@ const ModalSubmit = ({prefsString, prefIds, user, questionId}) => {
                     </div>
 
                     <div className="container">
-                        <Button file="coblos" onClick={submitVote} />
+                        <Button file="submit" onClick={submitVote} />
                         <Button file="batal-merah" onClick={closeModal}/>
                     </div>
                 </div>
