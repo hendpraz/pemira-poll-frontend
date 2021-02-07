@@ -7,7 +7,7 @@ export const getAllQuestions = async () =>
     const url = `${defaultAPIURL}/questions/all/`
     const response = await get(url)
 
-    return response
+    return response.data
   }
 
 export const getAllAnswers = async () =>
@@ -15,7 +15,7 @@ export const getAllAnswers = async () =>
     const url = `${defaultAPIURL}/answers/all/`
     const response = await get(url)
 
-    return response
+    return response.data
   }
 
 export const createQuestion = async (data) =>
@@ -32,7 +32,7 @@ export const getAvailableQuestions = async () =>
     const url = `${defaultAPIURL}/questions/available/`
     const response = await get(url)
 
-    return response
+    return response.data
   }
 
 export const getHistoryQuestions = async () =>
@@ -40,7 +40,7 @@ export const getHistoryQuestions = async () =>
     const url = `${defaultAPIURL}/questions/history/`
     const response = await get(url)
 
-    return response
+    return response.data
   }
 
 export const getQuestionDetails = async (questionId) =>

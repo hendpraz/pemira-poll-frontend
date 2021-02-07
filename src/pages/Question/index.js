@@ -49,22 +49,29 @@ const Question = ({match}) => {
         async function loadCandidates() {
             try {
                 let tempChoices
-                const tempQuestion = await getQuestionDetails(questionId)
-                console.log(tempQuestion)
+                const response = await getQuestionDetails(questionId)
 
-                // set canVote here
-                let canVoteCondition = !tempQuestion.is_answered
+                const tempQuestion = response.data
+                const status = response.status
 
-                if (canVoteCondition) {
-                    setCanVote(canVoteCondition)
-                    setQuestion(tempQuestion)
+                if (status >= 200 && status < 400) {
+                    // set canVote here
+                    let canVoteCondition = !tempQuestion.is_answered
 
-                    tempChoices = tempQuestion.choices.split(";")
+                    if (canVoteCondition) {
+                        setCanVote(canVoteCondition)
+                        setQuestion(tempQuestion)
 
-                    setAllCalon(tempChoices)
-                    setCalon(tempChoices)
+                        tempChoices = tempQuestion.choices.split(";")
+
+                        setAllCalon(tempChoices)
+                        setCalon(tempChoices)
+                    } else {
+                        alert(`Anda sudah tidak dapat menjawab pertanyaan ini.`)
+                        history.push("/profile")
+                    }
                 } else {
-                    alert(`Anda sudah tidak dapat menjawab pertanyaan ini.`)
+                    alert(tempQuestion.message ? tempQuestion.message : "Terjadi kesalahan. Silakan coba kembali.")
                     history.push("/profile")
                 }
             } catch (e) {

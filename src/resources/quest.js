@@ -228,7 +228,7 @@ export const getAllNotAcceptedQuest = async () =>
     const url = `${defaultAPIURL}/quests-admin/list/not-accepted/`
     const response = await get(url)
 
-    return response
+    return response.data
   }
 
 export const getAllEverAcceptedQuest = async () =>
@@ -236,7 +236,7 @@ export const getAllEverAcceptedQuest = async () =>
     const url = `${defaultAPIURL}/quests-admin/list/ever-accepted/`
     const response = await get(url)
 
-    return response
+    return response.data
   }
 
 export const adminQuestAccept = async (questId) =>
