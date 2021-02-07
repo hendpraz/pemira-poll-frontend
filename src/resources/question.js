@@ -43,6 +43,14 @@ export const getHistoryQuestions = async () =>
     return response
   }
 
+export const getQuestionDetails = async (questionId) =>
+  {
+    const url = `${defaultAPIURL}/questions/${questionId}/`
+    const response = await get(url)
+
+    return response
+  }
+
 export const getMyAnswers = async () =>
   {
     const url = `${defaultAPIURL}/answers/my/`

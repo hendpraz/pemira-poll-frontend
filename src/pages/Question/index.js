@@ -1,16 +1,16 @@
 import React, {useState, useEffect} from 'react'
 import config from 'config'
 import 'styles/pages/Vote.scss'
-import Priority from 'components/Vote/Priority'
+import Priority from 'components/Question/Priority'
 import Footer from 'components/Footer'
 import Button from 'components/Button'
-import ModalSubmit from 'components/Vote/ModalSubmit'
+import ModalSubmit from 'components/Question/ModalSubmit'
 import { useAppContext } from 'libs/contextLib'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import MassaOnly from 'layouts/MassaOnly'
-import { listKandidatK3M, listKandidatMWAWM} from 'resources/user'
+import { getQuestionDetails } from 'resources/question'
 
-const VoteAfter = ({tipe}) => {
+const Question = ({match}) => {
     const {assetsURL: {
             image
         }} = config
@@ -23,47 +23,50 @@ const VoteAfter = ({tipe}) => {
             modalUnggah.style.display = "block"
         }
     }
+    let { id } = useParams()
+    const questionId = id
 
     const history = useHistory()
     const { user } = useAppContext()
     const [pageUser, setPageUser] = useState({})
     const [canVote, setCanVote] = useState(false)
+    const [prefsString, setPrefsString] = useState("-")
+    const [prefIds, setPrefIds] = useState("-")
+
+    const [calon, setCalon] = useState([])
+    const [myCalon, setMyCalon] = useState([])
+    const [allCalon, setAllCalon] = useState([])
+
+    const [question, setQuestion] = useState({})
 
     useEffect(() => {
         if (user && history) {
             setPageUser(user)
-
-            // set canVote here
-            let canVoteCondition = false
-            if (tipe === "k3m") {
-                canVoteCondition = (user.vote_k3m_status === "notyet")
-            } else { // tipe === "mwa"
-                canVoteCondition = (user.vote_mwa_status === "notyet")
-            }
-
-            if (canVoteCondition) {
-                setCanVote(canVoteCondition)
-            } else {
-                alert(`Anda sudah tidak dapat melakukan vote ${tipe === "k3m" ? "K3M" : "MWA-WM"}.`)
-                history.push("/profile")
-            }
         }
-    }, [user, history, tipe])
+    }, [user, history])
 
     useEffect(() => {
         async function loadCandidates() {
             try {
-                let response
-                
-                if (tipe === "k3m") {
-                    response = await listKandidatK3M()
-                } else {
-                    response = await listKandidatMWAWM()
-                }
+                let tempChoices
+                const tempQuestion = await getQuestionDetails(questionId)
+                console.log(tempQuestion)
 
-                console.log(response)
-                setAllCalon(response)
-                setCalon(response)
+                // set canVote here
+                let canVoteCondition = !tempQuestion.is_answered
+
+                if (canVoteCondition) {
+                    setCanVote(canVoteCondition)
+                    setQuestion(tempQuestion)
+
+                    tempChoices = tempQuestion.choices.split(";")
+
+                    setAllCalon(tempChoices)
+                    setCalon(tempChoices)
+                } else {
+                    alert(`Anda sudah tidak dapat menjawab pertanyaan ini.`)
+                    history.push("/profile")
+                }
             } catch (e) {
                 console.log(e)
             }
@@ -74,20 +77,9 @@ const VoteAfter = ({tipe}) => {
         }
         
         onLoad()
-    }, [tipe])
-
-    const [prefsString, setPrefsString] = useState("-")
-    const [prefIds, setPrefIds] = useState("-")
-    const [calon, setCalon] = useState([])
-    const [myCalon, setMyCalon] = useState([])
-    const [allCalon, setAllCalon] = useState([])
+    }, [])
 
     const pilihCalon = (e) => {
-        // let src = e.target.parentElement.parentElement.parentElement.firstChild.firstChild.firstChild.src;
-        // let sourceImage = src
-        //     .slice(21, src.length)
-        //     .replace("%20", " ");
-
         let imgId = e.target.parentElement.parentElement.parentElement.firstChild.firstChild.firstChild.id;
         let chosenCalon = calon.filter(item => {
             return item.id === imgId
@@ -113,11 +105,11 @@ const VoteAfter = ({tipe}) => {
         for (let i = 0; i < n; i++) {   
             const element = newMyCalonArray[i];
             if (count === 0) {
-                tempPrefsString += `(${i+1}). ${element.fullname}`
-                tempPrefIds += `${element.id}`
+                tempPrefsString += `(${i+1}). ${element}`
+                tempPrefIds += `${element}`
             } else {
-                tempPrefsString += ` - (${i+1}). ${element.fullname}` 
-                tempPrefIds += `&${element.id}`
+                tempPrefsString += ` - (${i+1}). ${element}` 
+                tempPrefIds += `&${element}`
             }
             count += 1
         }
@@ -145,11 +137,15 @@ const VoteAfter = ({tipe}) => {
                                 backgroundImage: `url('${image}/Scroll medium 2.png')`
                             }}>
                                 <div className="pemilihan-k3m">
-                                    <h2>Pemilihan {tipe === "k3m" ? "K3M" : "MWA-WM"}</h2>
-                                    <Priority pilihCalon={pilihCalon} calon={calon} value={myCalon[0]} no={1} reset={reset}/>
-                                    <Priority pilihCalon={pilihCalon} calon={calon} value={myCalon[1]} no={2} reset={reset}/>
-                                    <Priority pilihCalon={pilihCalon} calon={calon} value={myCalon[2]} no={3} reset={reset}/>
-                                    <Priority pilihCalon={pilihCalon} calon={calon} value={myCalon[3]} no={4} reset={reset}/>
+                                    <h2>{question.judul}</h2>
+
+                                    {
+                                        allCalon.map((item, index) => {
+                                            return (
+                                                <Priority pilihCalon={pilihCalon} calon={calon} value={myCalon[index]} no={index+1} reset={reset}/>
+                                            )
+                                        })
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -164,8 +160,8 @@ const VoteAfter = ({tipe}) => {
                                     <h5>{pageUser.nim}</h5>
                                     <hr/>
                                     <div className="has-text-left">
-                                        <p>Total calon: {allCalon.length}</p>
-                                        <p>Kandidat diurutkan: {myCalon.length}</p>
+                                        <p>Total pilihan: {allCalon.length}</p>
+                                        <p>Pilihan diurutkan: {myCalon.length}</p>
                                     </div>
                                     <Button file="submit" onClick={openModal}/>
                                     <Button file="reset" onClick={reset}/>
@@ -174,7 +170,7 @@ const VoteAfter = ({tipe}) => {
                             </div>
                         </div>
                     </div>
-                    <ModalSubmit prefsString={prefsString} prefIds={prefIds} user={pageUser} tipe={tipe}/>
+                    <ModalSubmit prefsString={prefsString} prefIds={prefIds} user={pageUser} questionId={questionId}/>
                     <Footer/>
                 </div>
             }
@@ -182,4 +178,4 @@ const VoteAfter = ({tipe}) => {
     )
 }
 
-export default VoteAfter
+export default Question
