@@ -30,8 +30,8 @@ const Question = ({match}) => {
     const { user } = useAppContext()
     const [pageUser, setPageUser] = useState({})
     const [canVote, setCanVote] = useState(false)
-    const [prefsString, setPrefsString] = useState("-")
-    const [prefIds, setPrefIds] = useState("-")
+    const [prefsString, setPrefsString] = useState("->")
+    const [prefIds, setPrefIds] = useState("->")
 
     const [calon, setCalon] = useState([])
     const [myCalon, setMyCalon] = useState([])
@@ -63,6 +63,7 @@ const Question = ({match}) => {
                         setQuestion(tempQuestion)
 
                         tempChoices = tempQuestion.choices.split(";")
+                        tempChoices.push("Kotak Kosong")
 
                         setAllCalon(tempChoices)
                         setCalon(tempChoices)
@@ -116,7 +117,7 @@ const Question = ({match}) => {
                 tempPrefIds += `${element}`
             } else {
                 tempPrefsString += ` - (${i+1}). ${element}` 
-                tempPrefIds += `&${element}`
+                tempPrefIds += `->${element}`
             }
             count += 1
         }

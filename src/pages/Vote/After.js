@@ -62,6 +62,7 @@ const VoteAfter = ({tipe}) => {
                 }
 
                 console.log(response)
+                response.push("Kotak Kosong")
                 setAllCalon(response)
                 setCalon(response)
             } catch (e) {
