@@ -9,7 +9,7 @@ const ModalSubmit = ({prefsString, prefIds, user, questionId}) => {
     const history = useHistory()
     const recaptchaRef = useRef()
     const [isAgree, setIsAgree] = useState(false)
-    const [captchaSolved, setCaptchaSolved] = useState(true)
+    const [captchaSolved, setCaptchaSolved] = useState(false)
 
     const closeModal = () => {
         var modal = document.getElementById(`konfirmasiCoblos`)
