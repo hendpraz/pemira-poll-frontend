@@ -1,0 +1,86 @@
+.admin-page {
+    scroll-behavior: smooth;
+    
+    a,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+        font-family: 'Nunito', sans-serif!important;
+    }
+
+    .navbar {
+        padding: 5px 20px;
+        box-shadow: 0 0.5px 10px 0.25px rgb(108, 108, 108);
+
+        .navbar-brand {
+            font-weight: 900;
+            font-size: 1.75rem;
+            padding: 0 15px;
+
+            h3 {
+                font-size: 1.825rem;
+                line-height: 1;
+                font-family: 'Nunito', sans-serif!important;
+            }
+
+            h5 {
+                font-size: 1rem;
+                letter-spacing: 2.25px;
+                line-height: 1;
+                font-family: 'Nunito', sans-serif!important;
+            }
+        }
+
+        .navbar-menu {
+            padding: 0 20px;
+        }
+
+        .navbar-item,
+        .navbar-link {
+            color: hsl(171, 100%, 41%)!important;
+            margin: 0 10px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+        }
+
+        .navbar-link::after {
+            font-size: 0.75rem;
+            border-color: hsl(171, 100%, 41%)!important;
+        }
+        .navbar-item:hover {
+            background-color: rgba(0,0,0, 0.1)!important;
+        }
+    }
+
+    .container {
+        padding-top: 50px;
+        text-align: center;
+    }
+
+    .columns {
+        padding: 5px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .column {
+        padding-left: 10px;
+        padding-right: 10px;
+
+        padding-top: 30px;
+        padding-bottom: 30px;
+
+        border-radius: 30px;
+
+        border: mediumseagreen;
+        border-width: 3px;
+        border-style: solid;
+        font-size: 1.2rem;
+
+        width: 90%;
+    }
+}
