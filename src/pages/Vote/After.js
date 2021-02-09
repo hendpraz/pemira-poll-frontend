@@ -62,7 +62,14 @@ const VoteAfter = ({tipe}) => {
                 }
 
                 console.log(response)
-                response.push("Kotak Kosong")
+                const kotakKosong = {
+                    id: "Kotak Kosong",
+                    fullname: `Kotak Kosong`,
+                    photo_url: `${image}/Koin 2.png`
+                }
+
+                response.push(kotakKosong)
+                
                 setAllCalon(response)
                 setCalon(response)
             } catch (e) {
