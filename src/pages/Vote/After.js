@@ -64,6 +64,7 @@ const VoteAfter = ({tipe}) => {
                 console.log(response)
                 const kotakKosong = {
                     id: "Kotak Kosong",
+                    username: "KotakKosong",
                     fullname: `Kotak Kosong`,
                     photo_url: `${image}/Koin 2.png`
                 }
@@ -122,10 +123,10 @@ const VoteAfter = ({tipe}) => {
             const element = newMyCalonArray[i];
             if (count === 0) {
                 tempPrefsString += `(${i+1}). ${element.fullname}`
-                tempPrefIds += `${element.id}`
+                tempPrefIds += `${element.username}`
             } else {
                 tempPrefsString += ` - (${i+1}). ${element.fullname}` 
-                tempPrefIds += `&${element.id}`
+                tempPrefIds += `->${element.username}`
             }
             count += 1
         }
