@@ -106,7 +106,7 @@ const CreateQuestion = ({pageUser}) => {
             })
         } else {
             confirmAlert({
-                title: 'Data Tidak Lengkap',
+                title: 'Alert',
                 message: `Mohon lengkapi kembali data yang diperlukan`,
                 buttons: [
                   {
