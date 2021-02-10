@@ -8,7 +8,7 @@ const UserAccociation = ({lembagaList, massaList}) => {
     const [username2, setUsername2] = useState("")
 
     const massaOptions = massaList.map((item, index) => {
-        return { value: item.username, label: `${item.username} - ${item.nim} - ${item.ou}`}
+        return { value: item.username, label: `${item.username} - ${item.nim} - ${item.fullname} - ${item.ou}`}
     })
 
     const lembagaOptions = lembagaList.map((item, index) => {
@@ -44,7 +44,9 @@ const UserAccociation = ({lembagaList, massaList}) => {
                         onChange={setUsername1}
                         options={massaOptions}
                     />
-                    <br/><br/>
+                    <br/>
+                    <p>Keterangan: pilihan di atas dalam bentuk [username] - [nim] - [nama] - [fakultas-prodi]</p>
+                    <br/>
 
                     <label class="label">Pilih Lembaga</label>
                     <Select
@@ -52,6 +54,10 @@ const UserAccociation = ({lembagaList, massaList}) => {
                         onChange={setUsername2}
                         options={lembagaOptions}
                     />
+                    <br/>
+                    <p>Keterangan: pilihan di atas dalam bentuk [username] - [fakultas-prodi]</p>
+                    <br/>
+
                     <br/><br/>
                 </div>
             </div>
