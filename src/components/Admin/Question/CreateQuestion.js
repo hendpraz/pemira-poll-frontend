@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react'
 import { useFormFields } from "libs/hooksLib"
 import { createQuestion } from "resources/question"
 
+import { confirmAlert } from 'react-confirm-alert';
+
 const CreateQuestion = ({pageUser}) => {
     const userId = pageUser.id
 
@@ -19,31 +21,60 @@ const CreateQuestion = ({pageUser}) => {
         choices: "",
     });
 
-    const submitQuestion = async () => {
-        const r = window.confirm(`Apakah Anda yakin dengan data quest yang diisi?`)
-        if (r) {
-            console.log(userId)
-            if (userId) {
-                try {
-                    console.log("OK")
+    const continueSubmit = async () => {
+        console.log(userId)
+        if (userId) {
+            try {
+                console.log("OK")
 
-                    let data = JSON.parse(JSON.stringify(fields))
-                    data.creator = userId
-                    data.start_date = data.start_date + " 00:00:00"
-                    data.end_date = data.end_date + " 23:59:59"
-    
-                    console.log(data)
-    
-                    const response = await createQuestion(data)
-                    console.log(response)
+                let data = JSON.parse(JSON.stringify(fields))
+                data.creator = userId
+                data.start_date = data.start_date + " 00:00:00"
+                data.end_date = data.end_date + " 23:59:59"
 
-                    alert("Berhasil membuat question baru")
-                } catch (error) {
-                    alert(error)
-                }
-            } else {
-                alert("Terdapat masalah, mohon coba lagi beberapa saat.")
+                console.log(data)
+
+                const response = await createQuestion(data)
+                console.log(response)
+
+                alert("Berhasil membuat question baru")
+            } catch (error) {
+                alert(error)
             }
+        } else {
+            alert("Terdapat masalah, mohon coba lagi beberapa saat.")
+        }
+    }
+
+    const isLengkapForm = () => {
+        return fields.judul.length > 0 && fields.deskripsi.length > 0 && fields.choices.length > 0
+    }
+
+    const submitQuestion = async () => {
+        if (isLengkapForm()) {
+            confirmAlert({
+                title: 'Konfirmasi',
+                message: `Apakah Anda yakin dengan data Pertanyaan yang diisi? Judul: ${fields.judul}, pilihan: ${fields.choices}`,
+                buttons: [
+                  {
+                    label: 'Yes',
+                    onClick: () => continueSubmit()
+                  },
+                  {
+                    label: 'No',
+                  }
+                ]
+            })
+        } else {
+            confirmAlert({
+                title: 'Data Tidak Lengkap',
+                message: `Mohon lengkapi kembali data yang diperlukan`,
+                buttons: [
+                  {
+                    label: 'OK',
+                  }
+                ]
+            })
         }
     }
 
@@ -59,7 +90,9 @@ const CreateQuestion = ({pageUser}) => {
                         id="judul"
                         name="judul"
                         value={fields.judul}
-                        onChange={handleFieldChange}/>
+                        onChange={handleFieldChange}
+                        placeholder="Judul pertanyaan"
+                        />
                     <br/>
                     <br/>
                     <label>

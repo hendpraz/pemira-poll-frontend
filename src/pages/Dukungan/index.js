@@ -10,8 +10,8 @@ import '../../styles/pages/Dukungan.scss'
 import NavLoggedIn from 'components/Navbar/NavLoggedIn'
 
 // confirm alert
-import { confirmAlert } from 'react-confirm-alert';
-import 'react-confirm-alert/src/react-confirm-alert.css';
+import { confirmAlert } from 'react-confirm-alert'
+import 'react-confirm-alert/src/react-confirm-alert.css'
 
 const LembarDukungan = (props) => {
 
