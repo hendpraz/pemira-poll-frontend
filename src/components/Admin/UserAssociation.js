@@ -51,7 +51,7 @@ const UserAccociation = ({lembagaList, massaList}) => {
                             {
                                 lembagaList.map((item, index) => {
                                     return (
-                                        <option value={item.username}>{item.username} - {item.nim} - {item.ou}</option>
+                                        <option value={item.username}>{item.username} - {item.ou}</option>
                                     )
                                 })
                             }
