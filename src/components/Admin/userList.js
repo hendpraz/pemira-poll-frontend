@@ -4,7 +4,7 @@ import list from './listOfUsers'
 import Pagination from './Pagination'
 import { listUsers } from 'resources/user'
 
-const UserList = () => {
+const UserList = ({userList}) => {
 
     const postPerPage = 6
     const [currentPage,
@@ -23,11 +23,15 @@ const UserList = () => {
         }
 
         async function onLoad() {
-            loadUsers()
+            if (userList) {
+                setResult(userList)
+            } else {
+                loadUsers()
+            }
         }
         
         onLoad()
-    }, [])
+    }, [userList])
 
     const lastIndex = postPerPage * currentPage
     const firstIndex = lastIndex - postPerPage

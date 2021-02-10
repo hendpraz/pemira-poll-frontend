@@ -2,7 +2,7 @@ import React from 'react'
 import { useFormFields } from "libs/hooksLib"
 import { associateUser } from 'resources/user';
 
-const UserAccociation = () => {
+const UserAccociation = ({lembagaList, massaList}) => {
     const [fields, handleFieldChange] = useFormFields({
         username1: "",
         username2: "",
@@ -29,12 +29,35 @@ const UserAccociation = () => {
         <div>
             <div className="create-user-container columns">
                 <div className="input-container column">
-                    <label><h5>Username Massa</h5></label>
-                    <input type="text" required name="username1" id="username1" value={fields.username1} onChange={handleFieldChange}/>
+                    <label class="label">Pilih Massa</label>
+                    <p class="control">
+                        <select class="selectpicker" name="username1" id="username1" value={fields.username1} onChange={handleFieldChange} style={{width: "100%"}}>
+                            <option value=""></option>
+                            {
+                                massaList.map((item, index) => {
+                                    return (
+                                        <option value={item.username}>{item.username} - {item.nim} - {item.ou}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </p>
                     <br/><br/>
 
-                    <label><h5>Username Lembaga</h5></label>
-                    <input type="text" required name="username2" id="username2" value={fields.username2} onChange={handleFieldChange}/>
+                    <label class="label">Pilih Lembaga</label>
+                    <p class="control">
+                        <select class="selectpicker" name="username2" id="username2" value={fields.username2} onChange={handleFieldChange} style={{width: "100%"}}>
+                            <option value=""></option>
+                            {
+                                lembagaList.map((item, index) => {
+                                    return (
+                                        <option value={item.username}>{item.username} - {item.nim} - {item.ou}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </p>
+                    <br/><br/>
                 </div>
             </div>
             <div className="has-text-centered my-5">

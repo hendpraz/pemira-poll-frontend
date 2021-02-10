@@ -5,33 +5,63 @@ import UserList from 'components/Admin/userList'
 import UserAssociation from 'components/Admin/UserAssociation'
 import AdminAuth from 'layouts/AdminAuth'
 import { useAppContext } from 'libs/contextLib'
+import { listUsers } from 'resources/user'
 
 const Admin = () => {
-    const { user } = useAppContext()
-    const [pageUser, setPageUser] = useState()
+    const [lembagaList, setLembagaList] = useState()
+    const [massaList, setMassaList] = useState()
 
     useEffect(() => {
-        if (user) {
-            console.log(user)
-            setPageUser(user)
+        async function loadUsers() {
+            try {
+                let response = await listUsers()
+
+                let tempLembaga = []
+                let tempMassa = []
+
+                response.forEach(element => {
+                    if (element.groups === 3) {
+                        tempMassa.push(element)
+                    } else if (element.groups === 4) {
+                        tempLembaga.push(element)
+                    }
+                });
+
+                console.log(tempLembaga)
+
+                setLembagaList(tempLembaga)
+                setMassaList(tempMassa)
+            } catch (e) {
+                console.log(e)
+            }
         }
-    }, [user])
+
+        async function onLoad() {
+            loadUsers()
+        }
+        
+        onLoad()
+    }, [])
 
     return (
         <AdminAuth>
             {
-                pageUser &&
+                massaList && lembagaList &&
                 <div className="admin-page">
                     <NavAdmin/>
 
                     <div className="user">
+                    <div id="userList" className="mb-6">
+                            <h1 className="has-text-centered has-text-primary">Daftar Massa</h1>
+                            <UserList userList={massaList}/>
+                        </div>
                         <div id="userList" className="mb-6">
-                            <h1 className="has-text-centered has-text-primary">User List</h1>
-                            <UserList />
+                            <h1 className="has-text-centered has-text-primary">Daftar Lembaga</h1>
+                            <UserList userList={lembagaList}/>
                         </div>
                         <div id="associateUser">
                             <h1 className="has-text-centered has-text-primary">Associate Massa with Lembaga</h1>
-                            <UserAssociation />
+                            <UserAssociation lembagaList={lembagaList} massaList={massaList}/>
                         </div>
                     </div>
                 </div>
