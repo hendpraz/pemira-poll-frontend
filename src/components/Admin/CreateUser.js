@@ -56,7 +56,10 @@ const CreateUser = () => {
 
                 if (data.is_akmet === "Akmet") {
                     data.ou = "Akmet"
+                } else {
+                    data.ou = `${fields.fakultas} - ${fields.jurusan}`
                 }
+                
                 console.log(data)
                 const response = await createUser(data)
                 const status = response.httpStatus
@@ -108,10 +111,6 @@ const CreateUser = () => {
                     <input type="text" required name="fullname" id="fullname" value={fields.fullname} onChange={handleFieldChange}/>
                     <br/><br/>
 
-                    <label><h5>NIM</h5></label>
-                    <input type="text" name="nim" id="nim" value={fields.nim} onChange={handleFieldChange}/>
-                    <br/><br/>
-
                     <label><h5>Url Foto</h5></label>
                     <input type="text" name="photo_url" id="photo_url" value={fields.photo_url} onChange={handleFieldChange}/>
                     <br/><br/>
@@ -124,6 +123,9 @@ const CreateUser = () => {
                     <input type="text" required name="phone_number" id="phone_number" value={fields.phone_number} onChange={handleFieldChange}/>
                 </div>
                 <div className="input-container column">
+                    <label><h5>NIM</h5></label>
+                        <input type="text" name="nim" id="nim" value={fields.nim} onChange={handleFieldChange}/>
+                    <br/><br/>
                     <label><h5>ID Line</h5></label>
                     <input type="text" name="line_id" id="line_id" value={fields.line_id} onChange={handleFieldChange}/>
                     <br/><br/>
