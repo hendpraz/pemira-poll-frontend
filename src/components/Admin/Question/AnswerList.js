@@ -5,7 +5,7 @@ import { getAllAnswers } from 'resources/question'
 
 const QuestionList = ({tipe}) => {
 
-    const postPerPage = 4
+    const postPerPage = 6
     const [currentPage, setCurrentPage] = useState(1)
     const [result, setResult] = useState([])
     const [currentResult, setCurrentResult] = useState([])

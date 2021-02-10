@@ -4,7 +4,7 @@ import { listBakalCalon } from 'resources/bakalcalon'
 
 const UserList = () => {
 
-    const postPerPage = 4
+    const postPerPage = 6
     const [currentPage,
         setCurrentPage] = useState(1)
     const [result,

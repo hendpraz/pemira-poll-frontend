@@ -64,8 +64,7 @@ const CreateUser = () => {
                 <div className="input-container column">
                     <label><h5>Username*</h5></label>
                     <input type="text" required name="username" id="username" value={fields.username} onChange={handleFieldChange}/>
-                    <p>-Jangan gunakan NIM jika user memiliki akun INA; Hanya gunakan lowercase alphabet, angka, dan/atau simbol "_"; Minimal 8 karakter;</p>
-                    <br/><br/>
+                    <p>Jangan gunakan NIM jika user memiliki akun INA; Hanya gunakan lowercase alphabet, angka, dan/atau simbol "_"; Minimal 8 karakter;</p>
                     
                     <label><h5>Password*</h5></label>
                     <input type="password" required name="password" id="password" value={fields.password} onChange={handleFieldChange}/>
