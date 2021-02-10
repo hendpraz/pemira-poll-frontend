@@ -105,8 +105,13 @@ const QuestModal = ({
                     <h4>Detail Quest</h4>
                     <p>{item.deskripsi}</p>
                     <br/>
-                    <h5>Status:</h5>
-                    <p>{getStatusDescription(item.status_by_kandidat)}</p>
+                    {
+                        id === 5 &&
+                        <>
+                            <h5>Status:</h5>
+                            <p>{getStatusDescription(item.status_by_kandidat)}</p>
+                        </>
+                    }
                     <br/> {id === 5
                         ? <div className="modal-btm">{tab === "pending" && <div className="btn-container columns">
                                     <Button file="terima-btn" onClick={terimaQuest}/>
