@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import UserModal from './UserModal'
+import UserModal from './userModal'
 import list from './listOfUsers'
 import Pagination from './Pagination'
 import { listUsers } from 'resources/user'
