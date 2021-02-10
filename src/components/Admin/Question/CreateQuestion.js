@@ -50,11 +50,29 @@ const CreateQuestion = ({pageUser}) => {
         return fields.judul.length > 0 && fields.deskripsi.length > 0 && fields.choices.length > 0
     }
 
+    const getChoicesString = (str) => {
+        let tempChoices = str.split(";")
+        tempChoices.map(s => s.trim())
+
+        let otp = ""
+        for (let idx = 0; idx < tempChoices.length; idx++) {
+            otp += `Opsi ke-${idx+1}: ${tempChoices[idx]}`
+
+            if (idx === tempChoices.length - 1) {
+                otp += '.'
+            } else {
+                otp += ', '
+            }
+        }
+
+        return otp
+    }
+
     const submitQuestion = async () => {
         if (isLengkapForm()) {
             confirmAlert({
                 title: 'Konfirmasi',
-                message: `Apakah Anda yakin dengan data Pertanyaan yang diisi? Judul: ${fields.judul}, pilihan: ${fields.choices}`,
+                message: `Apakah Anda yakin dengan data Pertanyaan yang diisi? Judul: ${fields.judul}, pilihan: ${getChoicesString(fields.choices)}`,
                 buttons: [
                   {
                     label: 'Yes',
@@ -181,6 +199,7 @@ const CreateQuestion = ({pageUser}) => {
                         placeholder="Opsi 1; Opsi 2; Opsi 3"
                         style={{width: "100%"}}
                         />
+                    <p className="has-text-danger">Perhatian: jangan gunakan tanda titik koma ";" di akhir tulisan. Gunakan titik koma ";" sebagai pemisah setiap opsi sesuai contoh.</p>
                     <br/>
                     
                     <div className="has-text-centered my-5">

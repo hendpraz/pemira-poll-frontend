@@ -68,7 +68,7 @@ const Question = ({match}) => {
                         tempChoices.push("Kotak Kosong")
 
                         // Trim every choices
-                        tempChoices.map(s => s.trim());
+                        tempChoices.map(s => s.trim())
 
                         setAllCalon(tempChoices)
                         setCalon(tempChoices)
