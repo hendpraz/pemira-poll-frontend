@@ -103,29 +103,13 @@ export const createQuest = (data) =>
     }
   });
 
-export const createQuestAdmin = (data) =>
-  new Promise(async (resolve, reject) => {    
-    try {
-      const token = localStorage.getItem('token')
-      let response = await fetch(`${defaultAPIURL}/quests-admin/`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      })
-      console.log(response)
+export const createQuestAdmin = async (data) =>
+{
+  const url = `${defaultAPIURL}/quests-admin/`
+  const response = await post(url, data)
 
-      const httpStatus = response.status
-      const res = JSON.parse(JSON.stringify(response.json()))
-      res.httpStatus = httpStatus
-
-      resolve(res)
-    } catch (e) {
-      reject(e);
-    }
-  });
+  return response
+}
 
 // Kandidat
 export const getQuestListKandidat = async (status) =>

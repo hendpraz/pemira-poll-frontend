@@ -76,7 +76,13 @@ const QuestList = ({tipe}) => {
                                     <h5>{item.user.fullname}</h5>
                                 </div>
                                 <h5>Deskripsi:</h5>
-                                <p>{item.deskripsi}</p>
+                                <p>
+                                    {
+                                    item.deskripsi.length > 400
+                                    ? item.deskripsi.substring(0, 400) + "..."
+                                    : item.deskripsi
+                                    }
+                                </p>
                                 <p className="has-text-danger">{`Deadline: ${item.deadline}`}</p>
                             </div>
                             <QuestModal item={item} id={`modal-quest-${index}`} tipe={tipe}/>

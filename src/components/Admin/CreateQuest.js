@@ -31,7 +31,7 @@ const CreateQuest = ({pageUser}) => {
                 const response = await createQuestAdmin(data)
                 console.log(response)
 
-                const status = response.httpStatus
+                const status = response.status
                 if (status >= 200 && status < 300) {
                     alert("Berhasil menambahkan quest.")
                     window.location.reload()
@@ -56,7 +56,9 @@ const CreateQuest = ({pageUser}) => {
                         id="judul"
                         name="judul"
                         value={fields.judul}
-                        onChange={handleFieldChange}/>
+                        onChange={handleFieldChange}
+                        placeholder="Judul Quest"
+                        />
                     <br/>
                     <br/>
                     <label>
