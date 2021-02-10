@@ -15,7 +15,7 @@ const QuestBox = () => {
         setCurrentPage] = useState(1)
     const [result,
         setResult] = useState([])
-    const postPerPage = 6
+    const postPerPage = 3
 
     const clickNav = nav => {
         setTab(prev => {
