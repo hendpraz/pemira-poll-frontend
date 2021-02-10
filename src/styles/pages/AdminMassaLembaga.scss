@@ -166,7 +166,6 @@
             input:not([type="checkbox"]) {
                 width: 100%!important;
                 // border: none;
-                border: solid 1px rgb(176, 175, 175);
                 font-family: 'Nunito', sans-serif;
                 padding: 8px 15px;
                 font-size: 1rem;
@@ -182,9 +181,6 @@
                 };
             }
 
-            input:focus {
-                border: solid 2px hsl(348, 100%, 61%);
-            }
         }
     }
 }

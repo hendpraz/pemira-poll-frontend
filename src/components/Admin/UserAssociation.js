@@ -1,18 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useFormFields } from "libs/hooksLib"
-import { associateUser } from 'resources/user';
+import { associateUser } from 'resources/user'
+import Select from 'react-select'
 
 const UserAccociation = ({lembagaList, massaList}) => {
-    const [fields, handleFieldChange] = useFormFields({
-        username1: "",
-        username2: "",
-    });
+    const [username1, setUsername1] = useState("")
+    const [username2, setUsername2] = useState("")
+
+    const massaOptions = massaList.map((item, index) => {
+        return { value: item.username, label: `${item.username} - ${item.nim} - ${item.ou}`}
+    })
+
+    const lembagaOptions = lembagaList.map((item, index) => {
+        return { value: item.username, label: `${item.username} - ${item.ou}`}
+    })
 
     const submitUser = async () => {
-        const r = window.confirm(`Apakah Anda yakin akan mengasosiasikan user ${fields.username1} dengan lembaga ${fields.username2}?`)
+        const r = window.confirm(`Apakah Anda yakin akan mengasosiasikan user ${username1.value} dengan lembaga ${username2.value}?`)
         if (r) {
-            console.log(fields)
-            const response = await associateUser(fields)
+            const response = await associateUser({
+                username1: username1.value,
+                username2: username2.value,
+            })
             const status = response.httpStatus
             console.log(response)
 
@@ -30,33 +39,19 @@ const UserAccociation = ({lembagaList, massaList}) => {
             <div className="create-user-container columns">
                 <div className="input-container column">
                     <label class="label">Pilih Massa</label>
-                    <p class="control">
-                        <select class="selectpicker" name="username1" id="username1" value={fields.username1} onChange={handleFieldChange} style={{width: "100%"}}>
-                            <option value=""></option>
-                            {
-                                massaList.map((item, index) => {
-                                    return (
-                                        <option value={item.username}>{item.username} - {item.nim} - {item.ou}</option>
-                                    )
-                                })
-                            }
-                        </select>
-                    </p>
+                    <Select
+                        value={username1}
+                        onChange={setUsername1}
+                        options={massaOptions}
+                    />
                     <br/><br/>
 
                     <label class="label">Pilih Lembaga</label>
-                    <p class="control">
-                        <select class="selectpicker" name="username2" id="username2" value={fields.username2} onChange={handleFieldChange} style={{width: "100%"}}>
-                            <option value=""></option>
-                            {
-                                lembagaList.map((item, index) => {
-                                    return (
-                                        <option value={item.username}>{item.username} - {item.ou}</option>
-                                    )
-                                })
-                            }
-                        </select>
-                    </p>
+                    <Select
+                        value={username2}
+                        onChange={setUsername2}
+                        options={lembagaOptions}
+                    />
                     <br/><br/>
                 </div>
             </div>

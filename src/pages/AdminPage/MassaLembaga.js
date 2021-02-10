@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import NavAdmin from 'components/Navbar/NavAdmin'
-import 'styles/pages/Admin.scss'
+import 'styles/pages/AdminMassaLembaga.scss'
 import UserList from 'components/Admin/userList'
 import UserAssociation from 'components/Admin/UserAssociation'
 import AdminAuth from 'layouts/AdminAuth'
-import { useAppContext } from 'libs/contextLib'
 import { listUsers } from 'resources/user'
 
 const Admin = () => {
