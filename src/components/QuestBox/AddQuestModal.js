@@ -50,6 +50,7 @@ const AddQuestModal = () => {
 
                 alert("Berhasil menambahkan quest, silakan tunggu konfirmasi dari admin.")
                 closeModal()
+                window.location.reload()
             } else {
                 alert("Terdapat masalah, mohon coba lagi beberapa saat.")
             }
