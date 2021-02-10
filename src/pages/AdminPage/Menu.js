@@ -23,15 +23,29 @@ const Admin = () => {
                             </Link>
                         </div>
                     </div>
+
                     <div class="columns is-vcentered p-16">
+                        <div class="column">
+                            <Link className="menu-item" to="/admin/bakal-calon">
+                                Manage Data Bakal Calon
+                            </Link>
+                        </div>
                         <div class="column">
                             <Link className="menu-item" to="/admin/questions">
                                 Manage Pertanyaan dan Jawaban
                             </Link>
                         </div>
+                    </div>
+
+                    <div class="columns is-vcentered p-16">
                         <div class="column">
-                            <Link className="menu-item" to="/admin/quest">
+                            <Link className="menu-item" to="/admin/quests">
                                 Manage Quest
+                            </Link>
+                        </div>
+                        <div class="column">
+                            <Link className="menu-item" to="/admin/duels">
+                                Manage Duel
                             </Link>
                         </div>
                     </div>

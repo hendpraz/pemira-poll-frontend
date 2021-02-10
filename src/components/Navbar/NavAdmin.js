@@ -1,11 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const NavAdmin = () => {
     return (
         <div>
             <nav className="navbar" role="navigation" aria-label="main navidgation">
                 <div className="navbar-brand">
-                    <a className="navbar-item" href="/">
+                    <a className="navbar-item" href="/admin">
                         <div className="navbar-brand-content">
                             <h3 className="has-text-primary">PEMIRA</h3>
 
@@ -34,14 +35,27 @@ const NavAdmin = () => {
                             </a>
 
                             <div className="navbar-dropdown">
-                                <a className="navbar-item" href="#userList">
-                                    User List
-                                </a>
-                                <a className="navbar-item" href="#createUser">
-                                    Create User
-                                </a>
+                                <Link className="navbar-item" to="/admin/users">
+                                    User Accounts
+                                </Link>
+                                <Link className="navbar-item" to="/admin/massa-lembaga">
+                                    Massa-Lembaga
+                                </Link>
+                                <Link className="navbar-item" to="/admin/bakal-calon">
+                                    Bakal Calon
+                                </Link>
                             </div>
+                        </div>
+                        <div className="navbar-item has-dropdown is-hoverable">
+                            <a className="navbar-link" href="#Quest">
+                                Pertanyaan
+                            </a>
 
+                            <div className="navbar-dropdown">
+                                <Link className="navbar-item" to="/admin/questions">
+                                    Manage Questions
+                                </Link>
+                            </div>
                         </div>
                         <div className="navbar-item has-dropdown is-hoverable">
                             <a className="navbar-link" href="#Quest">
@@ -49,14 +63,21 @@ const NavAdmin = () => {
                             </a>
 
                             <div className="navbar-dropdown">
-                                <a className="navbar-item" href="#questList">
-                                    Quest List
-                                </a>
-                                <a className="navbar-item" href="#createQuest">
-                                    Create Quest
-                                </a>
+                                <Link className="navbar-item" to="/admin/quests">
+                                    Manage Quests
+                                </Link>
                             </div>
+                        </div>
+                        <div className="navbar-item has-dropdown is-hoverable">
+                            <a className="navbar-link" href="#Quest">
+                                Duel
+                            </a>
 
+                            <div className="navbar-dropdown">
+                                <Link className="navbar-item" to="/admin/duels">
+                                    Manage Duels
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>

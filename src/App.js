@@ -29,6 +29,12 @@ import Question from 'pages/Question'
 import Admin from 'pages/AdminPage'
 import AdminMenu from 'pages/AdminPage/Menu'
 
+import AdminBakalCalon from 'pages/AdminPage/BakalCalon'
+import AdminMassaLembaga from 'pages/AdminPage/MassaLembaga'
+import AdminQuest from 'pages/AdminPage/Quest'
+import AdminQuestion from 'pages/AdminPage/Question'
+import AdminUsers from 'pages/AdminPage/User'
+
 function App() {
   const [isAuthenticated, userHasAuthenticated] = useState(localStorage.getItem('token') ? true : false)
   const [user, setUser] = useState(null)
@@ -86,8 +92,15 @@ function App() {
           {/* <Route exact path="/votebefore" render={() => <VoteBefore />} /> */}
           <Route exact path="/votesuccess" render={() => <VoteSuccess />} />
 
-          <Route exact path="/admin" render={() => <Admin />} />
-          <Route exact path="/admin/menu" render={() => <AdminMenu />} />
+          {/* <Route exact path="/admin" render={() => <Admin />} /> */}
+          <Route exact path="/admin" render={() => <AdminMenu />} />
+          <Route exact path="/admin/users" render={() => <AdminUsers />} />
+          <Route exact path="/admin/massa-lembaga" render={() => <AdminMassaLembaga />} />
+
+          <Route exact path="/admin/bakal-calon" render={() => <AdminBakalCalon />} />
+          <Route exact path="/admin/questions" render={() => <AdminQuestion />} />
+          
+          <Route exact path="/admin/quests" render={() => <AdminQuest />} />
 
           <Route path="" render={() => <NotFound />} />
         </Switch>
