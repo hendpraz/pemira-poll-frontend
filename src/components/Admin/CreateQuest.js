@@ -109,6 +109,11 @@ const CreateQuest = ({pageUser}) => {
                         </div>
                     </div>
 
+                    <p className="has-text-danger">
+                        Perhatian: Pastikan Anda telah membuat akun untuk seluruh Kandidat sebelum
+                        Anda membuat Quest atau menerima permintaan pembuatan Quest. Akun kandidat akan
+                        di-link dengan setiap Quest yang dibuat.
+                    </p>
                     <div className="has-text-centered my-5">
                         <button className="button is-primary is-large" onClick={submitQuest}>Submit</button>
                     </div>
