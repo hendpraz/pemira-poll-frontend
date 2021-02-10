@@ -28,16 +28,26 @@ const CreateUser = () => {
 
     const isValidData = () => {
         // check username
-        const isUsernameValid = fields.username.length > 0 && fields.username.length < 50
+        const isUsernameValid = fields.username.length >= 8 && fields.username.length < 50
 
         // check passwords
-        const isPasswordValid = fields.password.length > 0 && (fields.password === fields.password_confirmation)
+        const isPasswordValid = fields.password.length >= 8 && (fields.password === fields.password_confirmation)
 
         // check tipe_kandidat
         const validKandidatTypes = ['k3m', 'mwa']
         const isTipeKandidatValid = validKandidatTypes.some(el => el === fields.tipe_kandidat)
 
-        console.log(isUsernameValid, isPasswordValid, isTipeKandidatValid)
+        if(!isUsernameValid) {
+            alert("Username tidak valid.")
+        }
+
+        if (!isPasswordValid) {
+            alert("Password tidak valid")
+        }
+
+        if (!isTipeKandidatValid) {
+            alert("Tipe Kandidat tidak valid")
+        }
 
         return isUsernameValid && isPasswordValid && isTipeKandidatValid
     }
@@ -81,6 +91,13 @@ const CreateUser = () => {
         }
     }
 
+    const isValidUsernameChar = () => {
+        const usernameRegex = /^[a-z0-9\_]+$/
+        const regexMatch = fields.username.match(usernameRegex)
+
+        return regexMatch !== null
+    }
+
     return (
         <div>
             <div className="create-user-container columns">
@@ -88,15 +105,27 @@ const CreateUser = () => {
                     <label><h5>Username*</h5></label>
                     <input type="text" required name="username" id="username" value={fields.username} onChange={handleFieldChange}/>
                     <p>Jangan gunakan NIM jika user memiliki akun INA; Hanya gunakan lowercase alphabet, angka, dan/atau simbol "_"; Minimal 8 karakter;</p>
+                    {
+                        fields.username.length > 0 && fields.username.length < 8
+                        && <p className="has-text-danger">Username terlalu pendek. Minimal 8 karakter</p>
+                    }
+                    {
+                        fields.username.length > 0 && !isValidUsernameChar()
+                        && <p className="has-text-danger">Format username tidak sesuai</p>
+                    }
                     
                     <label><h5>Password*</h5></label>
                     <input type="password" required name="password" id="password" value={fields.password} onChange={handleFieldChange}/>
-                    <br/><br/>
+                    {
+                        fields.password.length > 0 && fields.password.length < 8
+                        ? <p className="has-text-danger">Password terlalu pendek. Minimal 8 karakter</p>
+                        : <><br/><br/></>
+                    }
                     
                     <label><h5>Retype Password*</h5></label>
                     <input type="password" required name="password_confirmation" id="password_confirmation" value={fields.password_confirmation} onChange={handleFieldChange}/>
                     {
-                        fields.password.length > 0 && fields.password !== fields.password_confirmation 
+                        fields.password.length > 0 && fields.password_confirmation.length > 0 && fields.password !== fields.password_confirmation 
                         ? <p className="has-text-danger">Password berbeda!</p>
                         : <><br/><br/></>
                     }
@@ -117,11 +146,11 @@ const CreateUser = () => {
                     <input type="text" required name="jurusan" id="jurusan" value={fields.jurusan} onChange={handleFieldChange}/>
                     <br/><br/>
 
-                    <label><h5>Address*</h5></label>
+                    <label><h5>Address</h5></label>
                     <input type="text" required name="address" id="address" value={fields.address} onChange={handleFieldChange}/>
                     <br/><br/>
 
-                    <label><h5>Url Foto*</h5></label>
+                    <label><h5>Url Foto</h5></label>
                     <input type="text" required name="photo_url" id="photo_url" value={fields.photo_url} onChange={handleFieldChange}/>
                     <br/><br/>
 
@@ -133,7 +162,7 @@ const CreateUser = () => {
                     <input type="text" required name="phone_number" id="phone_number" value={fields.phone_number} onChange={handleFieldChange}/>
                     <br/><br/>
                     
-                    <label><h5>ID Line*</h5></label>
+                    <label><h5>ID Line</h5></label>
                     <input type="text" required name="line_id" id="line_id" value={fields.line_id} onChange={handleFieldChange}/>
                     <br/><br/>
 
@@ -163,6 +192,7 @@ const CreateUser = () => {
                     </div>
                 </div>
             </div>
+            <p>*Required. Kolom tanpa bintang dapat Anda kosongkan</p>
             <div className="has-text-centered my-5">
                 <button className="button is-primary is-large" onClick={submitUser}>Submit</button>
             </div>
