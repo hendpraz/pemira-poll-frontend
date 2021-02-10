@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import { useFormFields } from "libs/hooksLib"
 import { createQuestAdmin } from "resources/quest"
 
@@ -70,7 +70,7 @@ const CreateQuest = ({pageUser}) => {
                         value={fields.deskripsi}
                         onChange={handleFieldChange}
                         rows="10"
-                        placeholder="Deskripsi quest"
+                        placeholder="Deskripsi quest, maksimal 2000 karakter"
                         style={{width: "100%"}}
                         />
                     <br/>
@@ -108,10 +108,11 @@ const CreateQuest = ({pageUser}) => {
                             </select>   
                         </div>
                     </div>
+
+                    <div className="has-text-centered my-5">
+                        <button className="button is-primary is-large" onClick={submitQuest}>Submit</button>
+                    </div>
                 </div>
-            </div>
-            <div className="has-text-centered my-5">
-                <button className="button is-primary is-large" onClick={submitQuest}>Submit</button>
             </div>
             <br />
         </div>

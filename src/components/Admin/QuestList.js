@@ -83,6 +83,7 @@ const QuestList = ({tipe}) => {
                                     : item.deskripsi
                                     }
                                 </p>
+                                <p className="has-text-danger">{`Untuk: ${item.target === "all" ? "semua kandidat" : item.target}`}</p>
                                 <p className="has-text-danger">{`Deadline: ${item.deadline}`}</p>
                             </div>
                             <QuestModal item={item} id={`modal-quest-${index}`} tipe={tipe}/>

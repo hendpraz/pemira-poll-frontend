@@ -46,9 +46,6 @@ const Admin = () => {
                             <h1 className="has-text-centered has-text-primary">Daftar Quest yang Pernah di-Accept</h1>
                             <QuestList tipe="ever-accepted"/>
                         </div>
-                        <div id="questList" className="mb-6">
-                            <h1 className="has-text-centered has-text-primary">Daftar Bukti Quest</h1>
-                        </div>
                     </div>
                 </div>
             }

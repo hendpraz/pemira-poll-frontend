@@ -67,6 +67,12 @@ const NavAdmin = () => {
                                     Manage Quests
                                 </Link>
                             </div>
+
+                            <div className="navbar-dropdown">
+                                <Link className="navbar-item" to="/admin/quest-completion">
+                                    Quest Completion
+                                </Link>
+                            </div>
                         </div>
                         <div className="navbar-item has-dropdown is-hoverable">
                             <a className="navbar-link" href="#Quest">

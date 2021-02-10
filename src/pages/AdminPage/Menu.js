@@ -44,6 +44,14 @@ const Admin = () => {
                             </Link>
                         </div>
                         <div class="column">
+                            <Link className="menu-item" to="/admin/quest-completion">
+                                Quest Proof and Quest Completion
+                            </Link>
+                        </div>
+                    </div>
+
+                    <div class="columns is-vcentered p-16">
+                        <div class="column">
                             <Link className="menu-item" to="/admin/duels">
                                 Manage Duel
                             </Link>
