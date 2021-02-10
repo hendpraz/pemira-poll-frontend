@@ -126,13 +126,13 @@ const CreateQuestion = ({pageUser}) => {
                             <label for="allow_mhs_s2"> Mahasiswa S2</label><br />
 
                             <input type="checkbox" id="allow_lembaga" name="allow_lembaga" checked={fields.allow_lembaga} onChange={handleFieldChange}/>
-                            <label for="allow_lembaga"> Lembaga</label><br />
+                            <label for="allow_lembaga"> Akun Lembaga (non-INA)</label><br />
 
                             <input type="checkbox" id="allow_kandidat_k3m" name="allow_kandidat_k3m" checked={fields.allow_kandidat_k3m} onChange={handleFieldChange}/>
-                            <label for="allow_kandidat_k3m"> Kandidat K3M</label><br />
+                            <label for="allow_kandidat_k3m"> Akun Kandidat K3M (non-INA)</label><br />
 
                             <input type="checkbox" id="allow_kandidat_mwa" name="allow_kandidat_mwa" checked={fields.allow_kandidat_mwa} onChange={handleFieldChange}/>
-                            <label for="allow_kandidat_mwa"> Kandidat MWA-WM</label><br />
+                            <label for="allow_kandidat_mwa"> Akun Kandidat MWA-WM (non-INA)</label><br />
                         </div>
                     </div>
 
@@ -149,11 +149,12 @@ const CreateQuestion = ({pageUser}) => {
                         style={{width: "100%"}}
                         />
                     <br/>
-                    <br/>
+                    
+                    <div className="has-text-centered my-5">
+                        <button className="button is-primary is-large" onClick={submitQuestion}>Submit</button>
+                    </div>
+                    
                 </div>
-            </div>
-            <div className="has-text-centered my-5">
-                <button className="button is-primary is-large" onClick={submitQuestion}>Submit</button>
             </div>
             <br />
         </div>
