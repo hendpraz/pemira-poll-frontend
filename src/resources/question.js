@@ -1,5 +1,5 @@
 const { defaultAPIURL } = require("../config");
-const { get, patch, post } = require("./helper")
+const { get, post } = require("./helper")
 
 // Admin
 export const getAllQuestions = async () =>

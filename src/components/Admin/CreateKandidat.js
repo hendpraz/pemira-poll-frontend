@@ -92,6 +92,7 @@ const CreateUser = () => {
     }
 
     const isValidUsernameChar = () => {
+        // eslint-disable-next-line no-useless-escape
         const usernameRegex = /^[a-z0-9\_]+$/
         const regexMatch = fields.username.match(usernameRegex)
 

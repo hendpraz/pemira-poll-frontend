@@ -3,13 +3,15 @@ import AnswerModal from './AnswerModal'
 import Pagination from '../Pagination'
 import { getAllAnswers } from 'resources/question'
 
-const QuestionList = ({tipe}) => {
+const AnswerList = ({tipe}) => {
 
     const postPerPage = 6
     const [currentPage, setCurrentPage] = useState(1)
     const [result, setResult] = useState([])
     const [currentResult, setCurrentResult] = useState([])
-    
+    const lastIndex = postPerPage * currentPage
+    const firstIndex = lastIndex - postPerPage
+
     useEffect(() => {
         async function loadUsers() {
             try {
@@ -30,14 +32,11 @@ const QuestionList = ({tipe}) => {
         }
         
         onLoad()
-    }, [])
+    }, [firstIndex, lastIndex, tipe])
 
     useEffect(() => {
         setCurrentResult(result.slice(firstIndex, lastIndex))
-    }, [currentPage])
-
-    const lastIndex = postPerPage * currentPage
-    const firstIndex = lastIndex - postPerPage
+    }, [currentPage, firstIndex, lastIndex, result])
 
     const detailUser = (index) => {
         var modal = document.getElementById(`modal-quest-${index}`);
@@ -89,4 +88,4 @@ const QuestionList = ({tipe}) => {
     )
 }
 
-export default QuestionList
+export default AnswerList

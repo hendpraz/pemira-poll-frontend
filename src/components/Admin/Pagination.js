@@ -1,5 +1,6 @@
 import React from 'react'
 
+/* eslint-disable jsx-a11y/anchor-is-valid */
 const Pagination = ({length, currentPage, setCurrentPage, postPerPage}) => {
 
     const page = []
@@ -50,5 +51,7 @@ const Pagination = ({length, currentPage, setCurrentPage, postPerPage}) => {
         </div>
     )
 }
+
+/* eslint-enable */
 
 export default Pagination

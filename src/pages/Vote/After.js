@@ -83,7 +83,7 @@ const VoteAfter = ({tipe}) => {
         }
         
         onLoad()
-    }, [tipe])
+    }, [tipe, image])
 
     const [prefsString, setPrefsString] = useState("-")
     const [prefIds, setPrefIds] = useState("-")

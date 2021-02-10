@@ -10,7 +10,7 @@ import { useHistory, useParams } from 'react-router-dom'
 import MassaOnly from 'layouts/MassaOnly'
 import { getQuestionDetails } from 'resources/question'
 
-const Question = ({match}) => {
+const Question = () => {
     const {assetsURL: {
             image
         }} = config
@@ -90,7 +90,7 @@ const Question = ({match}) => {
         }
         
         onLoad()
-    }, [])
+    }, [history, questionId])
 
     const pilihCalon = (e) => {
         let imgId = e.target.parentElement.parentElement.parentElement.firstChild.firstChild.firstChild.id;

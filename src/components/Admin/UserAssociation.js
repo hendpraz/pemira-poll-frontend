@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { useFormFields } from "libs/hooksLib"
 import { associateUser } from 'resources/user'
 import Select from 'react-select'
 

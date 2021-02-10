@@ -9,6 +9,8 @@ const QuestList = ({tipe}) => {
     const [currentPage, setCurrentPage] = useState(1)
     const [result, setResult] = useState([])
     const [currentResult, setCurrentResult] = useState([])
+    const lastIndex = postPerPage * currentPage
+    const firstIndex = lastIndex - postPerPage
     
     useEffect(() => {
         async function loadUsers() {
@@ -34,14 +36,11 @@ const QuestList = ({tipe}) => {
         }
         
         onLoad()
-    }, [])
+    }, [tipe, firstIndex, lastIndex])
 
     useEffect(() => {
         setCurrentResult(result.slice(firstIndex, lastIndex))
-    }, [currentPage])
-
-    const lastIndex = postPerPage * currentPage
-    const firstIndex = lastIndex - postPerPage
+    }, [currentPage, firstIndex, lastIndex, result])
 
     const detailUser = (index) => {
         var modal = document.getElementById(`modal-quest-${index}`);

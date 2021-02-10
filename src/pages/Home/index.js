@@ -7,11 +7,16 @@ import Footer from 'components/Footer'
 // import Button from 'components/Button'
 import 'styles/pages/Home.scss'
 import config from 'config';
-import Kandidat from './Kandidat';
-import TopFive from './TopFive';
-import Tutorial from './Tutorial';
-import FAQ from './FAQ';
-import HomeBottom from './HomeBottom';
+
+//Pages
+/* eslint-disable */
+import Kandidat from './Kandidat'
+import TopFive from './TopFive'
+import Tutorial from './Tutorial'
+import FAQ from './FAQ'
+import HomeBottom from './HomeBottom'
+/* eslint-enable */
+
 
 function Home() {
     const {assetsURL: {

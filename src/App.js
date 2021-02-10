@@ -26,7 +26,6 @@ import VoteSuccess from 'pages/Vote/VoteSuccess'
 import Question from 'pages/Question'
 
 // Admin pages
-import Admin from 'pages/AdminPage'
 import AdminMenu from 'pages/AdminPage/Menu'
 
 import AdminBakalCalon from 'pages/AdminPage/BakalCalon'

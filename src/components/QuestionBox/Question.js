@@ -1,19 +1,18 @@
-import React, {useState} from 'react'
-// import Button from 'components/Button';
+import React from 'react'
 import QuestionModal from './QuestionModal'
 
 const Question = ({tab, item, last, index, id}) => {
     const openModal = () => {
-        var modal = document.getElementById(`myModal-${index}`);
-        var quest = document.getElementById(`questItem-${index}`);
+        var modal = document.getElementById(`myModal-${index}`)
+        var quest = document.getElementById(`questItem-${index}`)
 
         quest.onclick = function () {
-            modal.style.display = "block";
+            modal.style.display = "block"
         }
 
         window.onclick = function (event) {
             if (event.target === modal) {
-                modal.style.display = "none";
+                modal.style.display = "none"
             }
         }
     }

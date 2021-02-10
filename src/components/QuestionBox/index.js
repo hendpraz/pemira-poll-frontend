@@ -1,11 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import config from "config";
 import Question from './Question'
-// import questList from './QuestList'
 import {useAppContext} from "libs/contextLib"
-import {getQuestListMassaLembaga, getQuestListKandidat} from "resources/quest"
 import { getAllQuestions, getAvailableQuestions, getHistoryQuestions, getMyAnswers} from "resources/question"
-// import UnggahBuktiModal from './UnggahBuktiModal';
 
 const QuestBox = () => {
     const {assetsURL: {

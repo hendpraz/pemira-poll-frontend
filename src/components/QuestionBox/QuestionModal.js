@@ -1,5 +1,4 @@
-import React, {useState} from 'react'
-import Button from 'components/Button'
+import React from 'react'
 
 const QuestModal = ({
     index,
@@ -47,7 +46,7 @@ const QuestModal = ({
                         </>
                     }
                     { isAvailable &&
-                        <a className="is-primary button" href={"/pertanyaan/" + question.id} target="_blank">Jawab Pertanyaan Ini</a>
+                        <a className="is-primary button" href={"/pertanyaan/" + question.id} target="_blank" rel="noreferrer">Jawab Pertanyaan Ini</a>
                     }
                 </div>
             </div>

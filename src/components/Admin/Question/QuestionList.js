@@ -9,6 +9,8 @@ const QuestionList = ({tipe}) => {
     const [currentPage, setCurrentPage] = useState(1)
     const [result, setResult] = useState([])
     const [currentResult, setCurrentResult] = useState([])
+    const lastIndex = postPerPage * currentPage
+    const firstIndex = lastIndex - postPerPage
     
     useEffect(() => {
         async function loadUsers() {
@@ -30,14 +32,11 @@ const QuestionList = ({tipe}) => {
         }
         
         onLoad()
-    }, [])
+    }, [firstIndex, lastIndex, result, tipe])
 
     useEffect(() => {
         setCurrentResult(result.slice(firstIndex, lastIndex))
-    }, [currentPage])
-
-    const lastIndex = postPerPage * currentPage
-    const firstIndex = lastIndex - postPerPage
+    }, [currentPage, result, firstIndex, lastIndex])
 
     const detailUser = (index) => {
         var modal = document.getElementById(`modal-quest-${index}`);

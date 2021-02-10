@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+/* eslint-disable jsx-a11y/anchor-is-valid */
 const NavAdmin = () => {
     return (
         <div>
@@ -91,5 +91,7 @@ const NavAdmin = () => {
         </div>
     )
 }
+
+/* eslint-enable */
 
 export default NavAdmin
