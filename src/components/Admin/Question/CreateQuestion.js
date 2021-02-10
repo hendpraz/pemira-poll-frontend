@@ -28,6 +28,7 @@ const CreateQuestion = ({pageUser}) => {
                 console.log("OK")
 
                 let data = JSON.parse(JSON.stringify(fields))
+                data.choices = cleanChoicesString(data.choices)
                 data.creator = userId
                 data.start_date = data.start_date + " 00:00:00"
                 data.end_date = data.end_date + " 23:59:59"
@@ -37,7 +38,12 @@ const CreateQuestion = ({pageUser}) => {
                 const response = await createQuestion(data)
                 console.log(response)
 
-                alert("Berhasil membuat question baru")
+                if (response.status >= 200 && response.status < 400) {
+                    alert("Berhasil membuat question baru")
+                    window.location.reload()
+                } else {
+                    alert("Terdapat masalah, mohon coba lagi.")
+                }
             } catch (error) {
                 alert(error)
             }
@@ -50,8 +56,23 @@ const CreateQuestion = ({pageUser}) => {
         return fields.judul.length > 0 && fields.deskripsi.length > 0 && fields.choices.length > 0
     }
 
+    const cleanChoicesString = (str) => {
+        let tempStr = str
+
+        while (tempStr[tempStr.length - 1] === ";") {
+            tempStr = tempStr.slice(0, tempStr.length - 1)
+        }
+
+        while (tempStr[0] === ";") {
+            tempStr = tempStr.slice(1, tempStr.length)
+        }
+
+        return tempStr
+    }
+
     const getChoicesString = (str) => {
-        let tempChoices = str.split(";")
+        let tempStr = cleanChoicesString(str)
+        let tempChoices = tempStr.split(";")
         tempChoices.map(s => s.trim())
 
         let otp = ""
