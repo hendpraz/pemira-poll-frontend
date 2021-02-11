@@ -1,5 +1,5 @@
 import React from 'react'
-import { adminQuestAccept, adminQuestReject } from 'resources/quest'
+import { adminQuestAccept, adminQuestReject, adminQuestFinish } from 'resources/quest'
 
 const QuestModal = ({ item, id, tipe }) => {
     const closeModal = () => {
@@ -14,7 +14,7 @@ const QuestModal = ({ item, id, tipe }) => {
             const response = await adminQuestAccept(item.id)
             console.log(response)
     
-            window.location.reload()
+            checkStatusAndReload(response.status, "Berhasil ACCEPT quest")
         }
     }
 
@@ -24,7 +24,26 @@ const QuestModal = ({ item, id, tipe }) => {
             const response = await adminQuestReject(item.id)
             console.log(response)
     
-            window.location.reload()
+            checkStatusAndReload(response.status, "Berhasil me-REJECT quest")
+        }
+    }
+
+    const finishQuest = async () => {
+        const r = window.confirm(`Apakah Anda yakin ingin MENYELESAIKAN quest berjudul "${item.judul}"?`)
+        if (r) {
+            const response = await adminQuestFinish(item.id)
+            console.log(response)
+    
+            checkStatusAndReload(response.status, "Berhasil menyelesaikan quest")
+        }
+    }
+
+    const checkStatusAndReload = (status, message) => {
+        if (status >= 200 && status < 300) {
+            alert(message)
+            window.location.reload();
+        } else {
+            alert("Tidak berhasil. Silakan coba kembali")
         }
     }
 
@@ -63,6 +82,12 @@ const QuestModal = ({ item, id, tipe }) => {
                             <div>
                                 <button className="button is-primary is-large" onClick={acceptQuest}>Terima</button>
                                 <button className="button is-primary is-danger" onClick={rejectQuest}>Tolak</button>
+                            </div>
+                        }
+                        {
+                            tipe === "running" &&
+                            <div>
+                                <button className="button is-primary is-large" onClick={finishQuest}>Finish Quest</button>
                             </div>
                         }
                     </section>

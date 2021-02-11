@@ -9,7 +9,7 @@ const QuestModal = ({ item, id, tipe }) => {
     }
 
     const acceptQuest = async () => {
-        const r = window.confirm(`Apakah Anda yakin ingin ACCEPT bukti oleh "${item.user.fullname}"?`)
+        const r = window.confirm(`Apakah Anda yakin ingin APPROVE bukti oleh "${item.user.fullname}"?`)
         if (r) {
             const response = await adminQuestProofAccept(item.id)
             console.log(response)

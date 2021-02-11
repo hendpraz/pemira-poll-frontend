@@ -210,9 +210,17 @@ export const adminQuestAccept = async (questId) =>
     return response
   }
 
-  export const adminQuestReject = async (questId) =>
+export const adminQuestReject = async (questId) =>
   {
     const url = `${defaultAPIURL}/quests-admin/reject/${questId}/`
+    const response = await patch(url)
+
+    return response
+  }
+
+  export const adminQuestFinish= async (questId) =>
+  {
+    const url = `${defaultAPIURL}/quests-admin/finish//${questId}/`
     const response = await patch(url)
 
     return response

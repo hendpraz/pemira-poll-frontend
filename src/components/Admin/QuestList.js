@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import QuestModal from './QuestModal'
 import Pagination from './Pagination'
-import { getAllEverAcceptedQuest, getAllNotAcceptedQuest } from 'resources/quest'
+import { getAllEverAcceptedQuest, getAllNotAcceptedQuest, getQuestListMassaLembaga } from 'resources/quest'
 
 const QuestList = ({tipe}) => {
 
@@ -19,7 +19,9 @@ const QuestList = ({tipe}) => {
                 let response
                 if (tipe === "not-accepted") {
                     response = await getAllNotAcceptedQuest()
-                } else {
+                } else if (tipe === "running") {
+                    response = await getQuestListMassaLembaga(tipe)
+                } else if (tipe === "ever-accepted") {
                     response = await getAllEverAcceptedQuest()
                 }
                 
