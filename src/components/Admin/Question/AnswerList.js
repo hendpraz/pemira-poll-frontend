@@ -36,7 +36,7 @@ const AnswerList = ({tipe}) => {
 
     useEffect(() => {
         setCurrentResult(result.slice(firstIndex, lastIndex))
-    }, [currentPage, firstIndex, lastIndex, result])
+    }, [currentPage]) /* eslint-disable-line */
 
     const detailUser = (index) => {
         var modal = document.getElementById(`modal-quest-${index}`);

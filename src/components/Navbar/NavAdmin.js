@@ -66,6 +66,9 @@ const NavAdmin = () => {
                                 <Link className="navbar-item" to="/admin/quests">
                                     Manage Quests
                                 </Link>
+                                <Link className="navbar-item" to="/admin/quest-proofs">
+                                    Quest Proofs
+                                </Link>
                                 <Link className="navbar-item" to="/admin/quest-completion">
                                     Quest Completion
                                 </Link>

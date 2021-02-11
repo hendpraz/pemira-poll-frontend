@@ -33,6 +33,8 @@ import AdminMassaLembaga from 'pages/AdminPage/MassaLembaga'
 import AdminQuest from 'pages/AdminPage/Quest'
 import AdminQuestion from 'pages/AdminPage/Question'
 import AdminUsers from 'pages/AdminPage/User'
+import AdminQuestCompletion from 'pages/AdminPage/QuestCompletion'
+import AdminQuestProof from 'pages/AdminPage/QuestProof'
 
 function App() {
   const [isAuthenticated, userHasAuthenticated] = useState(localStorage.getItem('token') ? true : false)
@@ -100,6 +102,8 @@ function App() {
           <Route exact path="/admin/questions" render={() => <AdminQuestion />} />
           
           <Route exact path="/admin/quests" render={() => <AdminQuest />} />
+          <Route exact path="/admin/quest-completion" render={() => <AdminQuestCompletion />} />
+          <Route exact path="/admin/quest-proofs" render={() => <AdminQuestProof />} />
 
           <Route path="" render={() => <NotFound />} />
         </Switch>
