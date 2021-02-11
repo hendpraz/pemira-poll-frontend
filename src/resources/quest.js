@@ -1,5 +1,5 @@
 const { defaultAPIURL } = require("../config")
-const { get, patch, post } = require("./helper")
+const { get, patch, post, patchWithBody } = require("./helper")
 
 // Massa atau Lembaga
 export const getQuestListMassaLembaga = async (status) =>
@@ -218,10 +218,10 @@ export const adminQuestReject = async (questId) =>
     return response
   }
 
-  export const adminQuestFinish= async (questId) =>
+  export const adminQuestFinish= async (questId, data) =>
   {
     const url = `${defaultAPIURL}/quests-admin/finish//${questId}/`
-    const response = await patch(url)
+    const response = await patchWithBody(url, data)
 
     return response
   }

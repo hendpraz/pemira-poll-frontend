@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import NavAdmin from 'components/Navbar/NavAdmin'
 import 'styles/pages/Admin.scss'
+import QuestList from 'components/Admin/QuestList'
 import QuestProofList from 'components/Admin/QuestProof/QuestProofList'
 import AdminAuth from 'layouts/AdminAuth'
 import { useAppContext } from 'libs/contextLib'
@@ -37,7 +38,7 @@ const Admin = () => {
                         </div>
                         <div id="questFinish" className="mb-6">
                             <h1 className="has-text-centered has-text-primary">Selesaikan Quest</h1>
-                            <QuestList tipe=""/>
+                            <QuestList tipe="running"/>
                         </div>
                     </div>
                 </div>

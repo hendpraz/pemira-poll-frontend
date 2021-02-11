@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { adminQuestAccept, adminQuestReject, adminQuestFinish } from 'resources/quest'
+import { confirmAlert } from 'react-confirm-alert'
 
 const QuestModal = ({ item, id, tipe }) => {
+    const [game_point, setGamePoint] = useState(0)
+
     const closeModal = () => {
         var modal = document.getElementById(id);
 
@@ -28,14 +31,27 @@ const QuestModal = ({ item, id, tipe }) => {
         }
     }
 
-    const finishQuest = async () => {
-        const r = window.confirm(`Apakah Anda yakin ingin MENYELESAIKAN quest berjudul "${item.judul}"?`)
-        if (r) {
-            const response = await adminQuestFinish(item.id)
-            console.log(response)
+    const continueFinishQuest = async () => {
+        const response = await adminQuestFinish(item.id, {game_point})
+        console.log(response)
+
+        checkStatusAndReload(response.status, "Berhasil menyelesaikan quest")
+    }
     
-            checkStatusAndReload(response.status, "Berhasil menyelesaikan quest")
-        }
+    const finishQuest = async () => {
+        confirmAlert({
+            title: 'Konfirmasi',
+            message: `Apakah Anda yakin ingin MENYELESAIKAN quest berjudul "${item.judul}"? Melakukan ini dapat membuat perubahan point sebesar ${game_point} kepada pengguna yang terlibat.`,
+            buttons: [
+              {
+                label: 'Yes',
+                onClick: () => continueFinishQuest()
+              },
+              {
+                label: 'No',
+              }
+            ]
+        })
     }
 
     const checkStatusAndReload = (status, message) => {
@@ -86,9 +102,20 @@ const QuestModal = ({ item, id, tipe }) => {
                         }
                         {
                             tipe === "running" &&
-                            <div>
-                                <button className="button is-primary is-large" onClick={finishQuest}>Finish Quest</button>
-                            </div>
+                            <>
+                                <div>
+                                    <h5>Berikan Poin dan Selesaikan Quest</h5>
+                                    <div className="create-user-container columns">
+                                        <div className="input-container column">
+                                            <label><h5>Game Point*</h5></label>
+                                            <input type="text" required name="game_point" id="game_point" value={game_point} onChange={setGamePoint}/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button className="button is-primary is-large" onClick={finishQuest}>Finish Quest</button>
+                                </div>
+                            </>
                         }
                     </section>
                 </div>

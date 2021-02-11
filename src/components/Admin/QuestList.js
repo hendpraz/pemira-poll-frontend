@@ -97,6 +97,24 @@ const QuestList = ({tipe}) => {
                 currentPage={currentPage}
                 setCurrentPage={setCurrentPage}
                 postPerPage={postPerPage}/>
+            {
+                tipe === "running" &&
+                <>
+                    <br />
+                    <p className="has-text-danger">
+                        Perhatian! Menyelesaikan suatu quest dapat mengakibatkan:<br />
+                        1. Jika Quest bersifat WAJIB, semua "target" Kandidat yang tidak menyelesaikan quest akan dikurangi Game Point-nya<br />
+                        2. Jika Quest bersifat OPSIONAL, semua "target" Kandidat yang menyelesaikan quest akan ditambahkan Game Point-nya. Kemudian,
+                        Jika setidaknya ada satu kandidat yang berhasil menyelesaikan quest, pembuat quest akan diberikan Game Point. Tetapi jika tidak
+                        ada Kandidat yang berhasil, pembuat quest tidak diberikan Game Point.<br />
+                        3. Untuk menandakan keberhasilan Kandidat dalam mengerjakan Quest, Admin perlu terlebih dahulu meng-Approve Bukti Quest yang diajukan
+                        oleh kandidat.
+                        <br /><br />
+                        Keterangan: Yang dimaksud "target" artinya target yang dituju oleh Quest. Jika quest diperuntukkan bagi K3M, maka Quest tersebut memiliki
+                        target yaitu K3M.
+                    </p>
+                </>
+            }
         </div>
     )
 }

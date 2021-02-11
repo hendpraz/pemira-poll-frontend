@@ -2,7 +2,7 @@ import React from 'react'
 import { useFormFields } from "libs/hooksLib"
 import { createQuestion } from "resources/question"
 
-import { confirmAlert } from 'react-confirm-alert';
+import { confirmAlert } from 'react-confirm-alert'
 
 const CreateQuestion = ({pageUser}) => {
     const userId = pageUser.id
