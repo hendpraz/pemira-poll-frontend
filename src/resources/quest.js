@@ -184,27 +184,6 @@ export const forfeitQuestKandidat = async (questId) =>
     }
   });
 
-export const createQuestProof = (data) =>
-  new Promise(async (resolve, reject) => {    
-    try {
-      const token = localStorage.getItem('token')
-      let response = await fetch(`${defaultAPIURL}/quest-proofs/`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      })
-      console.log(response)
-      response = response.json()
-
-      resolve(response);
-    } catch (e) {
-      reject(e);
-    }
-  });
-
 // Admin
 
 export const getAllNotAcceptedQuest = async () =>

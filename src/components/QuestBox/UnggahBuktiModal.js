@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import Button from 'components/Button'
 import config from 'config'
 import firebase from 'config/firebase-init'
-import { createQuestProof } from 'resources/quest'
+import { createQuestProof } from 'resources/questproof'
 import { useAppContext } from 'libs/contextLib'
 import { useFormFields } from 'libs/hooksLib'
 
