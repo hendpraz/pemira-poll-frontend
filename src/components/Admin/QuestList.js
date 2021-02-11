@@ -38,7 +38,7 @@ const QuestList = ({tipe}) => {
         }
         
         onLoad()
-    }, [tipe, firstIndex, lastIndex])
+    }, [tipe]) /* eslint-disable-line */
 
     useEffect(() => {
         setCurrentResult(result.slice(firstIndex, lastIndex))

@@ -32,7 +32,7 @@ const AnswerList = ({tipe}) => {
         }
         
         onLoad()
-    }, [firstIndex, lastIndex, tipe])
+    }, [tipe]) /* eslint-disable-line */
 
     useEffect(() => {
         setCurrentResult(result.slice(firstIndex, lastIndex))
