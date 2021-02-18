@@ -21,7 +21,7 @@ const TopFive = () => {
                                                <div className="top-lembaga">
                                                     <h3 className="has-text-black">Top 5 Lembaga</h3>
                                                     <br />
-                                                    <p  className="has-text-black">
+                                                    <div  className="has-text-black">
                                                         <ol>
                                                             <li>Lembaga a (12000 ppoint)</li>
                                                             <li>Lembaga b (12000 ppoint)</li>
@@ -29,7 +29,7 @@ const TopFive = () => {
                                                             <li>Lembaga d (12000 ppoint)</li>
                                                             <li>Lembaga e (12000 ppoint)</li>   
                                                         </ol>
-                                                    </p>
+                                                    </div>
                                                </div>
                                            </div>
                                        </div>
@@ -38,7 +38,7 @@ const TopFive = () => {
                                                <div className="top-lembaga">
                                                     <h3 className="has-text-black">Top 5 Quest</h3>
                                                     <br />
-                                                    <p  className="has-text-black">
+                                                    <div  className="has-text-black">
                                                         <ol>
                                                             <li>Lembaga a (12000 ppoint)</li>
                                                             <li>Lembaga b (12000 ppoint)</li>
@@ -46,7 +46,7 @@ const TopFive = () => {
                                                             <li>Lembaga d (12000 ppoint)</li>
                                                             <li>Lembaga e (12000 ppoint)</li>   
                                                         </ol>
-                                                    </p>
+                                                    </div>
                                                </div>
                                            </div>
                                        </div>
