@@ -1,0 +1,23 @@
+.algojo-container {
+    .quest-nav {
+        li {
+            display: block !important;
+            margin-right: auto !important;
+            margin-left: 9vw !important;
+
+            div {
+                text-align: left;
+                border: none !important;
+                font-size: 1.25rem !important;
+            }
+        }
+    }
+
+    .quest-box {
+        min-height: 0 !important;
+    }
+
+    .algojo-content {
+        min-height: 0 !important;
+    }
+}

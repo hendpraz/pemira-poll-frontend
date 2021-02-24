@@ -11,6 +11,8 @@ import { useAppContext } from 'libs/contextLib'
 import DuelBox from 'components/Duel'
 import HomeProfile from 'components/HomeProfile'
 import QuestionBox from 'components/QuestionBox'
+import Algojo from 'components/Algojo'
+import TimSukses from 'components/TimSukses'
 
 const Profile = (props) => {
 
@@ -69,6 +71,8 @@ const Profile = (props) => {
                         {nav === "quest-wall" && <QuestBox />}
                         {nav === "duel-wall" && <DuelBox />}
                         {nav === "question-wall" && <QuestionBox />}
+                        {nav === "algojo" && <Algojo />}
+                        {nav === "tim-sukses" && <TimSukses />}
                     </div>
                 </div>
                 <Footer/>

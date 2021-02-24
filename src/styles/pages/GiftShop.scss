@@ -98,8 +98,18 @@
     }
 }
 
-.modal {
+.modal-gift-shop {
     display: block !important;
+    text-align: left;
+    position: fixed;
+    z-index: 20;
+    padding: 125px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,.6);
 
     
     p {
@@ -141,6 +151,7 @@
         padding-top: 0;
         background-color: #03354C;
         padding: 0 40px;
+        padding-bottom: 20px;
     }
 
     .btn-container {

@@ -1,0 +1,60 @@
+.timses-container {
+    .quest-nav {
+        li {
+            display: block !important;
+
+            div {
+                text-align: left;
+                margin-left: 9vw;
+                border: none !important;
+            }
+        }
+    }
+
+    .quest-box {
+        min-height: 0 !important;
+    }
+
+    .timses-content {
+        min-height: 0 !important;
+        background-color: #C6B29A;
+        padding: 20px;
+        border-radius: 25px;
+        margin: 120px 20px 30px; 
+        margin-bottom: 60px;
+        
+        table {
+            width: 100%;
+            font-family: 'Nunito', sans-serif;
+            color: black;
+
+            thead {
+                font-weight: 600;
+            }
+
+            tr {
+                border-bottom: solid 1px black;
+
+                td {
+                    padding: 10px 0;
+                }
+
+                td:nth-child(1) {
+                    width: 10%;
+                }
+
+                td:nth-child(2) {
+                    width: 35%;
+                }
+
+                td:nth-child(3), td:nth-child(4) {
+                    width: 15%;
+                }
+
+                td:nth-child(5) {
+                    width: 25%;
+                }
+            }
+        }
+    }
+}

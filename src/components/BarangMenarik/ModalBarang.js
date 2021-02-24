@@ -3,7 +3,7 @@ import Button from "components/Button";
 
 const ModalBarang = ({ item, closeModal }) => {
     return (
-        <div className="modal">
+        <div className="modal-gift-shop">
             <div className="modal-background"></div>
             <div className="modal-card">
                 <header className="modal-card-head">

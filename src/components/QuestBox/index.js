@@ -91,7 +91,6 @@ const QuestBox = () => {
         }
     }, [user, tab])
 
-    console.log(result.length)
     let lastIndex = currentPage * postPerPage
     let firstIndex = lastIndex - postPerPage
 
