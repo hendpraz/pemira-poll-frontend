@@ -60,7 +60,12 @@ const Admin = () => {
                         </div>
                         <div id="associateUser">
                             <h1 className="has-text-centered has-text-primary">Associate Massa with Lembaga</h1>
-                            <UserAssociation lembagaList={lembagaList} massaList={massaList}/>
+                            <UserAssociation lembagaList={lembagaList} massaList={massaList} tipe={"associate"}/>
+                        </div>
+
+                        <div id="associateUser">
+                            <h1 className="has-text-centered has-text-primary">Disassociate Massa with Lembaga</h1>
+                            <UserAssociation lembagaList={lembagaList} massaList={massaList} tipe={"disassociate"}/>
                         </div>
                     </div>
                 </div>

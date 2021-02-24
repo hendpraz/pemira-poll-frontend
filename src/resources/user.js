@@ -162,3 +162,27 @@ export const associateUser = async (data) =>
       reject(e);
     }
   });
+
+export const disassociateUser = async (data) =>
+  new Promise(async (resolve, reject) => {    
+    try {
+      const token = localStorage.getItem('token')
+      let response = await fetch(`${defaultAPIURL}/disassociate-massa-lembaga/`, {
+        method: 'PATCH',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+      console.log(response)
+
+      const httpStatus = response.status
+      const res = JSON.parse(JSON.stringify(response.json()))
+      res.httpStatus = httpStatus
+
+      resolve(res);
+    } catch (e) {
+      reject(e);
+    }
+  });

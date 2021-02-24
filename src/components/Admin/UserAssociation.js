@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { associateUser } from 'resources/user'
+import { associateUser, disassociateUser } from 'resources/user'
 import Select from 'react-select'
 
-const UserAccociation = ({lembagaList, massaList}) => {
+const UserAccociation = ({lembagaList, massaList, tipe}) => {
     const [username1, setUsername1] = useState("")
     const [username2, setUsername2] = useState("")
 
@@ -15,17 +15,29 @@ const UserAccociation = ({lembagaList, massaList}) => {
     })
 
     const submitUser = async () => {
-        const r = window.confirm(`Apakah Anda yakin akan mengasosiasikan user ${username1.value} dengan lembaga ${username2.value}?`)
+        const confirmMessage = tipe === "associate" ? 'mengasosiasikan' : 'dis-asosiasi'
+        const r = window.confirm(`Apakah Anda yakin akan ${confirmMessage} user ${username1.value} dengan lembaga ${username2.value}?`)
         if (r) {
-            const response = await associateUser({
-                username1: username1.value,
-                username2: username2.value,
-            })
+            let response
+            let message
+            if (tipe === "associate") {
+                response = await associateUser({
+                    username1: username1.value,
+                    username2: username2.value,
+                })
+                message = "Berhasil mengasosiasi user"
+            } else if (tipe === "disassociate") {
+                response = await disassociateUser({
+                    username1: username1.value,
+                    username2: username2.value,
+                })
+                message = "Berhasil dis-asosiasi user"
+            }
             const status = response.httpStatus
             console.log(response)
 
             if (status >= 200 && status < 300) {
-                alert("Berhasil mengasosiasi user.")
+                alert(message)
                 window.location.reload();
             } else {
                 alert("Tidak berhasil. Silakan coba kembali")
