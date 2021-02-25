@@ -1,0 +1,37 @@
+.cheater-box {
+    .cheater-modal {
+        padding-top: 10vh !important;
+
+        .modal-content {
+            padding: 2% 5%;
+            width: 750px;
+        }
+
+        h3 {
+            font-weight: 500;
+            font-size: 1.35rem !important;
+        }
+
+        hr {
+            margin: 10px 0 !important ;
+        }
+
+        .details-btn {
+            position: absolute !important;
+            left: 0;
+            bottom: 0;
+            width: calc(100% - 50px);
+            text-align: center;
+        }
+    }
+}
+
+.plus-btn {
+    padding-bottom: 40px;
+}
+
+#addCheater {
+    .modal-content {
+        width: 700px;
+    }
+}
