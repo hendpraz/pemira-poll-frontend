@@ -39,6 +39,7 @@ import AdminQuestion from "pages/AdminPage/Question";
 import AdminUsers from "pages/AdminPage/User";
 import AdminQuestCompletion from "pages/AdminPage/QuestCompletion";
 import AdminQuestProof from "pages/AdminPage/QuestProof";
+import DetailCalon from "pages/DetailCalon";
 
 function App() {
     const [isAuthenticated, userHasAuthenticated] = useState(
@@ -190,6 +191,11 @@ function App() {
                         exact
                         path="/referendum/profile"
                         render={() => <ReferendumProfile />}
+                    />
+                    <Route
+                        exact
+                        path="/detail-calon"
+                        render={() => <DetailCalon />}
                     />
                     <Route path="" render={() => <NotFound />} />
                 </Switch>
