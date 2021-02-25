@@ -31,39 +31,32 @@ const Admin = () => {
                             </Link>
                         </div>
                         <div class="column menu-column">
-                            <Link className="menu-item" to="/admin/user-activity">
-                                Lihat Aktivitas User
+                            <Link className="menu-item" to="/admin/questions">
+                                Manage Pertanyaan dan Jawaban
                             </Link>
                         </div>
                     </div>
 
                     <div class="columns is-vcentered p-16">
-                        <div class="column menu-column">
-                            <Link className="menu-item" to="/admin/questions">
-                                Manage Pertanyaan dan Jawaban
-                            </Link>
-                        </div>
                         <div class="column menu-column">
                             <Link className="menu-item" to="/admin/quests">
                                 Manage Quest
                             </Link>
                         </div>
-                    </div>
-
-                    <div class="columns is-vcentered p-16">
                         <div class="column menu-column">
                             <Link className="menu-item" to="/admin/quest-proofs">
                                 Quest Proofs
                             </Link>
                         </div>
+                    </div>
+
+                    <div class="columns is-vcentered p-16">
                         <div class="column menu-column">
                             <Link className="menu-item" to="/admin/quest-completion">
                                 Quest Completion
                             </Link>
                         </div>
-                    </div>
-                    <div class="columns is-vcentered p-16">
-                        <div class="column menu-column">
+                        <div class="column">
                             <Link className="menu-item" to="/admin/duels">
                                 Manage Duel
                             </Link>

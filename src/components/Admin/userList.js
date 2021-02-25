@@ -82,7 +82,11 @@ const UserList = ({userList}) => {
                                     <h5>{item.username}</h5>
                                 </div>
                                 <h5>{item.email_non_itb}</h5>
-                                <p className="has-text-danger">{`Role: ${getRole(item.groups)}`}<br /> Metode login: {item.login_method}</p>
+                                <p className="has-text-danger">
+                                    {`Role: ${getRole(item.groups)}`}<br />
+                                    Metode login: {item.login_method}<br />
+                                    Terakhir login: {item.last_login ? item.last_login : "Belum pernah login"}
+                                </p>
                             </div>
                             <UserModal item={item} id={`modal-user-${index}`}/>
                         </div>
