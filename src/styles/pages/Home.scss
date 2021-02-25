@@ -81,27 +81,6 @@ $primary: #FDAF33;
             } 
         }
     }
-
-    .cloud-container {
-        position: relative;
-        width: 100%;
-        left: 0;
-        display: flex;
-        margin-top: -15vw;
-
-        .cloud-left {
-            position: relative;
-        }
-
-        .cloud-right {
-            position: relative;
-            margin-left: auto;
-        }
-
-        img {
-            transform: translateY(4px);
-        }
-    }
 }
 
 .container-kematian {
@@ -172,6 +151,28 @@ $primary: #FDAF33;
                 }
             }
         }
+    }
+}
+
+.cloud-container {
+    z-index: 20;
+    position: relative;
+    width: 100%;
+    left: 0;
+    display: flex;
+    margin-top: -15vw;
+
+    .cloud-left {
+        position: relative;
+    }
+
+    .cloud-right {
+        position: relative;
+        margin-left: auto;
+    }
+
+    img {
+        transform: translateY(4px);
     }
 }
 

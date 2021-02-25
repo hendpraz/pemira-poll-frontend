@@ -1,0 +1,125 @@
+$dark-blue: #02141d;
+$yelfont: #f9f3a0;
+
+.referendum-page {
+    background-color: $dark-blue;
+
+    .contentnyacok {
+        .content-container {
+            margin-top: 0 !important;
+        }
+    }
+
+    .judul-container {
+        margin-top: 18vh !important;
+
+        h1 {
+            padding: 25px 0;
+            color: $yelfont !important;
+        }
+    }
+
+    .referendum-content {
+        text-align: center;
+        margin: 0 auto;
+        width: 100%;
+        left: 0;
+        top: 34vh;
+        position: absolute;
+        transform: translateY(25px);
+
+        p {
+            margin-bottom: 50px;
+            color: white !important;
+        }
+
+        .details-btn {
+            position: relative !important;
+            width: auto;
+
+            img {
+                width: 200px;
+            }
+        }
+    }
+}
+
+.referendum-profile {
+    .laporan-content {
+        padding-bottom: 80px !important;
+        position: relative;
+        min-height: 607px;
+
+        h3 {
+            margin:5px 0;
+        }
+
+        .img-container {
+            width: 60px !important;
+        }
+
+        .text-container {
+            width: 100%;
+            position: relative;
+
+            p {
+                font-size: .8rem !important;
+            }
+
+            .details-btn {
+                position: relative;
+                width: 120px;
+                margin-left: calc(100% - 160px);
+                margin-top: -30px;
+            }
+        }
+    }
+
+    .referendum-pagination {
+        position: absolute;
+        width: 100%;
+        // padding-bottom: 50px;
+        text-align: center;
+        left: 40px;
+        bottom: 40px;
+
+        span {
+            display: inline-block;
+            margin: 0 5px;
+            color: black !important;
+            cursor: pointer;
+        }
+
+        span:hover {
+            transform: scale(1.2);
+            font-weight: 600;
+        }
+    }
+}
+
+.nav-profile-ref {
+    margin-top: 40px;
+    padding: 0 20px;
+
+    p {
+        font-size: 1rem !important;
+        padding: 5px;
+        font-family: 'Inknut Antiqua', sans-serif;
+    }
+
+    hr {
+        margin: 8px 0;
+        background-color: $dark-blue;
+        height: 2px;
+    }
+
+    p:hover {
+        cursor: pointer;
+        border: solid 2px #FDAF33;
+        margin: 0;
+    }
+
+    p.active {
+        border: solid 2px #FDAF33;
+    }
+}

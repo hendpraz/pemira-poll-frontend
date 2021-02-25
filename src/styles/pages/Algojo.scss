@@ -1,3 +1,5 @@
+$yelfont: #F9F3A0;
+
 .algojo-container {
     .quest-nav {
         li {
@@ -19,5 +21,86 @@
 
     .algojo-content {
         min-height: 0 !important;
+    }
+}
+
+.modal {
+    height: 100vh;
+    padding: 0 !important;
+}
+
+.laporan-modal {
+    border-radius: 0 !important;
+    padding: 20px 25px 0!important;
+    width: 700px;
+    height: 625px !important;
+    overflow: hidden;
+    margin-top: 10vh;
+
+    p {
+        color: $yelfont !important;
+    }
+
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        h3 {
+            color: $yelfont !important;
+        }
+
+        span {
+            height: 28px;
+            display: flex;
+            align-items: center;
+            color: $yelfont !important;
+        }
+    }
+
+    hr {
+        margin: 10px 0 !important;
+        background-color: $yelfont;
+    }
+
+    .modal-body {
+        padding: 5px 15px;
+        padding-bottom: 80px;
+
+        .btn-container {
+            margin: 20px auto !important;
+            text-align: center;
+
+            .details-btn {
+                position: relative !important;
+                margin: 10px !important;
+                width: auto;
+
+                img {
+                    width: 150px;
+                }
+            }
+        }
+    }
+
+    .footerContainer {
+        // position: relative !important;
+        left: 0;
+        bottom: -10px;
+        margin: 0 !important;
+
+        hr {
+            width: 100% !important;
+        }
+
+        h2 {
+            font-size: 1.25rem !important;
+            margin: 0 !important;
+            color: $yelfont !important;
+        }
+
+        p {
+            font-size: .75rem !important;
+        }
     }
 }

@@ -61,7 +61,6 @@ const VoteAfter = ({tipe}) => {
                     response = await listKandidatMWAWM()
                 }
 
-                console.log(response)
                 const kotakKosong = {
                     id: "Kotak Kosong",
                     username: "KotakKosong",

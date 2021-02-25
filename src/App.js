@@ -16,12 +16,15 @@ import PengembalianBerkas from "./pages/Berkas/PengembalianBerkas";
 import LembarDukungan from "./pages/Dukungan";
 import INA from "./pages/INA";
 import GiftShop from "./pages/GiftShop";
+import Referendum from "./pages/Referendum";
+import ReferendumProfile from "./pages/Referendum/ReferendumProfile";
 
 import Pendaftaran from "./pages/Berkas/Pendaftaran";
 import AboutUs from "./pages/AboutUs";
 import NotFound from "./pages/NotFound";
 import Profile from "pages/Profile";
 import VoteAfter from "pages/Vote/After";
+
 // import VoteBefore from 'pages/Vote/Before'
 import VoteSuccess from "pages/Vote/VoteSuccess";
 import Question from "pages/Question";
@@ -177,6 +180,16 @@ function App() {
                         exact
                         path="/admin/quest-proofs"
                         render={() => <AdminQuestProof />}
+                    />
+                    <Route
+                        exact
+                        path="/referendum"
+                        render={() => <Referendum />}
+                    />
+                    <Route
+                        exact
+                        path="/referendum/profile"
+                        render={() => <ReferendumProfile />}
                     />
                     <Route path="" render={() => <NotFound />} />
                 </Switch>

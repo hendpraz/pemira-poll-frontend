@@ -26,9 +26,15 @@ const Algojo = () => {
         setResult([
             {
                 judul: "Saya benci Corona",
+                penyurvei: "Doni",
+                untuk: "KM ITB",
+                deskripsi: "Lala Widy? Mas Bima? Swegerrr Semongkone! Perasaan yang tanpa kabar, sampai tau kapan dia datang."
             },
             {
                 judul: "Indonesia sehat dengan Jokowi",
+                penyurvei: "Lala Widy",
+                untuk: "KM ITB",
+                deskripsi: "Lala Widy? Mas Bima? Swegerrr Semongkone! Perasaan yang tanpa kabar, sampai tau kapan dia datang."
             },
         ]);
     }, [])
