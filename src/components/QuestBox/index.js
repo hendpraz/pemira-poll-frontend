@@ -20,6 +20,8 @@ const QuestBox = () => {
     const [result,
         setResult] = useState([])
     const postPerPage = 3
+    const [isLoading,
+        setIsLoading] = useState(false)
 
     const clickNav = nav => {
         setTab(prev => {
@@ -65,21 +67,29 @@ const QuestBox = () => {
             // setResult(questList)
             async function loadQuestMassaLembaga() {
                 try {
+                    setIsLoading(true)
+                    setResult([])
                     let response = await getQuestListMassaLembaga(tab)         
                     console.log('questlist: ', response)         
                     setResult(response)
                 } catch (e) {
                     console.log(e)
+                } finally {
+                    setIsLoading(false)
                 }
             }
             
             async function loadQuestKandidat() {
                 try {
+                    setIsLoading(true)
+                    setResult([])
                     let response = await getQuestListKandidat(tab)
                     console.log('questlist: ', response)         
                     setResult(response)
                 } catch (e) {
                     console.log(e)
+                } finally {
+                    setIsLoading(false)
                 }
             } 
             
@@ -160,10 +170,20 @@ const QuestBox = () => {
                         last={index === currentResult.length - 1}
                         index={index + firstIndex}/>)
                 })}
-                {result.length === 0 && <div style={{
+                
+                {isLoading && <div 
+                    style={{
                     paddingTop: "180px"
-                }}>Quest kosong.</div>
-}
+                    }}
+                    >Sedang mengambil data..</div>
+                }
+
+                {result.length === 0 && !isLoading && <div 
+                    style={{
+                    paddingTop: "180px"
+                    }}
+                    >Quest kosong.</div>
+                }
                 {currentResult.length
                     ? <div className="my-pagination">
                             <span
