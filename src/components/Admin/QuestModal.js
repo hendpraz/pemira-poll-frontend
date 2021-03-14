@@ -41,7 +41,7 @@ const QuestModal = ({ item, id, tipe }) => {
     const finishQuest = async () => {
         confirmAlert({
             title: 'Konfirmasi',
-            message: `Apakah Anda yakin ingin MENYELESAIKAN quest berjudul "${item.judul}"? Melakukan ini dapat membuat perubahan point sebesar ${game_point} kepada pengguna yang terlibat.`,
+            message: `Apakah Anda yakin ingin MENYELESAIKAN quest berjudul "${item.judul}"? Melakukan ini dapat membuat penambahan point sebesar ${game_point} kepada pengguna yang terlibat.`,
             buttons: [
               {
                 label: 'Yes',

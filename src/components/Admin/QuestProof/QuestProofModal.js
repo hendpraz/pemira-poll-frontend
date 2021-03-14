@@ -1,7 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { adminQuestProofAccept, adminQuestProofReject } from 'resources/questproof'
 
 const QuestModal = ({ item, id, tipe }) => {
+    const [game_point, setGamePoint] = useState(0)
+
     const closeModal = () => {
         var modal = document.getElementById(id);
 
@@ -19,9 +21,9 @@ const QuestModal = ({ item, id, tipe }) => {
     }
 
     const rejectQuest = async () => {
-        const r = window.confirm(`Apakah Anda yakin ingin REJECT bukti oleh "${item.user.fullname}"?`)
+        const r = window.confirm(`Apakah Anda yakin ingin REJECT bukti oleh "${item.user.fullname}"  Melakukan ini dapat membuat pengurangan point sebesar ${game_point} kepada pengguna yang terlibat.?`)
         if (r) {
-            const response = await adminQuestProofReject(item.id)
+            const response = await adminQuestProofReject(item.id, {game_point})
             console.log(response)
     
             window.location.reload()
@@ -79,6 +81,17 @@ const QuestModal = ({ item, id, tipe }) => {
                             tipe === "pending" &&
                             <div>
                                 <button className="button is-primary is-large" onClick={acceptQuest}>Terima</button>
+                                <br />
+                                <br />
+                                <div>
+                                    <h5>TOLAK Bukti dan Kurangi Game Point</h5>
+                                    <div className="create-user-container columns">
+                                        <div className="input-container column">
+                                            <label><h5>Game Point*</h5></label>
+                                            <input type="text" required name="game_point" id="game_point" value={game_point} onChange={setGamePoint}/>
+                                        </div>
+                                    </div>
+                                </div>
                                 <button className="button is-primary is-danger" onClick={rejectQuest}>Tolak</button>
                             </div>
                         }
