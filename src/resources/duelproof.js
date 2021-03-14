@@ -1,5 +1,5 @@
 const { defaultAPIURL } = require("../config")
-const { post, patch, get } = require("./helper")
+const { post, patch, get, patchWithBody } = require("./helper")
 
 export const createDuelProof = async (data) =>
 {
@@ -17,10 +17,10 @@ export const adminDuelProofAccept = async (duelproofId) =>
   return response
 }
 
-export const adminDuelProofReject = async (duelproofId) =>
+export const adminDuelProofReject = async (duelproofId, data) =>
 {
   const url = `${defaultAPIURL}/duel-proofs-admin/reject/${duelproofId}/`
-  const response = await patch(url)
+  const response = await patchWithBody(url, data)
 
   return response
 }
