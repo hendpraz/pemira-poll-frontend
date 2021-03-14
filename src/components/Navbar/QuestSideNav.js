@@ -98,10 +98,18 @@ const QuestSideNav = ({ nav, setNav }) => {
                             </li>
                             <li>
                                 <div
+                                    className="duel-wall"
+                                    onClick={() => clickNav("duel-wall")}
+                                >
+                                    Duel Wall
+                                </div>
+                            </li>
+                            <li>
+                                <div
                                     className="question-wall"
                                     onClick={() => clickNav("question-wall")}
                                 >
-                                    Question Wall
+                                    Questions
                                 </div>
                             </li>
                             <li>
@@ -109,7 +117,7 @@ const QuestSideNav = ({ nav, setNav }) => {
                                     className="cheater-wall"
                                     onClick={() => clickNav("cheater-wall")}
                                 >
-                                    Cheater Wall
+                                    Cheaters
                                 </div>
                             </li>
                         </>

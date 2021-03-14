@@ -18,6 +18,8 @@ const AddDuelModal = ({groupsId, tipeKandidat}) => {
         setUserId] = useState("")
     const [isAgree,
         setIsAgree] = useState(false)
+    const [isLoading,
+        setIdLoading] = useState(false)
 
     useEffect(() => {
         if (user) {
@@ -35,30 +37,38 @@ const AddDuelModal = ({groupsId, tipeKandidat}) => {
 
     const submitDuel = async() => {
         if (isAgree) {
-            if (userId && userContact) {
-                console.log("OK")
-
-                let data = JSON.parse(JSON.stringify(fields))
-                data.user = userId
-                data.user_contact = userContact
-                data.deadline = data.deadline + " 23:59:59"
-
-                console.log(data)
-
-                let response
-                if (groupsId === 5) {
-                    response = await createDuelKandidat(data)
+            if (!isLoading) {
+                setIdLoading(true)
+                if (userId && userContact) {
+                    console.log("OK")
+    
+                    let data = JSON.parse(JSON.stringify(fields))
+                    data.user = userId
+                    data.user_contact = userContact
+                    data.deadline = data.deadline + " 23:59:59"
+    
+                    console.log(data)
+    
+                    let response
+                    if (groupsId === 5) {
+                        response = await createDuelKandidat(data)
+                    } else {
+                        response = await createDuelMassaLembaga(data)
+                    }
+                    
+                    console.log(response)
+    
+                    if (response.status >= 200 && response.status < 400) {
+                        alert("Berhasil menambahkan duel, silakan tunggu konfirmasi dari admin.")
+                        closeModal()
+                        window.location.reload()
+                    } else {
+                        alert("Terdapat masalah, mohon coba lagi.")
+                    }                
                 } else {
-                    response = await createDuelMassaLembaga(data)
+                    alert("Terdapat masalah, mohon coba lagi beberapa saat.")
                 }
-                
-                console.log(response)
-
-                alert("Berhasil menambahkan duel, silakan tunggu konfirmasi dari admin.")
-                closeModal()
-                window.location.reload()
-            } else {
-                alert("Terdapat masalah, mohon coba lagi beberapa saat.")
+                setIdLoading(false)
             }
         } else {
             alert("Anda belum menyetujui ketersediaan berbagi informasi kontak Anda")

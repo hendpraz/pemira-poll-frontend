@@ -82,48 +82,22 @@ export const cancelUpvoteDuel = (duelId) =>
   });
 
 // Massa, Lembaga, or Admin can use this
-export const createDuelMassaLembaga = (data) =>
-  new Promise(async (resolve, reject) => {    
-    try {
-      const token = localStorage.getItem('token')
-      let response = await fetch(`${defaultAPIURL}/duels/`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      })
-      response = response.json()
-      console.log(response)
+export const createDuelMassaLembaga = async (data) =>
+{
+  const url = `${defaultAPIURL}/duels/`
+  const response = await post(url, data)
 
-      resolve(response);
-    } catch (e) {
-      reject(e);
-    }
-});
+  return response
+}
 
 // Kandidat can use this
-export const createDuelKandidat = (data) =>
-  new Promise(async (resolve, reject) => {    
-    try {
-      const token = localStorage.getItem('token')
-      let response = await fetch(`${defaultAPIURL}duels-kandidat/create/`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      })
-      response = response.json()
-      console.log(response)
+export const createDuelKandidat = async (data) =>
+{
+  const url = `${defaultAPIURL}/duels-kandidat/create/`
+  const response = await post(url, data)
 
-      resolve(response);
-    } catch (e) {
-      reject(e);
-    }
-});
+  return response
+}
 
 export const createDuelAdmin = async (data) =>
 {
