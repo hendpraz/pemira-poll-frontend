@@ -218,10 +218,18 @@ export const adminQuestReject = async (questId) =>
     return response
   }
 
-  export const adminQuestFinish= async (questId, data) =>
+export const adminQuestFinish= async (questId, data) =>
   {
     const url = `${defaultAPIURL}/quests-admin/finish//${questId}/`
     const response = await patchWithBody(url, data)
 
+    return response
+  }
+
+  export const topQuest = async (num) => 
+  {
+    const url = `${defaultAPIURL}/top-quest/${num}/`
+    const response = await get(url)
+    
     return response
   }

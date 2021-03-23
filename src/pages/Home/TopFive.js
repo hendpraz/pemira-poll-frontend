@@ -1,8 +1,42 @@
 import config from 'config'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { topQuest } from 'resources/quest'
+import { topLembaga } from 'resources/user'
 
 const TopFive = () => {
     const { assetsURL: {image} } = config
+    const [lembaga, setLembaga] = useState([])
+    const [quest, setQuest] = useState([])
+
+    useEffect(() => {
+        async function loadLembaga() {
+            try {
+                const response = await topLembaga(5)
+
+                if (response.status >= 200 && response.status < 400) {
+                    setLembaga(response.data)
+                } else {
+                    alert("Terdapat masalah saat loading data top 5 lembaga")
+                }
+                
+                const response2 = await topQuest(5)
+
+                if (response2.status >= 200 && response2.status < 400) {
+                    setQuest(response2.data)
+                } else {
+                    alert("Terdapat masalah saat loading data top 5 quest")
+                }
+            } catch (e) {
+                console.log(e)
+            }
+        }
+
+        async function onLoad() {
+            loadLembaga()
+        }
+        
+        onLoad()
+    }, []) /* eslint-disable-line */
 
     return (
         <div className="container-kematian" >
@@ -23,11 +57,13 @@ const TopFive = () => {
                                                     <br />
                                                     <div  className="has-text-black">
                                                         <ol>
-                                                            <li>Lembaga a (12000 ppoint)</li>
-                                                            <li>Lembaga b (12000 ppoint)</li>
-                                                            <li>Lembaga b (12000 ppoint)</li>
-                                                            <li>Lembaga d (12000 ppoint)</li>
-                                                            <li>Lembaga e (12000 ppoint)</li>   
+                                                        {lembaga.map((item => {
+                                                            return (
+                                                                <li key={item}>
+                                                                    {item.fullname} ({item.game_point} point)
+                                                                </li>
+                                                            )
+                                                        }))}
                                                         </ol>
                                                     </div>
                                                </div>
@@ -40,11 +76,13 @@ const TopFive = () => {
                                                     <br />
                                                     <div  className="has-text-black">
                                                         <ol>
-                                                            <li>Lembaga a (12000 ppoint)</li>
-                                                            <li>Lembaga b (12000 ppoint)</li>
-                                                            <li>Lembaga b (12000 ppoint)</li>
-                                                            <li>Lembaga d (12000 ppoint)</li>
-                                                            <li>Lembaga e (12000 ppoint)</li>   
+                                                        {quest.map((item => {
+                                                            return (
+                                                                <li key={item}>
+                                                                    {item.judul} ({item.upvotes} upvote)
+                                                                </li>
+                                                            )
+                                                        }))} 
                                                         </ol>
                                                     </div>
                                                </div>
