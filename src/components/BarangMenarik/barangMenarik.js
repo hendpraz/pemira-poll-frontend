@@ -6,19 +6,22 @@ const { assetsURL: { image } } = config;
 
 const barang = [
     {
-        name: "1. Iphone",
-        img: `${image}/Bell 3.png`,
-        poin: 150
+        id: "123",
+        name: "1. Nama Barang",
+        photo_url: `${image}/Bell 3.png`,
+        price: 150
     },
     {
-        name: "2. Macbook",
-        img: `${image}/Bell 3.png`,
-        poin: 250
+        id: "234",
+        name: "2. Nama Barang",
+        photo_url: `${image}/Bell 3.png`,
+        price: 250
     },
     {
-        name: "3. Asus ROG",
-        img: `${image}/Bell 3.png`,
-        poin: 200
+        id: "345",
+        name: "3. Nama Barang",
+        photo_url: `${image}/Bell 3.png`,
+        price: 200
     }
 ];
 

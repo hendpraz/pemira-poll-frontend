@@ -1,7 +1,23 @@
 import React from "react";
 import Button from "components/Button";
+import { buyItem } from "resources/shop";
 
 const ModalBarang = ({ item, closeModal }) => {
+    const processPayment = async () => {
+        try {
+            const response = await buyItem(item.id)
+
+            if (response.status >= 200 && response.status < 400) {
+                alert("Berhasil membeli item.")
+                window.location.reload()
+            } else {
+                alert("Terdapat masalah, mohon coba lagi beberapa saat. Silakan cek saldo poin Anda.")
+            }
+        } catch (error) {
+            alert(error)
+        }
+    }
+
     return (
         <div className="modal-gift-shop">
             <div className="modal-background"></div>
@@ -23,7 +39,7 @@ const ModalBarang = ({ item, closeModal }) => {
                         2
                     )}`}</p>
                     <div className="btn-container">
-                        <Button file="tukar-btn" />
+                        <Button file="tukar-btn" onClick={processPayment}/>
                         <Button file="batal-merah" onClick={closeModal} />
                     </div>
                 </section>

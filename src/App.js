@@ -186,7 +186,7 @@ function App() {
                         path="/admin/quest-proofs"
                         render={() => <AdminQuestProof />}
                     />
-                                        <Route
+                    <Route
                         exact
                         path="/admin/duels"
                         render={() => <AdminDuel />}
