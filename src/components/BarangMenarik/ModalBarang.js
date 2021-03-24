@@ -35,9 +35,7 @@ const ModalBarang = ({ item, closeModal }) => {
 
                 <section className="modal-card-body">
                     <hr />
-                    <p>{`Apakah Anda yakin ingin menukar poin dengan ${item.name.substring(
-                        2
-                    )}`}</p>
+                    <p>{`Apakah Anda yakin ingin menukar poin dengan ${item.name}`}</p>
                     <div className="btn-container">
                         <Button file="tukar-btn" onClick={processPayment}/>
                         <Button file="batal-merah" onClick={closeModal} />
