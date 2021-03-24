@@ -34,7 +34,7 @@ const CheaterItem = ({tab, item, last, index, id}) => {
                         ${last && ` bor-btm`} 
                         ${index % 2 ? ' blue' : ` red`}`}>
                     <div className="quest-name column has-text-left">
-                        {index + 1}. {item.terdakwa}
+                        {index + 1}. {item.accused}
                     </div>
                 </div>
                 <CheaterModal item={item} index={index} />
@@ -50,16 +50,10 @@ const CheaterItem = ({tab, item, last, index, id}) => {
                         ? ' blue'
                         : ` red`}`}>
                     <div className="quest-name column has-text-left">
-                        {index + 1}. {item.terdakwa}
+                        {index + 1}. {item.title}
                     </div>
                     <div className="quest-btn column">
-                        {tab === "accepted" && <div
-                            style={{
-                            marginLeft: "auto"
-                        }}>Upvote: {numOfUpvotes
-                                ? numOfUpvotes
-                                : 0}</div>
-}
+                        Tertuduh: {item.accused}
                     </div>
                 </div>
                 <CheaterModal item={item} index={index} />

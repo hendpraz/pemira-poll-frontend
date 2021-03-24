@@ -31,15 +31,21 @@ const CheaterModal = ({
                     ? ' blue'
                     : ` red`}`}>
                     <span className="close" id={`close-${index}`} onClick={() => closeModal()}>&times;</span>
-                    <h3>{`${index+1}. ${item.terdakwa}`}</h3>
-                    <hr/>   
-                    <p className="px-5">{`${item.tipe} (tipe)`}</p>
-                    {/* <p>{item.deadline}</p> */}
-                    <p className="px-5">{`${item.tanggal}`}</p>
-                    {/* <p>{item.deskripsi}</p> */}
+                    <h3>{`${index+1}. ${item.title}`}</h3>
+                    <hr/>
+
+                    <p className="px-5">
+                        Tertuduh: {item.accused}<br/>
+                        Pelapor: {item.reporter.fullname} - {item.reporter.nim} - {item.reporter.ou}<br />
+                        Deskripsi:<br />
+                        {item.description}
+                    </p>
                     <br />
-                    <h3>Detail:</h3>
-                    <p className="px-5">Bukti:</p>
+                    <p className="px-5">{`Dibuat Pada: ${item.created_at}`}</p>
+                    <br />
+                    <p className="px-5">
+                        Bukti: <a href={item.photo_url} target="_blank"><u>klik di sini</u></a>
+                    </p>
 
                     <br/>
                     <Button file="cancel-btn" /> 
