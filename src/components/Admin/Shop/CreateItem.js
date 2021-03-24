@@ -9,7 +9,14 @@ const CreateItem = ({pageUser}) => {
         name: "",
         description: "",
         price: "",
-        photo_url: ""
+        photo_url: "",
+
+        allow_mhs_s1: false,
+        allow_mhs_akmet: false,
+        allow_mhs_s2: false,
+        allow_lembaga: false,
+        allow_kandidat_k3m: false,
+        allow_kandidat_mwa: false,
     });
 
     const submitItem = async () => {
@@ -100,6 +107,30 @@ const CreateItem = ({pageUser}) => {
                         placeholder="Contoh: https://urlfoto.com/a.jpg"
                         />
                     <br/>
+                    <br/>
+
+                    
+                    <label>
+                        <h5 className="mb-2">Dapat dibeli oleh akun:</h5>
+                    </label>
+
+                    <input type="checkbox" id="allow_mhs_s1" name="allow_mhs_s1" checked={fields.allow_mhs_s1} onChange={handleFieldChange}/>
+                    <label for="allow_mhs_s1"> Mahasiswa S1</label><br />
+
+                    <input type="checkbox" id="allow_mhs_akmet" name="allow_mhs_akmet" checked={fields.allow_mhs_akmet} onChange={handleFieldChange}/>
+                    <label for="allow_mhs_akmet"> Mahasiswa Akmet</label><br />
+
+                    <input type="checkbox" id="allow_mhs_s2" name="allow_mhs_s2" checked={fields.allow_mhs_s2} onChange={handleFieldChange}/>
+                    <label for="allow_mhs_s2"> Mahasiswa S2</label><br />
+
+                    <input type="checkbox" id="allow_lembaga" name="allow_lembaga" checked={fields.allow_lembaga} onChange={handleFieldChange}/>
+                    <label for="allow_lembaga"> Akun Lembaga (non-INA)</label><br />
+
+                    <input type="checkbox" id="allow_kandidat_k3m" name="allow_kandidat_k3m" checked={fields.allow_kandidat_k3m} onChange={handleFieldChange}/>
+                    <label for="allow_kandidat_k3m"> Akun Kandidat K3M (non-INA)</label><br />
+
+                    <input type="checkbox" id="allow_kandidat_mwa" name="allow_kandidat_mwa" checked={fields.allow_kandidat_mwa} onChange={handleFieldChange}/>
+                    <label for="allow_kandidat_mwa"> Akun Kandidat MWA-WM (non-INA)</label><br />
                     <br/>
 
                     <div className="has-text-centered my-5">
