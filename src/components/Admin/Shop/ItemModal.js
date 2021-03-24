@@ -29,7 +29,7 @@ const QuestionModal = ({ item, id }) => {
                                 </tr>
                                 <tr>
                                     <td><h5>Harga</h5></td>
-                                    <td><h5>{`: ${item.price}`}</h5></td>
+                                    <td><h5>{`: ${item.price}`} poin</h5></td>
                                 </tr>
                                 <tr>
                                     <td><h5>Url Gambar</h5></td>

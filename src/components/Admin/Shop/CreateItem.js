@@ -16,7 +16,7 @@ const CreateItem = ({pageUser}) => {
         const r = window.confirm(`Apakah Anda yakin dengan data item yang diisi?`)
         if (r) {
             console.log(userId)
-            if (userId && userContact) {
+            if (userId) {
                 console.log("OK")
 
                 let data = JSON.parse(JSON.stringify(fields))
@@ -97,7 +97,7 @@ const CreateItem = ({pageUser}) => {
                         name="photo_url"
                         value={fields.photo_url}
                         onChange={handleFieldChange}
-                        placeholder="https://urlfoto.com/a.jpg"
+                        placeholder="Contoh: https://urlfoto.com/a.jpg"
                         />
                     <br/>
                     <br/>

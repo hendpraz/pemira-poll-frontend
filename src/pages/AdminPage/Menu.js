@@ -76,6 +76,14 @@ const Admin = () => {
                             </Link>
                         </div>
                     </div>
+
+                    <div class="columns is-vcentered p-16">
+                        <div class="column menu-column">
+                            <Link className="menu-item" to="/admin/shop-items">
+                                Manage Shop Items
+                            </Link>
+                        </div>
+                    </div>
                 </div>
             </div>
         </AdminAuth>

@@ -5,7 +5,7 @@ import { listItems } from 'resources/shop'
 
 const ItemList = ({tipe}) => {
 
-    const postPerPage = 3
+    const postPerPage = 4
     const [currentPage, setCurrentPage] = useState(1)
     const [result, setResult] = useState([])
     const [currentResult, setCurrentResult] = useState([])
@@ -67,14 +67,11 @@ const ItemList = ({tipe}) => {
                             className="user-list-item p-4">
                             <div className="user-item-list-content">
                                 <div className="is-flex">
-                                    <h3>{item.judul}</h3>
-                                    <h5>{item.creator.fullname}</h5>
+                                    <h3>{item.name}</h3>
+                                    <h5>Harga: {item.price} poin</h5>
                                 </div>
                                 <h5>Deskripsi:</h5>
-                                <p>{item.deskripsi}</p>
-                                <p className="has-text-danger">Nama: {item.name}</p>
-                                <p className="has-text-danger">Deskripsi: {item.description}</p>
-                                <p className="has-text-danger">Harga: {item.price}</p>
+                                <p>{item.description}</p>
                             </div>
                             <ItemModal item={item} id={`modal-quest-${index}`}/>
                         </div>

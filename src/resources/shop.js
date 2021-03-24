@@ -26,10 +26,10 @@ export const myItems = async () =>
 }
 
 // For Admin
-export const createItem = async () => 
+export const createItem = async (data) => 
 {
   const url = `${defaultAPIURL}/items/`
-  const response = await post(url)
+  const response = await post(url, data)
   
   return response
 }
