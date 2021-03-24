@@ -12,6 +12,7 @@ const UnggahBuktiModal = ({item}) => {
     const [fields, handleFieldChange] = useFormFields({
         deskripsi: ""
     })
+    const [photo_url, setPhotoUrl] = useState()
     const {assetsURL: {
             image
         }} = config
@@ -20,32 +21,45 @@ const UnggahBuktiModal = ({item}) => {
         var modal = document.getElementById(`unggahBukti`)
 
         modal.style.display = "none"
+
+        setPhotoUrl("")
     }
 
     const uploadBukti = async () => {
 
-        var storageRef = firebase.storage().ref();
-        var file = document.getElementById('fileUnggah').files[0]
-        
-        var filePath = `Unggah Bukti/${file.name}`
-        var uploadTask = await storageRef.child(filePath).put(file.file);
+        if (!photo_url) {
+            var storageRef = firebase.storage().ref();
+            var file = document.getElementById('fileUnggah').files[0]
+            
+            var filePath = `bukti-duel/${file.name}`
+            var uploadTask = await storageRef.child(filePath).put(file.file);
+    
+            var downloadURL = await uploadTask.ref.getDownloadURL()
+            console.log('File ' + filePath + ' available at', downloadURL);
+            // alert('Your File has been Uploaded!')
+    
+            setFileName(file.name)
+            setPhotoUrl(downloadURL)
 
-        var downloadURL = await uploadTask.ref.getDownloadURL()
-        console.log('File ' + filePath + ' available at', downloadURL);
-        alert('Your File has been Uploaded!')
-
-        setFileName(file.name)
+            console.log(downloadURL)
+        }
 
         const data = {
             duel: item.id,
             user: user.id,
-            photo_url: downloadURL,
+            photo_url: photo_url ? photo_url : downloadURL,
             description: fields.deskripsi,
             status: "pending"
         }
+
         const response = await createDuelProof(data)
         console.log(response)
-        closeModal();
+        if (response.status >= 200 && response.status < 400) {
+            alert("Berhasil menambahkan bukti duel")
+            closeModal();
+        } else {
+            alert("Terdapat masalah, mohon coba lagi.")
+        }
     }
 
     console.log(item)

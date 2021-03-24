@@ -26,6 +26,8 @@ const LaporkanKandidat = ({kandidatList, pageUser}) => {
         var modal = document.getElementById(`addCheater`)
 
         modal.style.display = "none"
+
+        setPhotoUrl("")
     }
 
     const uploadBukti = async () => {
@@ -34,7 +36,7 @@ const LaporkanKandidat = ({kandidatList, pageUser}) => {
             var storageRef = firebase.storage().ref();
             var file = document.getElementById('fileUnggah').files[0]
             
-            var filePath = `Unggah Bukti/${file.name}`
+            var filePath = `bukti-cheat/${file.name}`
             var uploadTask = await storageRef.child(filePath).put(file.file);
     
             var downloadURL = await uploadTask.ref.getDownloadURL()
