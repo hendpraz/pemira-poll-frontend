@@ -196,3 +196,11 @@ export const topLembaga = async (num) =>
   
   return response
 }
+
+export const listAllKandidat = async () => 
+{
+  const url = `${defaultAPIURL}/list-all-kandidat/`
+  const response = await get(url)
+  
+  return response
+}

@@ -2,15 +2,21 @@ import React, {useState} from 'react'
 import Button from 'components/Button'
 import config from 'config'
 import firebase from 'config/firebase-init'
-import { createQuestProof } from 'resources/questproof'
-import { useAppContext } from 'libs/contextLib'
+import { createCase } from 'resources/cheater'
 import { useFormFields } from 'libs/hooksLib'
+import Select from 'react-select'
 
-const LaporkanKandidat = ({item}) => {
+const LaporkanKandidat = ({kandidatList, pageUser}) => {
+    const userId = pageUser.id
 
-    const { user } = useAppContext()
+    const massaOptions = kandidatList.map((item, index) => {
+        return { value: item.username, label: `${item.fullname} - ${item.ou}`}
+    })
+    const [accused, setAccused] = useState("")
+    const [photo_url, setPhotoUrl] = useState()
     const [fields, handleFieldChange] = useFormFields({
-        deskripsi: ""
+        deskripsi: "",
+        title: ""
     })
     const {assetsURL: {
             image
@@ -24,31 +30,43 @@ const LaporkanKandidat = ({item}) => {
 
     const uploadBukti = async () => {
 
-        var storageRef = firebase.storage().ref();
-        var file = document.getElementById('fileUnggah').files[0]
-        
-        var filePath = `Unggah Bukti/${file.name}`
-        var uploadTask = await storageRef.child(filePath).put(file.file);
+        if (!photo_url) {
+            var storageRef = firebase.storage().ref();
+            var file = document.getElementById('fileUnggah').files[0]
+            
+            var filePath = `Unggah Bukti/${file.name}`
+            var uploadTask = await storageRef.child(filePath).put(file.file);
+    
+            var downloadURL = await uploadTask.ref.getDownloadURL()
+            console.log('File ' + filePath + ' available at', downloadURL);
+            // alert('Your File has been Uploaded!')
+    
+            setFileName(file.name)
+            setPhotoUrl(downloadURL)
 
-        var downloadURL = await uploadTask.ref.getDownloadURL()
-        console.log('File ' + filePath + ' available at', downloadURL);
-        alert('Your File has been Uploaded!')
-
-        setFileName(file.name)
+            console.log(downloadURL)
+        }
 
         const data = {
-            quest: item.id,
-            user: user.id,
-            photo_url: downloadURL,
+            reporter: userId,
+            accused: accused.value,
+            photo_url: photo_url ? photo_url : downloadURL,
             description: fields.deskripsi,
-            status: "pending"
+            status: "pending",
+            title: fields.title
         }
-        const response = await createQuestProof(data)
-        console.log(response)
-        closeModal();
-    }
 
-    console.log(item)
+        console.log(data)
+
+        const response = await createCase(data)
+        console.log(response)
+        if (response.status >= 200 && response.status < 400) {
+            alert("Berhasil menambahkan case baru")
+            closeModal();
+        } else {
+            alert("Terdapat masalah, mohon coba lagi.")
+        }
+    }
 
     const [fileName, setFileName] = useState('')
 
@@ -65,24 +83,39 @@ const LaporkanKandidat = ({item}) => {
                 <hr/>
                 <br/>
                 <label>
-                    <h5 className="mb-2">Detail Quest:</h5>
+                    <h5 className="mb-2">Judul Laporan:</h5>
                 </label>
-                <p></p>
+                
+                <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    value={fields.title}
+                    onChange={handleFieldChange}
+                    placeholder="Judul Laporan"
+                    />
                 <br/>
-                <label>
-                    <h5 className="mb-2">Current Quest Status:</h5>
-                </label>
-                <p className="status"></p>
 
+                <label>
+                    <h5 className="mb-2">Siapa yang Kamu Laporkan:</h5>
+                </label>
+                <Select
+                    value={accused}
+                    onChange={setAccused}
+                    options={massaOptions}
+                />
+                <p className="status"></p>
                 <br/>
+
+                <h5 className="mb-2">Deskripsi Laporan:</h5>
+                <textarea name="deskripsi" id="deskripsi" value={fields.deskripsi} onChange={handleFieldChange}/>
+                <br/>
+
                 <h5 className="mb-2">Unggah File Bukti:</h5>
                 <input type="file" name="file" id="fileUnggah" className="inputfile" onChange={showFileName} />
                 <label for="fileUnggah"><img src={`${image}/input-file.png`} alt="Choose Your File"/></label>
                 <p id="fileName" className="mt-3 has-text-danger">{fileName && `File Uploaded ${fileName}`}</p>
                 <br/>
-                <br/>
-                <h5 className="mb-2">Deskripsi Bukti:</h5>
-                <textarea name="deskripsi" id="deskripsi" value={fields.deskripsi} onChange={handleFieldChange}/>
 
                 <br/>
                 <div className="btn-container">
