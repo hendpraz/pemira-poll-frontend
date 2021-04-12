@@ -5,7 +5,9 @@ import { useHistory } from 'react-router-dom'
 const Authenticated = (props) => {
   const history = useHistory()
   const { children } = props
-  const isAuthenticated = localStorage.getItem('token') ? true : false
+  const isAuthenticated = true /*localStorage.getItem('token') ? true : false */
+  
+  
 
   useEffect(() => {
     const checkAuth = async () => {

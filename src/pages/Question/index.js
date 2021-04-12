@@ -65,7 +65,7 @@ const Question = ({match}) => {
                         tempChoices = tempQuestion.choices.split(";")
                         
                         // Add "Kotak Kosong"
-                        tempChoices.push("Kotak Kosong")
+                        //tempChoices.push("Kotak Kosong")
 
                         // Trim every choices
                         tempChoices.map(s => s.trim());
@@ -178,7 +178,7 @@ const Question = ({match}) => {
                                     </div>
                                     <Button file="submit" onClick={openModal}/>
                                     <Button file="reset" onClick={reset}/>
-                                    <Button file="batal"/>
+                                    <a href="/profile"><Button file="batal"/></a>
                                 </div>
                             </div>
                         </div>

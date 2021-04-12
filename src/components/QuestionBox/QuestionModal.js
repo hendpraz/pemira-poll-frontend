@@ -47,7 +47,9 @@ const QuestModal = ({
                         </>
                     }
                     { isAvailable &&
-                        <a className="is-primary button" href={"/pertanyaan/" + question.id} target="_blank">Jawab Pertanyaan Ini</a>
+                    <>
+                        <a className="is-primary" href={"/pertanyaan/" + question.id} target="_blank"><Button file="jawabTanya"/></a>
+                    </>
                     }
                 </div>
             </div>
