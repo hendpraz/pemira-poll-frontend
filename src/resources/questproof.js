@@ -1,5 +1,5 @@
 const { defaultAPIURL } = require("../config")
-const { post, patch, get } = require("./helper")
+const { post, patch, get, patchWithBody } = require("./helper")
 
 export const createQuestProof = async (data) =>
 {
@@ -17,10 +17,10 @@ export const adminQuestProofAccept = async (questproofId) =>
   return response
 }
 
-export const adminQuestProofReject = async (questproofId) =>
+export const adminQuestProofReject = async (questproofId, data) =>
 {
   const url = `${defaultAPIURL}/quest-proofs-admin/reject/${questproofId}/`
-  const response = await patch(url)
+  const response = await patchWithBody(url, data)
 
   return response
 }

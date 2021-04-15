@@ -1,3 +1,5 @@
+import { get } from "./helper";
+
 const { defaultAPIURL } = require("../config");
 
 export const listUsers = async () =>
@@ -186,3 +188,19 @@ export const disassociateUser = async (data) =>
       reject(e);
     }
   });
+
+export const topLembaga = async (num) => 
+{
+  const url = `${defaultAPIURL}/top-lembaga/${num}/`
+  const response = await get(url)
+  
+  return response
+}
+
+export const listAllKandidat = async () => 
+{
+  const url = `${defaultAPIURL}/list-all-kandidat/`
+  const response = await get(url)
+  
+  return response
+}

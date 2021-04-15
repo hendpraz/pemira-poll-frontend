@@ -41,6 +41,11 @@ import AdminQuestCompletion from "pages/AdminPage/QuestCompletion";
 import AdminQuestProof from "pages/AdminPage/QuestProof";
 import DetailCalon from "pages/DetailCalon";
 
+import AdminDuel from "pages/AdminPage/Duel"
+import AdminDuelCompletion from "pages/AdminPage/DuelCompletion"
+import AdminDuelProof from "pages/AdminPage/DuelProof"
+import AdminShopItem from "pages/AdminPage/ShopItem"
+
 function App() {
     const [isAuthenticated, userHasAuthenticated] = useState(
         localStorage.getItem("token") ? true : false
@@ -181,6 +186,26 @@ function App() {
                         exact
                         path="/admin/quest-proofs"
                         render={() => <AdminQuestProof />}
+                    />
+                    <Route
+                        exact
+                        path="/admin/duels"
+                        render={() => <AdminDuel />}
+                    />
+                    <Route
+                        exact
+                        path="/admin/duel-completion"
+                        render={() => <AdminDuelCompletion />}
+                    />
+                    <Route
+                        exact
+                        path="/admin/duel-proofs"
+                        render={() => <AdminDuelProof />}
+                    />
+                    <Route
+                        exact
+                        path="/admin/shop-items"
+                        render={() => <AdminShopItem />}
                     />
                     <Route
                         exact

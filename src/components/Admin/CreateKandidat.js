@@ -18,6 +18,7 @@ const CreateUser = () => {
         fakultas: "",
         jurusan: "",
         photo_url: "",
+        game_point: 100,
 
         // Konten
         visi: "",
@@ -62,6 +63,9 @@ const CreateUser = () => {
             // Add OU of data
             data.ou = `${fields.fakultas} - ${fields.jurusan}`
             data.email_non_itb = fields.email
+
+            // Ensure kandidat's game point is 100
+            data.game_point = 100
     
             console.log(data)
             

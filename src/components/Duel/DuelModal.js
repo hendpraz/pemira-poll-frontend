@@ -1,39 +1,19 @@
 import React, {useState} from 'react'
 import Button from 'components/Button'
-import { upvoteQuest, cancelUpvoteQuest, acceptQuestKandidat, declineQuestKandidat, forfeitQuestKandidat } from 'resources/quest'
+import {acceptDuelKandidat, declineDuelKandidat, forfeitDuelKandidat } from 'resources/duel'
 import UnggahBuktiModal from './UnggahBuktiModal'
 
-const QuestModal = ({
+const DuelModal = ({
     index,
     item,
-    numOfUpvotes,
-    setNumOfUpvotes,
     id,
     tab
 }) => {
-
-    const [isUpvoted,
-        setIsUpvoted] = useState(item.is_upvoted)
 
     const closeModal = () => {
         var modal = document.getElementById(`myModal-${index}`);
 
         modal.style.display = "none"
-    }
-
-    const changeUpvoteStatus = async() => {
-        const questId = item.id
-
-        if (isUpvoted) {
-            await cancelUpvoteQuest(questId)
-            setNumOfUpvotes(numOfUpvotes - 1)
-        } else {
-            await upvoteQuest(questId)
-            setNumOfUpvotes(numOfUpvotes + 1)
-        }
-
-        setIsUpvoted(!isUpvoted)
-        item.is_upvoted = !item.is_upvoted
     }
 
     const reloadPage = async() => {
@@ -42,28 +22,28 @@ const QuestModal = ({
             .reload();
     }
 
-    const terimaQuest = async() => {
-        const r = window.confirm(`Apakah Anda yakin ingin MENERIMA quest berjudul ${item.judul}?`)
+    const terimaDuel = async() => {
+        const r = window.confirm(`Apakah Anda yakin ingin MENERIMA duel berjudul ${item.judul}?`)
         if (r) {
-            const response = await acceptQuestKandidat(item.id)
+            const response = await acceptDuelKandidat(item.id)
             console.log(response)
             reloadPage()
         }
     }
 
-    const tolakQuest = async() => {
-        const r = window.confirm(`Apakah Anda yakin ingin MENOLAK quest berjudul ${item.judul}?`)
+    const tolakDuel = async() => {
+        const r = window.confirm(`Apakah Anda yakin ingin MENOLAK duel berjudul ${item.judul}?`)
         if (r) {
-            const response = await declineQuestKandidat(item.id)
+            const response = await declineDuelKandidat(item.id)
             console.log(response)
             reloadPage()
         }
     }
 
-    const menyerahQuest = async() => {
-        const r = window.confirm(`Apakah Anda yakin ingin MENYERAH pada quest berjudul ${item.judul}?`)
+    const menyerahDuel = async() => {
+        const r = window.confirm(`Apakah Anda yakin ingin MENYERAH pada duel berjudul ${item.judul}?`)
         if (r) {
-            const response = await forfeitQuestKandidat(item.id)
+            const response = await forfeitDuelKandidat(item.id)
             console.log(response)
             reloadPage()
         }
@@ -75,14 +55,14 @@ const QuestModal = ({
     }
 
     const getStatusDescription = (status) => {
-        console.log("Status quest:", status)
+        console.log("Status duel:", status)
         const description = {
             "pending": "Pending - Belum Anda terima/tolak",
             "accepted": "Accepted - Telah Anda terima",
             "declined": "Declined - Telah Anda tolak",
             "to_be_proven": "To Be Proven - Bukti telah diunggah, menunggu verifikasi",
             "proof_rejected": "Proof Rejected - Bukti ditolak, silakan upload ulang bukti jik ada.",
-            "expired": "Expired - Quest telah melewati waktu tenggat"
+            "expired": "Expired - Duel telah melewati waktu tenggat"
         }
 
         return description[status]
@@ -102,11 +82,11 @@ const QuestModal = ({
                     <h5>Tenggat waktu:</h5>
                     <p>{item.deadline}</p>
                     <br/>
-                    <h4>Detail Quest</h4>
+                    <h4>Detail Duel</h4>
                     <p>{item.deskripsi}</p>
                     <br/>
-                    <h4>Tipe Quest</h4>
-                    <p>{item.tipe === "mandatory" ? "Wajib" : "Tidak"}</p>
+                    <h4>Tipe Duel</h4>
+                    <p>{item.tipe === "mandatory" ? "Wajib" : "Tidak Wajib"}</p>
                     <br/>
                     {
                         id === 5 &&
@@ -116,21 +96,14 @@ const QuestModal = ({
                         </>
                     }
                     <br/> {id === 5
-                        ? <div className="modal-btm">{tab === "pending" && <div className="btn-container columns">
-                                    <Button file="terima-btn" onClick={terimaQuest}/>
-                                    <Button file="tolak-btn" onClick={tolakQuest}/>
+                        && <div className="modal-btm">{tab === "pending" && <div className="btn-container columns">
+                                    <Button file="terima-btn" onClick={terimaDuel}/>
+                                    <Button file="tolak-btn" onClick={tolakDuel}/>
                                 </div>} {tab === "accepted" && <div className="btn-container columns">
                                     <Button file="unggah-bukti-btn" onClick={unggahBukti}/>
-                                    <Button file="menyerah-btn" onClick={menyerahQuest}/>
+                                    <Button file="menyerah-btn" onClick={menyerahDuel}/>
                                 </div>}
-                            </div>
-                        : <Button
-                            file={isUpvoted
-                            ? `cancel-btn`
-                            : `upvote-btn`}
-                            onClick={changeUpvoteStatus}/>}
-                    
-
+                            </div>}
                 </div>
             </div>
             {id === 5 && <UnggahBuktiModal item={item} />}
@@ -138,4 +111,4 @@ const QuestModal = ({
     )
 }
 
-export default QuestModal
+export default DuelModal

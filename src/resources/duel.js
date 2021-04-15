@@ -2,11 +2,11 @@ const { defaultAPIURL } = require("../config")
 const { get, patch, post, patchWithBody } = require("./helper")
 
 // Massa atau Lembaga
-export const getQuestListMassaLembaga = async (status) =>
+export const getDuelListMassaLembaga = async (status) =>
   new Promise(async (resolve, reject) => {    
     try {
       const token = localStorage.getItem('token')
-      let response = await fetch(`${defaultAPIURL}/quests/${status}/`, {
+      let response = await fetch(`${defaultAPIURL}/duels/${status}/`, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -20,11 +20,11 @@ export const getQuestListMassaLembaga = async (status) =>
     }
   });
 
-export const getQuestDetails = (id) =>
+export const getDuelDetails = (id) =>
   new Promise(async (resolve, reject) => {    
     try {
       const token = localStorage.getItem('token')
-      let response = await fetch(`${defaultAPIURL}/quests/${id}/`, {
+      let response = await fetch(`${defaultAPIURL}/duels/${id}/`, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -39,18 +39,18 @@ export const getQuestDetails = (id) =>
     }
   });
 
-export const upvoteQuest = (questId) =>
+export const upvoteDuel = (duelId) =>
   new Promise(async (resolve, reject) => {    
     try {
       const token = localStorage.getItem('token')
-      let response = await fetch(`${defaultAPIURL}/quest-upvotes/`, {
+      let response = await fetch(`${defaultAPIURL}/duel-upvotes/`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          quest: questId
+          duel: duelId
         })
       })
       response = response.json()
@@ -62,11 +62,11 @@ export const upvoteQuest = (questId) =>
     }
   });
 
-export const cancelUpvoteQuest = (questId) =>
+export const cancelUpvoteDuel = (duelId) =>
   new Promise(async (resolve, reject) => {    
     try {
       const token = localStorage.getItem('token')
-      let response = await fetch(`${defaultAPIURL}/quest-upvotes/${questId}/`, {
+      let response = await fetch(`${defaultAPIURL}/duel-upvotes/${duelId}/`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -82,41 +82,37 @@ export const cancelUpvoteQuest = (questId) =>
   });
 
 // Massa, Lembaga, or Admin can use this
-export const createQuest = (data) =>
-  new Promise(async (resolve, reject) => {    
-    try {
-      const token = localStorage.getItem('token')
-      let response = await fetch(`${defaultAPIURL}/quests/`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      })
-      response = response.json()
-      console.log(response)
-
-      resolve(response);
-    } catch (e) {
-      reject(e);
-    }
-  });
-
-export const createQuestAdmin = async (data) =>
+export const createDuelMassaLembaga = async (data) =>
 {
-  const url = `${defaultAPIURL}/quests-admin/`
+  const url = `${defaultAPIURL}/duels/`
+  const response = await post(url, data)
+
+  return response
+}
+
+// Kandidat can use this
+export const createDuelKandidat = async (data) =>
+{
+  const url = `${defaultAPIURL}/duels-kandidat/create/`
+  const response = await post(url, data)
+
+  return response
+}
+
+export const createDuelAdmin = async (data) =>
+{
+  const url = `${defaultAPIURL}/duels-admin/`
   const response = await post(url, data)
 
   return response
 }
 
 // Kandidat
-export const getQuestListKandidat = async (status) =>
+export const getDuelListKandidat = async (status) =>
   new Promise(async (resolve, reject) => {    
     try {
       const token = localStorage.getItem('token')
-      let response = await fetch(`${defaultAPIURL}/quests-kandidat/${status}/`, {
+      let response = await fetch(`${defaultAPIURL}/duels-kandidat/${status}/`, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -130,11 +126,11 @@ export const getQuestListKandidat = async (status) =>
     }
   });
 
-export const acceptQuestKandidat = async (questId) =>
+export const acceptDuelKandidat = async (duelId) =>
   new Promise(async (resolve, reject) => {    
     try {
       const token = localStorage.getItem('token')
-      let response = await fetch(`${defaultAPIURL}/quests-kandidat/accept/${questId}/`, {
+      let response = await fetch(`${defaultAPIURL}/duels-kandidat/accept/${duelId}/`, {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -148,11 +144,11 @@ export const acceptQuestKandidat = async (questId) =>
     }
   });
 
-export const declineQuestKandidat = async (questId) =>
+export const declineDuelKandidat = async (duelId) =>
   new Promise(async (resolve, reject) => {    
     try {
       const token = localStorage.getItem('token')
-      let response = await fetch(`${defaultAPIURL}/quests-kandidat/decline/${questId}/`, {
+      let response = await fetch(`${defaultAPIURL}/duels-kandidat/decline/${duelId}/`, {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -166,11 +162,11 @@ export const declineQuestKandidat = async (questId) =>
     }
   });
 
-export const forfeitQuestKandidat = async (questId) =>
+export const forfeitDuelKandidat = async (duelId) =>
   new Promise(async (resolve, reject) => {    
     try {
       const token = localStorage.getItem('token')
-      let response = await fetch(`${defaultAPIURL}/quests-kandidat/forfeit/${questId}/`, {
+      let response = await fetch(`${defaultAPIURL}/duels-kandidat/forfeit/${duelId}/`, {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -186,50 +182,42 @@ export const forfeitQuestKandidat = async (questId) =>
 
 // Admin
 
-export const getAllNotAcceptedQuest = async () =>
+export const getAllNotAcceptedDuel = async () =>
   {
-    const url = `${defaultAPIURL}/quests-admin/list/not-accepted/`
+    const url = `${defaultAPIURL}/duels-admin/list/not-accepted/`
     const response = await get(url)
 
     return response.data
   }
 
-export const getAllEverAcceptedQuest = async () =>
+export const getAllEverAcceptedDuel = async () =>
   {
-    const url = `${defaultAPIURL}/quests-admin/list/ever-accepted/`
+    const url = `${defaultAPIURL}/duels-admin/list/ever-accepted/`
     const response = await get(url)
 
     return response.data
   }
 
-export const adminQuestAccept = async (questId) =>
+export const adminDuelAccept = async (duelId) =>
   {
-    const url = `${defaultAPIURL}/quests-admin/accept/${questId}/`
+    const url = `${defaultAPIURL}/duels-admin/accept/${duelId}/`
     const response = await patch(url)
 
     return response
   }
 
-export const adminQuestReject = async (questId) =>
+export const adminDuelReject = async (duelId) =>
   {
-    const url = `${defaultAPIURL}/quests-admin/reject/${questId}/`
+    const url = `${defaultAPIURL}/duels-admin/reject/${duelId}/`
     const response = await patch(url)
 
     return response
   }
 
-export const adminQuestFinish= async (questId, data) =>
+  export const adminDuelFinish= async (duelId, data) =>
   {
-    const url = `${defaultAPIURL}/quests-admin/finish//${questId}/`
+    const url = `${defaultAPIURL}/duels-admin/finish//${duelId}/`
     const response = await patchWithBody(url, data)
 
-    return response
-  }
-
-  export const topQuest = async (num) => 
-  {
-    const url = `${defaultAPIURL}/top-quest/${num}/`
-    const response = await get(url)
-    
     return response
   }

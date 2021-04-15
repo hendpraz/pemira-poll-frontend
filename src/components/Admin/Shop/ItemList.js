@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import QuestionModal from './QuestionModal'
 import Pagination from '../Pagination'
-import { getAllQuestions } from 'resources/question'
+import ItemModal from './ItemModal'
+import { listItems } from 'resources/shop'
 
-const QuestionList = ({tipe}) => {
+const ItemList = ({tipe}) => {
 
     const postPerPage = 4
     const [currentPage, setCurrentPage] = useState(1)
@@ -17,7 +17,7 @@ const QuestionList = ({tipe}) => {
             try {
                 console.log(tipe)
                 let response
-                response = await getAllQuestions()
+                response = await listItems()
                 
                 console.log(response)
                 setResult(response.data)
@@ -67,16 +67,13 @@ const QuestionList = ({tipe}) => {
                             className="user-list-item p-4">
                             <div className="user-item-list-content">
                                 <div className="is-flex">
-                                    <h3>{item.judul}</h3>
-                                    <h5>{item.creator.fullname}</h5>
+                                    <h3>{item.name}</h3>
+                                    <h5>Harga: {item.price} poin</h5>
                                 </div>
                                 <h5>Deskripsi:</h5>
-                                <p>{item.deskripsi}</p>
-                                <p className="has-text-danger">Pilihan jawaban: {item.choices}</p>
-                                <p className="has-text-danger">{`Start Date: ${item.start_date}`}</p>
-                                <p className="has-text-danger">{`Deadline: ${item.end_date}`}</p>
+                                <p>{item.description}</p>
                             </div>
-                            <QuestionModal item={item} id={`modal-quest-${index}`} tipe={tipe}/>
+                            <ItemModal item={item} id={`modal-quest-${index}`}/>
                         </div>
                     )
                 })}
@@ -90,4 +87,4 @@ const QuestionList = ({tipe}) => {
     )
 }
 
-export default QuestionList
+export default ItemList

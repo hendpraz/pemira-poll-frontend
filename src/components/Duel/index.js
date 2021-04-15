@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import config from "config";
-// import Button from 'components/Button';
-import Quest from '../QuestBox/Quest'
-import AddQuestModal from '../QuestBox/AddQuestModal'
-import questList from '../QuestBox/QuestList'
+import Button from 'components/Button';
+import Duel from './Duel'
+import AddDuelModal from './AddDuelModal'
+// import duelList from './DuelList'
 import {useAppContext} from "libs/contextLib"
-// import {getQuestList} from "resources/quest"
+import {getDuelListMassaLembaga, getDuelListKandidat} from "resources/duel"
+// import UnggahBuktiModal from './UnggahBuktiModal';
 
 const DuelBox = () => {
     const {assetsURL: {
@@ -13,12 +14,14 @@ const DuelBox = () => {
         }} = config
 
     const [tab,
-        setTab] = useState("duel-list")
+        setTab] = useState("accepted")
     const [currentPage,
         setCurrentPage] = useState(1)
     const [result,
         setResult] = useState([])
     const postPerPage = 3
+    const [isLoading,
+        setIsLoading] = useState(false)
 
     const clickNav = nav => {
         setTab(prev => {
@@ -47,6 +50,12 @@ const DuelBox = () => {
 
     }, [tab])
 
+    const addDuel = () => {
+        let modalAdd = document.getElementById("addDuel")
+
+        modalAdd.style.display = "block"
+    }
+
     const {user} = useAppContext()
 
     const [id,
@@ -55,18 +64,43 @@ const DuelBox = () => {
     useEffect(() => {
         if (user) {
             setId(user.groups)
-
-            // async function loadQuestMassaLembaga() {     try {         let response =
-            // await getQuestList(tab)         console.log('questlist: ', response)
-            // setResult(response)     } catch (e) {         console.log(e)     } } async
-            // function loadQuestKandidat() {     alert("Anda adalah kandidat") } if
-            // (user.groups === 5) {     loadQuestKandidat() } else {
-            // loadQuestMassaLembaga() }
-            setResult(questList)
+            // setResult(duelList)
+            async function loadDuelMassaLembaga() {
+                try {
+                    setIsLoading(true)
+                    setResult([])
+                    let response = await getDuelListMassaLembaga(tab)         
+                    console.log('duellist: ', response)         
+                    setResult(response)
+                } catch (e) {
+                    console.log(e)
+                } finally {
+                    setIsLoading(false)
+                }
+            }
+            
+            async function loadDuelKandidat() {
+                try {
+                    setIsLoading(true)
+                    setResult([])
+                    let response = await getDuelListKandidat(tab)
+                    console.log('duellist: ', response)         
+                    setResult(response)
+                } catch (e) {
+                    console.log(e)
+                } finally {
+                    setIsLoading(false)
+                }
+            } 
+            
+            if (user.groups === 5) {
+                loadDuelKandidat()
+            } else {
+                loadDuelMassaLembaga()
+            }
         }
     }, [user, tab])
 
-    console.log(result.length)
     let lastIndex = currentPage * postPerPage
     let firstIndex = lastIndex - postPerPage
 
@@ -83,7 +117,7 @@ const DuelBox = () => {
 
     return (
         <div
-            className="quest-box duel-box p-4 mt-5"
+            className="quest-box p-4 mt-5"
             style={{
             backgroundImage: `url(${image}/paper-parchment.png)`
         }}>
@@ -96,31 +130,60 @@ const DuelBox = () => {
             </div>
 
             <div className="quest-nav">
-                <ul>
-                    <li onClick={() => clickNav("duel-list")}>
-                        <div className="duel-list">Daftar Duel</div>
-                    </li>
-                    <li onClick={() => clickNav("duel-running")}>
-                        <div className="duel-running">Duel Berjalan</div>
-                    </li>
-                    <li onClick={() => clickNav("duel-success")}>
-                        <div className="duel-success">Duel Sukses</div>
-                    </li>
-                    <li onClick={() => clickNav("duel-failed")}>
-                        <div className="duel-failed">Duel Gagal</div>
-                    </li>
-                </ul>
+                {id === 5
+                    ? <ul>
+                            <li onClick={() => clickNav("pending")}>
+                                <div className="pending">Daftar Duel</div>
+                            </li>
+                            <li onClick={() => clickNav("accepted")}>
+                                <div className="accepted">Duel Berjalan</div>
+                            </li>
+                            <li onClick={() => clickNav("approved")}>
+                                <div className="approved">Duel Sukses</div>
+                            </li>
+                            <li onClick={() => clickNav("forfeited")}>
+                                <div className="forfeited">Duel Gagal</div>
+                            </li>
+                        </ul>
+                    : <ul>
+                        <li onClick={() => clickNav("accepted")}>
+                            <div className="accepted">Daftar Duel</div>
+                        </li>
+                        <li onClick={() => clickNav("running")}>
+                            <div className="running">Duel Diterima</div>
+                        </li>
+                        <li onClick={() => clickNav("myprogress")}>
+                            <div className="myprogress">Progress Duel</div>
+                        </li>
+                        <li onClick={() => clickNav("my")}>
+                            <div className="my">History Pengajuan Duel</div>
+                        </li>
+                    </ul>}
             </div>
-            <div className="duel-content">
+            <div className="quest-content">
                 {currentResult.map((item, index) => {
-                    return (<Quest
+                    return (<Duel
                         id={id}
                         key={index}
                         tab={tab}
                         item={item}
                         last={index === currentResult.length - 1}
-                        index={index+firstIndex}/>)
+                        index={index + firstIndex}/>)
                 })}
+                
+                {isLoading && <div 
+                    style={{
+                    paddingTop: "180px"
+                    }}
+                    >Sedang mengambil data..</div>
+                }
+
+                {result.length === 0 && !isLoading && <div 
+                    style={{
+                    paddingTop: "180px"
+                    }}
+                    >Duel kosong.</div>
+                }
                 {currentResult.length
                     ? <div className="my-pagination">
                             <span
@@ -129,7 +192,10 @@ const DuelBox = () => {
                                 : currentPage)}>&#60;</span>
                             {pageNumber.map(item => {
                                 return (
-                                    <span onClick={() => setCurrentPage(item)} key={item} className={`page-number ${currentPage === item && `current-page`}`}>{item}</span>
+                                    <span
+                                        onClick={() => setCurrentPage(item)}
+                                        key={item}
+                                        className={`page-number ${currentPage === item && `current-page`}`}>{item}</span>
                                 )
                             })}
                             <span
@@ -139,12 +205,16 @@ const DuelBox = () => {
                         </div>
                     : null}
 
-                {/* <div className="btm-container not-candidate">
+                <div className="btm-container not-candidate">
                     <div className="btn-container columns">
-                        <Button file="tambah-quest-btn" onClick={addQuest}/> {id === 5 && <Button file="unggah-bukti-btn"/>}
+                        {id !== 5 && <Button file="tambah-quest-btn" onClick={addDuel}/>
+}
                     </div>
-                </div> */}
-                <AddQuestModal/>
+                </div>
+                {user && id &&
+                    <AddDuelModal groupsId={id} tipeKandidat={user.tipe_kandidat}/>
+                }
+                
             </div>
 
         </div>

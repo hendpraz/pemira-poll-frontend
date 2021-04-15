@@ -355,9 +355,8 @@ span[class^='close']:hover {
 }
 
 .modal-btm {
-    position: absolute;
-    bottom: 0;
-    width: calc(100% - 100px);
+    position: relative;
+    width: 100%;
     display: block;
     text-align: center;
 

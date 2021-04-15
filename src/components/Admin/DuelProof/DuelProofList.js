@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import QuestionModal from './QuestionModal'
-import Pagination from '../Pagination'
-import { getAllQuestions } from 'resources/question'
+import DuelModal from './DuelProofModal'
+import Pagination from '..//Pagination'
+import { getDuelProofList } from 'resources/duelproof'
 
-const QuestionList = ({tipe}) => {
+const DuelList = ({tipe}) => {
 
-    const postPerPage = 4
+    const postPerPage = 6
     const [currentPage, setCurrentPage] = useState(1)
     const [result, setResult] = useState([])
     const [currentResult, setCurrentResult] = useState([])
@@ -15,9 +15,8 @@ const QuestionList = ({tipe}) => {
     useEffect(() => {
         async function loadUsers() {
             try {
-                console.log(tipe)
                 let response
-                response = await getAllQuestions()
+                response = await getDuelProofList(tipe)
                 
                 console.log(response)
                 setResult(response.data)
@@ -42,9 +41,9 @@ const QuestionList = ({tipe}) => {
         var modal = document.getElementById(`modal-quest-${index}`);
 
         // console.log(modal)
-        var quest = document.getElementById(`quest-${index}`);
+        var duel = document.getElementById(`quest-${index}`);
 
-        quest.onclick = function () {
+        duel.onclick = function () {
             modal.style.display = "block";
         }
 
@@ -68,15 +67,20 @@ const QuestionList = ({tipe}) => {
                             <div className="user-item-list-content">
                                 <div className="is-flex">
                                     <h3>{item.judul}</h3>
-                                    <h5>{item.creator.fullname}</h5>
+                                    <h5>{item.user.fullname}</h5>
                                 </div>
                                 <h5>Deskripsi:</h5>
-                                <p>{item.deskripsi}</p>
-                                <p className="has-text-danger">Pilihan jawaban: {item.choices}</p>
-                                <p className="has-text-danger">{`Start Date: ${item.start_date}`}</p>
-                                <p className="has-text-danger">{`Deadline: ${item.end_date}`}</p>
+                                <p>
+                                    {
+                                    item.deskripsi.length > 400
+                                    ? item.deskripsi.substring(0, 400) + "..."
+                                    : item.deskripsi
+                                    }
+                                </p>
+                                <p className="has-text-danger">{`Untuk: ${item.target === "all" ? "semua kandidat" : item.target}`}</p>
+                                <p className="has-text-danger">{`Deadline: ${item.deadline}`}</p>
                             </div>
-                            <QuestionModal item={item} id={`modal-quest-${index}`} tipe={tipe}/>
+                            <DuelModal item={item} id={`modal-quest-${index}`} tipe={tipe}/>
                         </div>
                     )
                 })}
@@ -90,4 +94,4 @@ const QuestionList = ({tipe}) => {
     )
 }
 
-export default QuestionList
+export default DuelList

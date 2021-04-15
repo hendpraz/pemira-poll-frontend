@@ -7,6 +7,8 @@ import { useAppContext } from "libs/contextLib";
 import CheaterItem from "./CheaterItem";
 import "styles/pages/Cheater.scss";
 import Button from "components/Button";
+import { listAllKandidat } from "resources/user";
+import { listAllCases } from "resources/cheater";
 
 // import {getQuestList} from "resources/quest"
 
@@ -15,8 +17,10 @@ const Cheater = () => {
         assetsURL: { image },
     } = config;
 
+    
     const [tab, setTab] = useState("laporan-saya");
     const [currentPage, setCurrentPage] = useState(1);
+    const [allCases, setAllCases] = useState([])
     const [result, setResult] = useState([]);
     const postPerPage = 3;
 
@@ -30,6 +34,20 @@ const Cheater = () => {
             return nav;
         });
         document.querySelector(`.${nav}`).classList.add("active");
+
+        let tempMyCases = []
+        if (nav === "laporan-saya") {
+            // only select my cases
+            allCases.forEach(element => {
+                if (element.reporter.id === pageUser.id) {
+                    tempMyCases.push(element)
+                }
+            });
+
+            setResult(tempMyCases)
+        } else {
+            setResult(allCases)
+        }
     };
 
     const openModal = () => {
@@ -48,59 +66,73 @@ const Cheater = () => {
 
     const [id, setId] = useState(null);
 
+    const [pageUser, setPageUser] = useState()
+
+    const [kandidatList, setKandidatList] = useState()
+
+    const [isLoading,
+        setIsLoading] = useState(true)
+
     useEffect(() => {
+        async function loadUsers() {
+            try {
+                let response = await listAllKandidat()
+
+                let tempKandidat = []
+
+                if (response.status >= 200 && response.status < 400) {
+                    response.data.forEach(element => {
+                        if (element.groups === 5) {
+                            tempKandidat.push(element)
+                        }
+                    });
+    
+                    setKandidatList(tempKandidat)
+                } else {
+                    alert("Terdapat masalah saat loading data kandidat.")
+                }
+            } catch (e) {
+                console.log(e)
+            }
+        }
+
+        async function loadCases(myUser) {
+            try {
+                setIsLoading(true)
+
+                let response = await listAllCases()
+                let tempMyCases = []
+
+                if (response.status >= 200 && response.status < 400) {
+                    setAllCases(response.data)
+
+                    // only select my cases
+                    response.data.forEach(element => {
+                        if (element.reporter.id === myUser.id) {
+                            tempMyCases.push(element)
+                        }
+                    });
+
+                    setResult(tempMyCases)
+                } else {
+                    alert("Terdapat masalah saat loading data kasus cheater.")
+                }
+
+                setIsLoading(false)
+            } catch (e) {
+                console.log(e)
+            }
+        }
+
         if (user) {
             setId(user.groups);
+            setPageUser(user)
 
-            // async function loadQuestMassaLembaga() {     try {         let response =
-            // await getQuestList(tab)         console.log('questlist: ', response)
-            // setResult(response)     } catch (e) {         console.log(e)     } } async
-            // function loadQuestKandidat() {     alert("Anda adalah kandidat") } if
-            // (user.groups === 5) {     loadQuestKandidat() } else {
-            // loadQuestMassaLembaga() }
-            setResult(questList);
+            loadUsers()
+
+            loadCases(user)
         }
-    }, [user, tab]);
-
-    useEffect(() => {
-        setResult([
-            {
-                terdakwa: "Fadhil",
-                tipe: "Jahat",
-                tanggal: "7 November 2000",
-                detail: "Kamu Jahat",
-                bukti: `${image}/batal-merah.png`,
-            },
-            {
-                terdakwa: "Fadhil",
-                tipe: "Jahat",
-                tanggal: "7 November 2000",
-                detail: "Kamu Jahat",
-                bukti: `${image}/batal-merah.png`,
-            },
-            {
-                terdakwa: "Fadhil",
-                tipe: "Jahat",
-                tanggal: "7 November 2000",
-                detail: "Kamu Jahat",
-                bukti: `${image}/batal-merah.png`,
-            },
-            {
-                terdakwa: "Fadhil",
-                tipe: "Jahat",
-                tanggal: "7 November 2000",
-                detail: "Kamu Jahat",
-                bukti: `${image}/batal-merah.png`,
-            },
-            {
-                terdakwa: "Fadhil",
-                tipe: "Jahat",
-                tanggal: "7 November 2000",
-                detail: "Kamu Jahat",
-                bukti: `${image}/batal-merah.png`,
-            },
-        ]);
-    }, []);
+    }, [user]);
 
     let lastIndex = currentPage * postPerPage;
     let firstIndex = lastIndex - postPerPage;
@@ -138,7 +170,7 @@ const Cheater = () => {
                         <div className="laporan-saya">Laporan Saya</div>
                     </li>
                     <li onClick={() => clickNav("laporan-masa")}>
-                        <div className="laporan-masa">Laporan Masa</div>
+                        <div className="laporan-masa">Laporan Massa</div>
                     </li>
                 </ul>
             </div>
@@ -155,6 +187,21 @@ const Cheater = () => {
                         />
                     );
                 })}
+
+                {isLoading && <div 
+                    style={{
+                    paddingTop: "180px"
+                    }}
+                    >Sedang mengambil data..</div>
+                }
+
+                {result.length === 0 && !isLoading && <div 
+                    style={{
+                    paddingTop: "180px"
+                    }}
+                    >Kasus cheat kosong.</div>
+                }
+
                 {currentResult.length ? (
                     <div className="my-pagination">
                         <span
@@ -200,10 +247,15 @@ const Cheater = () => {
                         <Button file="tambah-quest-btn" onClick={addQuest}/> {id === 5 && <Button file="unggah-bukti-btn"/>}
                     </div>
                 </div> */}
-                <div className="plus-btn">
-                    <Button file="plus-btn" onClick={openModal} />
-                </div>
-                <LaporkanKandidat />
+                {
+                    pageUser && kandidatList && 
+                    <>
+                        <div className="plus-btn">
+                            <Button file="plus-btn" onClick={openModal} />
+                        </div>
+                        <LaporkanKandidat kandidatList={kandidatList} pageUser={pageUser}/>
+                    </>
+                }
             </div>
         </div>
     );

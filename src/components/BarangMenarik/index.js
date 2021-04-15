@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 //Assets
 import config from "config";
-import barang from "./barangMenarik";
+import initBarang from "./barangMenarik";
 import ModalBarang from "./ModalBarang";
+import { listItems } from "resources/shop";
 
 const BarangMenarik = () => {
     const {
@@ -13,13 +14,44 @@ const BarangMenarik = () => {
     const [current, setCurrent] = useState(0);
     const [selected, setSelected] = useState(null);
     const [show, setShow] = useState(false);
+    const [barang, setBarang] = useState([]);
     const length = barang.length;
+    const [isAuthenticated, userHasAuthenticated] = useState(
+        localStorage.getItem("token") ? true : false
+    );
 
     console.log(current)
 
+    useEffect(() => {
+        async function loadBarang() {
+            try {
+                const response = await listItems()
+
+                if (response.status >= 200 && response.status < 400) {
+                    console.log(response.data)
+                } else {
+                    alert("Terdapat masalah saat loading data barang di shop.")
+                }
+                setBarang(response.data)
+            } catch (e) {
+                console.log(e)
+            }
+        }
+
+        async function onLoad() {
+            loadBarang()
+        }
+        
+        onLoad()
+    }, []) /* eslint-disable-line */
+
     const openModal = (item) => {
-        setSelected(item);
-        setShow(true);
+        if (isAuthenticated) {
+            setSelected(item);
+            setShow(true);
+        } else {
+            alert("Anda harus login terlebih dahulu sebelum membeli.");
+        }
     };
 
     const closeModal = () => {
@@ -66,11 +98,11 @@ const BarangMenarik = () => {
                                             {index === current && (
                                                 <div className="barang-container">
                                                     <img
-                                                        src={item.img}
+                                                        src={item.photo_url}
                                                         alt="barang"
                                                     />
                                                     <p>{item.name}</p>
-                                                    <p>{item.poin}</p>
+                                                    <p>Harga: {item.price}</p>
                                                     <div
                                                         className="details-btn"
                                                         onClick={() =>
@@ -103,11 +135,11 @@ const BarangMenarik = () => {
                                             {index === current + 1 && (
                                                 <div className="barang-container">
                                                     <img
-                                                        src={item.img}
+                                                        src={item.photo_url}
                                                         alt="barang"
                                                     />
                                                     <p>{item.name}</p>
-                                                    <p>{item.poin}</p>
+                                                    <p>Harga: {item.price}</p>
                                                     <div
                                                         className="details-btn"
                                                         onClick={() =>
