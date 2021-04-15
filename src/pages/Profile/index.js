@@ -80,7 +80,7 @@ const Profile = (props) => {
                         {nav === "algojo" && <Algojo />}
                         {nav === "tim-sukses" && <TimSukses />}
                         {nav === "cheater-wall" && <Cheater />}
-                    </div>
+                    </div> 
                 </div>
                 <Footer />
             </div>

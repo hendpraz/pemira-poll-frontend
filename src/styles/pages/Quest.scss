@@ -147,7 +147,7 @@ $primary: #FDAF33;
         top: -5vh;
         padding: 2% 5% 0;
         margin: 2vw !important;
-        border-radius: 4vw 4vw 0 0;
+        border-radius: clamp(30px, 3vw, 70px) clamp(30px, 3vw, 70px) 0 0;
         color: $primary;
         font-size: 1.1vw;
         align-items: flex-start;
@@ -187,7 +187,7 @@ $primary: #FDAF33;
     }
 
     .bor-btm {
-        border-radius: 4vw 4vw 3.5vw 3.5vw!important;
+        border-radius: clamp(30px, 3vw, 70px);
     }
 }
 .quest-container.blue:hover {
@@ -245,6 +245,8 @@ $primary: #FDAF33;
     top: 0;
     width: 100%;
     height: 100%;
+    justify-content: center;
+    align-items: center;
     overflow: auto;
     background-color: rgba(0,0,0,.6);
 
