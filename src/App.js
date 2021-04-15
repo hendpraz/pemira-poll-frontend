@@ -71,8 +71,6 @@ function App() {
                     } else {
                         const { data } = response;
                         setUser(data);
-
-                        console.log(data);
                     }
                 }
             } catch (e) {
