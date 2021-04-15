@@ -27,12 +27,12 @@ const Question = ({ tab, item, last, index, id }) => {
                 <div className="quest-name column has-text-left">
                     {index + 1}.{" "}
                     {tab === "my" && item.question
-                        ? item.question.judul.slice(0,80)
-                        : item.judul.slice(0,80)}
+                        ? item.question.judul.slice(0,30)
+                        : item.judul.slice(0,30)}
                     {item.question ? (
-                        <span> {item.question.judul.length > 60 && "..."}</span>
+                        <span> {item.question.judul.length > 30 && "..."}</span>
                     ) : (
-                        <span>{item.judul.length > 60 && "..."}</span>
+                        <span>{item.judul.length > 30 && "..."}</span>
                     )}
                 </div>
             </div>
