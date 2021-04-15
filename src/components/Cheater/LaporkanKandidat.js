@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import Button from 'components/Button'
+import firebase from "firebase/app";
 import config from 'config'
-import firebase from 'config/firebase-init'
 import { createCase } from 'resources/cheater'
 import { useFormFields } from 'libs/hooksLib'
 import Select from 'react-select'
@@ -30,14 +30,19 @@ const LaporkanKandidat = ({kandidatList, pageUser}) => {
         setPhotoUrl("")
     }
 
+    function getFileExtension(nama) {
+        return nama.split('.').pop()
+    }
+
     const uploadBukti = async () => {
 
         if (!photo_url) {
             var storageRef = firebase.storage().ref();
-            var file = document.getElementById('fileUnggah').files[0]
+            var file = document.getElementById('fileUnggah').files[0];
+            console.log(file.name)
             
             var filePath = `bukti-cheat/${file.name}`
-            var uploadTask = await storageRef.child(filePath).put(file.file);
+            var uploadTask = await storageRef.child(filePath).put(file);
     
             var downloadURL = await uploadTask.ref.getDownloadURL()
             console.log('File ' + filePath + ' available at', downloadURL);
@@ -45,8 +50,6 @@ const LaporkanKandidat = ({kandidatList, pageUser}) => {
     
             setFileName(file.name)
             setPhotoUrl(downloadURL)
-
-            console.log(downloadURL)
         }
 
         const data = {

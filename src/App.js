@@ -44,13 +44,31 @@ import DetailCalon from "pages/DetailCalon";
 import AdminDuel from "pages/AdminPage/Duel"
 import AdminDuelCompletion from "pages/AdminPage/DuelCompletion"
 import AdminDuelProof from "pages/AdminPage/DuelProof"
-import AdminShopItem from "pages/AdminPage/ShopItem"
+import AdminShopItem from "pages/AdminPage/ShopItem";
+
+import firebase from 'firebase/app';
+import 'firebase/storage'
 
 function App() {
     const [isAuthenticated, userHasAuthenticated] = useState(
         localStorage.getItem("token") ? true : false
     );
     const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        const firebaseConfig = {
+            apiKey: "AIzaSyDrZ19WwFq43eLYZ7sTOktBUPVhxEb4mTw",
+            authDomain: "pemira-9ac2c.firebaseapp.com",
+            projectId: "pemira-9ac2c",
+            storageBucket: "pemira-9ac2c.appspot.com",
+            messagingSenderId: "160872477221",
+            appId: "1:160872477221:web:e61ce359e3ac0f504fc5cc",
+            measurementId: "G-3YQYED7ZDX"
+        };
+        
+        firebase.initializeApp(firebaseConfig);
+        console.log(firebase)
+    }, [])
 
     useEffect(() => {
         async function onLoad() {

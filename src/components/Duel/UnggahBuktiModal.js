@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import Button from 'components/Button'
+import firebase from "firebase/app";
 import config from 'config'
-import firebase from 'config/firebase-init'
 import { createDuelProof } from 'resources/duelproof'
 import { useAppContext } from 'libs/contextLib'
 import { useFormFields } from 'libs/hooksLib'
@@ -32,16 +32,14 @@ const UnggahBuktiModal = ({item}) => {
             var file = document.getElementById('fileUnggah').files[0]
             
             var filePath = `bukti-duel/${file.name}`
-            var uploadTask = await storageRef.child(filePath).put(file.file);
+            var uploadTask = await storageRef.child(filePath).put(file);
     
             var downloadURL = await uploadTask.ref.getDownloadURL()
             console.log('File ' + filePath + ' available at', downloadURL);
             // alert('Your File has been Uploaded!')
     
             setFileName(file.name)
-            setPhotoUrl(downloadURL)
-
-            console.log(downloadURL)
+            setPhotoUrl(downloadURL);
         }
 
         const data = {
