@@ -8,7 +8,7 @@ const AlgojoItem = ({ item, last, index }) => {
         var quest = document.getElementById(`laporanItem-${index}`);
 
         quest.onclick = function () {
-            modal.style.display = "block";
+            modal.style.display = "flex";
         }
 
         window.onclick = function (event) {

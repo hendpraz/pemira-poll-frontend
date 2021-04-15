@@ -8,7 +8,7 @@ const Priority = ({value, pilihCalon, calon, no, reset}) => {
 
     const openModal = () => {
         let modalUnggah = document.getElementById("pilihUrutan")
-        modalUnggah.style.display = "block"
+        modalUnggah.style.display = "flex"
     }
 
     return (

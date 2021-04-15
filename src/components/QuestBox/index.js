@@ -53,7 +53,7 @@ const QuestBox = () => {
     const addQuest = () => {
         let modalAdd = document.getElementById("addQuest")
 
-        modalAdd.style.display = "block"
+        modalAdd.style.display = "flex"
     }
 
     const {user} = useAppContext()

@@ -53,7 +53,7 @@ const Cheater = () => {
     const openModal = () => {
         var modal = document.getElementById(`addCheater`);
 
-        modal.style.display = "block";
+        modal.style.display = "flex";
     }
 
     useEffect(() => {

@@ -51,7 +51,7 @@ const QuestList = ({tipe}) => {
         var quest = document.getElementById(`quest-${index}`);
 
         quest.onclick = function () {
-            modal.style.display = "block";
+            modal.style.display = "flex";
         }
 
         window.onclick = function (event) {

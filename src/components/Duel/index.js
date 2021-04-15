@@ -53,7 +53,7 @@ const DuelBox = () => {
     const addDuel = () => {
         let modalAdd = document.getElementById("addDuel")
 
-        modalAdd.style.display = "block"
+        modalAdd.style.display = "flex"
     }
 
     const {user} = useAppContext()

@@ -44,7 +44,7 @@ const UserList = ({userList}) => {
         var quest = document.getElementById(`user-${index}`);
 
         quest.onclick = function () {
-            modal.style.display = "block";
+            modal.style.display = "flex";
         }
 
         window.onclick = function (event) {

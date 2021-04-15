@@ -14,7 +14,7 @@ const CheaterItem = ({tab, item, last, index, id}) => {
         var quest = document.getElementById(`cheaterItem-${index}`);
 
         quest.onclick = function () {
-            modal.style.display = "block";
+            modal.style.display = "flex";
         }
 
         window.onclick = function (event) {

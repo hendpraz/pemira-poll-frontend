@@ -51,7 +51,7 @@ const DuelModal = ({
 
     const unggahBukti = () => {
         let modalUnggah = document.getElementById("unggahBukti")
-        modalUnggah.style.display = "block"
+        modalUnggah.style.display = "flex"
     }
 
     const getStatusDescription = (status) => {

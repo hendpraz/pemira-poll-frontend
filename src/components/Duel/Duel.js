@@ -14,7 +14,7 @@ const Duel = ({tab, item, last, index, id}) => {
         var duel = document.getElementById(`duelItem-${index}`);
 
         duel.onclick = function () {
-            modal.style.display = "block";
+            modal.style.display = "flex";
         }
 
         window.onclick = function (event) {

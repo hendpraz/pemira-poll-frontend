@@ -21,7 +21,7 @@ const CarouselV3 = () => {
 
     const openModal = () => {
         let modalUnggah = document.getElementById("konfirmasiCoblos")
-        modalUnggah.style.display = "block"
+        modalUnggah.style.display = "flex"
     }
 
     const length = presKM.length

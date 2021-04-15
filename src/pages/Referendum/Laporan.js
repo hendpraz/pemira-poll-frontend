@@ -10,7 +10,7 @@ const Laporan = ({ item, index }) => {
 
     const openModal = () => {
         var modal = document.getElementById(`laporan-${index}`);
-        modal.style.display = "block";
+        modal.style.display = "flex";
     };
 
     return (

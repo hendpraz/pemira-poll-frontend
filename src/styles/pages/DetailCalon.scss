@@ -3,6 +3,10 @@ $dark-blue: #02141d;
 $yelfont: #f9f3a0;
 $blue: #03354c;
 
+.mycaptcha div{
+    margin: 0 auto;
+}
+
 .detail-calon-page {
     background-color: $dark-blue;
     overflow: hidden;

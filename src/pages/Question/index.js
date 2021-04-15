@@ -20,7 +20,7 @@ const Question = () => {
             alert("Anda belum memilih urutan untuk semua opsi!")
         } else {
             let modalUnggah = document.getElementById("konfirmasiCoblos")
-            modalUnggah.style.display = "block"
+            modalUnggah.style.display = "flex"
         }
     }
     let { id } = useParams()
